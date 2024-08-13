@@ -1,0 +1,82 @@
+.investments {
+    padding: 168px 0 0 0;
+}
+.investments .global__container {
+    position: relative;
+}
+.investments .global__container:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 281px;
+    height: 280px;
+    top: -100px;
+    right: 50px;
+    background: -webkit-gradient(linear, left top, right top, color-stop(1.23%, #f858a7), to(#f75760));
+    background: -o-linear-gradient(left, #f858a7 1.23%, #f75760 100%);
+    background: linear-gradient(90deg, #f858a7 1.23%, #f75760 100%);
+    -webkit-filter: blur(212.5px);
+    filter: blur(212.5px);
+}
+.investments__subtitle {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    text-transform: uppercase;
+    background: -webkit-gradient(linear, left top, right top, color-stop(1.23%, #f858a7), to(#f75760));
+    background: -o-linear-gradient(left, #f858a7 1.23%, #f75760 100%);
+    background: linear-gradient(90deg, #f858a7 1.23%, #f75760 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+.investments__title {
+    font-weight: 700;
+    font-size: 43px;
+    line-height: 50px;
+    color: #fff;
+    margin-bottom: 39px;
+    text-align: center;
+}
+.investments__description {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+    color: #c3bfc5;
+    margin-bottom: 55px;
+}
+.investments__img img,
+.investments__img picture {
+    width: 100%;
+}
+@media (max-width: 850px) {
+    .investments__img {
+        overflow-x: hidden;
+        overflow: hidden;
+    }
+    .investments .global__container {
+        padding-right: 0;
+    }
+    .investments__description,
+    .investments__subtitle,
+    .investments__title {
+        padding-right: 24px;
+    }
+    .investments__img img,
+    .investments__img picture {
+        min-width: 796px;
+        max-width: 796px;
+        overflow: hidden;
+        overflow-x: hidden;
+        display: block;
+    }
+}
+@media (max-width: 500px) {
+    .investments {
+        padding-top: 80px;
+    }
+}

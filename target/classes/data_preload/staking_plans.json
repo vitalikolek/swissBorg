@@ -1,0 +1,22 @@
+[
+  {
+    "TITLE": "7 days",
+    "DAYS": 7,
+    "PERCENT": 1.3
+  },
+  {
+    "TITLE": "14 days",
+    "DAYS": 14,
+    "PERCENT": 1.6
+  },
+  {
+    "TITLE": "30 days",
+    "DAYS": 30,
+    "PERCENT": 2.1
+  },
+  {
+    "TITLE": "90 days",
+    "DAYS": 90,
+    "PERCENT": 2.6
+  }
+]

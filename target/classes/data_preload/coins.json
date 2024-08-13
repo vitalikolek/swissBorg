@@ -1,0 +1,451 @@
+[
+  {
+    "SYMBOL" : "BTC",
+    "TITLE" : "Bitcoin",
+    "ICON" : "../assets/img/cryptoicons/btc.svg"
+  },
+  {
+    "SYMBOL" : "ETH",
+    "TITLE" : "Ethereum",
+    "ICON" : "../assets/img/cryptoicons/eth.svg"
+  },
+  {
+    "SYMBOL" : "LTC",
+    "TITLE" : "Litecoin",
+    "ICON" : "../assets/img/cryptoicons/ltc.svg"
+  },
+  {
+    "SYMBOL" : "TRX",
+    "TITLE" : "Tron",
+    "ICON" : "../assets/img/cryptoicons/trx.svg"
+  },
+  {
+    "SYMBOL" : "BNB",
+    "TITLE" : "BNB",
+    "ICON" : "../assets/img/cryptoicons/bnb.svg",
+    "MEMO": true
+  },
+  {
+    "SYMBOL" : "USDT",
+    "TITLE" : "Tether",
+    "ICON" : "../assets/img/cryptoicons/usdt.svg"
+  },
+  {
+    "SYMBOL" : "USDC",
+    "TITLE" : "USD Coin",
+    "ICON" : "../assets/img/cryptoicons/usdc.svg"
+  },
+  {
+    "SYMBOL" : "BUSD",
+    "TITLE" : "Binance USD",
+    "ICON" : "../assets/img/cryptoicons/busd.svg"
+  },
+  {
+    "SYMBOL" : "DOGE",
+    "TITLE" : "Dogecoin",
+    "ICON" : "../assets/img/cryptoicons/doge.svg"
+  },
+  {
+    "SYMBOL" : "BCH",
+    "TITLE" : "Bitcoin Cash",
+    "ICON" : "../assets/img/cryptoicons/bch.svg"
+  },
+  {
+    "SYMBOL" : "BTG",
+    "TITLE" : "Bitcoin Gold",
+    "ICON" : "../assets/img/cryptoicons/btg.svg"
+  },
+  {
+    "SYMBOL" : "USDP",
+    "TITLE" : "Pax Dollar",
+    "ICON" : "../assets/img/cryptoicons/usdp.svg"
+  },
+  {
+    "SYMBOL" : "XMR",
+    "TITLE" : "Monero",
+    "ICON" : "../assets/img/cryptoicons/xmr.svg"
+  },
+  {
+    "SYMBOL" : "XLM",
+    "TITLE" : "Stellar",
+    "ICON" : "../assets/img/cryptoicons/xlm.svg",
+    "MEMO": true
+  },
+  {
+    "SYMBOL" : "XTZ",
+    "TITLE" : "Tezos",
+    "ICON" : "../assets/img/cryptoicons/xtz.svg"
+  },
+  {
+    "SYMBOL" : "EOS",
+    "TITLE" : "EOS",
+    "ICON" : "../assets/img/cryptoicons/eos.svg",
+    "MEMO": true
+  },
+  {
+    "SYMBOL" : "ZEC",
+    "TITLE" : "Zcash",
+    "ICON" : "../assets/img/cryptoicons/zec.svg"
+  },
+  {
+    "SYMBOL" : "SHIB",
+    "TITLE" : "SHIBA INU",
+    "ICON" : "../assets/img/cryptoicons/shib.svg"
+  },
+  {
+    "SYMBOL" : "LINK",
+    "TITLE" : "Chainlink",
+    "ICON" : "../assets/img/cryptoicons/link.svg"
+  },
+  {
+    "SYMBOL" : "ETC",
+    "TITLE" : "Ethereum Classic",
+    "ICON" : "../assets/img/cryptoicons/etc.svg"
+  },
+  {
+    "SYMBOL" : "XRP",
+    "TITLE" : "Ripple",
+    "ICON" : "../assets/img/cryptoicons/xrp.svg",
+    "MEMO": true
+  },
+  {
+    "SYMBOL" : "ADA",
+    "TITLE" : "Cardano",
+    "ICON" : "../assets/img/cryptoicons/ada.svg"
+  },
+  {
+    "SYMBOL" : "DASH",
+    "TITLE" : "Dash",
+    "ICON" : "../assets/img/cryptoicons/dash.svg"
+  },
+  {
+    "SYMBOL" : "SOL",
+    "TITLE" : "SOL",
+    "ICON" : "../assets/img/cryptoicons/sol.svg"
+  },
+  {
+    "SYMBOL" : "LUNA",
+    "TITLE" : "LUNA",
+    "ICON" : "../assets/img/cryptoicons/luna.svg"
+  },
+  {
+    "SYMBOL" : "APE",
+    "TITLE" : "APE",
+    "ICON" : "../assets/img/cryptoicons/ape.svg"
+  },
+  {
+    "SYMBOL" : "DOT",
+    "TITLE" : "DOT",
+    "ICON" : "../assets/img/cryptoicons/dot.svg"
+  },
+  {
+    "SYMBOL" : "MATIC",
+    "TITLE" : "MATIC",
+    "ICON" : "../assets/img/cryptoicons/matic.svg"
+  },
+  {
+    "SYMBOL" : "NEAR",
+    "TITLE" : "NEAR",
+    "ICON" : "../assets/img/cryptoicons/near.svg"
+  },
+  {
+    "SYMBOL" : "TWT",
+    "TITLE" : "TWT",
+    "ICON" : "../assets/img/cryptoicons/twt.svg"
+  },
+  {
+    "SYMBOL" : "RVN",
+    "TITLE" : "RVN",
+    "ICON" : "../assets/img/cryptoicons/rvn.svg"
+  },
+  {
+    "SYMBOL" : "WOO",
+    "TITLE" : "WOO",
+    "ICON" : "../assets/img/cryptoicons/woo.svg"
+  },
+  {
+    "SYMBOL" : "PAXG",
+    "TITLE" : "PAXG",
+    "ICON" : "../assets/img/cryptoicons/paxg.svg"
+  },
+  {
+    "SYMBOL" : "GNO",
+    "TITLE" : "GNO",
+    "ICON" : "../assets/img/cryptoicons/gno.svg"
+  },
+  {
+    "SYMBOL" : "GAL",
+    "TITLE" : "GAL",
+    "ICON" : "../assets/img/cryptoicons/gal.svg"
+  },
+  {
+    "SYMBOL" : "ASTR",
+    "TITLE" : "ASTR",
+    "ICON" : "../assets/img/cryptoicons/astr.svg"
+  },
+  {
+    "SYMBOL" : "NEXO",
+    "TITLE" : "NEXO",
+    "ICON" : "../assets/img/cryptoicons/nexo.svg"
+  },
+  {
+    "SYMBOL" : "LOKA",
+    "TITLE" : "LOKA",
+    "ICON" : "../assets/img/cryptoicons/loka.svg"
+  },
+  {
+    "SYMBOL" : "FIL",
+    "TITLE" : "FIL",
+    "ICON" : "../assets/img/cryptoicons/fil.svg"
+  },
+  {
+    "SYMBOL" : "OCEAN",
+    "TITLE" : "OCEAN",
+    "ICON" : "../assets/img/cryptoicons/ocean.svg"
+  },
+  {
+    "SYMBOL" : "COMP",
+    "TITLE" : "COMP",
+    "ICON" : "../assets/img/cryptoicons/comp.svg"
+  },
+  {
+    "SYMBOL" : "TOMO",
+    "TITLE" : "TOMO",
+    "ICON" : "../assets/img/cryptoicons/tomo.svg"
+  },
+  {
+    "SYMBOL" : "KEY",
+    "TITLE" : "KEY",
+    "ICON" : "../assets/img/cryptoicons/key.svg"
+  },
+  {
+    "SYMBOL" : "VITE",
+    "TITLE" : "VITE",
+    "ICON" : "../assets/img/cryptoicons/vite.svg"
+  },
+  {
+    "SYMBOL" : "BAT",
+    "TITLE" : "BAT",
+    "ICON" : "../assets/img/cryptoicons/bat.svg"
+  },
+  {
+    "SYMBOL" : "GALA",
+    "TITLE" : "GALA",
+    "ICON" : "../assets/img/cryptoicons/gala.svg"
+  },
+  {
+    "SYMBOL" : "RAD",
+    "TITLE" : "RAD",
+    "ICON" : "../assets/img/cryptoicons/rad.svg"
+  },
+  {
+    "SYMBOL" : "ANKR",
+    "TITLE" : "ANKR",
+    "ICON" : "../assets/img/cryptoicons/ankr.svg"
+  },
+  {
+    "SYMBOL" : "WING",
+    "TITLE" : "WING",
+    "ICON" : "../assets/img/cryptoicons/wing.svg"
+  },
+  {
+    "SYMBOL" : "BAKE",
+    "TITLE" : "BAKE",
+    "ICON" : "../assets/img/cryptoicons/bake.svg"
+  },
+  {
+    "SYMBOL" : "STRAX",
+    "TITLE" : "STRAX",
+    "ICON" : "../assets/img/cryptoicons/strax.svg"
+  },
+  {
+    "SYMBOL" : "PERP",
+    "TITLE" : "PERP",
+    "ICON" : "../assets/img/cryptoicons/perp.svg"
+  },
+  {
+    "SYMBOL" : "EPX",
+    "TITLE" : "EPX",
+    "ICON" : "../assets/img/cryptoicons/epx.svg"
+  },
+  {
+    "SYMBOL" : "YFI",
+    "TITLE" : "YFI",
+    "ICON" : "../assets/img/cryptoicons/yfi.svg"
+  },
+  {
+    "SYMBOL" : "NMR",
+    "TITLE" : "NMR",
+    "ICON" : "../assets/img/cryptoicons/nmr.svg"
+  },
+  {
+    "SYMBOL" : "PYR",
+    "TITLE" : "PYR",
+    "ICON" : "../assets/img/cryptoicons/pyr.svg"
+  },
+  {
+    "SYMBOL" : "BOND",
+    "TITLE" : "BOND",
+    "ICON" : "../assets/img/cryptoicons/bond.svg"
+  },
+  {
+    "SYMBOL" : "JST",
+    "TITLE" : "JST",
+    "ICON" : "../assets/img/cryptoicons/jst.svg"
+  },
+  {
+    "SYMBOL" : "POWR",
+    "TITLE" : "POWR",
+    "ICON" : "../assets/img/cryptoicons/powr.svg"
+  },
+  {
+    "SYMBOL" : "FIDA",
+    "TITLE" : "FIDA",
+    "ICON" : "../assets/img/cryptoicons/fida.svg"
+  },
+  {
+    "SYMBOL" : "VOXEL",
+    "TITLE" : "VOXEL",
+    "ICON" : "../assets/img/cryptoicons/voxel.svg"
+  },
+  {
+    "SYMBOL" : "MANA",
+    "TITLE" : "MANA",
+    "ICON" : "../assets/img/cryptoicons/mana.svg"
+  },
+  {
+    "SYMBOL" : "RARE",
+    "TITLE" : "RARE",
+    "ICON" : "../assets/img/cryptoicons/rare.svg"
+  },
+  {
+    "SYMBOL" : "ADX",
+    "TITLE" : "ADX",
+    "ICON" : "../assets/img/cryptoicons/adx.svg"
+  },
+  {
+    "SYMBOL" : "ONT",
+    "TITLE" : "ONT",
+    "ICON" : "../assets/img/cryptoicons/ont.svg"
+  },
+  {
+    "SYMBOL" : "SAND",
+    "TITLE" : "SAND",
+    "ICON" : "../assets/img/cryptoicons/sand.svg"
+  },
+  {
+    "SYMBOL" : "COCOS",
+    "TITLE" : "COCOS",
+    "ICON" : "../assets/img/cryptoicons/cocos.svg"
+  },
+  {
+    "SYMBOL" : "ALICE",
+    "TITLE" : "ALICE",
+    "ICON" : "../assets/img/cryptoicons/alice.svg"
+  },
+  {
+    "SYMBOL" : "MTL",
+    "TITLE" : "MTL",
+    "ICON" : "../assets/img/cryptoicons/mtl.svg"
+  },
+  {
+    "SYMBOL" : "FLM",
+    "TITLE" : "FLM",
+    "ICON" : "../assets/img/cryptoicons/flm.svg"
+  },
+  {
+    "SYMBOL" : "MDX",
+    "TITLE" : "MDX",
+    "ICON" : "../assets/img/cryptoicons/mdx.svg"
+  },
+  {
+    "SYMBOL" : "QTUM",
+    "TITLE" : "QTUM",
+    "ICON" : "../assets/img/cryptoicons/qtum.svg"
+  },
+  {
+    "SYMBOL" : "BNT",
+    "TITLE" : "BNT",
+    "ICON" : "../assets/img/cryptoicons/bnt.svg"
+  },
+  {
+    "SYMBOL" : "XVS",
+    "TITLE" : "XVS",
+    "ICON" : "../assets/img/cryptoicons/xvs.svg"
+  },
+  {
+    "SYMBOL" : "BICO",
+    "TITLE" : "BICO",
+    "ICON" : "../assets/img/cryptoicons/bico.svg"
+  },
+  {
+    "SYMBOL" : "UMA",
+    "TITLE" : "UMA",
+    "ICON" : "../assets/img/cryptoicons/uma.svg"
+  },
+  {
+    "SYMBOL" : "AKRO",
+    "TITLE" : "AKRO",
+    "ICON" : "../assets/img/cryptoicons/akro.svg"
+  },
+  {
+    "SYMBOL" : "LSK",
+    "TITLE" : "LSK",
+    "ICON" : "../assets/img/cryptoicons/lsk.svg"
+  },
+  {
+    "SYMBOL" : "DOCK",
+    "TITLE" : "DOCK",
+    "ICON" : "../assets/img/cryptoicons/dock.svg"
+  },
+  {
+    "SYMBOL" : "CFX",
+    "TITLE" : "CFX",
+    "ICON" : "../assets/img/cryptoicons/cfx.svg"
+  },
+  {
+    "SYMBOL" : "CELO",
+    "TITLE" : "CELO",
+    "ICON" : "../assets/img/cryptoicons/celo.svg"
+  },
+  {
+    "SYMBOL" : "IOTX",
+    "TITLE" : "IOTX",
+    "ICON" : "../assets/img/cryptoicons/iotx.svg"
+  },
+  {
+    "SYMBOL" : "CRV",
+    "TITLE" : "CRV",
+    "ICON" : "../assets/img/cryptoicons/crv.svg"
+  },
+  {
+    "SYMBOL" : "CELR",
+    "TITLE" : "CELR",
+    "ICON" : "../assets/img/cryptoicons/celr.svg"
+  },
+  {
+    "SYMBOL" : "OXT",
+    "TITLE" : "OXT",
+    "ICON" : "../assets/img/cryptoicons/oxt.svg"
+  },
+  {
+    "SYMBOL" : "FIO",
+    "TITLE" : "FIO",
+    "ICON" : "../assets/img/cryptoicons/fio.svg"
+  },
+  {
+    "SYMBOL" : "SCRT",
+    "TITLE" : "SCRT",
+    "ICON" : "../assets/img/cryptoicons/scrt.svg"
+  },
+  {
+    "SYMBOL" : "AUDIO",
+    "TITLE" : "AUDIO",
+    "ICON" : "../assets/img/cryptoicons/audio.svg"
+  },
+  {
+    "SYMBOL" : "CHZ",
+    "TITLE" : "CHZ",
+    "ICON" : "../assets/img/cryptoicons/chz.svg"
+  }
+]

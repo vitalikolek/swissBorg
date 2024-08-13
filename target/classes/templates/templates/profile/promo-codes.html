@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'Activate Gift codes | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/support-widget.css?v=1">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+</head>
+<body>
+<header th:replace="~{fragments/profile-header.html :: header}"></header>
+<main class="main kyc-verification">
+    <section class="top-line">
+        <div class="top-line__box">
+            <div class="top-line__left">
+                <div class="top-line__img">
+                    <svg width="59" height="45" viewbox="0 0 59 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="52.4746" y1="8.35617" x2="31.3562" y2="38.5254" stroke="#F9FD41" stroke-width="12" stroke-linecap="round"></line>
+                        <line x1="29.4746" y1="8.35617" x2="8.35616" y2="38.5254" stroke="#7044EE" stroke-width="12" stroke-linecap="round"></line>
+                    </svg>
+                </div>
+                <div class="top-line__content">
+                    <div class="top-line__title">Gift codes</div>
+                    <div class="top-line__des">Gift Cards allows you to receive cryptocurrency in a fast, simple and customizable way</div>
+                </div>
+            </div>
+
+            <div class="top-line__info">
+                <div class="top-line__info-item">
+                    <div class="top-line__item-img">
+
+                        <svg th:if="${user.twoFactorEnabled}" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#5CBE4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#5CBE4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <svg th:unless="${user.twoFactorEnabled}" width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.16992 14.8299L14.8299 9.16992" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M14.8299 14.8299L9.16992 9.16992" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+
+                    </div>
+                    <div class="top-line__item-title">
+                        Two-Factor Authentication (2FA)
+                    </div>
+
+                </div>
+                <div th:if="${!user.fakeVerified && (user.userKyc == null || !user.userKyc.accepted)}" class="top-line__info-item">
+                    <div class="top-line__item-img">
+                        <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.16992 14.8299L14.8299 9.16992" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M14.8299 14.8299L9.16992 9.16992" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <div class="top-line__item-title">
+                        Not verified
+                    </div>
+                </div>
+                <div th:if="${user.fakeVerified || (user.userKyc != null && user.userKyc.accepted)}" class="top-line__info-item">
+                    <div class="top-line__item-img">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#5CBE4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#5CBE4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <div class="top-line__item-title">
+                        Verified
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <div class="main__box">
+        <section class="tabs-menu">
+            <a class="tabs-menu__link" href="settings">
+                <svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.5 13.125C8.775 13.125 7.375 11.725 7.375 10C7.375 8.275 8.775 6.875 10.5 6.875C12.225 6.875 13.625 8.275 13.625 10C13.625 11.725 12.225 13.125 10.5 13.125ZM10.5 8.125C9.46667 8.125 8.625 8.96667 8.625 10C8.625 11.0333 9.46667 11.875 10.5 11.875C11.5333 11.875 12.375 11.0333 12.375 10C12.375 8.96667 11.5333 8.125 10.5 8.125Z" fill="#101828"></path>
+                    <path d="M13.175 18.4917C13 18.4917 12.825 18.4667 12.65 18.4251C12.1333 18.2834 11.7 17.9584 11.425 17.5001L11.325 17.3334C10.8333 16.4834 10.1583 16.4834 9.66663 17.3334L9.57496 17.4917C9.29996 17.9584 8.86663 18.2917 8.34996 18.4251C7.82496 18.5667 7.28329 18.4917 6.82496 18.2167L5.39163 17.3917C4.88329 17.1001 4.51663 16.6251 4.35829 16.0501C4.20829 15.4751 4.28329 14.8834 4.57496 14.3751C4.81663 13.9501 4.88329 13.5667 4.74163 13.3251C4.59996 13.0834 4.24163 12.9417 3.74996 12.9417C2.53329 12.9417 1.54163 11.9501 1.54163 10.7334V9.26674C1.54163 8.05008 2.53329 7.05841 3.74996 7.05841C4.24163 7.05841 4.59996 6.91674 4.74163 6.67508C4.88329 6.43341 4.82496 6.05008 4.57496 5.62508C4.28329 5.11674 4.20829 4.51674 4.35829 3.95008C4.50829 3.37508 4.87496 2.90008 5.39163 2.60841L6.83329 1.78341C7.77496 1.22508 9.01663 1.55008 9.58329 2.50841L9.68329 2.67508C10.175 3.52508 10.85 3.52508 11.3416 2.67508L11.4333 2.51674C12 1.55008 13.2416 1.22508 14.1916 1.79174L15.625 2.61674C16.1333 2.90841 16.5 3.38341 16.6583 3.95841C16.8083 4.53341 16.7333 5.12508 16.4416 5.63341C16.2 6.05841 16.1333 6.44174 16.275 6.68341C16.4166 6.92508 16.775 7.06674 17.2666 7.06674C18.4833 7.06674 19.475 8.05841 19.475 9.27508V10.7417C19.475 11.9584 18.4833 12.9501 17.2666 12.9501C16.775 12.9501 16.4166 13.0917 16.275 13.3334C16.1333 13.5751 16.1916 13.9584 16.4416 14.3834C16.7333 14.8917 16.8166 15.4917 16.6583 16.0584C16.5083 16.6334 16.1416 17.1084 15.625 17.4001L14.1833 18.2251C13.8666 18.4001 13.525 18.4917 13.175 18.4917ZM10.5 15.4084C11.2416 15.4084 11.9333 15.8751 12.4083 16.7001L12.5 16.8584C12.6 17.0334 12.7666 17.1584 12.9666 17.2084C13.1666 17.2584 13.3666 17.2334 13.5333 17.1334L14.975 16.3001C15.1916 16.1751 15.3583 15.9667 15.425 15.7167C15.4916 15.4667 15.4583 15.2084 15.3333 14.9917C14.8583 14.1751 14.8 13.3334 15.1666 12.6917C15.5333 12.0501 16.2916 11.6834 17.2416 11.6834C17.775 11.6834 18.2 11.2584 18.2 10.7251V9.25841C18.2 8.73341 17.775 8.30008 17.2416 8.30008C16.2916 8.30008 15.5333 7.93341 15.1666 7.29174C14.8 6.65008 14.8583 5.80841 15.3333 4.99174C15.4583 4.77508 15.4916 4.51674 15.425 4.26674C15.3583 4.01674 15.2 3.81674 14.9833 3.68341L13.5416 2.85841C13.1833 2.64174 12.7083 2.76674 12.4916 3.13341L12.4 3.29174C11.925 4.11674 11.2333 4.58341 10.4916 4.58341C9.74996 4.58341 9.05829 4.11674 8.58329 3.29174L8.49163 3.12508C8.28329 2.77508 7.81663 2.65008 7.45829 2.85841L6.01663 3.69174C5.79996 3.81674 5.63329 4.02508 5.56663 4.27508C5.49996 4.52508 5.53329 4.78341 5.65829 5.00008C6.13329 5.81674 6.19163 6.65841 5.82496 7.30008C5.45829 7.94174 4.69996 8.30841 3.74996 8.30841C3.21663 8.30841 2.79163 8.73341 2.79163 9.26674V10.7334C2.79163 11.2584 3.21663 11.6917 3.74996 11.6917C4.69996 11.6917 5.45829 12.0584 5.82496 12.7001C6.19163 13.3417 6.13329 14.1834 5.65829 15.0001C5.53329 15.2167 5.49996 15.4751 5.56663 15.7251C5.63329 15.9751 5.79163 16.1751 6.00829 16.3084L7.44996 17.1334C7.62496 17.2417 7.83329 17.2667 8.02496 17.2167C8.22496 17.1667 8.39163 17.0334 8.49996 16.8584L8.59163 16.7001C9.06663 15.8834 9.75829 15.4084 10.5 15.4084Z" fill="#101828"></path>
+                </svg>
+                <span>Account settings</span>
+            </a>
+            <a class="tabs-menu__link" href="change-password">
+                <svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.5 8.33317V6.6665C5.5 3.90817 6.33333 1.6665 10.5 1.6665C14.6667 1.6665 15.5 3.90817 15.5 6.6665V8.33317" stroke="#667085" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.5 15.4167C11.6506 15.4167 12.5833 14.4839 12.5833 13.3333C12.5833 12.1827 11.6506 11.25 10.5 11.25C9.34937 11.25 8.41663 12.1827 8.41663 13.3333C8.41663 14.4839 9.34937 15.4167 10.5 15.4167Z" stroke="#667085" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M14.6666 18.3335H6.33329C2.99996 18.3335 2.16663 17.5002 2.16663 14.1668V12.5002C2.16663 9.16683 2.99996 8.3335 6.33329 8.3335H14.6666C18 8.3335 18.8333 9.16683 18.8333 12.5002V14.1668C18.8333 17.5002 18 18.3335 14.6666 18.3335Z" stroke="#667085" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span>Password</span>
+            </a>
+            <a class="tabs-menu__link" href="2fa-security">
+                <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.7418 1.85781L4.58346 3.42448C3.62513 3.78281 2.8418 4.91615 2.8418 5.93281V12.1245C2.8418 13.1078 3.4918 14.3995 4.28346 14.9911L7.8668 17.6661C9.0418 18.5495 10.9751 18.5495 12.1501 17.6661L15.7335 14.9911C16.5251 14.3995 17.1751 13.1078 17.1751 12.1245V5.93281C17.1751 4.90781 16.3918 3.77448 15.4335 3.41615L11.2751 1.85781C10.5668 1.59948 9.43346 1.59948 8.7418 1.85781Z" stroke="#667085" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10 10.4168C10.9205 10.4168 11.6667 9.67064 11.6667 8.75016C11.6667 7.82969 10.9205 7.0835 10 7.0835C9.07957 7.0835 8.33337 7.82969 8.33337 8.75016C8.33337 9.67064 9.07957 10.4168 10 10.4168Z" stroke="#667085" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10 10.4165V12.9165" stroke="#667085" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span>2FA Auth</span>
+            </a>
+
+            <div class="tabs-menu__link tabs-menu__link-menu" href="#">
+                <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.5003 18.9587H7.50033C2.97533 18.9587 1.04199 17.0253 1.04199 12.5003V7.50033C1.04199 2.97533 2.97533 1.04199 7.50033 1.04199H12.5003C17.0253 1.04199 18.9587 2.97533 18.9587 7.50033V12.5003C18.9587 17.0253 17.0253 18.9587 12.5003 18.9587ZM7.50033 2.29199C3.65866 2.29199 2.29199 3.65866 2.29199 7.50033V12.5003C2.29199 16.342 3.65866 17.7087 7.50033 17.7087H12.5003C16.342 17.7087 17.7087 16.342 17.7087 12.5003V7.50033C17.7087 3.65866 16.342 2.29199 12.5003 2.29199H7.50033Z" fill="#667085"></path>
+                    <path d="M10.0003 10.8337C9.53366 10.8337 9.16699 10.4587 9.16699 10.0003C9.16699 9.54199 9.54199 9.16699 10.0003 9.16699C10.4587 9.16699 10.8337 9.54199 10.8337 10.0003C10.8337 10.4587 10.467 10.8337 10.0003 10.8337Z" fill="#667085"></path>
+                    <path d="M13.3333 10.8337C12.8667 10.8337 12.5 10.4587 12.5 10.0003C12.5 9.54199 12.875 9.16699 13.3333 9.16699C13.7917 9.16699 14.1667 9.54199 14.1667 10.0003C14.1667 10.4587 13.8 10.8337 13.3333 10.8337Z" fill="#667085"></path>
+                    <path d="M6.66634 10.8337C6.19967 10.8337 5.83301 10.4587 5.83301 10.0003C5.83301 9.54199 6.20801 9.16699 6.66634 9.16699C7.12467 9.16699 7.49967 9.54199 7.49967 10.0003C7.49967 10.4587 7.13301 10.8337 6.66634 10.8337Z" fill="#667085"></path>
+                </svg>
+                <span>Menu</span>
+            </div>
+            <div class="tabs-menu__right">
+                <a class="tabs-menu__link" href="verification">
+                    <svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.45828 2.04209C10.0333 1.55042 10.9749 1.55042 11.5583 2.04209L12.8749 3.17542C13.1249 3.39209 13.5916 3.56709 13.9249 3.56709H15.3416C16.2249 3.56709 16.9499 4.29209 16.9499 5.17542V6.59209C16.9499 6.91709 17.1249 7.39209 17.3416 7.64209L18.4749 8.95876C18.9666 9.53376 18.9666 10.4754 18.4749 11.0588L17.3416 12.3754C17.1249 12.6254 16.9499 13.0921 16.9499 13.4254V14.8421C16.9499 15.7254 16.2249 16.4504 15.3416 16.4504H13.9249C13.5999 16.4504 13.1249 16.6254 12.8749 16.8421L11.5583 17.9754C10.9833 18.4671 10.0416 18.4671 9.45828 17.9754L8.14161 16.8421C7.89161 16.6254 7.42494 16.4504 7.09161 16.4504H5.64994C4.76661 16.4504 4.04161 15.7254 4.04161 14.8421V13.4171C4.04161 13.0921 3.86661 12.6254 3.65828 12.3754L2.53328 11.0504C2.04994 10.4754 2.04994 9.54209 2.53328 8.96709L3.65828 7.64209C3.86661 7.39209 4.04161 6.92542 4.04161 6.60042V5.16709C4.04161 4.28376 4.76661 3.55876 5.64994 3.55876H7.09161C7.41661 3.55876 7.89161 3.38376 8.14161 3.16709L9.45828 2.04209Z" stroke="#667085" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7.48328 10.0001L9.49161 12.0167L13.5166 7.9834" stroke="#667085" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span>KYC Verification</span>
+                </a>
+                <a class="tabs-menu__link" href="affiliate">
+
+                    <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.9163 15.8168H6.08301C5.73301 15.8168 5.34134 15.5418 5.22468 15.2085L1.77468 5.55846C1.28301 4.17513 1.85801 3.75013 3.04134 4.60013L6.29134 6.92513C6.83301 7.30013 7.44968 7.10846 7.68301 6.50013L9.14968 2.5918C9.61634 1.3418 10.3913 1.3418 10.858 2.5918L12.3247 6.50013C12.558 7.10846 13.1747 7.30013 13.708 6.92513L16.758 4.75013C18.058 3.8168 18.683 4.2918 18.1497 5.80013L14.783 15.2251C14.658 15.5418 14.2663 15.8168 13.9163 15.8168Z" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.41699 18.333H14.5837" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7.91699 11.667H12.0837" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Affiliate</span>
+                </a>
+                <a class="tabs-menu__link" href="api">
+                    <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.08329 15.8083H6.66663C3.33329 15.8083 1.66663 14.9749 1.66663 10.8083V6.6416C1.66663 3.30827 3.33329 1.6416 6.66663 1.6416H13.3333C16.6666 1.6416 18.3333 3.30827 18.3333 6.6416V10.8083C18.3333 14.1416 16.6666 15.8083 13.3333 15.8083H12.9166C12.6583 15.8083 12.4083 15.9333 12.25 16.1416L11 17.8083C10.45 18.5416 9.54995 18.5416 8.99995 17.8083L7.74995 16.1416C7.61662 15.9583 7.31663 15.8083 7.08329 15.8083Z" stroke="#667085" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M6.66667 7.25L5 8.91667L6.66667 10.5833" stroke="#667085" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M13.3334 7.25L15 8.91667L13.3334 10.5833" stroke="#667085" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M10.8333 6.9751L9.16663 10.8585" stroke="#667085" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span>API keys</span>
+                </a>
+                <a class="tabs-menu__link tabs-menu__link-active" href="promo-codes">
+                    <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.2501 10.4168C16.2501 9.26683 17.1834 8.3335 18.3334 8.3335V7.50016C18.3334 4.16683 17.5001 3.3335 14.1667 3.3335H5.83341C2.50008 3.3335 1.66675 4.16683 1.66675 7.50016V7.91683C2.81675 7.91683 3.75008 8.85016 3.75008 10.0002C3.75008 11.1502 2.81675 12.0835 1.66675 12.0835V12.5002C1.66675 15.8335 2.50008 16.6668 5.83341 16.6668H14.1667C17.5001 16.6668 18.3334 15.8335 18.3334 12.5002C17.1834 12.5002 16.2501 11.5668 16.2501 10.4168Z" stroke="#667085" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7.5 12.2915L12.5 7.2915" stroke="#667085" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M12.4953 12.2917H12.5028" stroke="#667085" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7.49534 7.70817H7.50283" stroke="#667085" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Promo codes</span>
+                </a>
+            </div>
+        </section>
+        <section class="promo-code">
+            <div class="promo-code__block">
+                <div class="promo-code__box">
+                    <div class="promo-code__img">
+                        <svg width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.7497 14.5827C22.7497 12.9727 24.0563 11.666 25.6663 11.666V10.4993C25.6663 5.83268 24.4997 4.66602 19.833 4.66602H8.16634C3.49967 4.66602 2.33301 5.83268 2.33301 10.4993V11.0827C3.94301 11.0827 5.24967 12.3893 5.24967 13.9993C5.24967 15.6093 3.94301 16.916 2.33301 16.916V17.4993C2.33301 22.166 3.49967 23.3327 8.16634 23.3327H19.833C24.4997 23.3327 25.6663 22.166 25.6663 17.4993C24.0563 17.4993 22.7497 16.1927 22.7497 14.5827Z" stroke="#191D31" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10.5 17.209L17.5 10.209" stroke="#191D31" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M17.4939 17.2083H17.5044" stroke="#191D31" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M10.4939 10.7923H10.5044" stroke="#191D31" stroke-width="2.33333" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <div class="promo-code__wrapper">
+                        <div class="promo-code__title">
+                            Activate your gift code
+                        </div>
+                        <div class="promo-code__description">
+                            Enter code of your gift card (promo)
+                        </div>
+                    </div>
+                </div>
+                <div class="promo-code__input">
+                    <input class="input__01" type="text" placeholder="Enter gift code number" id="promocode">
+                    <div class="buttons__01" id="activate_promo">Redeem</div>
+                </div>
+            </div>
+
+            <div class="alert">
+                <div class="alert__img">
+                    <svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.5 22C18 22 22.5 17.5 22.5 12C22.5 6.5 18 2 12.5 2C7 2 2.5 6.5 2.5 12C2.5 17.5 7 22 12.5 22Z" stroke="#6D6D6D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M12.5 8V13" stroke="#6D6D6D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M12.4941 16H12.5031" stroke="#6D6D6D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <ul>
+                    <li>
+                        Project Gift codes can be purchased and traded via distributors and exchange brokers and can be used for payment with merchants. Once you receive a gift code, it only takes a few steps to redeem.
+                    </li>
+                    <li>
+                        Use cases include: Gift Card reselling, loyalty and game rewards, e-commerce purchases and more.
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</main>
+
+</script><script src="../assets/js/tabs-menu.min.js"></script>
+<script src="../assets/js/drop.min.js"></script>
+
+<footer class="footer" id="footer" th:replace="~{fragments/footer-info-profile.html :: footer-info}"></footer>
+<a class="support-widget" href="../profile/support">
+    <svg viewBox="0 -256 1850 1850" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 80%; height: 80%; fill: rgb(255, 255, 255); stroke: none;">
+        <path transform="matrix(0.71186441,0,0,-0.71186441,288.54237,1093.9482)" d="M 704,1152 Q 551,1152 418,1100 285,1048 206.5,959 128,870 128,768 q 0,-82 53,-158 53,-76 149,-132 l 97,-56 -35,-84 q 34,20 62,39 l 44,31 53,-10 q 78,-14 153,-14 153,0 286,52 133,52 211.5,141 78.5,89 78.5,191 0,102 -78.5,191 -78.5,89 -211.5,141 -133,52 -286,52 z m 0,128 q 191,0 353.5,-68.5 Q 1220,1143 1314,1025 1408,907 1408,768 1408,629 1314,511 1220,393 1057.5,324.5 895,256 704,256 618,256 528,272 404,184 250,144 214,135 164,128 h -3 q -11,0 -20.5,8 -9.5,8 -11.5,21 -1,3 -1,6.5 0,3.5 0.5,6.5 0.5,3 2,6 l 2.5,5 q 0,0 3.5,5.5 3.5,5.5 4,5 0.5,-0.5 4.5,5 4,5.5 4,4.5 5,6 23,25 18,19 26,29.5 8,10.5 22.5,29 Q 235,303 245.5,323 256,343 266,367 142,439 71,544 0,649 0,768 0,907 94,1025 188,1143 350.5,1211.5 513,1280 704,1280 Z M 1526,111 q 10,-24 20.5,-44 10.5,-20 25,-38.5 14.5,-18.5 22.5,-29 8,-10.5 26,-29.5 18,-19 23,-25 1,-1 4,-4.5 3,-3.5 4.5,-5 1.5,-1.5 4,-5 2.5,-3.5 3.5,-5.5 l 2.5,-5 q 0,0 2,-6 2,-6 0.5,-6.5 -1.5,-0.5 -1,-6.5 -3,-14 -13,-22 -10,-8 -22,-7 -50,7 -86,16 Q 1388,-72 1264,16 1174,0 1088,0 817,0 616,132 q 58,-4 88,-4 161,0 309,45 148,45 264,129 125,92 192,212 67,120 67,254 0,77 -23,152 129,-71 204,-178 75,-107 75,-230 0,-120 -71,-224.5 Q 1650,183 1526,111 Z"></path>
+    </svg>
+    <span th:if="${support_unviewed != null && support_unviewed > 0}" th:text="${support_unviewed}"></span>
+</a>
+
+
+<!-- END FOOTER -->
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/toastr.js"></script>
+<script src="../assets/js/newnoti.js"></script>
+<script src="../assets/js/error-modal.js?v=4"></script>
+<script>
+  setInterval(() => {
+      $.ajax({
+          url: "/api/user/profile",
+          type: "POST",
+          contentType: 'application/json; charset=UTF-8',
+          dataType: 'text',
+          data: JSON.stringify({
+              action: "CHECK_ALERT"
+          }),
+          success: function (response) {
+              if (response !== "no_alerts") {
+                  const json = JSON.parse(response);
+
+                  const type = json["type"];
+                  const message = json["message"];
+
+                  if (type === "NOTIFICATION") {
+                      noti(message, "success");
+                  } else if (type === "ALERT") {
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                  } else if (type === "BONUS") {
+                      $("#alert_img_pop").attr("src", "");
+                      $("#alert_title_text").html("Bonus");
+                      $("#alert_img_pop").attr("src", "../assets/img/bonus-icon.png");
+                      $("#alert_img_pop").css("display", "block");
+                      $("#svg_alert_img").remove();
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                      $("#userAlertBox").css("font-size", "18px");
+                  }
+              }
+          }
+      });
+  }, 5000);
+
+  function closeModal(event) {
+      event.preventDefault();
+
+      $("#alert_message_modal").removeClass("withdrawal-successful-active");
+  }
+
+
+    $("#butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    $(".butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    function closeButaforModal() {
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+        $("#butafor__modal").removeClass("withdrawal-successful-active");
+    }
+
+    $("#footer_subscribe").on("click", function(e) {
+        e.preventDefault();
+        $("#footer_subscribe").html("Subscribed!");
+    })
+
+</script>
+
+
+</body>
+
+</html>
+<script type="text/javascript">
+    $("#activate_promo").on("click", function(e) {
+        e.preventDefault();
+
+        $(".buttons__01").removeClass("buttons__disabled");
+        $(".buttons__01").removeClass("buttons__loading");
+        $(".button__loader").remove();
+
+        var promocode = $("#promocode").val().replace(/\s+/g, '');
+        if(promocode == "") {
+            noti("Please enter correct promo code", "error");
+        } else {
+            $.ajax({
+                url: "../api/user/promocodes",
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8',
+                data: JSON.stringify({
+                    action: "ACTIVATE_PROMOCODE",
+                    promocode: promocode
+                }),
+                success: function (response, textStatus, status) {
+                    if (status.status === 200) {
+                        if (status.responseText === 'success') {
+                            noti("Promo code successfully activated", "success");
+                        } else {
+                            noti(status.responseText, "success");
+                        }
+                        $("#promocode").val();
+                        setTimeout(() => location.reload(), 1500);
+                    } else {
+                        noti("An unknown error has occurred, please try again later", "error");
+                    }
+                },
+                error: function (xhr) {
+                    switch (xhr.responseText) {
+                        case "not_found": {
+                            noti("This promo code does not exist", "error");
+                            break;
+                        }
+                        case "invalid_promocode": {
+                            noti("Please enter correct promo code", "error");
+                            break;
+                        }
+                        case "already_activated": {
+                            noti("You have already activated promo code", "error");
+                            break;
+                        }
+                        default: {
+                            noti("An unknown error has occurred, please try again later", "error");
+                            break;
+                        }
+                    }
+                }
+            });
+        }
+    });
+</script>

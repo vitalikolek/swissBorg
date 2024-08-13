@@ -1,0 +1,228 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    padding-top: 33px;
+}
+
+.header__container {
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 28px;
+}
+
+.header__logo svg {
+    margin-right: 21px;
+}
+
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 186px;
+}
+
+.header__center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 46px;
+}
+
+.header__link {
+    color: #E6E6E6;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    position: relative;
+  
+}
+
+.header__link:hover{
+    opacity:0.7;
+}
+
+.header__center {
+    display: flex;
+    column-gap: 37px;
+}
+
+.header__link-log,
+.header__link-up {
+    font-weight: 600;
+    font-size: 18.0982px;
+    line-height: 23px;
+}
+
+.header__link-log{
+  
+}
+
+.header__link-log:hover{
+    opacity:0.7;
+}
+
+.header__link-up {
+    padding: 10px 30px 10px 29px;
+    margin-left: 12px;
+    background-color: #57BE84;
+    border-radius: 5px;
+   
+}
+
+.header__link-up:hover{
+    background-color: #2a6444;
+}
+
+.header__nav-line {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 12;
+    transition: stroke-dasharray 800ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 800ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header__nav-line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 12;
+}
+
+.header__nav-line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 12;
+}
+
+.header__nav-line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 12;
+}
+
+.header__mobile-open .header__nav-line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 12;
+}
+
+.header__mobile-open .header__nav-line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 12;
+}
+
+.header__mobile-open .header__nav-line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 12;
+}
+
+.header__btn-mobile {
+    display: none;
+}
+
+.header__btn-mobile svg {
+    pointer-events: none;
+}
+
+@media (max-width: 1200px) {
+    .header__wrapper {
+        margin-left: 125px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .header__wrapper {
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 1020px) {
+    .header__wrapper {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-left: 0;
+        background-color: #161313;
+        opacity: 94%;
+        z-index: 20;
+        padding: 90px 20px 20px 20px;
+        transform: translateY(-300px);
+        transition: transform .8s ease-in-out;
+    }
+
+    .header__wrapper.header__wrapper-active {
+        transform: translateY(0);
+    }
+
+    .header__logo {
+        position: relative;
+        z-index: 21;
+    }
+
+    .header__container {
+        justify-content: space-between;
+    }
+
+    .header__btn-mobile {
+        display: flex;
+        position: relative;
+        z-index: 20;
+    }
+    .header__center{
+        position: static;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 770px) {
+    .header__wrapper {
+        flex-direction: column;
+        padding: 100px 20px 20px 20px;
+    }
+
+    .header__center {
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 37px;
+    }
+}
+
+@media (max-width: 500px) {
+    .header__wrapper {
+        transform: translateY(-550px);
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header__center {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header__right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-top: 1px solid #FFFFFF;
+        padding-top: 20px;
+    }
+
+    .header__link {
+        font-size: 20px;
+    }
+}

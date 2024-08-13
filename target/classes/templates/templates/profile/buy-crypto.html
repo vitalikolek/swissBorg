@@ -1,0 +1,228 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'Buy crypto with card | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/support-widget.css?v=1">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+    <link rel="stylesheet" href="../assets/css/payments.css?v=6">
+</head>
+<body>
+<header th:replace="~{fragments/profile-header.html :: header}"></header>
+<div class="rs-buy-sell">
+    <div class="rs-buy-sell__top">
+        <div class="rs-buy-sell__top-container">
+            <div class="rs-buy-sell__top-info">
+                <div class="rs-buy-sell__top-icon">
+                    <svg width="59" height="45" viewBox="0 0 59 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="52.4746" y1="8.35617" x2="31.3562" y2="38.5254" stroke="#ACFF42" stroke-width="12" stroke-linecap="round"></line>
+                        <line x1="29.4746" y1="8.35617" x2="8.35616" y2="38.5254" stroke="#7044EE" stroke-width="12" stroke-linecap="round"></line>
+                    </svg>
+                </div>
+                <div class="rs-buy-sell__top-wrapper">
+                    <div class="rs-buy-sell__top-title" th:text="#{buyCrypto.title}"></div>
+                    <div class="rs-buy-sell__top-description" th:text="#{buyCrypto.subtitle}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main__box" style="margin-top: 34px;">
+        <section class="form-coins staking">
+            <div class="form-profit">
+                <div class="form-profit__info">
+                    <div class="form-profit__img">
+                        <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.5 27C23.6421 27 27 24.0898 27 20.5C27 16.9102 23.6421 14 19.5 14C15.3579 14 12 16.9102 12 20.5C12 24.0898 15.3579 27 19.5 27Z" fill="#FFCA42"></path>
+                            <path d="M4 10C6.20911 10 8 8.20911 8 6C8 3.79086 6.20911 2 4 2C1.79086 2 0 3.79086 0 6C0 8.20911 1.79086 10 4 10Z" fill="#FFCA42"></path>
+                            <path d="M13.5 0C6.04801 0 0 6.04801 0 13.5C0 20.952 6.04801 27 13.5 27C20.952 27 27 20.952 27 13.5C27 6.04801 20.952 0 13.5 0ZM13.5 25.2C7.04701 25.2 1.8 19.953 1.8 13.5C1.8 7.04701 7.04701 1.8 13.5 1.8C19.953 1.8 25.2 7.04701 25.2 13.5C25.2 19.953 19.953 25.2 13.5 25.2Z" fill="black"></path>
+                            <path d="M18 10.9091V10.0455C18 8.68955 17.226 6.22818 14.4 5.805V4H12.6V5.81364C11.016 6.10727 9 7.21273 9 10.0455C9 12.1182 10.818 13.1632 12.6 14.0268V19.4064C11.799 19.1819 10.8 18.5773 10.8 16.9537V16.09H9V16.9537C9 19.7864 11.016 20.8919 12.6 21.1855V23H14.4V21.1864C15.984 20.8919 18 19.7873 18 16.9545C18 14.8818 16.182 13.8368 14.4 12.9732V7.56682C16.065 8.00727 16.191 9.65682 16.2 10.0455V10.9091H18ZM12.6 12.075C11.457 11.4532 10.8 10.8832 10.8 10.0455C10.8 8.42182 11.799 7.81727 12.6 7.59273V12.075ZM16.2 16.9545C16.2 18.5782 15.201 19.1827 14.4 19.4073V14.925C15.543 15.5468 16.2 16.1168 16.2 16.9545Z" fill="black"></path>
+                        </svg>
+                    </div>
+                    <div class="form-profit__wrapper">
+                        <div class="form-profit__title" th:text="#{form.profit.title}"></div>
+                        <div style="margin-top: 10px; font-size: 14px; color: black" class="form-profit__description" th:utext="#{form.profit.description}"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-coins__container">
+                <div class="form-coins__right" style="width: 100%">
+                    <div class="payment-systems">
+                        <div style="padding-bottom: 15px;" class="payment-systems-item">
+                            <img src="../assets/img/payments/changenow2.png" alt="ChangeNOW">
+                            <div style="padding-left: 25px;" class="payment-system-description" th:text="#{buyCrypto.changeNOW.description}"></div>
+                            <a target="_blank" rel="noreferrer" class="buttons__01" href="https://changenow.io/?from=eur&to=btc&fiatMode=true" th:text="#{buyCrypto.go.to('ChangeNOW')}"></a>
+                        </div>
+                    </div>
+
+                    <div class="payment-systems">
+                        <div style="padding-bottom: 15px;" class="payment-systems-item">
+                            <img src="../assets/img/payments/simplex2.png" alt="Simplex">
+                            <div style="padding-left: 25px;" class="payment-system-description" th:text="#{buyCrypto.simplex.description}"></div>
+                            <a target="_blank" rel="noreferrer" class="buttons__01" href="https://buy.simplex.com/" th:text="#{buyCrypto.go.to('Simplex')}"></a>
+                        </div>
+                    </div>
+
+                    <div class="payment-systems">
+                        <div style="padding-bottom: 15px;" class="payment-systems-item">
+                            <img src="../assets/img/payments/moonpay2.png" alt="MoonPay">
+                            <div style="padding-left: 25px;" class="payment-system-description" th:text="#{buyCrypto.moonPay.description}"></div>
+                            <a target="_blank" rel="noreferrer" class="buttons__01" href="https://www.moonpay.com/buy" th:text="#{buyCrypto.go.to('MoonPay')}"></a>
+                        </div>
+                    </div>
+
+                    <div class="payment-systems">
+                        <div style="padding-bottom: 15px;" class="payment-systems-item">
+                            <img src="../assets/img/payments/transak2.png" alt="Transak">
+                            <div style="padding-left: 25px;" class="payment-system-description" th:text="#{buyCrypto.transak.description}"></div>
+                            <a target="_blank" rel="noreferrer" class="buttons__01" href="https://global.transak.com/" th:text="#{buyCrypto.go.to('Transak')}"></a>
+                        </div>
+                    </div>
+
+                    <div class="payment-systems">
+                        <div style="padding-bottom: 15px;" class="payment-systems-item">
+                            <img style="min-width: 125px;" src="../assets/img/payments/mercuryo.png" alt="Mercuryo">
+                            <div style="padding-left: 25px;" class="payment-system-description" th:text="#{buyCrypto.mercuryo.description}"></div>
+                            <a target="_blank" rel="noreferrer" class="buttons__01" href="https://exchange.mercuryo.io/" th:text="#{buyCrypto.go.to('Mercuryo')}"></a>
+                        </div>
+                    </div>
+
+                    <div class="payment-systems">
+                        <div style="padding-bottom: 15px;" class="payment-systems-item">
+                            <img style="min-width: 125px;" src="../assets/img/payments/coingate2.png" alt="CoinGate">
+                            <div style="padding-left: 25px;" class="payment-system-description" th:text="#{buyCrypto.coingate.description}"></div>
+                            <a target="_blank" rel="noreferrer" class="buttons__01" href="https://coingate.com/buy-and-sell" th:text="#{buyCrypto.go.to('CoinGate')}"></a>
+                        </div>
+                    </div>
+
+                    <div class="payment-systems">
+                        <div style="padding-bottom: 15px;" class="payment-systems-item">
+                            <img src="../assets/img/payments/changelly2.png" alt="Changelly">
+                            <div style="padding-left: 25px;" class="payment-system-description" th:text="#{buyCrypto.changelly.description}"></div>
+                            <a target="_blank" rel="noreferrer" class="buttons__01" href="https://changelly.com/buy"  th:text="#{buyCrypto.go.to('Changelly')}"></a>
+                        </div>
+                    </div>
+
+                    <div class="payment-systems">
+                        <div style="padding-bottom: 15px;" class="payment-systems-item">
+                            <img src="../assets/img/payments/banxa2.png" alt="Banxa">
+                            <div style="padding-left: 25px;" class="payment-system-description" th:text="#{buyCrypto.banxa.description}"></div>
+                            <a target="_blank" rel="noreferrer" class="buttons__01" href="https://openocean.banxa.com/"  th:text="#{buyCrypto.go.to('Banxa')}"></a>
+                        </div>
+                    </div>
+
+                    <div class="payment-systems">
+                        <div style="padding-bottom: 15px;" class="payment-systems-item">
+                            <img src="../assets/img/payments/phemex2.png" alt="Phemex">
+                            <div style="padding-left: 25px;" class="payment-system-description" th:text="#{buyCrypto.phemex.description}"></div>
+                            <a target="_blank" rel="noreferrer" class="buttons__01" href="https://phemex.com/fiat/buy-crypto/place-order?side=buy" th:text="#{buyCrypto.go.to('Phemex')}"></a>
+                        </div>
+                    </div>
+
+                    <div class="payment-systems">
+                        <div style="padding-bottom: 15px;" class="payment-systems-item">
+                            <img src="../assets/img/payments/ramp2.png" alt="Ramp">
+                            <div style="padding-left: 25px;" class="payment-system-description" th:text="#{buyCrypto.ramp.description}"></div>
+                            <a target="_blank" rel="noreferrer" class="buttons__01" href="https://ramp.network/buy" th:text="#{buyCrypto.go.to('Ramp')}"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<footer class="footer" id="footer" th:replace="~{fragments/footer-info-profile.html :: footer-info}"></footer>
+<a class="support-widget" href="../profile/support">
+    <svg viewBox="0 -256 1850 1850" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 80%; height: 80%; fill: rgb(255, 255, 255); stroke: none;">
+        <path transform="matrix(0.71186441,0,0,-0.71186441,288.54237,1093.9482)" d="M 704,1152 Q 551,1152 418,1100 285,1048 206.5,959 128,870 128,768 q 0,-82 53,-158 53,-76 149,-132 l 97,-56 -35,-84 q 34,20 62,39 l 44,31 53,-10 q 78,-14 153,-14 153,0 286,52 133,52 211.5,141 78.5,89 78.5,191 0,102 -78.5,191 -78.5,89 -211.5,141 -133,52 -286,52 z m 0,128 q 191,0 353.5,-68.5 Q 1220,1143 1314,1025 1408,907 1408,768 1408,629 1314,511 1220,393 1057.5,324.5 895,256 704,256 618,256 528,272 404,184 250,144 214,135 164,128 h -3 q -11,0 -20.5,8 -9.5,8 -11.5,21 -1,3 -1,6.5 0,3.5 0.5,6.5 0.5,3 2,6 l 2.5,5 q 0,0 3.5,5.5 3.5,5.5 4,5 0.5,-0.5 4.5,5 4,5.5 4,4.5 5,6 23,25 18,19 26,29.5 8,10.5 22.5,29 Q 235,303 245.5,323 256,343 266,367 142,439 71,544 0,649 0,768 0,907 94,1025 188,1143 350.5,1211.5 513,1280 704,1280 Z M 1526,111 q 10,-24 20.5,-44 10.5,-20 25,-38.5 14.5,-18.5 22.5,-29 8,-10.5 26,-29.5 18,-19 23,-25 1,-1 4,-4.5 3,-3.5 4.5,-5 1.5,-1.5 4,-5 2.5,-3.5 3.5,-5.5 l 2.5,-5 q 0,0 2,-6 2,-6 0.5,-6.5 -1.5,-0.5 -1,-6.5 -3,-14 -13,-22 -10,-8 -22,-7 -50,7 -86,16 Q 1388,-72 1264,16 1174,0 1088,0 817,0 616,132 q 58,-4 88,-4 161,0 309,45 148,45 264,129 125,92 192,212 67,120 67,254 0,77 -23,152 129,-71 204,-178 75,-107 75,-230 0,-120 -71,-224.5 Q 1650,183 1526,111 Z"></path>
+    </svg>
+    <span th:if="${support_unviewed != null && support_unviewed > 0}" th:text="${support_unviewed}"></span>
+</a>
+<!-- END FOOTER -->
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/toastr.js"></script>
+<script src="../assets/js/newnoti.js"></script>
+<script src="../assets/js/error-modal.js?v=4"></script>
+<script src="../assets/js/buy-crypto.min.js"></script>
+<script>
+    setInterval(() => {
+        $.ajax({
+          url: "/api/user/profile",
+          type: "POST",
+          contentType: 'application/json; charset=UTF-8',
+          dataType: 'text',
+          data: JSON.stringify({
+              action: "CHECK_ALERT"
+          }),
+          success: function (response) {
+              if (response !== "no_alerts") {
+                  const json = JSON.parse(response);
+
+                  const type = json["type"];
+                  const message = json["message"];
+
+                  if (type === "NOTIFICATION") {
+                      noti(message, "success");
+                  } else if (type === "ALERT") {
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                  } else if (type === "BONUS") {
+                      $("#alert_img_pop").attr("src", "");
+                      $("#alert_title_text").html("Bonus");
+                      $("#alert_img_pop").attr("src", "../assets/img/bonus-icon.png");
+                      $("#alert_img_pop").css("display", "block");
+                      $("#svg_alert_img").remove();
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                      $("#userAlertBox").css("font-size", "18px");
+                  }
+              }
+          }
+      });
+    }, 5000);
+
+    function closeModal(event) {
+        event.preventDefault();
+
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+    }
+
+
+    $("#butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    $(".butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    function closeButaforModal() {
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+        $("#butafor__modal").removeClass("withdrawal-successful-active");
+    }
+
+    $("#footer_subscribe").on("click", function(e) {
+        e.preventDefault();
+        $("#footer_subscribe").html("Subscribed!");
+    });
+
+    $(".buttons__01").each(function() {
+        $(this).on('click', function () {
+            $(this).removeClass("buttons__disabled");
+            $(this).removeClass("buttons__loading");
+            $(".button__loader", this).remove();
+        });
+    });
+</script>
+</body>
+</html>

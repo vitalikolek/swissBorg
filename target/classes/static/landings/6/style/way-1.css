@@ -1,0 +1,180 @@
+.way {
+    margin-top: 91px;
+}
+
+.way__container {
+    max-width: 1241px;
+    padding: 0 24px;
+    margin: 0 auto;
+}
+
+.way__box {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1176px;
+    column-gap: 20px;
+}
+
+.way__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 421px;
+    margin-top: -45px;
+}
+
+.way__subtitle {
+    color: #70E001;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 1.8px;
+    margin-bottom: 9px;
+}
+
+.way__title {
+    color: #FFF;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 53px;
+    margin-bottom: 23px;
+}
+
+.way__description {
+    color: #C3BFC5;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 34px;
+    margin-bottom: 30px;
+}
+
+.way__link {
+    padding: 23px 44px 22px 44px;
+    color: #70E001;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: normal;
+    border: 1px solid #70E001;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.way__cards {
+    display: flex;
+    column-gap: 52px;
+}
+
+.way__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: 465px;
+    border-radius: 20px;
+    padding: 30px 56px 24px 30px;
+    position: relative;
+}
+
+.way__card:nth-child(1) {
+    background-color: #86A7F9;
+    background-image: url("../images/way/blue-bg-1.svg");
+    background-repeat: no-repeat;
+    background-position: center -200px;
+}
+
+.way__card:nth-child(2) {
+    background-color: #F099AD;
+    background-image: url("../images/way/pink-bg-1.svg");
+    background-repeat: no-repeat;
+    background-position: center -155px;
+    margin-top: 111px;
+}
+
+.way__card-icon {
+    width: 83px;
+    height: 83px;
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-left: auto;
+}
+
+.way__card-value {
+    color: #FFF;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.way__card-key {
+    color: #FFF;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+@media (max-width: 1100px) {
+    .way__cards {
+        column-gap: 24px;
+    }
+
+    .way__card {
+        width: 250px;
+        height: 400px;
+        padding: 20px;
+    }
+
+    .way__card:nth-child(1) {
+        background-position: center -250px;
+    }
+
+    .way__card:nth-child(2) {
+        background-position: center -205px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .way__box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        row-gap: 30px;
+    }
+
+    .way__left {
+        margin-top: 0;
+    }
+
+    .way__card {
+        text-align: left;
+    }
+
+    .way__link {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 560px) {
+    .way__card {
+        width: 200px;
+        height: 340px;
+    }
+}
+
+@media (max-width: 500px) {
+    .way__container {
+        padding: 0 15px;
+    }
+
+    .way__title {
+        font-size: 35px;
+        line-height: 45px;
+        margin-bottom: 15px;
+    }
+
+    .way__description {
+        margin-bottom: 20px;
+    }
+}

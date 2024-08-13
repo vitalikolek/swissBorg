@@ -1,0 +1,72 @@
+.rated {
+    margin: -23px 0 131px 0;
+}
+
+.rated__box {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 24px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #132E29 0%, #15161B 15.11%, #15161B 52.6%, #15161B 85.42%, #132E29 100%);
+    padding: 67px 37px 67px 94px;
+}
+
+.rated__img {
+    margin-top: 5px;
+}
+
+.rated__right {
+    max-width: 598px;
+}
+
+.rated__title {
+    margin-bottom: 23px;
+}
+
+.rated__description {
+    max-width: 498px;
+}
+
+.rated__link {
+    margin-top: 26px;
+}
+
+@media (max-width: 1200px) {
+    .rated__box {
+        padding: 35px;
+    }
+
+    .rated__img {
+        margin-top: 0;
+    }
+
+    .rated__right {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 870px) {
+    .rated {
+        margin: 0 0 20px 0;
+    }
+
+    .rated__box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        row-gap: 24px;
+        padding: 24px;
+        background: linear-gradient(120deg, #132E29 0%, #15161B 33.11%, #15161B 52.6%, #15161B 62.42%, #132E29 100%);
+    }
+
+    .rated__description {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .rated__img img {
+        width: 300px;
+        height: auto;
+    }
+}

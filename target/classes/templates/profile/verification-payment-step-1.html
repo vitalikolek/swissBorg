@@ -1,0 +1,562 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'Verification Payment | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/support-widget.css?v=1">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+</head>
+<body>
+<header th:replace="~{fragments/profile-header.html :: header}"></header>
+
+<main class="main__box step-verification-root">
+    <section class="step-verification">
+        <div class="step-verification__block step-verification__block-one step-verification__block-active">
+            <svg width="228" height="56" viewBox="0 0 228 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="path-1-inside-1_468_12574" fill="white">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 5C0 2.23858 2.23858 0 5 0H209.098C210.893 0 212.549 0.96143 213.44 2.51931L226.866 26.0154C227.569 27.2452 227.569 28.7548 226.866 29.9846L213.44 53.4807C212.549 55.0386 210.893 56 209.098 56H5C2.23858 56 0 53.7614 0 51V5Z"></path>
+                </mask>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 5C0 2.23858 2.23858 0 5 0H209.098C210.893 0 212.549 0.96143 213.44 2.51931L226.866 26.0154C227.569 27.2452 227.569 28.7548 226.866 29.9846L213.44 53.4807C212.549 55.0386 210.893 56 209.098 56H5C2.23858 56 0 53.7614 0 51V5Z" fill="white"></path>
+                <path d="M226.866 26.0154L227.734 25.5193L227.734 25.5193L226.866 26.0154ZM226.866 29.9846L227.734 30.4807L227.734 30.4807L226.866 29.9846ZM213.44 53.4807L212.571 52.9846L213.44 53.4807ZM213.44 2.51931L212.571 3.01544L213.44 2.51931ZM209.098 -1H5V1H209.098V-1ZM212.571 3.01544L225.998 26.5116L227.734 25.5193L214.308 2.02317L212.571 3.01544ZM225.998 26.5116C226.525 27.4339 226.525 28.5661 225.998 29.4884L227.734 30.4807C228.613 28.9435 228.613 27.0565 227.734 25.5193L225.998 26.5116ZM225.998 29.4884L212.571 52.9846L214.308 53.9768L227.734 30.4807L225.998 29.4884ZM5 57H209.098V55H5V57ZM-1 5V51H1V5H-1ZM212.571 52.9846C211.859 54.2309 210.534 55 209.098 55V57C211.252 57 213.24 55.8463 214.308 53.9768L212.571 52.9846ZM5 -1C1.68629 -1 -1 1.68629 -1 5H1C1 2.79086 2.79086 1 5 1V-1ZM5 55C2.79086 55 1 53.2091 1 51H-1C-1 54.3137 1.68629 57 5 57V55ZM209.098 1C210.534 1 211.859 1.76914 212.571 3.01544L214.308 2.02317C213.24 0.153716 211.252 -1 209.098 -1V1Z" fill="#DADADA" mask="url(#path-1-inside-1_468_12574)"></path>
+            </svg>
+
+            <div class="step-verification__block-title">
+                Step 1
+            </div>
+            <div class="step-verification__block-description">
+                Select coin &amp; network
+            </div>
+            <div class="step-verification__block-arrow">
+                <div class="step-verification__block-arrow-outer">
+                    <div class="step-verification__block-arrow-inner"></div>
+                </div>
+
+                <div class="step-verification__block-arrow-outer transparent">
+                    <div class="step-verification__block-arrow-inner"></div>
+                </div>
+            </div>
+        </div>
+        <div class="step-verification__block step-verification__block-two">
+            <svg width="225" height="56" viewBox="0 0 225 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="path-1-inside-1_468_12534" fill="white">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M210.44 2.51931C209.549 0.96143 207.893 0 206.098 0H5.61591C1.7768 0 -0.630041 4.14741 1.27469 7.48069L11.866 26.0154C12.5687 27.2452 12.5687 28.7548 11.866 29.9846L1.27469 48.5193C-0.63004 51.8526 1.7768 56 5.61592 56H206.098C207.893 56 209.549 55.0386 210.44 53.4807L223.866 29.9846C224.569 28.7548 224.569 27.2452 223.866 26.0154L210.44 2.51931Z"></path>
+                </mask>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M210.44 2.51931C209.549 0.96143 207.893 0 206.098 0H5.61591C1.7768 0 -0.630041 4.14741 1.27469 7.48069L11.866 26.0154C12.5687 27.2452 12.5687 28.7548 11.866 29.9846L1.27469 48.5193C-0.63004 51.8526 1.7768 56 5.61592 56H206.098C207.893 56 209.549 55.0386 210.44 53.4807L223.866 29.9846C224.569 28.7548 224.569 27.2452 223.866 26.0154L210.44 2.51931Z" fill="white"></path>
+                <path d="M11.866 26.0154L10.9977 26.5116L10.9977 26.5116L11.866 26.0154ZM11.866 29.9846L10.9977 29.4884L10.9977 29.4884L11.866 29.9846ZM223.866 29.9846L224.734 30.4807L224.734 30.4807L223.866 29.9846ZM223.866 26.0154L224.734 25.5193L224.734 25.5193L223.866 26.0154ZM210.44 2.51931L209.571 3.01544L210.44 2.51931ZM210.44 53.4807L209.571 52.9846L210.44 53.4807ZM5.61591 1H206.098V-1H5.61591V1ZM12.7342 25.5193L2.14294 6.98456L0.40645 7.97683L10.9977 26.5116L12.7342 25.5193ZM12.7342 30.4807C13.6126 28.9435 13.6126 27.0565 12.7342 25.5193L10.9977 26.5116C11.5248 27.4339 11.5248 28.5661 10.9977 29.4884L12.7342 30.4807ZM2.14294 49.0154L12.7342 30.4807L10.9977 29.4884L0.40645 48.0232L2.14294 49.0154ZM206.098 55H5.61592V57H206.098V55ZM222.998 29.4884L209.571 52.9846L211.308 53.9768L224.734 30.4807L222.998 29.4884ZM222.998 26.5116C223.525 27.4339 223.525 28.5661 222.998 29.4884L224.734 30.4807C225.613 28.9435 225.613 27.0565 224.734 25.5193L222.998 26.5116ZM209.571 3.01544L222.998 26.5116L224.734 25.5193L211.308 2.02317L209.571 3.01544ZM0.40645 48.0232C-1.87923 52.0231 1.00898 57 5.61592 57V55C2.54462 55 0.619151 51.6821 2.14294 49.0154L0.40645 48.0232ZM206.098 1C207.534 1 208.859 1.76914 209.571 3.01544L211.308 2.02317C210.24 0.153717 208.252 -1 206.098 -1V1ZM206.098 57C208.252 57 210.24 55.8463 211.308 53.9768L209.571 52.9846C208.859 54.2309 207.534 55 206.098 55V57ZM5.61591 -1C1.00897 -1 -1.87923 3.97689 0.40645 7.97683L2.14294 6.98456C0.619149 4.31793 2.54462 1 5.61591 1V-1Z" fill="#DADADA" mask="url(#path-1-inside-1_468_12534)"></path>
+            </svg>
+
+            <div class="step-verification__block-title">
+                Step 2
+            </div>
+            <div class="step-verification__block-description">
+                Copy address &amp; amount
+            </div>
+            <div class="step-verification__block-arrow">
+                <div class="step-verification__block-arrow-outer">
+                    <div class="step-verification__block-arrow-inner"></div>
+                </div>
+            </div>
+        </div>
+        <div class="step-verification__block step-verification__block-three">
+            <svg width="213" height="56" viewBox="0 0 213 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="path-1-inside-1_467_12758" fill="white">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.30507 7.51287C-0.632657 4.17956 1.77213 0 5.62775 0H207.609C210.37 0 212.609 2.23858 212.609 5V51C212.609 53.7614 210.37 56 207.609 56H5.62775C1.77213 56 -0.632654 51.8204 1.30508 48.4871L12.0461 30.0103C12.7686 28.7675 12.7686 27.2325 12.0461 25.9897L1.30507 7.51287Z"></path>
+                </mask>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.30507 7.51287C-0.632657 4.17956 1.77213 0 5.62775 0H207.609C210.37 0 212.609 2.23858 212.609 5V51C212.609 53.7614 210.37 56 207.609 56H5.62775C1.77213 56 -0.632654 51.8204 1.30508 48.4871L12.0461 30.0103C12.7686 28.7675 12.7686 27.2325 12.0461 25.9897L1.30507 7.51287Z" fill="white"></path>
+                <path d="M12.0461 30.0103L11.1816 29.5077L11.1816 29.5077L12.0461 30.0103ZM12.0461 25.9897L11.1816 26.4923L11.1816 26.4923L12.0461 25.9897ZM1.30508 48.4871L0.440543 47.9846L1.30508 48.4871ZM1.30507 7.51287L0.440541 8.01544L1.30507 7.51287ZM207.609 -1H5.62775V1H207.609V-1ZM213.609 51V5H211.609V51H213.609ZM5.62775 57H207.609V55H5.62775V57ZM11.1816 29.5077L0.440543 47.9846L2.16961 48.9897L12.9106 30.5129L11.1816 29.5077ZM11.1816 26.4923C11.7234 27.4244 11.7234 28.5756 11.1816 29.5077L12.9106 30.5129C13.8137 28.9593 13.8137 27.0407 12.9106 25.4871L11.1816 26.4923ZM0.440541 8.01544L11.1816 26.4923L12.9106 25.4871L2.16961 7.0103L0.440541 8.01544ZM5.62775 55C2.54326 55 0.619425 51.6563 2.16961 48.9897L0.440543 47.9846C-1.88473 51.9845 1.00101 57 5.62775 57V55ZM211.609 51C211.609 53.2091 209.818 55 207.609 55V57C210.922 57 213.609 54.3137 213.609 51H211.609ZM5.62775 -1C1.00101 -1 -1.88474 4.01547 0.440541 8.01544L2.16961 7.0103C0.619424 4.34365 2.54325 1 5.62775 1V-1ZM207.609 1C209.818 1 211.609 2.79086 211.609 5H213.609C213.609 1.68629 210.922 -1 207.609 -1V1Z" fill="#DADADA" mask="url(#path-1-inside-1_467_12758)"></path>
+            </svg>
+
+            <div class="step-verification__block-title">
+                Step 3
+            </div>
+            <div class="step-verification__block-description">
+                Wait for confirmation
+            </div>
+        </div>
+    </section>
+    <section class="form-coins verification verification-step-one">
+        <div class="form-coins__container">
+            <div class="form-coins__left">
+                <div class="step">
+                    <div class="step__number">
+                        1
+                    </div>
+                    <div class="step__wrapper">
+                        <div class="step__title">
+                            Select coin to deposit
+                        </div>
+                        <div class="step__description">
+                            Select the cryptocurrency you want to deposit into your account
+                        </div>
+                        <div class="step__select">
+                            <div class="select step-form-coins-send-verification-one">
+                                <div class="select__selected">
+                                    <div class="select__img">
+                                        <img th:src="${selected_coin.icon}" alt="">
+                                    </div>
+                                    <div class="select__name">
+                                        <th:block th:text="${selected_coin.title} + ' '"><span th:text="${selected_coin.symbol}"></span></th:block></div>
+                                    <div class="select__arrow">
+                                        <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="select__menu">
+                                    <th:block th:each="depositCoin: ${deposit_coins}">
+                                        <div class="select__menu-item" th:data-redirect="'/profile/verification-payment-step-1?currency=' + ${depositCoin.type.name}" onclick="location.replace(this.getAttribute('data-redirect'))">
+                                            <div class="select__img">
+                                                <img th:src="${depositCoin.icon}" alt="">
+                                            </div>
+                                            <div class="select__name">
+                                                <th:block th:text="${depositCoin.title} + ' '"><span th:text="${depositCoin.symbol}"></span></th:block>
+                                            </div>
+                                        </div>
+                                    </th:block>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step__number">
+                        2
+                    </div>
+                    <div class="step__wrapper">
+                        <div class="step__title">
+                            Select network
+                        </div>
+                        <div class="step__description">
+                            Make sure you selected the same network on the platform where you are withdrawing funds for this deposit
+                        </div>
+                        <div class="step__select step-form-coins-verification-one-network">
+
+                            <div th:if="${selected_coin.type.name == 'USDTERC20' || selected_coin.type.name == 'USDTTRC20' || selected_coin.type.name == 'USDTBEP20'}" class="select step-form-coins-network">
+                                <div class="select__selected">
+                                    <div class="select__name">
+                                        <th:block th:text="${selected_coin.title} + ' '"></th:block>
+                                        <span th:if="${coin_types.contains('USDTERC20')}">(ERC-20)</span>
+                                        <span th:if="${!coin_types.contains('USDTERC20') && coin_types.contains('USDTTRC20')}">(TRC-20)</span>
+                                        <span th:unless="${coin_types.contains('USDTERC20') || coin_types.contains('USDTTRC20')}">(BEP-20)</span>
+                                    </div>
+
+                                    <div class="select__arrow">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="select__menu">
+                                    <div th:if="${coin_types.contains('USDTERC20')}" class="select__menu-item" onclick="setNetwork('USDTERC20')">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(ERC-20)</span>
+                                        </div>
+                                    </div>
+                                    <div th:if="${coin_types.contains('USDTTRC20')}" class="select__menu-item" onclick="setNetwork('USDTTRC20')">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(TRC-20)</span>
+                                        </div>
+                                    </div>
+                                    <div th:if="${coin_types.contains('USDTBEP20')} " class="select__menu-item" onclick="setNetwork('USDTBEP20')">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(BEP-20)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div th:if="${selected_coin.type.name == 'BNB2' || selected_coin.type.name == 'BNBBEP20'}" class="select step-form-coins-network">
+                                <div class="select__selected">
+                                    <div class="select__name">
+                                        <th:block th:text="${selected_coin.title} + ' '"></th:block>
+                                        <span th:if="${coin_types.contains('BNB2')}">(BEP-2)</span>
+                                        <span th:unless="${coin_types.contains('BNB2')}">(BEP-20)</span>
+                                    </div>
+
+                                    <div class="select__arrow">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="select__menu">
+                                    <div th:if="${coin_types.contains('BNB2')}" class="select__menu-item" onclick="setNetwork('BNB2')">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(BEP-2)</span>
+                                        </div>
+                                    </div>
+                                    <div th:if="${coin_types.contains('BNBBEP20')}" class="select__menu-item" onclick="setNetwork('BNBBEP20')">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(BEP-20)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div th:if="${selected_coin.type.name == 'USDCTRC20'}" class="select step-form-coins-network">
+                                <div class="select__selected">
+                                    <div class="select__name">
+                                        <th:block th:text="${selected_coin.title} + ' '"></th:block>
+                                        <span>(TRC-20)</span>
+                                    </div>
+
+                                    <div class="select__arrow">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="select__menu">
+                                    <div class="select__menu-item" onclick="setNetwork('USDCTRC20')">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(TRC-20)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div th:if="${selected_coin.type.name == 'BUSDBEP20'}" class="select step-form-coins-network">
+                                <div class="select__selected">
+                                    <div class="select__name">
+                                        <th:block th:text="${selected_coin.title} + ' '"></th:block>
+                                        <span>(BEP-20)</span>
+                                    </div>
+
+                                    <div class="select__arrow">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="select__menu">
+                                    <div class="select__menu-item" onclick="setNetwork('BUSDBEP20')">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(BEP-20)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div th:if="${selected_coin.type.name == 'USDPERC20'}" class="select step-form-coins-network">
+                                <div class="select__selected">
+                                    <div class="select__name">
+                                        <th:block th:text="${selected_coin.title} + ' '"></th:block>
+                                        <span>(ERC-20)</span>
+                                    </div>
+
+                                    <div class="select__arrow">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="select__menu">
+                                    <div class="select__menu-item" onclick="setNetwork('USDPERC20')">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(ERC-20)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div th:if="${selected_coin.type.name == 'SHIBBEP20'}" class="select step-form-coins-network">
+                                <div class="select__selected">
+                                    <div class="select__name">
+                                        <th:block th:text="${selected_coin.title} + ' '"></th:block>
+                                        <span>(BEP-20)</span>
+                                    </div>
+
+                                    <div class="select__arrow">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="select__menu">
+                                    <div class="select__menu-item" onclick="setNetwork('SHIBBEP20')">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(BEP-20)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div th:if="${selected_coin.type.name != 'USDCTRC20' && selected_coin.type.name != 'BUSDBEP20' && selected_coin.type.name != 'USDPERC20' && selected_coin.type.name != 'SHIBBEP20' && selected_coin.type.name != 'BNB2' && selected_coin.type.name != 'BNBBEP20' && selected_coin.type.name != 'USDTERC20' && selected_coin.type.name != 'USDTTRC20' && selected_coin.type.name != 'USDTBEP20'}" class="select step-form-coins-network">
+                                <div class="select__selected">
+                                    <div class="select__name">
+                                        <th:block th:text="${selected_coin.title}"></th:block>
+                                        <span th:text="' (' + ${selected_coin.symbol} + ')'"></span>
+                                    </div>
+
+                                    <div class="select__arrow">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="select__menu">
+                                    <div class="select__menu-item">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title}"></th:block>
+                                            <span th:text="' (' + ${selected_coin.symbol} + ')'"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-coins__btn">
+                    <a href="#" class="buttons__01" id="go_to_next_page">
+                        Proceed
+                    </a>
+                </div>
+                <div class="form-coins__alert">
+                    <div class="form-coins__alert-img">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#536572" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M12 8V13" stroke="#536572" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M11.9941 16H12.0031" stroke="#536572" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <div class="form-coins__alert-text">
+                        12 network confirmations are required before your funds will be added to your account balance.
+                    </div>
+                </div>
+            </div>
+            <div class="form-coins__right">
+                <div class="important-information">
+                    <svg width="45" height="43" viewBox="0 0 45 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M39.6552 1H2L44 41V4.21429V3.85714V3.5L43.6379 2.78571L43.2759 2.07143L42.9138 1.71429L42.5517 1.35714L41.8276 1H39.6552Z" fill="#68BC4A" stroke="#68BC4A"></path>
+                    </svg>
+                    <div class="important-information__title">Important information</div>
+
+                    <div class="important-information__list">
+                        <div class="important-information__item">Send only <span th:text="${selected_coin.symbol}"></span> to this deposit address</div>
+                        <div class="important-information__item">Ensure the network is <span th:text="${selected_coin.title} + ' (' + ${selected_coin.symbol} + ')'"></span></div>
+                        <div class="important-information__item">Deposits via smart contracts are not supported</div>
+                        <div class="important-information__item">Do not send NFTs to this address</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<input type="hidden" th:value="${selected_coin.type.name}" id="active_currency">
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__top">
+            <div class="footer__info">
+                <div class="footer__logo">
+                    <div class="footer__logo-top">
+                        <div class="footer__logo-icon">
+                            <img style="width: 39px; margin-bottom: -3px;" th:src="${site_icon}">
+                        </div>
+                        <div class="footer__logo-text" th:text="${site_name}"></div>
+                    </div>
+                    <div class="footer__logo-line">
+                        <svg width="169" height="18" viewbox="0 0 169 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.2248 4.81993C23.8867 4.70895 26.0204 5.76327 27.2835 7.99677C28.2398 9.70312 29.3174 9.99445 31.1015 9.37018C35.683 7.76788 40.2859 6.22108 44.9173 4.77831C47.7861 3.88352 50.3552 4.36212 52.4604 6.74129C52.967 7.31008 54.2016 7.68465 54.9795 7.53205C58.9758 6.7413 62.9364 5.74245 66.9113 4.82685C71.3787 3.80027 75.8317 2.68354 80.3347 1.80955C83.1107 1.26852 85.7369 2.32977 87.4425 4.31357C89.9259 7.19216 92.9659 7.05342 96.0345 6.38753C101.822 5.13899 107.51 3.48815 113.283 2.17718C116.237 1.51129 119.277 1.01879 122.303 0.859255C123.688 0.782956 125.3 1.44885 126.506 2.22572C129.061 3.8627 131.887 3.74478 134.578 3.46039C142.035 2.66964 149.492 1.77487 156.864 0.463899C160.911 -0.257482 164.2 1.24769 167.619 2.59334C168.297 2.86386 169.181 4.32745 168.967 4.72975C168.461 5.68004 167.462 6.60257 166.434 7.00488C165.563 7.3517 164.279 7.1991 163.351 6.85228C158.534 5.04189 153.867 6.73436 149.157 7.26846C143.362 7.92048 137.596 8.80832 131.794 9.31468C130.046 9.46728 127.855 9.19676 126.499 8.25342C122.788 5.67309 119.042 6.52626 115.224 7.40718C109.122 8.81526 103.049 10.3205 96.9622 11.7771C91.9454 12.9771 87.5424 12.11 83.7459 8.43377C82.9323 7.64302 81.1197 7.19216 79.9779 7.45574C74.4758 8.69735 69.038 10.2234 63.5787 11.6661C59.9035 12.6303 56.2997 14.2118 52.3747 12.769C51.8895 12.5886 51.2971 12.5054 50.9403 12.1863C47.1153 8.74591 43.383 10.6187 39.5865 12.2557C36.9603 13.3863 34.3199 14.5169 31.5867 15.3424C28.1542 16.3828 25.5423 15.0927 23.0232 11.5759C22.1383 10.3343 21.3604 9.82798 19.8333 10.1262C15.3588 10.9863 11.4838 13.0326 7.99416 15.7724C4.83279 18.2626 2.41358 18.7551 0.401143 16.7921C-0.0555794 16.3481 -0.148338 14.7528 0.25843 14.3921C5.06115 10.0846 14.1385 5.18061 21.2391 4.82685L21.2248 4.81993Z" fill="#6544C6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="footer__description">
+                    Innovative cryptocurrency exchange with advanced financial services. We rely on blockchain technology to provide everything you need for wise trading and investment.
+                </div>
+                <div style="font-family: Roboto-Regular, sans-serif; font-weight: 400; font-size: 12px; line-height: 15px; letter-spacing: 0.02em; color: rgba(232, 232, 232, 0.7); margin-bottom: 23px;">
+                    <th:block th:if="${listing_request_enabled}">Listing Request: <span style="color: #6544c6;" th:text="${listing_request}"></span><br></th:block>
+                    <th:block th:if="${partnership_enabled}">Partnership: <span style="color: #6544c6;" th:text="${partnership}"></span></th:block>
+                </div>
+                <a th:if="${twitter_enabled}" th:href="${twitter}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/twitter.png">
+                </a>
+                <a th:if="${telegram_enabled}" th:href="${telegram}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/telegram.png">
+                </a>
+                <a th:if="${instagram_enabled}" th:href="${instagram}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/instagram.png">
+                </a>
+                <a th:if="${facebook_enabled}" th:href="${facebook}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/facebook.png">
+                </a>
+                <a th:if="${reddit_enabled}" th:href="${reddit}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/reddit.png">
+                </a>
+                <br>
+                <br>
+                <div class="footer__label">Subscribe to our newsletter</div>
+                <div class="footer__wrapper">
+                    <input class="footer__input" type="email" placeholder="Enter email">
+                    <a class="footer__sing-up" id="footer_subscribe" href="#">
+                        Subscribe
+                    </a>
+                </div>
+            </div>
+            <div class="footer__links">
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Products
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../trading">Spot trading</a>
+                        <a class="footer__link butafor__btn" href="../profile/wallet">Futures trading</a>
+                        <a class="footer__link butafor__btn" href="../profile/wallet">Options trading</a>
+                        <a class="footer__link" href="../profile/wallet">Wallet</a>
+                        <a class="footer__link" href="swap">Instant swap</a>
+                        <a class="footer__link" href="p2p">P2P trading</a>
+                        <a class="footer__link" href="staking">DeFi Staking</a>
+                        <a class="footer__link" href="cards" th:text="${site_name} + ' Visa Card'"></a>
+                    </div>
+                </div>
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Services
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="support">24/7 Support chat</a>
+                        <a class="footer__link" href="copy-trading">Copy trading</a>
+                        <a class="footer__link" href="trading-bots">Trading bots</a>
+                        <a class="footer__link" href="stake-eth20">ETH 2.0 staking</a>
+                        <a class="footer__link" href="launchpad">Launchpad</a>
+                        <a class="footer__link" href="savings">Savings</a>
+                        <a class="footer__link" href="ventures" th:text="${site_name} + ' ventures'"></a>
+                        <a th:if="${payment_settings != null && payment_settings.transakEnabled}" class="footer__link" href="buy-crypto">Buy crypto</a>
+                    </div>
+                </div>
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Information
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../fees">Fees</a>
+                        <a class="footer__link" href="status">Platform status</a>
+                        <a class="footer__link" href="wallet-security">Wallet security</a>
+                        <a class="footer__link" href="../indices">Indices</a>
+                        <a class="footer__link" href="api-docs">Trading API</a>
+                        <a class="footer__link" href="token-listing">Token listing</a>
+                        <a class="footer__link" href="space">Referral system</a>
+                        <a class="footer__link" href="../bugbounty">Bug Bounty</a>
+                    </div>
+                </div>
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Legal
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../terms">Terms of service</a>
+                        <a class="footer__link" href="../privacy-notice">Privacy notice</a>
+                        <a class="footer__link" href="../cookies-policy">Cookies policy</a>
+                        <a class="footer__link" href="../aml-kyc-policy">AML & KYC policy</a>
+                        <a class="footer__link" href="../risk">Risk Disclosure Statement</a>
+                        <a class="footer__link" href="../regulatory">Regulatory License</a>
+                        <a class="footer__link" href="../treatment">Special Treatment</a>
+                        <a class="footer__link" href="../law">Law Enforcement Requests</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="footer__sub-text">
+                In acceding to or using the Platform and the Site, you represent and warrant that you are fully aware of the risks associated with the transactions involving Digital Assets or the use of Platform. You agree and understand that you are solely responsible for determining the nature, potential value, suitability, and appropriateness of these risks for yourself, and that the Company does not give advice or recommendations regarding any Digital Asset, including the suitability and appropriateness of, and investment strategies for, any Digital Asset. You agree and understand that you access and use the Platform and the Site at your own risk. <br>
+                <span th:text="${site_name} + ' 2024 © All right reserved'"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+<a class="support-widget" href="../profile/support">
+    <svg viewBox="0 -256 1850 1850" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 80%; height: 80%; fill: rgb(255, 255, 255); stroke: none;">
+        <path transform="matrix(0.71186441,0,0,-0.71186441,288.54237,1093.9482)" d="M 704,1152 Q 551,1152 418,1100 285,1048 206.5,959 128,870 128,768 q 0,-82 53,-158 53,-76 149,-132 l 97,-56 -35,-84 q 34,20 62,39 l 44,31 53,-10 q 78,-14 153,-14 153,0 286,52 133,52 211.5,141 78.5,89 78.5,191 0,102 -78.5,191 -78.5,89 -211.5,141 -133,52 -286,52 z m 0,128 q 191,0 353.5,-68.5 Q 1220,1143 1314,1025 1408,907 1408,768 1408,629 1314,511 1220,393 1057.5,324.5 895,256 704,256 618,256 528,272 404,184 250,144 214,135 164,128 h -3 q -11,0 -20.5,8 -9.5,8 -11.5,21 -1,3 -1,6.5 0,3.5 0.5,6.5 0.5,3 2,6 l 2.5,5 q 0,0 3.5,5.5 3.5,5.5 4,5 0.5,-0.5 4.5,5 4,5.5 4,4.5 5,6 23,25 18,19 26,29.5 8,10.5 22.5,29 Q 235,303 245.5,323 256,343 266,367 142,439 71,544 0,649 0,768 0,907 94,1025 188,1143 350.5,1211.5 513,1280 704,1280 Z M 1526,111 q 10,-24 20.5,-44 10.5,-20 25,-38.5 14.5,-18.5 22.5,-29 8,-10.5 26,-29.5 18,-19 23,-25 1,-1 4,-4.5 3,-3.5 4.5,-5 1.5,-1.5 4,-5 2.5,-3.5 3.5,-5.5 l 2.5,-5 q 0,0 2,-6 2,-6 0.5,-6.5 -1.5,-0.5 -1,-6.5 -3,-14 -13,-22 -10,-8 -22,-7 -50,7 -86,16 Q 1388,-72 1264,16 1174,0 1088,0 817,0 616,132 q 58,-4 88,-4 161,0 309,45 148,45 264,129 125,92 192,212 67,120 67,254 0,77 -23,152 129,-71 204,-178 75,-107 75,-230 0,-120 -71,-224.5 Q 1650,183 1526,111 Z"></path>
+    </svg>
+    <span th:if="${support_unviewed != null && support_unviewed > 0}" th:text="${support_unviewed}"></span>
+</a>
+<!-- END FOOTER -->
+<script src="../assets/js/verification-step-one.min.js"></script>
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/toastr.js"></script>
+<script src="../assets/js/newnoti.js"></script>
+<script src="../assets/js/error-modal.js?v=4"></script>
+<script>
+    $("#go_to_next_page").on("click", function(event) {
+        event.preventDefault();
+
+        location.replace("verification-payment-step-2?currency=" + $("#active_currency").val());
+    });
+
+    function setNetwork(network) {
+        $("#active_currency").val(network);
+    }
+
+    setInterval(() => {
+        $.ajax({
+          url: "/api/user/profile",
+          type: "POST",
+          contentType: 'application/json; charset=UTF-8',
+          dataType: 'text',
+          data: JSON.stringify({
+              action: "CHECK_ALERT"
+          }),
+          success: function (response) {
+              if (response !== "no_alerts") {
+                  const json = JSON.parse(response);
+
+                  const type = json["type"];
+                  const message = json["message"];
+
+                  if (type === "NOTIFICATION") {
+                      noti(message, "success");
+                  } else if (type === "ALERT") {
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                  } else if (type === "BONUS") {
+                      $("#alert_img_pop").attr("src", "");
+                      $("#alert_title_text").html("Bonus");
+                      $("#alert_img_pop").attr("src", "../assets/img/bonus-icon.png");
+                      $("#alert_img_pop").css("display", "block");
+                      $("#svg_alert_img").remove();
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                      $("#userAlertBox").css("font-size", "18px");
+                  }
+              }
+          }
+      });
+    }, 5000);
+
+    function closeModal(event) {
+        event.preventDefault();
+
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+    }
+
+
+    $("#butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    $(".butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    function closeButaforModal() {
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+        $("#butafor__modal").removeClass("withdrawal-successful-active");
+    }
+
+    $("#footer_subscribe").on("click", function(e) {
+        e.preventDefault();
+        $("#footer_subscribe").html("Subscribed!");
+    })
+</script>
+</body>
+</html>

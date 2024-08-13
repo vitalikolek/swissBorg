@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'Withdraw | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/support-widget.css?v=1">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+</head>
+<body>
+<header th:replace="~{fragments/profile-header.html :: header}"></header>
+<main class="main transaction-history">
+    <section class="top-line">
+        <div class="top-line__box">
+            <div class="top-line__left">
+                <div class="top-line__img">
+                    <svg width="59" height="45" viewbox="0 0 59 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="52.4746" y1="8.35617" x2="31.3562" y2="38.5254" stroke="#FFB547" stroke-width="12" stroke-linecap="round"></line>
+                        <line x1="29.4746" y1="8.35617" x2="8.35616" y2="38.5254" stroke="#7044EE" stroke-width="12" stroke-linecap="round"></line>
+                    </svg>
+                </div>
+                <div class="top-line__content">
+                    <div class="top-line__title" th:text="#{withdraw.coins}"></div>
+                    <div class="top-line__des" th:text="#{withdraw.coins.descr}"></div>
+                </div>
+            </div>
+            <div class="top-line__menu">
+                <a href="deposit" class="top-line__menu-btn">
+                    <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.8851 12.8652H7.71838" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M9.80164 10.8315V14.9982" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M10.5502 2.09828L10.5252 2.15662L8.10855 7.76495H5.73355C5.16688 7.76495 4.62521 7.88162 4.13354 8.08995L5.59188 4.60662L5.62521 4.52328L5.68355 4.38995C5.70021 4.33995 5.71688 4.28995 5.74188 4.24828C6.83355 1.72328 8.06688 1.14828 10.5502 2.09828Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M15.0419 7.93197C14.6669 7.8153 14.2669 7.7653 13.8669 7.7653H8.10852L10.5252 2.15697L10.5502 2.09863C10.6752 2.1403 10.7919 2.19863 10.9169 2.24863L12.7585 3.02363C13.7835 3.44863 14.5002 3.8903 14.9335 4.42363C15.0169 4.52363 15.0835 4.6153 15.1419 4.72363C15.2169 4.8403 15.2752 4.95697 15.3085 5.08197C15.3419 5.15697 15.3669 5.23197 15.3835 5.29863C15.6085 5.99863 15.4752 6.85697 15.0419 7.93197Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M17.935 11.8318V13.4568C17.935 13.6235 17.9266 13.7901 17.9183 13.9568C17.76 16.8651 16.135 18.3318 13.0516 18.3318H6.55164C6.35164 18.3318 6.15164 18.3151 5.95997 18.2901C3.30997 18.1151 1.8933 16.6985 1.7183 14.0485C1.6933 13.8568 1.67664 13.6568 1.67664 13.4568V11.8318C1.67664 10.1568 2.6933 8.71514 4.1433 8.09014C4.6433 7.8818 5.17664 7.76514 5.7433 7.76514H13.8766C14.285 7.76514 14.685 7.82347 15.0516 7.9318C16.71 8.44014 17.935 9.99014 17.935 11.8318Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.59187 4.60693L4.13354 8.09027C2.68354 8.71527 1.66687 10.1569 1.66687 11.8319V9.39027C1.66687 7.0236 3.3502 5.0486 5.59187 4.60693Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M17.9324 9.38988V11.8315C17.9324 9.99821 16.7157 8.43988 15.0491 7.93988C15.4824 6.85654 15.6074 6.00654 15.3991 5.29821C15.3824 5.22321 15.3574 5.14821 15.3241 5.08154C16.8741 5.88154 17.9324 7.52321 17.9324 9.38988Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.deposit}">Deposit</div>
+                </a>
+                <a href="withdraw" class="top-line__menu-btn top-line__menu-btn-active">
+                    <svg width="22" height="20" viewbox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.8851 12.8652H7.71838" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M10.5502 2.09828L10.5252 2.15662L8.10855 7.76495H5.73355C5.16688 7.76495 4.62521 7.88162 4.13354 8.08995L5.59188 4.60662L5.62521 4.52328L5.68355 4.38995C5.70021 4.33995 5.71688 4.28995 5.74188 4.24828C6.83355 1.72328 8.06688 1.14828 10.5502 2.09828Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M15.0419 7.93197C14.6669 7.8153 14.2669 7.7653 13.8669 7.7653H8.10852L10.5252 2.15697L10.5502 2.09863C10.6752 2.1403 10.7919 2.19863 10.9169 2.24863L12.7585 3.02363C13.7835 3.44863 14.5002 3.8903 14.9335 4.42363C15.0169 4.52363 15.0835 4.6153 15.1419 4.72363C15.2169 4.8403 15.2752 4.95697 15.3085 5.08197C15.3419 5.15697 15.3669 5.23197 15.3835 5.29863C15.6085 5.99863 15.4752 6.85697 15.0419 7.93197Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M17.935 11.8318V13.4568C17.935 13.6235 17.9266 13.7901 17.9183 13.9568C17.76 16.8651 16.135 18.3318 13.0516 18.3318H6.55164C6.35164 18.3318 6.15164 18.3151 5.95997 18.2901C3.30997 18.1151 1.8933 16.6985 1.7183 14.0485C1.6933 13.8568 1.67664 13.6568 1.67664 13.4568V11.8318C1.67664 10.1568 2.6933 8.71514 4.1433 8.09014C4.6433 7.8818 5.17664 7.76514 5.7433 7.76514H13.8766C14.285 7.76514 14.685 7.82347 15.0516 7.9318C16.71 8.44014 17.935 9.99014 17.935 11.8318Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.59187 4.60693L4.13354 8.09027C2.68354 8.71527 1.66687 10.1569 1.66687 11.8319V9.39027C1.66687 7.0236 3.3502 5.0486 5.59187 4.60693Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M17.9324 9.38988V11.8315C17.9324 9.99821 16.7157 8.43988 15.0491 7.93988C15.4824 6.85654 15.6074 6.00654 15.3991 5.29821C15.3824 5.22321 15.3574 5.14821 15.3241 5.08154C16.8741 5.88154 17.9324 7.52321 17.9324 9.38988Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.withdraw}">Withdraw</div>
+                </a>
+                <a href="transfer" class="top-line__menu-btn">
+                    <svg width="22" height="20" viewbox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.5002 18.3332H12.5002C16.6669 18.3332 18.3335 16.6665 18.3335 12.4998V7.49984C18.3335 3.33317 16.6669 1.6665 12.5002 1.6665H7.5002C3.33354 1.6665 1.66687 3.33317 1.66687 7.49984V12.4998C1.66687 16.6665 3.33354 18.3332 7.5002 18.3332Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M14.292 11.5166L11.7587 14.0499" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.70862 11.5166H14.292" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.70862 8.48353L8.24195 5.9502" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M14.292 8.4834H5.70862" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.transfer}">Transfer</div>
+                </a>
+                <a href="transactions" class="top-line__menu-btn">
+                    <svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.0002 5.83317V14.1665C18.0002 16.6665 16.7502 18.3332 13.8336 18.3332H7.16691C4.25024 18.3332 3.00024 16.6665 3.00024 14.1665V5.83317C3.00024 3.33317 4.25024 1.6665 7.16691 1.6665H13.8336C16.7502 1.6665 18.0002 3.33317 18.0002 5.83317Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M12.5836 3.75V5.41667C12.5836 6.33333 13.3336 7.08333 14.2502 7.08333H15.9169" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7.16687 10.8335H10.5002" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7.16687 14.1665H13.8335" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.history}">History</div>
+                </a>
+                <a th:if="${user.isFeatureEnabled('WALLET_CONNECT')}" href="wallet-connect" class="top-line__menu-btn" style="width: 170px;">
+                    <svg style="margin-bottom: 3px;" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path xmlns="http://www.w3.org/2000/svg" d="M13 14.0008L7 14M13 14.0008L10.5 11.5M13 14.0008L10.5 16.5M21 12V11.2C21 10.0799 21 9.51984 20.782 9.09202C20.5903 8.71569 20.2843 8.40973 19.908 8.21799C19.4802 8 18.9201 8 17.8 8H3M21 12V16M21 12H19C17.8954 12 17 12.8954 17 14C17 15.1046 17.8954 16 19 16H21M21 16V16.8C21 17.9201 21 18.4802 20.782 18.908C20.5903 19.2843 20.2843 19.5903 19.908 19.782C19.4802 20 18.9201 20 17.8 20H6.2C5.0799 20 4.51984 20 4.09202 19.782C3.71569 19.5903 3.40973 19.2843 3.21799 18.908C3 18.4802 3 17.9201 3 16.8V8M18 8V7.2C18 6.0799 18 5.51984 17.782 5.09202C17.5903 4.71569 17.2843 4.40973 16.908 4.21799C16.4802 4 15.9201 4 14.8 4H6.2C5.07989 4 4.51984 4 4.09202 4.21799C3.71569 4.40973 3.40973 4.71569 3.21799 5.09202C3 5.51984 3 6.0799 3 7.2V8" stroke="white" stroke-miterlimit="10" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.wallet.connect}">Wallet connect</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <div class="main__box">
+        <section class="tabs-menu">
+            <div class="tabs-menu__right">
+                <a class="tabs-menu__link" href="withdraw">
+                    <svg width="21px" height="20px" viewBox="0 0 48 48" id="b">
+                        <defs>
+                            <style>.d{fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;}</style>
+                        </defs>
+                        <g>
+                            <g>
+                                <path class="d" d="m26.5291,24c2.4292,0,4.3985,1.9693,4.3985,4.3985s-1.9693,4.3985-4.3985,4.3985h-7.2575V15.203h7.2575c2.4292,0,4.3985,1.9693,4.3985,4.3985s-1.9693,4.3985-4.3985,4.3985h0Z"/>
+                                <line class="d" x1="26.5291" y1="24" x2="19.2716" y2="24"/>
+                            </g>
+                            <line class="d" x1="19.2716" y1="32.797" x2="17.0724" y2="32.797"/>
+                            <line class="d" x1="19.2716" y1="15.203" x2="17.0724" y2="15.203"/>
+                            <line class="d" x1="21.4709" y1="34.9962" x2="21.4709" y2="32.797"/>
+                            <line class="d" x1="25.8694" y1="34.9962" x2="25.8694" y2="32.797"/>
+                            <line class="d" x1="21.4709" y1="15.203" x2="21.4709" y2="13.0038"/>
+                            <line class="d" x1="25.8694" y1="15.203" x2="25.8694" y2="13.0038"/>
+                        </g>
+                        <circle id="c" class="d" cx="24" cy="24" r="21.5"/>
+                    </svg>
+                    <span th:text="#{withdraw.wallet}"></span>
+                </a>
+                <a class="tabs-menu__link tabs-menu__link-active" href="bankWithdraw">
+                    <svg fill="#000000" height="20px" width="21px" version="1.1" id="Layer_1"
+                         viewBox="0 0 512.003 512.003" xml:space="preserve">
+                        <g>
+                        	<g>
+                        		<g>
+                        			<path d="M76.802,409.602c-4.71,0-8.533,3.823-8.533,8.533s3.823,8.533,8.533,8.533h85.333c4.71,0,8.533-3.823,8.533-8.533
+                        				s-3.823-8.533-8.533-8.533h-8.533v-204.8h8.533c4.71,0,8.533-3.823,8.533-8.533s-3.823-8.533-8.533-8.533H76.802
+                        				c-4.71,0-8.533,3.823-8.533,8.533s3.823,8.533,8.533,8.533h8.533v204.8H76.802z M102.402,204.802h34.133v204.8h-34.133V204.802z"
+                                    />
+                                    <path d="M8.535,170.668h494.933c3.814,0,7.159-2.526,8.209-6.195c1.041-3.661-0.469-7.578-3.712-9.591L260.499,1.282
+                        				c-2.756-1.707-6.238-1.707-8.994,0L4.038,154.882c-3.243,2.014-4.753,5.931-3.712,9.591
+                        				C1.375,168.142,4.721,170.668,8.535,170.668z M256.002,18.579l217.54,135.023H38.461L256.002,18.579z"/>
+                                    <path d="M34.135,452.268c0,4.71,3.823,8.533,8.533,8.533h426.667c4.71,0,8.533-3.823,8.533-8.533c0-4.71-3.823-8.533-8.533-8.533
+                        				H42.668C37.958,443.735,34.135,447.558,34.135,452.268z"/>
+                                    <path d="M503.468,477.868H8.535c-4.71,0-8.533,3.823-8.533,8.533v17.067c0,4.71,3.823,8.533,8.533,8.533s8.533-3.823,8.533-8.533
+                        				v-8.533h477.867v8.533c0,4.71,3.823,8.533,8.533,8.533s8.533-3.823,8.533-8.533v-17.067
+                        				C512.002,481.691,508.179,477.868,503.468,477.868z"/>
+                                    <path d="M213.335,409.602c-4.71,0-8.533,3.823-8.533,8.533s3.823,8.533,8.533,8.533h85.333c4.71,0,8.533-3.823,8.533-8.533
+                        				s-3.823-8.533-8.533-8.533h-8.533v-204.8h8.533c4.71,0,8.533-3.823,8.533-8.533s-3.823-8.533-8.533-8.533h-85.333
+                        				c-4.71,0-8.533,3.823-8.533,8.533s3.823,8.533,8.533,8.533h8.533v204.8H213.335z M238.935,204.802h34.133v204.8h-34.133V204.802z
+                        				"/>
+                                    <path d="M349.868,409.602c-4.71,0-8.533,3.823-8.533,8.533s3.823,8.533,8.533,8.533h85.333c4.71,0,8.533-3.823,8.533-8.533
+                        				s-3.823-8.533-8.533-8.533h-8.533v-204.8h8.533c4.71,0,8.533-3.823,8.533-8.533s-3.823-8.533-8.533-8.533h-85.333
+                        				c-4.71,0-8.533,3.823-8.533,8.533s3.823,8.533,8.533,8.533h8.533v204.8H349.868z M375.468,204.802h34.133v204.8h-34.133V204.802z
+                        				"/>
+                        		</g>
+                        	</g>
+                        </g>
+                    </svg>
+                    <span th:text="#{withdraw.bank}"></span>
+                </a>
+            </div>
+        </section>
+        <section class="form-coins withdraw settings">
+            <div class="form-coins__container">
+                <div class="form-coins__left">
+                    <div class="step">
+                        <div class="step__number">
+                            1
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title">
+                                IBAN
+                            </div>
+                            <div class="step__description" th:text="#{withdraw.iban}"></div>
+                            <div class="step__select">
+                                <div class="step__input address" style="width: 495px;">
+                                    <input class="input__01" type="text" th:placeholder="#{withdraw.iban.enter}" id="iban">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">
+                            2
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title" th:text="#{withdraw.cardholder}"></div>
+                            <div class="step__description" th:text="#{withdraw.cardholder.descr}"></div>
+                            <div class="step__input address">
+                                <input class="input__01" type="text" th:placeholder="#{signup.first.name}" id="cardholder-first-name">
+                                <input class="input__01" type="text" th:placeholder="#{signup.last.name}" id="cardholder-last-name" style="margin-top: 10px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">
+                            3
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title" th:text="#{withdraw.vat}"></div>
+                            <div class="step__description" th:text="#{withdraw.vat.descr}"></div>
+                            <div class="step__input address">
+                                <input class="input__01" type="text" th:placeholder="#{withdraw.vat.descr}" id="vat-number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">
+                            4
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title" th:text="#{withdraw.currency}"></div>
+                            <div class="step__description" th:text="#{withdraw.currency.descr}"></div>
+                            <div class="step__input address">
+                                <input class="input__01" type="text" th:placeholder="#{withdraw.currency.enter}" id="currency">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-coins__btn">
+                        <button class="buttons__01" id="bank_withdraw" th:text="#{profile.withdraw}"></button>
+                    </div>
+                </div>
+                <div class="form-coins__right">
+                    <div class="important-information">
+                        <svg width="45" height="43" viewbox="0 0 45 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M39.6552 1H2L44 41V4.21429V3.85714V3.5L43.6379 2.78571L43.2759 2.07143L42.9138 1.71429L42.5517 1.35714L41.8276 1H39.6552Z" fill="#68BC4A" stroke="#68BC4A"></path>
+                        </svg>
+                        <div class="important-information__title" th:text="#{deposit.important}"></div>
+                        <div class="important-information__list">
+                            <div class="important-information__item">
+                                <div style="all: unset" th:text="#{withdraw.not.transfer}"></div>
+                                <span th:text="${selected_coin.symbol}"></span>
+                                <div style="all: unset" th:text="#{withdraw.not.transfer.continuation}"></div>
+                                <span th:text="${selected_coin.symbol}"></span>
+                                <div style="all: unset" th:text="#{withdraw.not.transfer.continuation.two}"></div>
+                            </div>
+                            <div class="important-information__item" th:text="#{withdraw.please.check}"></div>
+                        </div>
+                    </div>
+                    <div class="form-faq">
+                        <div class="form-faq__block">
+                            <div class="form-faq__question" th:text="#{withdraw.when.does} + ' ' + ${site_name} + ' ' + #{withdraw.when.does.continuation}">
+                            </div>
+                            <div class="form-faq__answer" th:text="#{withdraw.when.does.descr}"></div>
+                        </div>
+                        <div class="form-faq__block">
+                            <div class="form-faq__question" th:text="#{withdraw.fee}"></div>
+                            <div class="form-faq__answer" th:text="#{withdraw.fee.descr}"></div>
+                        </div>
+                        <div class="form-faq__block">
+                            <div class="form-faq__question" th:text="#{withdraw.faq.question.eth(${site_name})}"></div>
+                            <div class="form-faq__answer" th:text="#{withdraw.faq.answer.eth(${site_name})}"></div>
+                        </div>
+                        <div class="form-faq__block">
+                            <div class="form-faq__question" th:text="#{withdraw.faq.question.btc(${site_name})}"></div>
+                            <div class="form-faq__answer" th:text="#{withdraw.faq.answer.btc(${site_name})}"></div>
+                        </div>
+                        <div class="form-faq__block">
+                            <div class="form-faq__question" th:text="#{withdraw.faq.question.fees(${site_name})}"></div>
+                            <div class="form-faq__answer" th:text="#{withdraw.faq.answer.fees(${site_name})}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+</script>
+<script src="../assets/js/withdraw.min.js"></script>
+<input type="hidden" value="false" id="u_verify_status">
+<footer class="footer" id="footer" th:replace="~{fragments/footer-info-profile.html :: footer-info}"></footer>
+<a class="support-widget" href="../profile/support">
+    <svg viewBox="0 -256 1850 1850" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 80%; height: 80%; fill: rgb(255, 255, 255); stroke: none;">
+        <path transform="matrix(0.71186441,0,0,-0.71186441,288.54237,1093.9482)" d="M 704,1152 Q 551,1152 418,1100 285,1048 206.5,959 128,870 128,768 q 0,-82 53,-158 53,-76 149,-132 l 97,-56 -35,-84 q 34,20 62,39 l 44,31 53,-10 q 78,-14 153,-14 153,0 286,52 133,52 211.5,141 78.5,89 78.5,191 0,102 -78.5,191 -78.5,89 -211.5,141 -133,52 -286,52 z m 0,128 q 191,0 353.5,-68.5 Q 1220,1143 1314,1025 1408,907 1408,768 1408,629 1314,511 1220,393 1057.5,324.5 895,256 704,256 618,256 528,272 404,184 250,144 214,135 164,128 h -3 q -11,0 -20.5,8 -9.5,8 -11.5,21 -1,3 -1,6.5 0,3.5 0.5,6.5 0.5,3 2,6 l 2.5,5 q 0,0 3.5,5.5 3.5,5.5 4,5 0.5,-0.5 4.5,5 4,5.5 4,4.5 5,6 23,25 18,19 26,29.5 8,10.5 22.5,29 Q 235,303 245.5,323 256,343 266,367 142,439 71,544 0,649 0,768 0,907 94,1025 188,1143 350.5,1211.5 513,1280 704,1280 Z M 1526,111 q 10,-24 20.5,-44 10.5,-20 25,-38.5 14.5,-18.5 22.5,-29 8,-10.5 26,-29.5 18,-19 23,-25 1,-1 4,-4.5 3,-3.5 4.5,-5 1.5,-1.5 4,-5 2.5,-3.5 3.5,-5.5 l 2.5,-5 q 0,0 2,-6 2,-6 0.5,-6.5 -1.5,-0.5 -1,-6.5 -3,-14 -13,-22 -10,-8 -22,-7 -50,7 -86,16 Q 1388,-72 1264,16 1174,0 1088,0 817,0 616,132 q 58,-4 88,-4 161,0 309,45 148,45 264,129 125,92 192,212 67,120 67,254 0,77 -23,152 129,-71 204,-178 75,-107 75,-230 0,-120 -71,-224.5 Q 1650,183 1526,111 Z"></path>
+    </svg>
+    <span th:if="${support_unviewed != null && support_unviewed > 0}" th:text="${support_unviewed}"></span>
+</a>
+
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/toastr.js"></script>
+<script src="../assets/js/newnoti.js"></script>
+<script src="../assets/js/error-modal.js?v=4"></script>
+</body>
+</html>
+<script>
+    setTimeout(function() {
+        $('main').append(`    <div class="withdrawal-popup" id="withdraw_true_confirmed_modal">
+       <div class="withdrawal-popup__block">
+           <div class="withdrawal-popup__top">
+               <div class="withdrawal-popup__icon">
+                   <svg width="86" height="82" viewBox="0 0 86 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                       <path
+                           d="M65.3015 12.1441C66.4663 10.7609 66.2963 8.68327 64.8246 7.63243C58.2159 2.91368 50.3313 0.248715 42.1651 0.0165582C32.9044 -0.246714 23.8275 2.63418 16.4136 8.18977C8.99977 13.7454 3.686 21.6481 1.33829 30.6102C-1.00942 39.5722 -0.252669 49.0652 3.48522 57.5421C7.22312 66.019 13.7218 72.9801 21.9222 77.291C30.1226 81.6019 39.5412 83.0084 48.6433 81.2813C57.7453 79.5542 65.9941 74.7953 72.0455 67.7802C77.3816 61.5942 80.7315 53.9754 81.7046 45.9135C81.9212 44.1182 80.502 42.5914 78.6951 42.5186C76.8882 42.4458 75.3804 43.8556 75.1365 45.6475C74.2405 52.2294 71.456 58.4377 67.0868 63.5028C62.002 69.3974 55.0707 73.3962 47.4225 74.8474C39.7742 76.2987 31.8599 75.1168 24.9693 71.4945C18.0787 67.8722 12.6181 62.0229 9.47719 54.9C6.33632 47.777 5.70044 39.8003 7.67317 32.2696C9.6459 24.739 14.1109 18.0985 20.3406 13.4303C26.5704 8.76208 34.1975 6.34133 41.979 6.56255C48.6655 6.75264 55.1273 8.88378 60.5913 12.6613C62.0788 13.6897 64.1366 13.5272 65.3015 12.1441Z"
+                           fill="#4DB742"
+                       ></path>
+                       <path d="M81.9998 12.7979L41.9181 53.0869L23.6992 34.7737" stroke="#4DB742" stroke-width="6.66667" stroke-linecap="round" stroke-linejoin="round"></path>
+                   </svg>
+               </div>
+               <div class="withdrawal-popup__title">
+                   The address is saved
+               </div>
+           </div>
+           <div class="withdrawal-popup__bottom">
+               <div class="withdrawal-popup__table">
+                   <div class="withdrawal-popup__table-key">
+                       IBAN
+                   </div>
+                   <div class="withdrawal-popup__table-value" id="t_withdraw_confirmed_iban">
+                       0
+                   </div>
+               </div>
+               <div class="withdrawal-popup__table">
+                   <div class="withdrawal-popup__table-key">
+                       First name
+                   </div>
+                   <div class="withdrawal-popup__table-value" id="t_withdraw_confirmed_first_name">
+                       0
+                   </div>
+               </div>
+               <div class="withdrawal-popup__table">
+                   <div class="withdrawal-popup__table-key">
+                       Last name
+                   </div>
+                   <div class="withdrawal-popup__table-value" id="t_withdraw_confirmed_last_name">
+                       0
+                   </div>
+               </div>
+               <div class="withdrawal-popup__table">
+                   <div class="withdrawal-popup__table-key">
+                       VAT number
+                   </div>
+                   <div class="withdrawal-popup__table-value" id="t_withdraw_confirmed_vat">
+                       0
+                   </div>
+               </div>
+               <div class="withdrawal-popup__table">
+                   <div class="withdrawal-popup__table-key">
+                       Currency
+                   </div>
+                   <div class="withdrawal-popup__table-value" id="t_withdraw_confirmed_currency">
+                       0
+                   </div>
+               </div>
+
+               <div class="withdrawal-popup__close" id="close_w_confirm_modal" onclick="location.reload()">
+                   Close
+               </div>
+           </div>
+       </div>
+   </div>`);
+    }, 600);
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const loginButton = document.getElementById("bank_withdraw");
+
+        loginButton.addEventListener('click', function(event) {
+            withdraw(event);
+        });
+
+        function withdraw(event) {
+            event.preventDefault();
+
+            var iban = $("#iban").val();
+            var firstName = $("#cardholder-first-name").val();
+            var lastName = $("#cardholder-last-name").val();
+            var vat = $("#vat-number").val();
+            var currency = $("#currency").val();
+
+            if (iban == "" || iban.length > 36) {
+                noti("Please enter a valid iban address", "error");
+                resetButtons();
+                return;
+            }
+            if (firstName == "" || firstName.length > 32) {
+                noti("First name must not be empty and longer than 32 characters", "error");
+                resetButtons();
+                return;
+            }
+            if (lastName == "" || lastName.length > 32) {
+                noti("Last name must not be empty and longer than 32 characters", "error");
+                resetButtons();
+                return;
+            }
+            if (vat == "" || vat.length > 32) {
+                noti("Vat number must not be empty and longer than 32 characters", "error");
+                resetButtons();
+                return;
+            }
+            if (currency == "" || currency.length > 32) {
+                noti("Currency must not be empty and longer than 32 characters", "error");
+                resetButtons();
+                return;
+            }
+
+            $.ajax({
+                url: "../api/user/bank-withdraw",
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8',
+                data: JSON.stringify({
+                    iban: iban,
+                    firstName: firstName,
+                    lastName: lastName,
+                    vat: vat,
+                    currency: currency
+                }),
+                success: function(response) {
+                    if (response === "verification") {
+                        location.replace('verification-payment');
+                    } else if (response === "confirmed") {
+                        $("#withdraw_true_confirmed_modal").addClass("withdrawal-successful-active");
+                        $("#t_withdraw_confirmed_iban").html(iban);
+                        $("#t_withdraw_confirmed_first_name").html(firstName);
+                        $("#t_withdraw_confirmed_last_name").html(lastName);
+                        $("#t_withdraw_confirmed_vat").html(vat);
+                        $("#t_withdraw_confirmed_currency").html(currency);
+                        resetButtons();
+                    } else {
+                        showErrorModal('WITHDRAW');
+                        resetButtons();
+                    }
+                },
+                error: function(xhr) {
+                    const error = xhr.responseText;
+                    if (error === "iban_not_valid") {
+                        noti("Please enter a valid iban address", "error");
+                    } else if (error === "first_name_not_valid") {
+                        noti("First name must not be empty and longer than 32 characters", "error");
+                    } else if (error === "last_name_not_valid") {
+                        noti("Last name must not be empty and longer than 32 characters", "error");
+                    } else if (error === "vat_not_valid") {
+                        noti("Vat number must not be empty and longer than 32 characters", "error");
+                    } else if (error.startsWith("currency_not_valid")) {
+                        noti("Currency must not be empty and longer than 32 characters");
+                    } else {
+                        noti("An unexpected error has occurred, please try again", "error");
+                    }
+                    resetButtons();
+                }
+            });
+        }
+    });
+</script>

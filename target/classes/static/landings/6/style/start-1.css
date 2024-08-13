@@ -1,0 +1,132 @@
+.start {
+    margin-top: 92px;
+}
+
+.start__container {
+    max-width: 1174px;
+    padding: 0 24px;
+    margin: 0 auto;
+}
+
+.start__box {
+    position: relative;
+    border-radius: 20px;
+    background: linear-gradient(154deg, rgba(49, 46, 60, 0.08) 0%, rgba(26, 29, 35, 0.08) 100%), rgba(49, 48, 54, 0.30);
+    backdrop-filter: blur(7px);
+    padding: 53px 20px 70px 20px;
+}
+
+.start__box:before {
+    content: "";
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background:linear-gradient(45deg,#1B4C52,#5D5F60);
+    -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.start__subtitle {
+    color: #70E001;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 34px;
+}
+
+.start__title {
+    color: #FFF;
+    text-align: center;
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 53px;
+    margin-bottom: 26px;
+}
+
+.start__input-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 617px;
+    height: 67px;
+    border-radius: 50px;
+    border: 2px solid #33374C;
+    background: linear-gradient(154deg, #292C31 0%, #232930 100%);
+    backdrop-filter: blur(7px);
+    padding: 0 0 0 35px;
+}
+
+.start__input {
+    width: 100%;
+    background: none;
+    color: #C3BFC5;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    outline: none;
+}
+
+.start__input-btn {
+    padding: 0 33px;
+    color: #161617;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    height: 100%;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #0ACB7D 0%, #78E108 100%);
+    white-space: nowrap;
+}
+
+@media (max-width: 770px) {
+    .start__input-box {
+        width: 100%;
+    }
+}
+
+@media (max-width: 540px) {
+    .start__box {
+        padding: 30px 15px;
+    }
+
+    .start__input {
+        width: 280px;
+        border: 1px solid #C3BFC5;
+        border-radius: 10px;
+        padding: 12px;
+    }
+
+    .start__input-box {
+        flex-direction: column;
+        height: auto;
+        row-gap: 20px;
+        background: none;
+        border: none;
+        padding: 0;
+        backdrop-filter: none;
+    }
+
+    .start__input-btn {
+        padding: 12px 30px;
+    }
+}
+
+@media (max-width: 500px) {
+    .start__title {
+        font-size: 35px;
+        line-height: 45px;
+    }
+
+    .start__container {
+        padding: 0 15px;
+    }
+}

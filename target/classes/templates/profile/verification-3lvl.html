@@ -1,0 +1,400 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'KYC Verification - LVL3 | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/support-widget.css?v=1">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+</head>
+<body>
+
+<header th:replace="~{fragments/profile-header.html :: header}"></header>
+    <main class="main kyc-verification">
+        <section class="top-line">
+            <div class="top-line__box">
+                <div class="top-line__left">
+                    <div class="top-line__img">
+                        <svg width="59" height="45" viewbox="0 0 59 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="52.4746" y1="8.35617" x2="31.3562" y2="38.5254" stroke="#3ED7D7" stroke-width="12" stroke-linecap="round"></line>
+                            <line x1="29.4746" y1="8.35617" x2="8.35616" y2="38.5254" stroke="#7044EE" stroke-width="12" stroke-linecap="round"></line>
+                        </svg>
+                    </div>
+                    <div class="top-line__content">
+                        <div class="top-line__title">KYC Verification - LVL3</div>
+                        <div class="top-line__des">Select a suitable benefit according to your needs and complete the verification</div>
+                    </div>
+                </div>
+
+                <div class="top-line__info">
+                    <div class="top-line__info-item">
+                        <div class="top-line__item-img">
+
+                            <svg th:if="${user.twoFactorEnabled}" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#5CBE4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#5CBE4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <svg th:unless="${user.twoFactorEnabled}" width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.16992 14.8299L14.8299 9.16992" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M14.8299 14.8299L9.16992 9.16992" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+
+                        </div>
+                        <div class="top-line__item-title">
+                            Two-Factor Authentication (2FA)
+                        </div>
+
+                    </div>
+                    <div th:if="${!user.fakeVerified && (user.userKyc == null || !user.userKyc.accepted)}" class="top-line__info-item">
+                        <div class="top-line__item-img">
+                            <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.16992 14.8299L14.8299 9.16992" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M14.8299 14.8299L9.16992 9.16992" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <div class="top-line__item-title">
+                            Not verified
+                        </div>
+                    </div>
+                    <div th:if="${user.fakeVerified || (user.userKyc != null && user.userKyc.accepted)}" class="top-line__info-item">
+                        <div class="top-line__item-img">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#5CBE4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#5CBE4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <div class="top-line__item-title">
+                            Verified
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="upgrade-verification">
+            <div class="upgrade-verification__container">
+                <div class="upgrade-verification__item">
+                    <div class="upgrade-verification__info">
+                        <div class="upgrade-verification__img">
+                            <svg width="28" height="30" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.5414 2.96785C13.3464 2.25355 14.6647 2.25355 15.4814 2.96785L17.3247 4.61437C17.6747 4.92915 18.328 5.18339 18.7947 5.18339H20.778C22.0147 5.18339 23.0297 6.23668 23.0297 7.52V9.57814C23.0297 10.0503 23.2747 10.7404 23.578 11.1036L25.1647 13.0165C25.853 13.8518 25.853 15.2199 25.1647 16.0674L23.578 17.9802C23.2747 18.3434 23.0297 19.0214 23.0297 19.5057V21.5638C23.0297 22.8472 22.0147 23.9004 20.778 23.9004H18.7947C18.3397 23.9004 17.6747 24.1547 17.3247 24.4695L15.4814 26.116C14.6764 26.8303 13.358 26.8303 12.5414 26.116L10.698 24.4695C10.348 24.1547 9.6947 23.9004 9.22803 23.9004H7.2097C5.97303 23.9004 4.95803 22.8472 4.95803 21.5638V19.4936C4.95803 19.0214 4.71303 18.3434 4.42137 17.9802L2.84637 16.0553C2.1697 15.2199 2.1697 13.8639 2.84637 13.0286L4.42137 11.1036C4.71303 10.7404 4.95803 10.0624 4.95803 9.59025V7.50789C4.95803 6.22457 5.97303 5.17128 7.2097 5.17128H9.22803C9.68303 5.17128 10.348 4.91704 10.698 4.60227L12.5414 2.96785Z" stroke="#101828" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M9.77637 14.5294L12.588 17.4593L18.223 11.5996" stroke="#101828" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <div class="upgrade-verification__info-wrapper">
+                            <div class="upgrade-verification__title">
+                                Verification for Level 3
+                            </div>
+                            <div class="upgrade-verification__description">
+                                Please note that KYC must be completed by the owner of the Project account
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="upgrade-verification__block">
+                        <div class="upgrade-verification__subtitle">
+                            Your verified address
+                        </div>
+                        <div class="upgrade-verification__address">
+                            <input class="input__01" type="text" disabled="" th:value="${user.userKyc != null && user.userKyc.address != null ? user.userKyc.address : '-'}">
+                        </div>
+                    </div>
+
+                    <div class="upgrade-verification__block">
+                        <div class="upgrade-verification__subtitle">
+                            Upload proof of your address
+                        </div>
+                        <div class="upgrade-verification__subdescription">
+                            We receive: Paycheck Stub, Tax Forms, Lease or Mortgage Statement,
+                            Statement, Billing Statement or Official Letter, Car Title or Registration,
+                            Current Insurance Policy
+                        </div>
+                    </div>
+
+                    <div class="upgrade-verification__drop">
+                        <div class="drop drop-one">
+                            <div class="drop__img-default">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.25 10.084V15.5839L10.0833 13.7506" stroke="#191D31" stroke-width="1.37499" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M8.25031 15.5833L6.41699 13.75" stroke="#191D31" stroke-width="1.37499" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M20.1661 9.16724V13.7505C20.1661 18.3338 18.3328 20.1671 13.7495 20.1671H8.2496C3.66632 20.1671 1.83301 18.3338 1.83301 13.7505V8.25058C1.83301 3.6673 3.66632 1.83398 8.2496 1.83398H12.8329" stroke="#191D31" stroke-width="1.37499" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M20.1663 9.16724H16.4996C13.7497 9.16724 12.833 8.25058 12.833 5.50061V1.83398L20.1663 9.16724Z" stroke="#191D31" stroke-width="1.37499" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
+                            <div class="drop__img-active">
+                                <svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.3024 11.8116L9.0383 14.1935C7.78248 15.5146 7.78248 17.6458 9.0383 18.9669C10.2941 20.288 12.3199 20.288 13.5758 18.9669L17.1415 15.2156C19.644 12.583 19.644 8.30141 17.1415 5.6688C14.6391 3.03618 10.5691 3.03618 8.06665 5.6688L4.18002 9.75755C2.03504 12.0141 2.03504 15.6785 4.18002 17.9447" stroke="#191D31" stroke-width="1.37499" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
+                            <div class="drop__text">Drop file here or <span class="drop__btn">Browse</span></div>
+                            <div class="drop__text-file"></div>
+                            <div class="drop__img-delete">
+                                <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.1006 3.59863L12.6461 11.0423C12.53 12.9441 12.4719 13.895 12.0011 14.5786C11.7684 14.9166 11.4687 15.2019 11.1211 15.4163C10.4181 15.8499 9.47718 15.8499 7.59526 15.8499C5.71087 15.8499 4.76868 15.8499 4.06523 15.4155C3.71744 15.2007 3.41765 14.9149 3.18495 14.5764C2.71429 13.8916 2.65752 12.9394 2.54397 11.0349L2.10059 3.59863" stroke="#5E6484" stroke-width="1.5" stroke-linecap="round"></path>
+                                    <path d="M14.2 3.59863H1" stroke="#5E6484" stroke-width="1.5" stroke-linecap="round"></path>
+                                    <path d="M10.5738 3.59875L10.0732 2.55311C9.74062 1.85852 9.57435 1.51123 9.28752 1.29463C9.2239 1.24658 9.15654 1.20385 9.08608 1.16684C8.76847 1 8.38729 1 7.62492 1C6.84341 1 6.45265 1 6.12977 1.17383C6.05821 1.21236 5.98992 1.25683 5.92562 1.30678C5.63547 1.53215 5.4734 1.89215 5.14925 2.61216L4.70508 3.59875" stroke="#5E6484" stroke-width="1.5" stroke-linecap="round"></path>
+                                    <path d="M5.7666 11.7661L5.7666 7.31111" stroke="#5E6484" stroke-width="1.5" stroke-linecap="round"></path>
+                                    <path d="M9.43359 11.766L9.43359 7.31104" stroke="#5E6484" stroke-width="1.5" stroke-linecap="round"></path>
+                                </svg>
+                            </div>
+                            <input type="file" hidden="" id="submit_image">
+                        </div>
+                    </div>
+
+                    <div class="upgrade-verification__link">
+                        <a href="#" class="buttons__04" onclick="sendKyc(event)">
+                            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.66641 5.2668L13.7414 2.90846C16.9164 1.85013 18.6414 3.58346 17.5914 6.75846L15.2331 13.8335C13.6497 18.5918 11.0497 18.5918 9.46641 13.8335L8.76641 11.7335L6.66641 11.0335C1.90807 9.45013 1.90807 6.85846 6.66641 5.2668Z" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M8.92578 11.3745L11.9091 8.38281" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            Submit for review
+                        </a>
+                    </div>
+
+                    <div class="upgrade-verification__alert">
+                        <div class="alert">
+                            <div class="alert__img">
+                                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.5 22C18 22 22.5 17.5 22.5 12C22.5 6.5 18 2 12.5 2C7 2 2.5 6.5 2.5 12C2.5 17.5 7 22 12.5 22Z" stroke="#6D6D6D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M12.5 8V13" stroke="#6D6D6D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M12.4941 16H12.5031" stroke="#6D6D6D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
+                            <div class="alert__text">
+                                Make sure you have at least $10,000 in your
+                                account to successfully complete  the verification
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/js/tabs-menu.min.js"></script>
+    <script src="../assets/js/upgrade-verification.min.js"></script>
+    <script src="../assets/js/date-picker.min.js"></script>
+    <script src="../assets/js/drop.min.js"></script>
+
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__top">
+            <div class="footer__info">
+                <div class="footer__logo">
+                    <div class="footer__logo-top">
+                        <div class="footer__logo-icon">
+                            <img style="width: 39px; margin-bottom: -3px;" th:src="${site_icon}">
+                        </div>
+                        <div class="footer__logo-text" th:text="${site_name}"></div>
+                    </div>
+                    <div class="footer__logo-line">
+                        <svg width="169" height="18" viewbox="0 0 169 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.2248 4.81993C23.8867 4.70895 26.0204 5.76327 27.2835 7.99677C28.2398 9.70312 29.3174 9.99445 31.1015 9.37018C35.683 7.76788 40.2859 6.22108 44.9173 4.77831C47.7861 3.88352 50.3552 4.36212 52.4604 6.74129C52.967 7.31008 54.2016 7.68465 54.9795 7.53205C58.9758 6.7413 62.9364 5.74245 66.9113 4.82685C71.3787 3.80027 75.8317 2.68354 80.3347 1.80955C83.1107 1.26852 85.7369 2.32977 87.4425 4.31357C89.9259 7.19216 92.9659 7.05342 96.0345 6.38753C101.822 5.13899 107.51 3.48815 113.283 2.17718C116.237 1.51129 119.277 1.01879 122.303 0.859255C123.688 0.782956 125.3 1.44885 126.506 2.22572C129.061 3.8627 131.887 3.74478 134.578 3.46039C142.035 2.66964 149.492 1.77487 156.864 0.463899C160.911 -0.257482 164.2 1.24769 167.619 2.59334C168.297 2.86386 169.181 4.32745 168.967 4.72975C168.461 5.68004 167.462 6.60257 166.434 7.00488C165.563 7.3517 164.279 7.1991 163.351 6.85228C158.534 5.04189 153.867 6.73436 149.157 7.26846C143.362 7.92048 137.596 8.80832 131.794 9.31468C130.046 9.46728 127.855 9.19676 126.499 8.25342C122.788 5.67309 119.042 6.52626 115.224 7.40718C109.122 8.81526 103.049 10.3205 96.9622 11.7771C91.9454 12.9771 87.5424 12.11 83.7459 8.43377C82.9323 7.64302 81.1197 7.19216 79.9779 7.45574C74.4758 8.69735 69.038 10.2234 63.5787 11.6661C59.9035 12.6303 56.2997 14.2118 52.3747 12.769C51.8895 12.5886 51.2971 12.5054 50.9403 12.1863C47.1153 8.74591 43.383 10.6187 39.5865 12.2557C36.9603 13.3863 34.3199 14.5169 31.5867 15.3424C28.1542 16.3828 25.5423 15.0927 23.0232 11.5759C22.1383 10.3343 21.3604 9.82798 19.8333 10.1262C15.3588 10.9863 11.4838 13.0326 7.99416 15.7724C4.83279 18.2626 2.41358 18.7551 0.401143 16.7921C-0.0555794 16.3481 -0.148338 14.7528 0.25843 14.3921C5.06115 10.0846 14.1385 5.18061 21.2391 4.82685L21.2248 4.81993Z" fill="#6544C6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="footer__description">
+                    Innovative cryptocurrency exchange with advanced financial services. We rely on blockchain technology to provide everything you need for wise trading and investment.
+                </div>
+                <div style="font-family: Roboto-Regular, sans-serif; font-weight: 400; font-size: 12px; line-height: 15px; letter-spacing: 0.02em; color: rgba(232, 232, 232, 0.7); margin-bottom: 23px;">
+                    <th:block th:if="${listing_request_enabled}">Listing Request: <span style="color: #6544c6;" th:text="${listing_request}"></span><br></th:block>
+                    <th:block th:if="${partnership_enabled}">Partnership: <span style="color: #6544c6;" th:text="${partnership}"></span></th:block>
+                </div>
+                <a th:if="${twitter_enabled}" th:href="${twitter}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/twitter.png">
+                </a>
+                <a th:if="${telegram_enabled}" th:href="${telegram}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/telegram.png">
+                </a>
+                <a th:if="${instagram_enabled}" th:href="${instagram}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/instagram.png">
+                </a>
+                <a th:if="${facebook_enabled}" th:href="${facebook}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/facebook.png">
+                </a>
+                <a th:if="${reddit_enabled}" th:href="${reddit}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/reddit.png">
+                </a>
+                <br>
+                <br>
+                <div class="footer__label">Subscribe to our newsletter</div>
+                <div class="footer__wrapper">
+                    <input class="footer__input" type="email" placeholder="Enter email">
+                    <a class="footer__sing-up" id="footer_subscribe" href="#">
+                        Subscribe
+                    </a>
+                </div>
+            </div>
+            <div class="footer__links">
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Products
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../trading">Spot trading</a>
+                        <a class="footer__link butafor__btn" href="../profile/wallet">Futures trading</a>
+                        <a class="footer__link butafor__btn" href="../profile/wallet">Options trading</a>
+                        <a class="footer__link" href="../profile/wallet">Wallet</a>
+                        <a class="footer__link" href="swap">Instant swap</a>
+                        <a class="footer__link" href="p2p">P2P trading</a>
+                        <a class="footer__link" href="staking">DeFi Staking</a>
+                        <a class="footer__link" href="cards" th:text="${site_name} + ' Visa Card'"></a>
+                    </div>
+                </div>
+
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Services
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="support">24/7 Support chat</a>
+                        <a class="footer__link" href="copy-trading">Copy trading</a>
+                        <a class="footer__link" href="trading-bots">Trading bots</a>
+                        <a class="footer__link" href="stake-eth20">ETH 2.0 staking</a>
+                        <a class="footer__link" href="launchpad">Launchpad</a>
+                        <a class="footer__link" href="savings">Savings</a>
+                        <a class="footer__link" href="ventures" th:text="${site_name} + ' ventures'"></a>
+                        <a th:if="${payment_settings != null && payment_settings.transakEnabled}" class="footer__link" href="buy-crypto">Buy crypto</a>
+                    </div>
+                </div>
+
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Information
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../fees">Fees</a>
+                        <a class="footer__link" href="status">Platform status</a>
+                        <a class="footer__link" href="wallet-security">Wallet security</a>
+                        <a class="footer__link" href="../indices">Indices</a>
+                        <a class="footer__link" href="api-docs">Trading API</a>
+                        <a class="footer__link" href="token-listing">Token listing</a>
+                        <a class="footer__link" href="space">Referral system</a>
+                        <a class="footer__link" href="../bugbounty">Bug Bounty</a>
+                    </div>
+                </div>
+
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Legal
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../terms">Terms of service</a>
+                        <a class="footer__link" href="../privacy-notice">Privacy notice</a>
+                        <a class="footer__link" href="../cookies-policy">Cookies policy</a>
+                        <a class="footer__link" href="../aml-kyc-policy">AML & KYC policy</a>
+                        <a class="footer__link" href="../risk">Risk Disclosure Statement</a>
+                        <a class="footer__link" href="../regulatory">Regulatory License</a>
+                        <a class="footer__link" href="../treatment">Special Treatment</a>
+                        <a class="footer__link" href="../law">Law Enforcement Requests</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="footer__sub-text">
+                In acceding to or using the Platform and the Site, you represent and warrant that you are fully aware of the risks associated with the transactions involving Digital Assets or the use of Platform. You agree and understand that you are solely responsible for determining the nature, potential value, suitability, and appropriateness of these risks for yourself, and that the Company does not give advice or recommendations regarding any Digital Asset, including the suitability and appropriateness of, and investment strategies for, any Digital Asset. You agree and understand that you access and use the Platform and the Site at your own risk. <br>
+                <span th:text="${site_name} + ' 2024 © All right reserved'"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+<a class="support-widget" href="../profile/support">
+    <svg viewBox="0 -256 1850 1850" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 80%; height: 80%; fill: rgb(255, 255, 255); stroke: none;">
+        <path transform="matrix(0.71186441,0,0,-0.71186441,288.54237,1093.9482)" d="M 704,1152 Q 551,1152 418,1100 285,1048 206.5,959 128,870 128,768 q 0,-82 53,-158 53,-76 149,-132 l 97,-56 -35,-84 q 34,20 62,39 l 44,31 53,-10 q 78,-14 153,-14 153,0 286,52 133,52 211.5,141 78.5,89 78.5,191 0,102 -78.5,191 -78.5,89 -211.5,141 -133,52 -286,52 z m 0,128 q 191,0 353.5,-68.5 Q 1220,1143 1314,1025 1408,907 1408,768 1408,629 1314,511 1220,393 1057.5,324.5 895,256 704,256 618,256 528,272 404,184 250,144 214,135 164,128 h -3 q -11,0 -20.5,8 -9.5,8 -11.5,21 -1,3 -1,6.5 0,3.5 0.5,6.5 0.5,3 2,6 l 2.5,5 q 0,0 3.5,5.5 3.5,5.5 4,5 0.5,-0.5 4.5,5 4,5.5 4,4.5 5,6 23,25 18,19 26,29.5 8,10.5 22.5,29 Q 235,303 245.5,323 256,343 266,367 142,439 71,544 0,649 0,768 0,907 94,1025 188,1143 350.5,1211.5 513,1280 704,1280 Z M 1526,111 q 10,-24 20.5,-44 10.5,-20 25,-38.5 14.5,-18.5 22.5,-29 8,-10.5 26,-29.5 18,-19 23,-25 1,-1 4,-4.5 3,-3.5 4.5,-5 1.5,-1.5 4,-5 2.5,-3.5 3.5,-5.5 l 2.5,-5 q 0,0 2,-6 2,-6 0.5,-6.5 -1.5,-0.5 -1,-6.5 -3,-14 -13,-22 -10,-8 -22,-7 -50,7 -86,16 Q 1388,-72 1264,16 1174,0 1088,0 817,0 616,132 q 58,-4 88,-4 161,0 309,45 148,45 264,129 125,92 192,212 67,120 67,254 0,77 -23,152 129,-71 204,-178 75,-107 75,-230 0,-120 -71,-224.5 Q 1650,183 1526,111 Z"></path>
+    </svg>
+    <span th:if="${support_unviewed != null && support_unviewed > 0}" th:text="${support_unviewed}"></span>
+</a>
+
+<!-- END FOOTER -->	
+    <script src="../assets/js/jquery-3.4.1.min.js"></script>
+    <script src="../assets/js/app.min.js"></script>
+    <script src="../assets/js/toastr.js"></script>
+    <script src="../assets/js/newnoti.js"></script>
+    <script src="../assets/js/error-modal.js?v=4"></script>
+    <script>
+  setInterval(() => {
+      $.ajax({
+          url: "/api/user/profile",
+          type: "POST",
+          contentType: 'application/json; charset=UTF-8',
+          dataType: 'text',
+          data: JSON.stringify({
+              action: "CHECK_ALERT"
+          }),
+          success: function (response) {
+              if (response !== "no_alerts") {
+                  const json = JSON.parse(response);
+
+                  const type = json["type"];
+                  const message = json["message"];
+
+                  if (type === "NOTIFICATION") {
+                      noti(message, "success");
+                  } else if (type === "ALERT") {
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                  } else if (type === "BONUS") {
+                      $("#alert_img_pop").attr("src", "");
+                      $("#alert_title_text").html("Bonus");
+                      $("#alert_img_pop").attr("src", "../assets/img/bonus-icon.png");
+                      $("#alert_img_pop").css("display", "block");
+                      $("#svg_alert_img").remove();
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                      $("#userAlertBox").css("font-size", "18px");
+                  }
+              }
+          }
+      });
+  }, 5000);
+
+  function closeModal(event) {
+      event.preventDefault();
+
+      $("#alert_message_modal").removeClass("withdrawal-successful-active");
+  }
+
+  function closeButaforModal() {
+      $("#alert_message_modal").removeClass("withdrawal-successful-active");
+      $("#butafor__modal").removeClass("withdrawal-successful-active");
+  }
+
+$("#footer_subscribe").on("click", function(e) {
+    e.preventDefault();
+    $("#footer_subscribe").html("Subscribed!");
+});
+    </script>
+</body>
+</html>
+<script type="text/javascript">
+    function sendKyc(event) {
+        event.preventDefault();
+
+        const image = $("#submit_image")[0].files[0];
+
+        if (!image || image === "") {
+            noti("Please, select Document Image", "error");
+            return;
+        }
+
+        $.ajax({
+            url: "../api/user/kyc-lvl3",
+            type: "POST",
+            contentType: 'application/json; charset=UTF-8',
+            success: function () {
+                noti("The data has been sent for verification", "success");
+                setTimeout(() => location.replace('../profile/verification'), 1000);
+            },
+            error: function () {
+                noti("An unknown error has occurred, please try again later", "error");
+            }
+        });
+    }
+</script>

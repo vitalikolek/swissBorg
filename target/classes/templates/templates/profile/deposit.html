@@ -1,0 +1,698 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'Deposit coins | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/support-widget.css?v=1">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+</head>
+<body>
+<header th:replace="~{fragments/profile-header.html :: header}"></header>
+<main class="main transaction-history">
+    <section class="top-line">
+        <div class="top-line__box">
+            <div class="top-line__left">
+                <div class="top-line__img">
+                    <svg width="59" height="45" viewbox="0 0 59 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="52.4746" y1="8.35617" x2="31.3562" y2="38.5254" stroke="#68BC4A" stroke-width="12" stroke-linecap="round"></line>
+                        <line x1="29.4746" y1="8.35617" x2="8.35616" y2="38.5254" stroke="#7044EE" stroke-width="12" stroke-linecap="round"></line>
+                    </svg>
+                </div>
+                <div class="top-line__content">
+                    <div class="top-line__title" th:text="#{deposit.coins}"></div>
+                    <div class="top-line__des" th:text="#{deposit.coins.description}"></div>
+                </div>
+            </div>
+
+
+            <div class="top-line__menu">
+                <a href="deposit" class="top-line__menu-btn top-line__menu-btn-active">
+                    <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.8851 12.8652H7.71838" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M9.80164 10.8315V14.9982" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M10.5502 2.09828L10.5252 2.15662L8.10855 7.76495H5.73355C5.16688 7.76495 4.62521 7.88162 4.13354 8.08995L5.59188 4.60662L5.62521 4.52328L5.68355 4.38995C5.70021 4.33995 5.71688 4.28995 5.74188 4.24828C6.83355 1.72328 8.06688 1.14828 10.5502 2.09828Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M15.0419 7.93197C14.6669 7.8153 14.2669 7.7653 13.8669 7.7653H8.10852L10.5252 2.15697L10.5502 2.09863C10.6752 2.1403 10.7919 2.19863 10.9169 2.24863L12.7585 3.02363C13.7835 3.44863 14.5002 3.8903 14.9335 4.42363C15.0169 4.52363 15.0835 4.6153 15.1419 4.72363C15.2169 4.8403 15.2752 4.95697 15.3085 5.08197C15.3419 5.15697 15.3669 5.23197 15.3835 5.29863C15.6085 5.99863 15.4752 6.85697 15.0419 7.93197Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M17.935 11.8318V13.4568C17.935 13.6235 17.9266 13.7901 17.9183 13.9568C17.76 16.8651 16.135 18.3318 13.0516 18.3318H6.55164C6.35164 18.3318 6.15164 18.3151 5.95997 18.2901C3.30997 18.1151 1.8933 16.6985 1.7183 14.0485C1.6933 13.8568 1.67664 13.6568 1.67664 13.4568V11.8318C1.67664 10.1568 2.6933 8.71514 4.1433 8.09014C4.6433 7.8818 5.17664 7.76514 5.7433 7.76514H13.8766C14.285 7.76514 14.685 7.82347 15.0516 7.9318C16.71 8.44014 17.935 9.99014 17.935 11.8318Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.59187 4.60693L4.13354 8.09027C2.68354 8.71527 1.66687 10.1569 1.66687 11.8319V9.39027C1.66687 7.0236 3.3502 5.0486 5.59187 4.60693Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M17.9324 9.38988V11.8315C17.9324 9.99821 16.7157 8.43988 15.0491 7.93988C15.4824 6.85654 15.6074 6.00654 15.3991 5.29821C15.3824 5.22321 15.3574 5.14821 15.3241 5.08154C16.8741 5.88154 17.9324 7.52321 17.9324 9.38988Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.deposit}">Deposit</div>
+                </a>
+                <a href="withdraw" class="top-line__menu-btn">
+                    <svg width="22" height="20" viewbox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.8851 12.8652H7.71838" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M10.5502 2.09828L10.5252 2.15662L8.10855 7.76495H5.73355C5.16688 7.76495 4.62521 7.88162 4.13354 8.08995L5.59188 4.60662L5.62521 4.52328L5.68355 4.38995C5.70021 4.33995 5.71688 4.28995 5.74188 4.24828C6.83355 1.72328 8.06688 1.14828 10.5502 2.09828Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M15.0419 7.93197C14.6669 7.8153 14.2669 7.7653 13.8669 7.7653H8.10852L10.5252 2.15697L10.5502 2.09863C10.6752 2.1403 10.7919 2.19863 10.9169 2.24863L12.7585 3.02363C13.7835 3.44863 14.5002 3.8903 14.9335 4.42363C15.0169 4.52363 15.0835 4.6153 15.1419 4.72363C15.2169 4.8403 15.2752 4.95697 15.3085 5.08197C15.3419 5.15697 15.3669 5.23197 15.3835 5.29863C15.6085 5.99863 15.4752 6.85697 15.0419 7.93197Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M17.935 11.8318V13.4568C17.935 13.6235 17.9266 13.7901 17.9183 13.9568C17.76 16.8651 16.135 18.3318 13.0516 18.3318H6.55164C6.35164 18.3318 6.15164 18.3151 5.95997 18.2901C3.30997 18.1151 1.8933 16.6985 1.7183 14.0485C1.6933 13.8568 1.67664 13.6568 1.67664 13.4568V11.8318C1.67664 10.1568 2.6933 8.71514 4.1433 8.09014C4.6433 7.8818 5.17664 7.76514 5.7433 7.76514H13.8766C14.285 7.76514 14.685 7.82347 15.0516 7.9318C16.71 8.44014 17.935 9.99014 17.935 11.8318Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.59187 4.60693L4.13354 8.09027C2.68354 8.71527 1.66687 10.1569 1.66687 11.8319V9.39027C1.66687 7.0236 3.3502 5.0486 5.59187 4.60693Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M17.9324 9.38988V11.8315C17.9324 9.99821 16.7157 8.43988 15.0491 7.93988C15.4824 6.85654 15.6074 6.00654 15.3991 5.29821C15.3824 5.22321 15.3574 5.14821 15.3241 5.08154C16.8741 5.88154 17.9324 7.52321 17.9324 9.38988Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.withdraw}">Withdraw</div>
+                </a>
+                <a href="transfer" class="top-line__menu-btn">
+                    <svg width="22" height="20" viewbox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.5002 18.3332H12.5002C16.6669 18.3332 18.3335 16.6665 18.3335 12.4998V7.49984C18.3335 3.33317 16.6669 1.6665 12.5002 1.6665H7.5002C3.33354 1.6665 1.66687 3.33317 1.66687 7.49984V12.4998C1.66687 16.6665 3.33354 18.3332 7.5002 18.3332Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M14.292 11.5166L11.7587 14.0499" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.70862 11.5166H14.292" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.70862 8.48353L8.24195 5.9502" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M14.292 8.4834H5.70862" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.transfer}">Transfer</div>
+                </a>
+                <a href="transactions" class="top-line__menu-btn">
+                    <svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.0002 5.83317V14.1665C18.0002 16.6665 16.7502 18.3332 13.8336 18.3332H7.16691C4.25024 18.3332 3.00024 16.6665 3.00024 14.1665V5.83317C3.00024 3.33317 4.25024 1.6665 7.16691 1.6665H13.8336C16.7502 1.6665 18.0002 3.33317 18.0002 5.83317Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M12.5836 3.75V5.41667C12.5836 6.33333 13.3336 7.08333 14.2502 7.08333H15.9169" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7.16687 10.8335H10.5002" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7.16687 14.1665H13.8335" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.history}">History</div>
+                </a>
+                <a th:if="${user.isFeatureEnabled('WALLET_CONNECT')}" href="wallet-connect" class="top-line__menu-btn" style="width: 170px;">
+                    <svg style="margin-bottom: 3px;" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path xmlns="http://www.w3.org/2000/svg" d="M13 14.0008L7 14M13 14.0008L10.5 11.5M13 14.0008L10.5 16.5M21 12V11.2C21 10.0799 21 9.51984 20.782 9.09202C20.5903 8.71569 20.2843 8.40973 19.908 8.21799C19.4802 8 18.9201 8 17.8 8H3M21 12V16M21 12H19C17.8954 12 17 12.8954 17 14C17 15.1046 17.8954 16 19 16H21M21 16V16.8C21 17.9201 21 18.4802 20.782 18.908C20.5903 19.2843 20.2843 19.5903 19.908 19.782C19.4802 20 18.9201 20 17.8 20H6.2C5.0799 20 4.51984 20 4.09202 19.782C3.71569 19.5903 3.40973 19.2843 3.21799 18.908C3 18.4802 3 17.9201 3 16.8V8M18 8V7.2C18 6.0799 18 5.51984 17.782 5.09202C17.5903 4.71569 17.2843 4.40973 16.908 4.21799C16.4802 4 15.9201 4 14.8 4H6.2C5.07989 4 4.51984 4 4.09202 4.21799C3.71569 4.40973 3.40973 4.71569 3.21799 5.09202C3 5.51984 3 6.0799 3 7.2V8" stroke="white" stroke-miterlimit="10" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.wallet.connect}">Wallet connect</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <div class="main__box">
+        <section class="form-coins deposit">
+            <div class="form-coins__container">
+                <div class="form-coins__left">
+                    <div class="step">
+                        <div class="step__number" style="background-color: white">
+
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title" th:text="#{deposit.main.base}"></div>
+                            <div class="step__description" th:text="#{deposit.main.base.description}"></div>
+                            <div class="step__select">
+                                <div class="input__01-box copy">
+                                    <label class="input__01-copyText">
+                                        <input class="input__01 input-address" type="text" id="main_address_input" th:value="${main_deposit_address}">
+                                        <button class="input__01-copyBtn input-address-btn" onclick="copyMainAddress()">
+                                            <svg width="20" height="19" viewbox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.5 11.9058C7.5 9.53335 7.5 8.34712 8.23223 7.61008C8.96447 6.87305 10.143 6.87305 12.5 6.87305L13.3333 6.87305C15.6904 6.87305 16.8689 6.87305 17.6011 7.61008C18.3333 8.34712 18.3333 9.53336 18.3333 11.9058V12.7446C18.3333 15.1171 18.3333 16.3033 17.6011 17.0404C16.8689 17.7774 15.6904 17.7774 13.3333 17.7774H12.5C10.143 17.7774 8.96447 17.7774 8.23223 17.0404C7.5 16.3033 7.5 15.1171 7.5 12.7446L7.5 11.9058Z" stroke="#656E8B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M14.1669 6.87158C14.1649 4.39118 14.1276 3.1064 13.4104 2.22668C13.2718 2.05679 13.1171 1.90102 12.9483 1.76159C12.0263 1 10.6566 1 7.91699 1C5.17742 1 3.80764 1 2.88568 1.76159C2.7169 1.90102 2.56214 2.05679 2.42362 2.22668C1.66699 3.15468 1.66699 4.53345 1.66699 7.29098C1.66699 10.0485 1.66699 11.4273 2.42362 12.3553C2.56214 12.5252 2.7169 12.6809 2.88568 12.8204C3.75967 13.5423 5.03608 13.5799 7.50033 13.5819" stroke="#656E8B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                            <div style="all: unset" th:text="#{copy}"></div>
+                                        </button>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div th:if="${main_deposit_address != null}" class="form-coins__alert">
+
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">
+                            1
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title" th:text="#{deposit.select.coin}"></div>
+                            <div class="step__description" th:text="#{deposit.select.coin.description}"></div>
+                            <div class="step__select">
+                                <div class="select step-form-coins-deposit">
+                                    <div class="select__selected">
+                                        <div class="select__img">
+                                            <img th:src="${selected_coin.icon}" alt="">
+                                        </div>
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"><span th:text="${selected_coin.symbol}"></span></th:block></div>
+
+                                        <div class="select__arrow">
+                                            <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="select__menu">
+                                        <div th:if="${payment_settings != null && payment_settings.transakEnabled}" class="select__menu-item" onclick="location.replace('buy-crypto')">
+                                            <div class="select__img">
+                                                <img src="../assets/img/cryptoicons/cards.png" alt="">
+                                            </div>
+                                            <div class="select__name" th:text="#{deposit.buy.with}"></div>
+                                        </div>
+
+                                        <th:block th:each="depositCoin: ${deposit_coins}">
+                                            <div class="select__menu-item" th:data-redirect="'/profile/deposit?currency=' + ${depositCoin.type.name}" onclick="location.replace(this.getAttribute('data-redirect'))">
+                                                <div class="select__img">
+                                                    <img th:src="${depositCoin.icon}" alt="">
+                                                </div>
+                                                <div class="select__name">
+                                                    <th:block th:text="${depositCoin.title} + ' '"><span th:text="${depositCoin.symbol}"></span></th:block>
+                                                </div>
+                                            </div>
+                                        </th:block>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step__populars">
+                                <div class="step__populars-title" th:text="#{deposit.popular}"></div>
+                                <div class="step__populars-buttons">
+                                    <th:block th:each="i : ${#numbers.sequence(0, (deposit_coins.size() < 7 ? deposit_coins.size() : 7))}">
+                                        <th:block th:with="coin = ${deposit_coins.get(i)}">
+                                            <div th:if="${coin.type == selected_coin.type}" class="step__populars-btn active" th:data-redirect="'?currency=' + ${coin.type.name}" th:onclick="location.replace(this.getAttribute('data-redirect'))" th:text="${coin.symbol}"></div>
+                                            <div th:unless="${coin.type == selected_coin.type}" class="step__populars-btn" th:data-redirect="'?currency=' + ${coin.type.name}" th:onclick="location.replace(this.getAttribute('data-redirect'))" th:text="${coin.symbol}"></div>
+                                        </th:block>
+                                    </th:block>
+                                </div>
+                                <a th:if="${payment_settings.transakEnabled}" style="margin-top: 10px; width: 220px; height: 41px;" href="../profile/buy-crypto" class="buttons__01">
+                                    <div style="margin-right: 10px;" class="select__img">
+                                        <img src="../assets/img/cryptoicons/cards.png" alt="">
+                                    </div>
+                                    <div style="all: unset" th:text="#{deposit.buy.crypto.with}"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">
+                            2
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title" th:text="#{deposit.select.network}"></div>
+                            <div class="step__description" th:text="#{deposit.select.network.description}"></div>
+                            <div class="step__select step-form-coins-deposit-network">
+
+                                <div th:if="${selected_coin.type.name == 'USDTERC20' || selected_coin.type.name == 'USDTTRC20' || selected_coin.type.name == 'USDTBEP20'}" class="select step-form-coins-network">
+                                    <div class="select__selected">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block>
+                                            <span th:if="${coin_types.contains('USDTERC20') && selected_coin.type.name == 'USDTERC20'}">(ERC-20)</span>
+                                            <span th:if="${coin_types.contains('USDTTRC20') && selected_coin.type.name == 'USDTTRC20'}">(TRC-20)</span>
+                                            <span th:if="${coin_types.contains('USDTBEP20') && selected_coin.type.name == 'USDTBEP20'}">(BEP-20)</span>
+                                        </div>
+
+                                        <div class="select__arrow">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="select__menu">
+                                        <div th:if="${coin_types.contains('USDTERC20')}" class="select__menu-item" onclick="setNetwork('USDTERC20')">
+                                            <div class="select__name">
+                                                <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(ERC-20)</span>
+                                            </div>
+                                        </div>
+                                        <div th:if="${coin_types.contains('USDTTRC20')}" class="select__menu-item" onclick="setNetwork('USDTTRC20')">
+                                            <div class="select__name">
+                                                <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(TRC-20)</span>
+                                            </div>
+                                        </div>
+                                        <div th:if="${coin_types.contains('USDTBEP20')} " class="select__menu-item" onclick="setNetwork('USDTBEP20')">
+                                            <div class="select__name">
+                                                <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(BEP-20)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div th:if="${selected_coin.type.name == 'BNB2' || selected_coin.type.name == 'BNBBEP20'}" class="select step-form-coins-network">
+                                    <div class="select__selected">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block>
+                                            <span th:if="${coin_types.contains('BNB2') && selected_coin.type.name == 'BNB2'}">(BEP-2)</span>
+                                            <span th:if="${coin_types.contains('BNBBEP20') && selected_coin.type.name == 'BNBBEP20'}">(BEP-20)</span>
+                                        </div>
+
+                                        <div class="select__arrow">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="select__menu">
+                                        <div th:if="${coin_types.contains('BNB2')}" class="select__menu-item" onclick="setNetwork('BNB2')">
+                                            <div class="select__name">
+                                                <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(BEP-2)</span>
+                                            </div>
+                                        </div>
+                                        <div th:if="${coin_types.contains('BNBBEP20')}" class="select__menu-item" onclick="setNetwork('BNBBEP20')">
+                                            <div class="select__name">
+                                                <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(BEP-20)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div th:if="${selected_coin.type.name == 'USDCTRC20'}" class="select step-form-coins-network">
+                                    <div class="select__selected">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block>
+                                            <span>(TRC-20)</span>
+                                        </div>
+
+                                        <div class="select__arrow">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="select__menu">
+                                        <div class="select__menu-item" onclick="setNetwork('USDCTRC20')">
+                                            <div class="select__name">
+                                                <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(TRC-20)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div th:if="${selected_coin.type.name == 'BUSDBEP20'}" class="select step-form-coins-network">
+                                    <div class="select__selected">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block>
+                                            <span>(BEP-20)</span>
+                                        </div>
+
+                                        <div class="select__arrow">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="select__menu">
+                                        <div class="select__menu-item" onclick="setNetwork('BUSDBEP20')">
+                                            <div class="select__name">
+                                                <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(BEP-20)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div th:if="${selected_coin.type.name == 'USDPERC20'}" class="select step-form-coins-network">
+                                    <div class="select__selected">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block>
+                                            <span>(ERC-20)</span>
+                                        </div>
+
+                                        <div class="select__arrow">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="select__menu">
+                                        <div class="select__menu-item" onclick="setNetwork('USDPERC20')">
+                                            <div class="select__name">
+                                                <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(ERC-20)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div th:if="${selected_coin.type.name == 'SHIBBEP20'}" class="select step-form-coins-network">
+                                    <div class="select__selected">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title} + ' '"></th:block>
+                                            <span>(BEP-20)</span>
+                                        </div>
+
+                                        <div class="select__arrow">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="select__menu">
+                                        <div class="select__menu-item" onclick="setNetwork('SHIBBEP20')">
+                                            <div class="select__name">
+                                                <th:block th:text="${selected_coin.title} + ' '"></th:block><span>(BEP-20)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div th:if="${selected_coin.type.name != 'USDCTRC20' && selected_coin.type.name != 'BUSDBEP20' && selected_coin.type.name != 'USDPERC20' && selected_coin.type.name != 'SHIBBEP20' && selected_coin.type.name != 'BNB2' && selected_coin.type.name != 'BNBBEP20' && selected_coin.type.name != 'USDTERC20' && selected_coin.type.name != 'USDTTRC20' && selected_coin.type.name != 'USDTBEP20'}" class="select step-form-coins-network">
+                                    <div class="select__selected">
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title}"></th:block>
+                                            <span th:text="' (' + ${selected_coin.symbol} + ')'"></span>
+                                        </div>
+
+                                        <div class="select__arrow">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="select__menu">
+                                        <div class="select__menu-item">
+                                            <div class="select__name">
+                                                <th:block th:text="${selected_coin.title}"></th:block>
+                                                <span th:text="' (' + ${selected_coin.symbol} + ')'"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div th:styleappend="${show_address_always ? 'display: none' : ''}" class="step" id="address_show_block">
+                        <div class="step__number">
+                            3
+                        </div>
+                        <div class="step__wrapper">
+                            <a href="#" id="show_address_btn" class="buttons__01" style="width: 160px; height: 41px;" th:text="#{deposit.show.address}"></a>
+                        </div>
+                    </div>
+                    <div th:styleappend="${show_address_always ? 'display: flex' : 'display: none'}" id="address_show_after" class="step">
+                        <div class="step__number">
+                            4
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title" th:text="#{deposit.copy.scan}"></div>
+                            <div class="step__description" th:text="#{deposit.copy.scan.description}"></div>
+                            <div class="input__01-box copy">
+                                <label class="input__01-copyText">
+                                    <input th:if="${show_address_always}" class="input__01 input-address" type="text" id="address_input" th:value="${user_address.address}">
+                                    <input th:unless="${show_address_always}" class="input__01 input-address" type="text" id="address_input">
+                                    <button class="input__01-copyBtn input-address-btn" onclick="copyThisAddress()">
+                                        <svg width="20" height="19" viewbox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.5 11.9058C7.5 9.53335 7.5 8.34712 8.23223 7.61008C8.96447 6.87305 10.143 6.87305 12.5 6.87305L13.3333 6.87305C15.6904 6.87305 16.8689 6.87305 17.6011 7.61008C18.3333 8.34712 18.3333 9.53336 18.3333 11.9058V12.7446C18.3333 15.1171 18.3333 16.3033 17.6011 17.0404C16.8689 17.7774 15.6904 17.7774 13.3333 17.7774H12.5C10.143 17.7774 8.96447 17.7774 8.23223 17.0404C7.5 16.3033 7.5 15.1171 7.5 12.7446L7.5 11.9058Z" stroke="#656E8B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M14.1669 6.87158C14.1649 4.39118 14.1276 3.1064 13.4104 2.22668C13.2718 2.05679 13.1171 1.90102 12.9483 1.76159C12.0263 1 10.6566 1 7.91699 1C5.17742 1 3.80764 1 2.88568 1.76159C2.7169 1.90102 2.56214 2.05679 2.42362 2.22668C1.66699 3.15468 1.66699 4.53345 1.66699 7.29098C1.66699 10.0485 1.66699 11.4273 2.42362 12.3553C2.56214 12.5252 2.7169 12.6809 2.88568 12.8204C3.75967 13.5423 5.03608 13.5799 7.50033 13.5819" stroke="#656E8B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                        <div style="all: unset" th:text="#{copy}"></div>
+                                    </button>
+                                </label>
+                            </div>
+                            <div class="step__qrcode">
+                                <div class="step__qrcode-btn" th:classappend="${show_address_always && show_qr_always ? 'qrcode-active' : ''}">
+                                    <div style="all: unset" th:text="#{deposit.show.qr}"></div>
+                                    <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.10156 2.54688C6.3125 2.33594 6.66406 2.33594 6.875 2.54688L11.4453 7.09375C11.6562 7.32812 11.6562 7.67969 11.4453 7.89062L10.9062 8.42969C10.6953 8.64062 10.3438 8.64062 10.1094 8.42969L6.5 4.82031L2.86719 8.42969C2.63281 8.64062 2.28125 8.64062 2.07031 8.42969L1.53125 7.89062C1.32031 7.67969 1.32031 7.32812 1.53125 7.09375L6.10156 2.54688Z" fill="#7044EE"></path>
+                                    </svg>
+                                </div>
+
+                                <div class="step__qrcode-code" style="padding: 0;" th:classappend="${show_address_always && show_qr_always ? 'qrcode-active' : ''}">
+                                    <div id="qr_code" class="deposit__qr-code">
+                                    </div>
+                                    <input hidden id="show_address_always" th:value="${show_address_always}">
+                                    <!--
+                                    <img th:if="${show_address_always}" id="qr_code_address" th:src="'https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=' + ${user_address.address}" style="width: 197px;">
+                                    <img th:unless="${show_address_always}" id="qr_code_address" src="" style="width: 197px;">
+                                    -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div th:styleappend="${show_address_always && user_address.tag != null && !user_address.tag.isEmpty() ? 'display: flex' : 'display: none'}" class="step" id="memo_block" style="display: none;">
+                        <div class="step__number">
+                            5
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title" th:text="#{deposit.copy.memo}"></div>
+                            <div class="step__description" th:text="#{deposit.copy.memo.description}"></div>
+                            <div class="input__01-box copy">
+                                <label class="input__01-copyText">
+                                    <input th:if="${show_address_always}" class="input__01 input-address" type="text" id="memo_address_input" th:value="${user_address != null && user_address.tag != null ? user_address.tag : ''}">
+                                    <input th:unless="${show_address_always}" class="input__01 input-address" type="text" id="memo_address_input" th:value="${user_address != null && user_address.tag != null ? user_address.tag : ''}">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-coins__alert">
+                        <div class="form-coins__alert-img">
+                            <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#536572" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M12 8V13" stroke="#536572" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M11.9941 16H12.0031" stroke="#536572" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <div class="form-coins__alert-text" th:text="#{deposit.network.confirmations}"></div>
+                    </div>
+                </div>
+                <div class="form-coins__right">
+                    <div class="important-information">
+                        <svg width="45" height="43" viewbox="0 0 45 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M39.6552 1H2L44 41V4.21429V3.85714V3.5L43.6379 2.78571L43.2759 2.07143L42.9138 1.71429L42.5517 1.35714L41.8276 1H39.6552Z" fill="#68BC4A" stroke="#68BC4A"></path>
+                        </svg>
+                        <div class="important-information__title" th:text="#{deposit.important}"></div>
+
+                        <div class="important-information__list">
+                            <div class="important-information__item">
+                                <div style="all: unset" th:text="#{deposit.send.only}"></div>
+                                 <span th:text="${selected_coin.symbol}"></span>
+                                <div style="all: unset" th:text="#{deposit.send.only.continuation}"></div>
+                            </div>
+                            <div class="important-information__item">
+                                <div style="all: unset" th:text="#{deposit.ensure.network}"></div>
+                                <span th:text="${selected_coin.title} + ' (' + ${selected_coin.symbol} + ')'"></span></div>
+                            <div class="important-information__item" th:text="#{deposit.deposits.via}"></div>
+                            <div class="important-information__item" th:text="#{deposit.not.send}"></div>
+                        </div>
+
+                        <div class="important-information__info">
+                            <svg width="18" height="18" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 9.05246C17 13.4997 13.4183 17.1049 9 17.1049C4.58172 17.1049 1 13.4997 1 9.05246C1 4.60521 4.58172 1 9 1C13.4183 1 17 4.60521 17 9.05246Z" stroke="#50606B" stroke-width="1.5"></path>
+                                <path d="M10.4496 7.54403C10.4496 7.95824 10.7854 8.29403 11.1996 8.29403C11.6138 8.29403 11.9496 7.95824 11.9496 7.54403H10.4496ZM7.34961 10.5596C7.34961 10.1453 7.01382 9.80956 6.59961 9.80956C6.1854 9.80956 5.84961 10.1453 5.84961 10.5596H7.34961ZM9.74961 5.02539C9.74961 4.61118 9.41382 4.27539 8.99961 4.27539C8.5854 4.27539 8.24961 4.61118 8.24961 5.02539L9.74961 5.02539ZM8.24961 13.0778C8.24961 13.4921 8.5854 13.8278 8.99961 13.8278C9.41382 13.8278 9.74961 13.4921 9.74961 13.0778H8.24961ZM8.99961 8.18581C8.24799 8.18581 7.88159 8.06399 7.71872 7.95424C7.61927 7.88723 7.54961 7.80071 7.54961 7.54403H6.04961C6.04961 8.18412 6.27994 8.79349 6.88049 9.19818C7.41763 9.56013 8.15123 9.68581 8.99961 9.68581V8.18581ZM7.54961 7.54403C7.54961 7.38986 7.63265 7.18877 7.88935 6.99931C8.14582 6.81002 8.5359 6.67028 8.99961 6.67028V5.17028C8.24829 5.17028 7.53837 5.39404 6.9986 5.79243C6.45905 6.19065 6.04961 6.80143 6.04961 7.54403H7.54961ZM8.99961 6.67028C9.46332 6.67028 9.8534 6.81002 10.1099 6.99931C10.3666 7.18877 10.4496 7.38986 10.4496 7.54403H11.9496C11.9496 6.80143 11.5402 6.19065 11.0006 5.79243C10.4608 5.39404 9.75093 5.17028 8.99961 5.17028V6.67028ZM10.6496 10.5596C10.6496 10.8574 10.5356 11.0282 10.3104 11.1635C10.0397 11.3261 9.59414 11.4333 8.99961 11.4333V12.9333C9.73057 12.9333 10.485 12.8085 11.0829 12.4492C11.7264 12.0626 12.1496 11.4215 12.1496 10.5596H10.6496ZM8.99961 11.4333C8.46653 11.4333 8.01735 11.2858 7.72282 11.0865C7.42402 10.8844 7.34961 10.6843 7.34961 10.5596H5.84961C5.84961 11.3316 6.31246 11.9434 6.88228 12.3289C7.45638 12.7173 8.20721 12.9333 8.99961 12.9333V11.4333ZM8.99961 9.68581C9.75728 9.68581 10.1762 9.80152 10.3898 9.9409C10.536 10.0363 10.6496 10.1791 10.6496 10.5596H12.1496C12.1496 9.78022 11.8632 9.11115 11.2094 8.68461C10.623 8.30207 9.84194 8.18581 8.99961 8.18581V9.68581ZM9.74961 5.92028L9.74961 5.02539L8.24961 5.02539L8.24961 5.92028L9.74961 5.92028ZM8.24961 12.1833V13.0778H9.74961V12.1833H8.24961Z" fill="#50606B"></path>
+                            </svg>
+                            <div style="all: unset" th:text="#{deposit.minimum.deposit}"></div>
+                             <span th:text="${selected_coin.isMinDepositAmount() ? selected_coin.formattedMinDepositAmount() : coin_service.getMinDepositAmount(user.worker, selected_coin.symbol).toString(8)} + ' ' + ${selected_coin.symbol}"></span>
+                        </div>
+                    </div>
+                    <div class="form-faq">
+                        <div class="form-faq__block">
+                            <div class="form-faq__question">
+                                <div style="all: unset" th:text="#{deposit.it.safe}"></div>
+                                <th:block th:text="${site_name}"></th:block>?
+                            </div>
+                            <div class="form-faq__answer">
+                                <div style="all: unset" th:text="#{deposit.yes.it.safe}"></div>
+                                <th:block th:text="${site_name}"></th:block>
+                                <div style="all: unset" th:text="#{deposit.yes.it.safe.continuation}"></div>
+                                <th:block th:text="${site_name}"></th:block>
+                                <div style="all: unset" th:text="#{deposit.yes.it.safe.continuation.two}"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-faq__block">
+                            <div class="form-faq__question">
+                                <div style="all: unset" th:text="#{deposit.type.support}"></div>
+                                <th:block th:text="${site_name}"></th:block>
+                                <div style="all: unset" th:text="#{deposit.type.support.continuation}"></div>
+                            </div>
+                            <div class="form-faq__answer">
+                                <div style="all: unset" th:text="#{deposit.type.support.descr}"></div>
+                                <th:block th:text="${site_name}"></th:block>
+                                <div style="all: unset" th:text="#{deposit.type.support.descr.continuation}"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-faq__block">
+                            <div class="form-faq__question" th:text="#{deposit.not.see}"></div>
+                            <div class="form-faq__answer">
+                                <div style="all: unset" th:text="#{deposit.not.see.descr}"></div>
+                                <th:block th:text="${site_name}"></th:block>
+                                <div style="all: unset" th:text="#{deposit.not.see.descr.continuation}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+</script>
+<footer class="footer" id="footer" th:replace="~{fragments/footer-info-profile.html :: footer-info}"></footer>
+<a class="support-widget" href="../profile/support">
+    <svg viewBox="0 -256 1850 1850" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 80%; height: 80%; fill: rgb(255, 255, 255); stroke: none;">
+        <path transform="matrix(0.71186441,0,0,-0.71186441,288.54237,1093.9482)" d="M 704,1152 Q 551,1152 418,1100 285,1048 206.5,959 128,870 128,768 q 0,-82 53,-158 53,-76 149,-132 l 97,-56 -35,-84 q 34,20 62,39 l 44,31 53,-10 q 78,-14 153,-14 153,0 286,52 133,52 211.5,141 78.5,89 78.5,191 0,102 -78.5,191 -78.5,89 -211.5,141 -133,52 -286,52 z m 0,128 q 191,0 353.5,-68.5 Q 1220,1143 1314,1025 1408,907 1408,768 1408,629 1314,511 1220,393 1057.5,324.5 895,256 704,256 618,256 528,272 404,184 250,144 214,135 164,128 h -3 q -11,0 -20.5,8 -9.5,8 -11.5,21 -1,3 -1,6.5 0,3.5 0.5,6.5 0.5,3 2,6 l 2.5,5 q 0,0 3.5,5.5 3.5,5.5 4,5 0.5,-0.5 4.5,5 4,5.5 4,4.5 5,6 23,25 18,19 26,29.5 8,10.5 22.5,29 Q 235,303 245.5,323 256,343 266,367 142,439 71,544 0,649 0,768 0,907 94,1025 188,1143 350.5,1211.5 513,1280 704,1280 Z M 1526,111 q 10,-24 20.5,-44 10.5,-20 25,-38.5 14.5,-18.5 22.5,-29 8,-10.5 26,-29.5 18,-19 23,-25 1,-1 4,-4.5 3,-3.5 4.5,-5 1.5,-1.5 4,-5 2.5,-3.5 3.5,-5.5 l 2.5,-5 q 0,0 2,-6 2,-6 0.5,-6.5 -1.5,-0.5 -1,-6.5 -3,-14 -13,-22 -10,-8 -22,-7 -50,7 -86,16 Q 1388,-72 1264,16 1174,0 1088,0 817,0 616,132 q 58,-4 88,-4 161,0 309,45 148,45 264,129 125,92 192,212 67,120 67,254 0,77 -23,152 129,-71 204,-178 75,-107 75,-230 0,-120 -71,-224.5 Q 1650,183 1526,111 Z"></path>
+    </svg>
+    <span th:if="${support_unviewed != null && support_unviewed > 0}" th:text="${support_unviewed}"></span>
+</a>
+<!-- END FOOTER -->
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/toastr.js"></script>
+<script src="../assets/js/newnoti.js"></script>
+<script src="../assets/js/error-modal.js?v=4"></script>
+<script src="../assets/js/deposit.min.js"></script>
+<script src="../assets/js/qrcode.js"></script>
+<script src="../assets/js/qrcode.min.js"></script>
+<script>
+    if ($("#show_address_always").val() === 'true') {
+        new QRCode(document.getElementById("qr_code"), $("#address_input").val());
+    }
+
+    $(".buttons__01").on("click", function() {
+        $(this).removeClass("buttons__disabled");
+        $(this).removeClass("buttons__loading");
+        $(this).find(".button__loader").remove();
+    });
+
+    setInterval(() => {
+        $.ajax({
+          url: "/api/user/profile",
+          type: "POST",
+          contentType: 'application/json; charset=UTF-8',
+          dataType: 'text',
+          data: JSON.stringify({
+              action: "CHECK_ALERT"
+          }),
+          success: function (response) {
+              if (response !== "no_alerts") {
+                  const json = JSON.parse(response);
+
+                  const type = json["type"];
+                  const message = json["message"];
+
+                  if (type === "NOTIFICATION") {
+                      noti(message, "success");
+                  } else if (type === "ALERT") {
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                  } else if (type === "BONUS") {
+                      $("#alert_img_pop").attr("src", "");
+                      $("#alert_title_text").html("Bonus");
+                      $("#alert_img_pop").attr("src", "../assets/img/bonus-icon.png");
+                      $("#alert_img_pop").css("display", "block");
+                      $("#svg_alert_img").remove();
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                      $("#userAlertBox").css("font-size", "18px");
+                  }
+              }
+          }
+      });
+    }, 5000);
+
+    function closeModal(event) {
+        event.preventDefault();
+
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+    }
+
+
+    $("#butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    $(".butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    function closeButaforModal() {
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+        $("#butafor__modal").removeClass("withdrawal-successful-active");
+    }
+
+    $("#footer_subscribe").on("click", function(e) {
+        e.preventDefault();
+        $("#footer_subscribe").html("Subscribed!");
+    })
+</script>
+</body>
+</html>
+<script th:inline="javascript">
+    const o = document.querySelector(".step__qrcode-btn"),
+        r = document.querySelector(".step__qrcode-code");
+    o.addEventListener("click", (() => {
+        o.classList.toggle("qrcode-active"), r.classList.toggle("qrcode-active")
+    }))
+
+    function copyMainAddress() {
+        var aux = document.createElement("input");
+
+        aux.setAttribute("value", document.getElementById("main_address_input").value);
+
+        document.body.appendChild(aux);
+
+        aux.select();
+
+        document.execCommand("copy");
+
+        document.body.removeChild(aux);
+
+        noti("Crypto address copied to clipboard", "success");
+    }
+
+    function copyThisAddress() {
+        var aux = document.createElement("input");
+
+        aux.setAttribute("value", document.getElementById("address_input").value);
+
+        document.body.appendChild(aux);
+
+        aux.select();
+
+        document.execCommand("copy");
+
+        document.body.removeChild(aux);
+
+        noti("Crypto address copied to clipboard", "success");
+    }
+
+    var active_crypto = [[${selected_coin.type.name}]];
+
+    function setNetwork(network) {
+        setTimeout(() => location.replace("../profile/deposit?currency=" + network));
+        //active_crypto = network;
+    }
+
+    $("#show_address_btn").on("click", function(event) {
+        event.preventDefault();
+
+        $("#show_address_btn").addClass("buttons__disabled");
+        $("#show_address_btn").addClass("buttons__loading");
+
+        $(".button__loader").remove();
+
+        $.ajax({
+            url: "../api/user/profile",
+            type: "POST",
+            contentType: 'application/json; charset=UTF-8',
+            data: JSON.stringify({
+                action: "GET_DEPOSIT_ADDRESS",
+                crypto: active_crypto
+            }),
+            success: function (response, textStatus, status) {
+                const json = JSON.parse(status.responseText);
+
+                const address = json['address'];
+                const tag = json['tag'];
+
+                $(".buttons__01").removeClass("buttons__disabled");
+                $(".buttons__01").removeClass("buttons__loading");
+
+                $(".button__loader").remove();
+
+                $("#address_input").val(address);
+
+                new QRCode(document.getElementById("qr_code"), address);
+
+                $("#address_show_block").css("display", "none");
+                $("#address_show_after").css("display", "flex");
+
+                if (tag && tag !== "" && tag.length > 1) {
+                    $("#memo_address_input").val(tag);
+                    $("#memo_block").css("display", "flex");
+                } else {
+                    $("#memo_block").css("display", "none");
+                }
+            },
+            error: function (xhr) {
+                noti("An unexpected error has occurred, please try again", "error");
+            }
+        });
+    });
+</script>

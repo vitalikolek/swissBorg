@@ -1,0 +1,112 @@
+<footer class="footer" th:fragment="footer-info">
+    <div class="footer__container">
+        <div class="footer__top">
+            <div class="footer__info">
+                <div class="footer__logo">
+                    <div class="footer__logo-top">
+                        <div class="footer__logo-icon">
+                            <img style="width: 39px; margin-bottom: -3px;" th:src="${site_icon}">
+                        </div>
+                        <div class="footer__logo-text" th:text="${site_name}"></div>
+                    </div>
+                    <div class="footer__logo-line">
+                        <svg width="169" height="18" viewbox="0 0 169 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.2248 4.81993C23.8867 4.70895 26.0204 5.76327 27.2835 7.99677C28.2398 9.70312 29.3174 9.99445 31.1015 9.37018C35.683 7.76788 40.2859 6.22108 44.9173 4.77831C47.7861 3.88352 50.3552 4.36212 52.4604 6.74129C52.967 7.31008 54.2016 7.68465 54.9795 7.53205C58.9758 6.7413 62.9364 5.74245 66.9113 4.82685C71.3787 3.80027 75.8317 2.68354 80.3347 1.80955C83.1107 1.26852 85.7369 2.32977 87.4425 4.31357C89.9259 7.19216 92.9659 7.05342 96.0345 6.38753C101.822 5.13899 107.51 3.48815 113.283 2.17718C116.237 1.51129 119.277 1.01879 122.303 0.859255C123.688 0.782956 125.3 1.44885 126.506 2.22572C129.061 3.8627 131.887 3.74478 134.578 3.46039C142.035 2.66964 149.492 1.77487 156.864 0.463899C160.911 -0.257482 164.2 1.24769 167.619 2.59334C168.297 2.86386 169.181 4.32745 168.967 4.72975C168.461 5.68004 167.462 6.60257 166.434 7.00488C165.563 7.3517 164.279 7.1991 163.351 6.85228C158.534 5.04189 153.867 6.73436 149.157 7.26846C143.362 7.92048 137.596 8.80832 131.794 9.31468C130.046 9.46728 127.855 9.19676 126.499 8.25342C122.788 5.67309 119.042 6.52626 115.224 7.40718C109.122 8.81526 103.049 10.3205 96.9622 11.7771C91.9454 12.9771 87.5424 12.11 83.7459 8.43377C82.9323 7.64302 81.1197 7.19216 79.9779 7.45574C74.4758 8.69735 69.038 10.2234 63.5787 11.6661C59.9035 12.6303 56.2997 14.2118 52.3747 12.769C51.8895 12.5886 51.2971 12.5054 50.9403 12.1863C47.1153 8.74591 43.383 10.6187 39.5865 12.2557C36.9603 13.3863 34.3199 14.5169 31.5867 15.3424C28.1542 16.3828 25.5423 15.0927 23.0232 11.5759C22.1383 10.3343 21.3604 9.82798 19.8333 10.1262C15.3588 10.9863 11.4838 13.0326 7.99416 15.7724C4.83279 18.2626 2.41358 18.7551 0.401143 16.7921C-0.0555794 16.3481 -0.148338 14.7528 0.25843 14.3921C5.06115 10.0846 14.1385 5.18061 21.2391 4.82685L21.2248 4.81993Z" fill="#6544C6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="footer__description" th:text="#{footer.descr}"></div>
+                <div style="font-family: Roboto-Regular, sans-serif; font-weight: 400; font-size: 12px; line-height: 15px; letter-spacing: 0.02em; color: rgba(232, 232, 232, 0.7); margin-bottom: 23px;">
+                    <th:block th:if="${listing_request_enabled}">Listing Request: <span style="color: #6544c6;" th:text="${listing_request}"></span><br></th:block>
+                    <th:block th:if="${partnership_enabled}">Partnership: <span style="color: #6544c6;" th:text="${partnership}"></span></th:block>
+                </div>
+                <a th:if="${twitter_enabled}" th:href="${twitter}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/twitter.png">
+                </a>
+                <a th:if="${telegram_enabled}" th:href="${telegram}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/telegram.png">
+                </a>
+                <a th:if="${instagram_enabled}" th:href="${instagram}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/instagram.png">
+                </a>
+                <a th:if="${facebook_enabled}" th:href="${facebook}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/facebook.png">
+                </a>
+                <a th:if="${reddit_enabled}" th:href="${reddit}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/reddit.png">
+                </a>
+                <br>
+                <br>
+                <div class="footer__label" th:text="#{footer.subscribe.label}"></div>
+                <div class="footer__wrapper">
+                    <input class="footer__input" type="email" th:placeholder="#{footer.subscribe.placeholder}">
+                    <a class="footer__sing-up" id="footer_subscribe" href="#" th:text="#{footer.subscribe.button}"></a>
+                </div>
+            </div>
+            <div class="footer__links">
+                <div class="footer__links-block">
+                    <div class="footer__link-title" th:text="#{footer.products.title}"></div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../trading" th:text="#{header.link.trading}"></a>
+                        <a class="footer__link butafor__btn" href="../profile/wallet" th:text="#{header.link.futures}"></a>
+                        <a class="footer__link butafor__btn" href="../profile/wallet" th:text="#{header.more.options.name}"></a>
+                        <a class="footer__link" href="../profile/wallet" th:text="#{wallet}"></a>
+                        <a class="footer__link" href="swap" th:text="#{footer.links.instantswap}"></a>
+                        <a class="footer__link" href="p2p" th:text="#{header.p2p}"></a>
+                        <a class="footer__link" href="staking" th:text="#{footer.links.defistaking}"></a>
+                        <a class="footer__link" href="cards" th:text="#{footer.links.cards(${site_name})}"></a>
+                    </div>
+                </div>
+
+                <div class="footer__links-block">
+                    <div class="footer__link-title" th:text="#{footer.services.title}"></div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="support" th:text="#{footer.services.support}"></a>
+                        <a class="footer__link" href="copy-trading" th:text="#{header.more.copytrading.name}"></a>
+                        <a class="footer__link" href="trading-bots" th:text="#{header.more.tradingbots.name}"></a>
+                        <a class="footer__link" href="stake-eth20" th:text="#{header.more.eth20staking.name}"></a>
+                        <a class="footer__link" href="launchpad" th:text="#{header.more.launchpad.name}"></a>
+                        <a class="footer__link" href="savings" th:text="#{header.more.savings.name}"></a>
+                        <a class="footer__link" href="ventures" th:text="#{header.ventures(${site_name})}"></a>
+                        <a th:if="${payment_settings != null && payment_settings.transakEnabled}" class="footer__link" href="buy-crypto" th:text="#{footer.services.buycrypto}"></a>
+                    </div>
+                </div>
+
+                <div class="footer__links-block">
+                    <div class="footer__link-title" th:text="#{footer.information.title}">Information</div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../fees" th:text="#{footer.information.fees}">Fees</a>
+                        <a class="footer__link" href="status" th:text="#{footer.information.platformstatus}">Platform status</a>
+                        <a class="footer__link" href="wallet-security" th:text="#{footer.information.walletsecurity}">Wallet security</a>
+                        <a class="footer__link" href="../indices" th:text="#{footer.information.indices}">Indices</a>
+                        <a class="footer__link" href="api-docs" th:text="#{footer.information.tradingapi}">Trading API</a>
+                        <a class="footer__link" href="token-listing" th:text="#{header.token.listing}">Token listing</a>
+                        <a class="footer__link" href="space" th:text="#{footer.information.referralsystem}">Referral system</a>
+                        <a class="footer__link" href="../bugbounty" th:text="#{footer.information.bugbounty}">Bug Bounty</a>
+                    </div>
+                </div>
+
+                <div class="footer__links-block">
+                    <div class="footer__link-title" th:text="#{footer.legal.title}">Legal</div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../terms" th:text="#{signup.terms}">Terms of service</a>
+                        <a class="footer__link" href="../privacy-notice" th:text="#{footer.legal.privacy}">Privacy notice</a>
+                        <a class="footer__link" href="../cookies-policy" th:text="#{footer.legal.cookies}">Cookies policy</a>
+                        <a class="footer__link" href="../aml-kyc-policy" th:text="#{footer.legal.amlkyc}">AML & KYC policy</a>
+                        <a class="footer__link" href="../risk" th:text="#{footer.legal.risk}">Risk Disclosure Statement</a>
+                        <a class="footer__link" href="../regulatory" th:text="#{footer.legal.regulatory}">Regulatory License</a>
+                        <a class="footer__link" href="../treatment" th:text="#{footer.legal.specialtreatment}">Special Treatment</a>
+                        <a class="footer__link" href="../law" th:text="#{footer.legal.lawenforcement}">Law Enforcement Requests</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="footer__sub-text">
+                <div style="all: unset" th:text="#{footer.sub.text}"></div><br>
+                <span th:text="#{footer.sub.text.more(${site_name})}"></span>
+            </div>
+        </div>
+    </div>
+</footer>

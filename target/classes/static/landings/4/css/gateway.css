@@ -1,0 +1,147 @@
+.gateway {
+    margin-bottom: 124px;
+}
+
+.gateway__table-container,
+.gateway__table-items {
+    min-width: 1000px;
+    margin: 0 auto;
+}
+
+.gateway__table-names {
+    display: flex;
+    padding-bottom: 19px;
+    border-bottom: 1.5px solid #7AD1B3;
+}
+
+.gateway__names-label {
+    color: #8C8B90;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.gateway__table-names {
+    margin-top: 110px;
+}
+
+.gateway__names-number,
+.gateway__table-number {
+    width: 111px;
+    padding-left: 54px;
+}
+
+.gateway__names-name,
+.gateway__table-name{
+    width: 295px;
+}
+
+.gateway__names-price,
+.gateway__table-price {
+    width: 211px;
+}
+
+.gateway__names-change,
+.gateway__table-change {
+    width: 186px;
+}
+
+.gateway__names-chart,
+.gateway__table-chart {
+    width: 260px;
+}
+
+.gateway__names-trade,
+.gateway__table-trade {
+    width: 121px;
+}
+
+.gateway__table-items {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.gateway__table-item {
+    display: flex;
+    align-items: center;
+    padding: 13px 0;
+  
+    border-radius: 7px;
+}
+
+.gateway__table-item:hover {
+    background: #242627;
+}
+
+.gateway__table-number {
+    font-weight: 400;
+    font-size: 16.5px;
+    line-height: 28px;
+    color: #757880;
+}
+
+.gateway__table-name {
+    display: flex;
+    align-items: center;
+}
+
+.gateway__table-name div {
+    font-weight: 400;
+    font-size: 16.5px;
+    line-height: 28px;
+    margin-left: 25px;
+}
+
+.gateway__table-name div span {
+    color: #757880;
+    text-transform: uppercase;
+    margin-left: 11px;
+}
+
+.gateway__table-price {
+    color: #FFF;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.gateway__table-change.gateway__table-change-plus {
+    color: #7EB194;
+}
+
+.gateway__table-change.gateway__table-change-minus {
+    color: #DB5748;
+}
+
+.gateway__table-trade-link {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 28px;
+    border: 0.75px solid #7AD1B3;
+    border-radius: 10px;
+    padding: 4px 28px;
+}
+
+.gateway__table-trade-link:hover {
+    background-color: #7AD1B3;
+}
+
+@media (max-width: 1000px) {
+    .gateway {
+        margin-bottom: 80px;
+    }
+
+    .gateway__table {
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+}
+
+@media (max-width: 768px) {
+    .gateway__table-names {
+        margin-top: 60px;
+    }
+}

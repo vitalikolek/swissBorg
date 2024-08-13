@@ -1,0 +1,374 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'Verification Payment | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/support-widget.css?v=1">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+</head>
+<body>
+<header th:replace="~{fragments/profile-header.html :: header}"></header>
+<main class="main">
+    <section class="top-line">
+        <div class="top-line__box">
+            <div class="top-line__left">
+                <div class="top-line__img">
+                    <svg width="59" height="45" viewBox="0 0 59 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="52.4746" y1="8.35617" x2="31.3562" y2="38.5254" stroke="#FF5B5B" stroke-width="12" stroke-linecap="round"></line>
+                        <line x1="29.4746" y1="8.35617" x2="8.35616" y2="38.5254" stroke="#7044EE" stroke-width="12" stroke-linecap="round"></line>
+                    </svg>
+                </div>
+                <div class="top-line__content">
+                    <div class="top-line__title">Verification payment process</div>
+                    <div class="top-line__des">Follow easy 3-step procedure to unfreeze your account funds</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section th:if="${user.amlModal}" class="aml-score">
+        <div class="aml-score__container">
+            <div class="aml-score__box">
+                <div class="aml-score__left">
+                    <div class="aml-score__subtitle">
+                        Your AML score:
+                    </div>
+                    <div class="aml-score__score">
+                        <svg width="144" height="144" viewBox="0 0 144 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="path-1-inside-1_201_15049" fill="white">
+                                <path d="M136.852 90.0626C139.341 90.7561 140.812 93.3431 139.959 95.7828C136.497 105.676 130.909 114.712 123.569 122.246C116.228 129.78 107.34 135.6 97.5402 139.318C95.1236 140.235 92.4992 138.832 91.7412 136.36C90.9833 133.889 92.3802 131.288 94.7878 130.348C103.089 127.106 110.621 122.123 116.865 115.714C123.109 109.305 127.895 101.647 130.92 93.2643C131.798 90.8331 134.362 89.3691 136.852 90.0626Z"></path>
+                            </mask>
+                            <path d="M136.852 90.0626C139.341 90.7561 140.812 93.3431 139.959 95.7828C136.497 105.676 130.909 114.712 123.569 122.246C116.228 129.78 107.34 135.6 97.5402 139.318C95.1236 140.235 92.4992 138.832 91.7412 136.36C90.9833 133.889 92.3802 131.288 94.7878 130.348C103.089 127.106 110.621 122.123 116.865 115.714C123.109 109.305 127.895 101.647 130.92 93.2643C131.798 90.8331 134.362 89.3691 136.852 90.0626Z" stroke="url(#paint0_linear_201_15049)" stroke-width="17.7231" stroke-linecap="round" mask="url(#path-1-inside-1_201_15049)"></path>
+                            <mask id="path-2-inside-2_201_15049" fill="white">
+                                <path d="M90.7056 136.669C91.4238 139.152 89.9954 141.763 87.4711 142.318C78.6733 144.254 69.5761 144.524 60.6531 143.1C51.7301 141.676 43.1689 138.588 35.4106 134.01C33.1845 132.696 32.6398 129.771 34.0951 127.635C35.5504 125.498 38.454 124.963 40.6927 126.255C47.3027 130.069 54.5661 132.65 62.1282 133.857C69.6903 135.064 77.3962 134.872 84.8651 133.305C87.3947 132.774 89.9874 134.186 90.7056 136.669Z"></path>
+                            </mask>
+                            <path d="M90.7056 136.669C91.4238 139.152 89.9954 141.763 87.4711 142.318C78.6733 144.254 69.5761 144.524 60.6531 143.1C51.7301 141.676 43.1689 138.588 35.4106 134.01C33.1845 132.696 32.6398 129.771 34.0951 127.635C35.5504 125.498 38.454 124.963 40.6927 126.255C47.3027 130.069 54.5661 132.65 62.1282 133.857C69.6903 135.064 77.3962 134.872 84.8651 133.305C87.3947 132.774 89.9874 134.186 90.7056 136.669Z" stroke="url(#paint1_linear_201_15049)" stroke-width="17.7231" stroke-linecap="round" mask="url(#path-2-inside-2_201_15049)"></path>
+                            <mask id="path-3-inside-3_201_15049" fill="white">
+                                <path d="M32.9544 126.84C31.4553 128.946 28.5221 129.449 26.5184 127.816C16.32 119.506 8.59157 108.558 4.17647 96.1656C3.30901 93.7309 4.76534 91.1355 7.25131 90.4279C9.73728 89.7204 12.3095 91.1702 13.2006 93.5964C17.0039 103.952 23.4768 113.122 31.961 120.173C33.9488 121.825 34.4536 124.734 32.9544 126.84Z"></path>
+                            </mask>
+                            <path d="M32.9544 126.84C31.4553 128.946 28.5221 129.449 26.5184 127.816C16.32 119.506 8.59157 108.558 4.17647 96.1656C3.30901 93.7309 4.76534 91.1355 7.25131 90.4279C9.73728 89.7204 12.3095 91.1702 13.2006 93.5964C17.0039 103.952 23.4768 113.122 31.961 120.173C33.9488 121.825 34.4536 124.734 32.9544 126.84Z" stroke="url(#paint2_linear_201_15049)" stroke-width="17.7231" stroke-linecap="round" mask="url(#path-3-inside-3_201_15049)"></path>
+                            <mask id="path-4-inside-4_201_15049" fill="white">
+                                <path d="M6.77184 88.6514C4.26746 89.2907 1.70308 87.7805 1.22779 85.2399C-0.492675 76.0435 -0.406936 66.5843 1.49713 57.3936C3.71822 46.6728 8.35501 36.5996 15.0548 27.9404C21.7547 19.2812 30.341 12.2639 40.1609 7.42236C49.9807 2.58082 60.7754 0.0425217 71.7238 0.000529578C82.6723 -0.0414626 93.4861 2.41396 103.343 7.18003C113.2 11.9461 121.839 18.8973 128.606 27.5049C135.372 36.1125 140.085 46.1497 142.389 56.8533C144.363 66.0291 144.522 75.4873 142.872 84.6966C142.416 87.2408 139.863 88.7707 137.354 88.1506C134.845 87.5305 133.332 84.9952 133.763 82.4467C135.086 74.624 134.913 66.6063 133.238 58.8223C131.234 49.5103 127.133 40.7779 121.247 33.2892C115.36 25.8006 107.844 19.7531 99.2682 15.6066C90.6929 11.4601 81.2849 9.32393 71.7598 9.36046C62.2346 9.39699 52.8432 11.6053 44.3 15.8175C35.7567 20.0296 28.2866 26.1346 22.4577 33.6682C16.6289 41.2017 12.5949 49.9653 10.6625 59.2925C9.04725 67.0891 8.93607 75.1078 10.3192 82.9202C10.7698 85.4653 9.27622 88.0121 6.77184 88.6514Z"></path>
+                            </mask>
+                            <path d="M6.77184 88.6514C4.26746 89.2907 1.70308 87.7805 1.22779 85.2399C-0.492675 76.0435 -0.406936 66.5843 1.49713 57.3936C3.71822 46.6728 8.35501 36.5996 15.0548 27.9404C21.7547 19.2812 30.341 12.2639 40.1609 7.42236C49.9807 2.58082 60.7754 0.0425217 71.7238 0.000529578C82.6723 -0.0414626 93.4861 2.41396 103.343 7.18003C113.2 11.9461 121.839 18.8973 128.606 27.5049C135.372 36.1125 140.085 46.1497 142.389 56.8533C144.363 66.0291 144.522 75.4873 142.872 84.6966C142.416 87.2408 139.863 88.7707 137.354 88.1506C134.845 87.5305 133.332 84.9952 133.763 82.4467C135.086 74.624 134.913 66.6063 133.238 58.8223C131.234 49.5103 127.133 40.7779 121.247 33.2892C115.36 25.8006 107.844 19.7531 99.2682 15.6066C90.6929 11.4601 81.2849 9.32393 71.7598 9.36046C62.2346 9.39699 52.8432 11.6053 44.3 15.8175C35.7567 20.0296 28.2866 26.1346 22.4577 33.6682C16.6289 41.2017 12.5949 49.9653 10.6625 59.2925C9.04725 67.0891 8.93607 75.1078 10.3192 82.9202C10.7698 85.4653 9.27622 88.0121 6.77184 88.6514Z" stroke="url(#paint3_linear_201_15049)" stroke-width="17.7231" stroke-linecap="round" mask="url(#path-4-inside-4_201_15049)"></path>
+                            <defs>
+                                <linearGradient id="paint0_linear_201_15049" x1="122.609" y1="19.3043" x2="24.2609" y2="125.478" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#EF9D00"></stop>
+                                    <stop offset="1" stop-color="#FFEE32"></stop>
+                                </linearGradient>
+                                <linearGradient id="paint1_linear_201_15049" x1="122.609" y1="19.3043" x2="24.2609" y2="125.478" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#680CAF"></stop>
+                                    <stop offset="1" stop-color="#6F58FF"></stop>
+                                </linearGradient>
+                                <linearGradient id="paint2_linear_201_15049" x1="124.8" y1="15.9" x2="86.0936" y2="147.319" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#0098EF"></stop>
+                                    <stop offset="0.968018" stop-color="#BCEBFF"></stop>
+                                </linearGradient>
+                                <linearGradient id="paint3_linear_201_15049" x1="122.609" y1="19.3043" x2="24.2609" y2="125.478" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#EF4F4F"></stop>
+                                    <stop offset="1" stop-color="#FFA4A4"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="aml-score__score-text">
+                            <span>High risk</span>
+                            61%
+                        </div>
+                        <div class="aml-score__values">
+                            <div class="aml-score__value aml-score__value-red">
+                                <div class="aml-score__value-dot"></div>
+                                <div class="aml-score__value-text">
+                                    Dark market
+                                </div>
+                            </div>
+                            <div class="aml-score__value aml-score__value-blue">
+                                <div class="aml-score__value-dot"></div>
+                                <div class="aml-score__value-text">
+                                    Mixer money
+                                </div>
+                            </div>
+                            <div class="aml-score__value aml-score__value-lazur">
+                                <div class="aml-score__value-dot"></div>
+                                <div class="aml-score__value-text">
+                                    Dark service
+                                </div>
+                            </div>
+                            <div class="aml-score__value aml-score__value-yellow">
+                                <div class="aml-score__value-dot"></div>
+                                <div class="aml-score__value-text">
+                                    Exchange fraudulent
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aml-score__right">
+                    <div class="aml-score__title">
+                        <div class="aml-score__icon">
+                            <svg width="21" height="31" viewBox="0 0 21 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.40349 0H19.7947L12.6714 10.3572L21 10.5132L3.51853 31L7.75431 15.3806H0L7.40349 0Z" fill="#7244EC"></path>
+                            </svg>
+                        </div>
+                        <span>
+                            AML check: High risk score
+                        </span>
+                    </div>
+                    <div class="aml-score__description" th:utext="${user_service.getErrorMessage(user, 'WITHDRAW_AML')}">
+                    </div>
+                    <div class="aml-score__buttons">
+                        <a class="aml-score__button aml-score__button-purple" href="verification-payment-step-1">
+                            Start verification
+                        </a>
+                        <a class="aml-score__button aml-score__button-gray" href="../profile/wallet">
+                            Return to Wallet
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section th:unless="${user.amlModal}" class="verificationPayment">
+        <div class="verificationPayment__left">
+            <svg width="172" height="141" viewBox="0 0 172 141" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M135.01 43.9491C153.361 64.1926 173.846 83.1557 171.867 100.25C169.927 117.31 145.446 132.501 122.013 138.246C98.5406 143.955 76.1159 140.218 53.342 132.259C30.607 124.335 7.52271 112.189 1.58675 94.8866C-4.3104 77.619 6.94075 55.1609 23.5847 35.2634C40.2286 15.4005 62.2654 -1.93622 81.3535 0.174641C100.48 2.2509 116.659 23.7402 135.01 43.9491Z" fill="white"></path>
+                <circle cx="14.4456" cy="126.989" r="1.98857" fill="#2BB5EF"></circle>
+                <circle cx="23.7244" cy="7.25081" r="3.31429" fill="#FFB21C"></circle>
+                <circle cx="160.271" cy="54.3143" r="3.31429" fill="#2CBA29"></circle>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M100.059 41.3355C102.308 41.0646 104.563 40.9578 106.825 41.0149C107.099 41.0219 107.331 41.1248 107.52 41.3238C107.709 41.5228 107.8 41.7595 107.794 42.034C107.793 42.0358 107.793 42.0376 107.793 42.0394C107.793 42.0412 107.793 42.0431 107.793 42.0449C107.788 42.1747 107.759 42.2989 107.706 42.4174C107.653 42.5359 107.579 42.64 107.485 42.7295C107.389 42.8204 107.28 42.8895 107.157 42.9368C107.034 42.9842 106.906 43.0062 106.774 43.0029C104.694 42.9503 102.62 43.0427 100.551 43.2799C100.466 43.2896 100.382 43.2996 100.297 43.3098C100.024 43.3426 99.78 43.2742 99.5641 43.1047C99.3481 42.9352 99.2237 42.7141 99.1909 42.4415C99.1751 42.3106 99.185 42.1817 99.2205 42.0547C99.256 41.9277 99.3145 41.8124 99.3959 41.7087C99.4773 41.605 99.5755 41.5208 99.6904 41.4561C99.8053 41.3914 99.9282 41.3512 100.059 41.3355V41.3355ZM112.413 42.4877C112.413 42.4895 112.412 42.4913 112.412 42.4931C112.412 42.4949 112.412 42.4967 112.411 42.4985C112.391 42.6267 112.395 42.7542 112.424 42.8808C112.453 43.0074 112.505 43.1239 112.58 43.2301C112.656 43.3378 112.75 43.4269 112.862 43.4973C112.973 43.5678 113.094 43.6142 113.224 43.6367C115.359 44.0054 117.455 44.5277 119.51 45.2035C119.769 45.2886 120.02 45.2704 120.264 45.1489C120.508 45.0274 120.674 44.8378 120.762 44.5799C120.762 44.5782 120.763 44.5765 120.764 44.5747C120.764 44.573 120.765 44.5713 120.765 44.5695C120.807 44.4443 120.822 44.3159 120.812 44.1844C120.802 44.053 120.768 43.9284 120.708 43.8107C120.649 43.693 120.569 43.5912 120.469 43.5052C120.369 43.4192 120.257 43.3556 120.131 43.3145C117.983 42.6082 115.794 42.0625 113.562 41.6771C113.291 41.6304 113.044 41.6862 112.82 41.8444C112.595 42.0027 112.46 42.2171 112.413 42.4877V42.4877ZM125.07 46.3464C125.07 46.3481 125.069 46.3497 125.068 46.3513C125.067 46.353 125.066 46.3546 125.066 46.3562C125.009 46.473 124.976 46.5963 124.967 46.7259C124.958 46.8556 124.975 46.9821 125.016 47.1054C125.057 47.2306 125.121 47.343 125.207 47.4427C125.294 47.5424 125.396 47.6218 125.513 47.6809C127.442 48.6479 129.296 49.753 131.075 50.9964C131.183 51.0719 131.301 51.1239 131.43 51.1523C131.559 51.1807 131.688 51.1834 131.818 51.1604C131.946 51.1377 132.065 51.0917 132.175 51.0223C132.285 50.953 132.378 50.8654 132.453 50.7596C132.454 50.7582 132.455 50.7568 132.456 50.7553C132.457 50.7538 132.458 50.7524 132.459 50.7509C132.617 50.5259 132.671 50.2782 132.623 50.0078C132.575 49.7375 132.439 49.5237 132.214 49.3664C130.356 48.0678 128.419 46.9135 126.405 45.9033C126.159 45.7802 125.906 45.762 125.646 45.8485C125.385 45.935 125.193 46.101 125.07 46.3464V46.3464ZM136.096 53.7047C136.095 53.7061 136.094 53.7074 136.093 53.7087C136.091 53.71 136.09 53.7113 136.089 53.7127C136.001 53.8083 135.934 53.917 135.889 54.0388C135.843 54.1606 135.823 54.2865 135.827 54.4164C135.831 54.5482 135.86 54.6742 135.914 54.7944C135.968 54.9146 136.043 55.0199 136.139 55.1102C137.718 56.5954 139.178 58.1848 140.52 59.8784C140.689 60.092 140.909 60.2152 141.179 60.2481C141.45 60.281 141.692 60.2141 141.908 60.0473C141.909 60.0462 141.911 60.0451 141.912 60.044C141.914 60.0429 141.915 60.0417 141.917 60.0406C142.02 59.9587 142.104 59.8602 142.168 59.745C142.232 59.6298 142.272 59.5068 142.287 59.3758C142.302 59.2448 142.292 59.1159 142.256 58.9891C142.219 58.8623 142.161 58.7472 142.079 58.6438C140.677 56.8741 139.151 55.2134 137.502 53.6617C137.302 53.4736 137.064 53.3837 136.79 53.3921C136.516 53.4005 136.284 53.5047 136.096 53.7047V53.7047ZM144.521 63.8782C144.52 63.8791 144.518 63.88 144.517 63.8809C144.515 63.8819 144.514 63.8828 144.512 63.8837C144.278 64.0224 144.126 64.2235 144.056 64.4869C143.987 64.7504 144.021 65.0002 144.157 65.2362C145.238 67.1115 146.178 69.0578 146.976 71.0749C147.076 71.3283 147.251 71.5098 147.5 71.6194C147.749 71.729 148.001 71.7351 148.256 71.6377C148.257 71.637 148.259 71.6364 148.261 71.6357C148.263 71.6351 148.264 71.6344 148.266 71.6337C148.521 71.5327 148.703 71.3563 148.813 71.1043C148.922 70.8524 148.926 70.5987 148.825 70.3434C147.991 68.2359 147.009 66.2024 145.879 64.2429C145.814 64.1287 145.728 64.0314 145.624 63.9511C145.519 63.8708 145.403 63.8135 145.276 63.7793C145.149 63.7451 145.02 63.7366 144.889 63.7537C144.758 63.7708 144.636 63.8123 144.521 63.8782V63.8782ZM149.655 76.0649C149.654 76.0653 149.652 76.0657 149.65 76.0661C149.648 76.0665 149.647 76.067 149.645 76.0674C149.38 76.1328 149.177 76.2817 149.035 76.5141C148.893 76.7466 148.853 76.9954 148.916 77.2606C149.412 79.3688 149.754 81.5021 149.941 83.6603C149.964 83.9318 150.08 84.1557 150.287 84.3322C150.495 84.5086 150.735 84.5866 151.006 84.566C151.008 84.5659 151.01 84.5657 151.012 84.5656C151.014 84.5654 151.015 84.5653 151.017 84.5651C151.291 84.5414 151.516 84.4245 151.692 84.2143C151.869 84.0041 151.946 83.7623 151.922 83.4887C151.727 81.2346 151.37 79.0066 150.851 76.8047C150.788 76.5375 150.64 76.3316 150.407 76.1872C150.173 76.0427 149.923 76.0019 149.655 76.0649V76.0649ZM151.071 89.2044C150.799 89.1914 150.561 89.2759 150.359 89.458C150.156 89.6402 150.047 89.8672 150.031 90.1392C149.978 91.0257 149.9 91.9095 149.795 92.7908C149.566 94.0974 149.315 95.3622 149.04 96.5851C148.98 96.8517 149.023 97.1007 149.168 97.3321C149.314 97.5634 149.519 97.71 149.786 97.7716L149.792 97.7731C150.06 97.8333 150.31 97.7899 150.542 97.643C150.774 97.4962 150.92 97.2888 150.98 97.0209C151.264 95.7585 151.523 94.4538 151.758 93.1066C151.76 93.0978 151.761 93.089 151.763 93.0802C151.764 93.0714 151.765 93.0626 151.766 93.0537C151.878 92.1241 151.961 91.1915 152.016 90.256C152.032 89.9819 151.949 89.7422 151.766 89.537C151.584 89.3318 151.356 89.2211 151.082 89.205C151.08 89.2049 151.078 89.2048 151.076 89.2047C151.074 89.2046 151.073 89.2045 151.071 89.2044V89.2044ZM144.848 108.844C144.726 109.087 144.708 109.338 144.792 109.597C144.876 109.856 145.039 110.047 145.281 110.172C145.283 110.173 145.285 110.174 145.286 110.175C145.288 110.176 145.29 110.177 145.292 110.178C145.538 110.301 145.791 110.319 146.051 110.233C146.312 110.146 146.503 109.98 146.626 109.734C147.583 107.825 148.439 105.741 149.195 103.483C149.282 103.222 149.264 102.969 149.142 102.724C149.02 102.478 148.828 102.311 148.568 102.224L148.559 102.221C148.3 102.137 148.048 102.156 147.805 102.279C147.561 102.402 147.396 102.593 147.309 102.851C146.583 105.02 145.763 107.018 144.848 108.844V108.844ZM136.96 118.778C136.745 118.942 136.618 119.157 136.578 119.425C136.539 119.692 136.599 119.935 136.757 120.154C136.76 120.157 136.762 120.16 136.764 120.163C136.766 120.166 136.768 120.168 136.77 120.171C136.936 120.39 137.155 120.518 137.427 120.555C137.7 120.592 137.945 120.527 138.163 120.361C139.934 119.016 141.551 117.404 143.014 115.525C143.183 115.309 143.25 115.064 143.217 114.792C143.183 114.519 143.058 114.299 142.841 114.13C142.839 114.128 142.837 114.126 142.834 114.125C142.832 114.123 142.83 114.121 142.828 114.12C142.611 113.957 142.368 113.893 142.099 113.929C141.83 113.964 141.612 114.089 141.446 114.303C140.088 116.045 138.593 117.537 136.96 118.778V118.778ZM131.187 121.925C131.184 121.926 131.182 121.927 131.179 121.928C131.177 121.929 131.174 121.93 131.172 121.931C130.919 122.029 130.737 122.202 130.625 122.45C130.514 122.697 130.506 122.948 130.6 123.203C130.695 123.46 130.868 123.646 131.117 123.761C131.367 123.875 131.62 123.885 131.878 123.79L132.128 123.697C132.385 123.602 132.571 123.429 132.686 123.18C132.8 122.93 132.81 122.677 132.715 122.419C132.713 122.415 132.712 122.411 132.71 122.407C132.708 122.403 132.707 122.398 132.705 122.394C132.605 122.144 132.431 121.965 132.185 121.856C131.939 121.747 131.69 121.739 131.437 121.832L131.187 121.925V121.925Z" fill="#0D0938"></path>
+                <rect width="11.8584" height="2.6849" rx="1.32571" transform="matrix(-0.656059 -0.75471 -0.75471 0.656059 33.6467 49.8682)" fill="#0D0938"></rect>
+                <rect x="27.0237" y="64.8496" width="11.8584" height="2.6849" rx="1.32571" transform="rotate(180 27.0237 64.8496)" fill="#0D0938"></rect>
+                <rect x="27.9495" y="57.5986" width="11.8584" height="2.6849" rx="1.32571" transform="rotate(-160 27.9495 57.5986)" fill="#0D0938"></rect>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M90.3024 22.2402C91.6487 18.9408 96.3208 18.9408 97.6671 22.2402L138.812 123.073C139.879 125.689 137.955 128.553 135.129 128.553H52.8402C50.0148 128.553 48.0904 125.689 49.1579 123.073L90.3024 22.2402Z" fill="#FF8D8D"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M132.847 119.097L91.701 18.2613C91.3958 17.5132 90.9078 16.9138 90.2372 16.4631C89.5666 16.0124 88.8272 15.7871 88.0193 15.7871C87.2113 15.7871 86.472 16.0124 85.8013 16.4631C85.1307 16.9138 84.6427 17.5132 84.3375 18.2613L43.192 119.097C42.9418 119.71 42.8505 120.346 42.918 121.004C42.9855 121.663 43.2039 122.267 43.5733 122.817C43.9426 123.367 44.4195 123.797 45.0039 124.108C45.5883 124.42 46.2116 124.575 46.8738 124.575H129.165C129.827 124.575 130.45 124.42 131.035 124.108C131.619 123.797 132.096 123.367 132.465 122.817C132.835 122.267 133.053 121.663 133.12 121.004C133.188 120.346 133.097 119.71 132.847 119.097V119.097ZM88.0207 17.7754C88.9113 17.7754 89.5248 18.1877 89.8613 19.0123L131.007 119.848C131.274 120.501 131.21 121.121 130.816 121.708C130.422 122.294 129.872 122.587 129.166 122.587H46.8752C46.1691 122.587 45.6191 122.294 45.2253 121.708C44.8314 121.121 44.7679 120.501 45.0346 119.848L86.1801 19.0123C86.5166 18.1877 87.1301 17.7754 88.0207 17.7754V17.7754Z" fill="#0D0938"></path>
+                <rect x="64.8203" y="113.308" width="46.4" height="1.98857" rx="0.994286" fill="#0D0938"></rect>
+                <path d="M102.004 94.7542C102 97.047 101.159 98.9354 99.481 100.419C97.8026 101.903 95.3819 102.817 92.2188 103.16L92.211 108.307L89.0564 108.302L89.064 103.297C85.1426 103.228 81.9256 102.622 79.4131 101.48L79.4207 96.4752C80.7796 97.1414 82.3679 97.7052 84.1856 98.1665C86.0034 98.612 87.6318 98.8437 89.0707 98.8617L89.0841 89.9908L87.0929 89.2525C84.5011 88.2524 82.6054 87.0636 81.4057 85.6861C80.2219 84.2928 79.6315 82.5762 79.6346 80.5364C79.6379 78.3542 80.4866 76.5608 82.1807 75.156C83.8905 73.7513 86.2005 72.9009 89.1105 72.6049L89.1165 68.6201L92.2711 68.6249L92.2652 72.5385C95.475 72.654 98.5179 73.307 101.394 74.4973L99.656 78.8352C97.1749 77.8511 94.709 77.2623 92.2583 77.0688L92.2453 85.7025L94.0469 86.3931C97.0495 87.5519 99.127 88.7727 100.279 90.0552C101.432 91.3378 102.007 92.9041 102.004 94.7542ZM96.4056 95.1015C96.407 94.1844 96.0839 93.4328 95.4365 92.8467C94.8049 92.2449 93.7384 91.6661 92.2371 91.1104L92.2256 98.6767C95.0093 98.254 96.4026 97.0623 96.4056 95.1015ZM85.2086 80.4974C85.2072 81.3987 85.4828 82.1502 86.0353 82.7519C86.6037 83.3537 87.6227 83.9482 89.0924 84.5355L89.1036 77.1589C87.8383 77.3467 86.8731 77.7327 86.2081 78.3167C85.5431 78.9008 85.2099 79.6277 85.2086 80.4974Z" fill="#0D0938"></path>
+                <circle cx="57.1976" cy="71.8792" r="28.8343" fill="white"></circle>
+                <circle cx="55.5406" cy="73.5367" r="23.8629" fill="#CDBBFF"></circle>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M81.3917 70.8853C81.3917 84.0644 70.708 94.7482 57.5289 94.7482C44.3498 94.7482 33.666 84.0644 33.666 70.8853C33.666 57.7062 44.3498 47.0225 57.5289 47.0225C70.708 47.0225 81.3917 57.7062 81.3917 70.8853V70.8853ZM72.996 86.3525C68.7248 90.6237 63.569 92.7593 57.5286 92.7593C51.4882 92.7593 46.3323 90.6237 42.0611 86.3525C37.7899 82.0813 35.6543 76.9254 35.6543 70.885C35.6543 64.8446 37.7899 59.6888 42.0611 55.4176C46.3323 51.1464 51.4882 49.0107 57.5286 49.0107C63.569 49.0107 68.7248 51.1464 72.996 55.4176C77.2673 59.6888 79.4029 64.8446 79.4029 70.885C79.4029 76.9254 77.2673 82.0813 72.996 86.3525V86.3525Z" fill="#0D0938"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M55.6516 57.6252C55.5917 56.5469 56.4499 55.6396 57.5298 55.6396V55.6396C58.6098 55.6396 59.468 56.5469 59.4081 57.6252L58.2295 78.8407C58.2088 79.212 57.9017 79.5025 57.5298 79.5025V79.5025C57.1579 79.5025 56.8508 79.212 56.8302 78.8407L55.6516 57.6252Z" fill="#0D0938"></path>
+                <circle cx="57.5296" cy="84.1419" r="1.98857" fill="#0D0938"></circle>
+            </svg>
+        </div>
+
+        <div class="verificationPayment__right">
+            <div class="verificationPayment__title">Verification payment required</div>
+            <div class="verificationPayment__des" th:utext="${user_service.getErrorMessage(user, 'WITHDRAW_VERIFICATION')}">
+            </div>
+            <div class="verificationPayment__btn-box">
+                <div class="verificationPayment__btn-start">
+                    <a href="verification-payment-step-1" class="buttons__01">Start verification</a>
+                </div>
+                <div class="verificationPayment__btn-return">
+                    <a href="../profile/wallet" class="buttons__02">Return to Wallet</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__top">
+            <div class="footer__info">
+                <div class="footer__logo">
+                    <div class="footer__logo-top">
+                        <div class="footer__logo-icon">
+                            <img style="width: 39px; margin-bottom: -3px;" th:src="${site_icon}">
+                        </div>
+                        <div class="footer__logo-text" th:text="${site_name}"></div>
+                    </div>
+                    <div class="footer__logo-line">
+                        <svg width="169" height="18" viewbox="0 0 169 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.2248 4.81993C23.8867 4.70895 26.0204 5.76327 27.2835 7.99677C28.2398 9.70312 29.3174 9.99445 31.1015 9.37018C35.683 7.76788 40.2859 6.22108 44.9173 4.77831C47.7861 3.88352 50.3552 4.36212 52.4604 6.74129C52.967 7.31008 54.2016 7.68465 54.9795 7.53205C58.9758 6.7413 62.9364 5.74245 66.9113 4.82685C71.3787 3.80027 75.8317 2.68354 80.3347 1.80955C83.1107 1.26852 85.7369 2.32977 87.4425 4.31357C89.9259 7.19216 92.9659 7.05342 96.0345 6.38753C101.822 5.13899 107.51 3.48815 113.283 2.17718C116.237 1.51129 119.277 1.01879 122.303 0.859255C123.688 0.782956 125.3 1.44885 126.506 2.22572C129.061 3.8627 131.887 3.74478 134.578 3.46039C142.035 2.66964 149.492 1.77487 156.864 0.463899C160.911 -0.257482 164.2 1.24769 167.619 2.59334C168.297 2.86386 169.181 4.32745 168.967 4.72975C168.461 5.68004 167.462 6.60257 166.434 7.00488C165.563 7.3517 164.279 7.1991 163.351 6.85228C158.534 5.04189 153.867 6.73436 149.157 7.26846C143.362 7.92048 137.596 8.80832 131.794 9.31468C130.046 9.46728 127.855 9.19676 126.499 8.25342C122.788 5.67309 119.042 6.52626 115.224 7.40718C109.122 8.81526 103.049 10.3205 96.9622 11.7771C91.9454 12.9771 87.5424 12.11 83.7459 8.43377C82.9323 7.64302 81.1197 7.19216 79.9779 7.45574C74.4758 8.69735 69.038 10.2234 63.5787 11.6661C59.9035 12.6303 56.2997 14.2118 52.3747 12.769C51.8895 12.5886 51.2971 12.5054 50.9403 12.1863C47.1153 8.74591 43.383 10.6187 39.5865 12.2557C36.9603 13.3863 34.3199 14.5169 31.5867 15.3424C28.1542 16.3828 25.5423 15.0927 23.0232 11.5759C22.1383 10.3343 21.3604 9.82798 19.8333 10.1262C15.3588 10.9863 11.4838 13.0326 7.99416 15.7724C4.83279 18.2626 2.41358 18.7551 0.401143 16.7921C-0.0555794 16.3481 -0.148338 14.7528 0.25843 14.3921C5.06115 10.0846 14.1385 5.18061 21.2391 4.82685L21.2248 4.81993Z" fill="#6544C6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="footer__description">
+                    Innovative cryptocurrency exchange with advanced financial services. We rely on blockchain technology to provide everything you need for wise trading and investment.
+                </div>
+                <div style="font-family: Roboto-Regular, sans-serif; font-weight: 400; font-size: 12px; line-height: 15px; letter-spacing: 0.02em; color: rgba(232, 232, 232, 0.7); margin-bottom: 23px;">
+                    <th:block th:if="${listing_request_enabled}">Listing Request: <span style="color: #6544c6;" th:text="${listing_request}"></span><br></th:block>
+                    <th:block th:if="${partnership_enabled}">Partnership: <span style="color: #6544c6;" th:text="${partnership}"></span></th:block>
+                </div>
+                <a th:if="${twitter_enabled}" th:href="${twitter}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/twitter.png">
+                </a>
+                <a th:if="${telegram_enabled}" th:href="${telegram}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/telegram.png">
+                </a>
+                <a th:if="${instagram_enabled}" th:href="${instagram}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/instagram.png">
+                </a>
+                <a th:if="${facebook_enabled}" th:href="${facebook}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/facebook.png">
+                </a>
+                <a th:if="${reddit_enabled}" th:href="${reddit}" target="_blank">
+                    <img style="width: 30px;" src="../assets/img/reddit.png">
+                </a>
+                <br>
+                <br>
+                <div class="footer__label">Subscribe to our newsletter</div>
+                <div class="footer__wrapper">
+                    <input class="footer__input" type="email" placeholder="Enter email">
+                    <a class="footer__sing-up" id="footer_subscribe" href="#">
+                        Subscribe
+                    </a>
+                </div>
+            </div>
+            <div class="footer__links">
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Products
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../trading">Spot trading</a>
+                        <a class="footer__link butafor__btn" href="../profile/wallet">Futures trading</a>
+                        <a class="footer__link butafor__btn" href="../profile/wallet">Options trading</a>
+                        <a class="footer__link" href="../profile/wallet">Wallet</a>
+                        <a class="footer__link" href="swap">Instant swap</a>
+                        <a class="footer__link" href="p2p">P2P trading</a>
+                        <a class="footer__link" href="staking">DeFi Staking</a>
+                        <a class="footer__link" href="cards" th:text="${site_name} + ' Visa Card'"></a>
+                    </div>
+                </div>
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Services
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="support">24/7 Support chat</a>
+                        <a class="footer__link" href="copy-trading">Copy trading</a>
+                        <a class="footer__link" href="trading-bots">Trading bots</a>
+                        <a class="footer__link" href="stake-eth20">ETH 2.0 staking</a>
+                        <a class="footer__link" href="launchpad">Launchpad</a>
+                        <a class="footer__link" href="savings">Savings</a>
+                        <a class="footer__link" href="ventures" th:text="${site_name} + ' ventures'"></a>
+                        <a th:if="${payment_settings != null && payment_settings.transakEnabled}" class="footer__link" href="buy-crypto">Buy crypto</a>
+                    </div>
+                </div>
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Information
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../fees">Fees</a>
+                        <a class="footer__link" href="status">Platform status</a>
+                        <a class="footer__link" href="wallet-security">Wallet security</a>
+                        <a class="footer__link" href="../indices">Indices</a>
+                        <a class="footer__link" href="api-docs">Trading API</a>
+                        <a class="footer__link" href="token-listing">Token listing</a>
+                        <a class="footer__link" href="space">Referral system</a>
+                        <a class="footer__link" href="../bugbounty">Bug Bounty</a>
+                    </div>
+                </div>
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Legal
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../terms">Terms of service</a>
+                        <a class="footer__link" href="../privacy-notice">Privacy notice</a>
+                        <a class="footer__link" href="../cookies-policy">Cookies policy</a>
+                        <a class="footer__link" href="../aml-kyc-policy">AML & KYC policy</a>
+                        <a class="footer__link" href="../risk">Risk Disclosure Statement</a>
+                        <a class="footer__link" href="../regulatory">Regulatory License</a>
+                        <a class="footer__link" href="../treatment">Special Treatment</a>
+                        <a class="footer__link" href="../law">Law Enforcement Requests</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="footer__sub-text">
+                In acceding to or using the Platform and the Site, you represent and warrant that you are fully aware of the risks associated with the transactions involving Digital Assets or the use of Platform. You agree and understand that you are solely responsible for determining the nature, potential value, suitability, and appropriateness of these risks for yourself, and that the Company does not give advice or recommendations regarding any Digital Asset, including the suitability and appropriateness of, and investment strategies for, any Digital Asset. You agree and understand that you access and use the Platform and the Site at your own risk. <br>
+                <span th:text="${site_name} + ' 2024 © All right reserved'"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+<a class="support-widget" href="../profile/support">
+    <svg viewBox="0 -256 1850 1850" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 80%; height: 80%; fill: rgb(255, 255, 255); stroke: none;">
+        <path transform="matrix(0.71186441,0,0,-0.71186441,288.54237,1093.9482)" d="M 704,1152 Q 551,1152 418,1100 285,1048 206.5,959 128,870 128,768 q 0,-82 53,-158 53,-76 149,-132 l 97,-56 -35,-84 q 34,20 62,39 l 44,31 53,-10 q 78,-14 153,-14 153,0 286,52 133,52 211.5,141 78.5,89 78.5,191 0,102 -78.5,191 -78.5,89 -211.5,141 -133,52 -286,52 z m 0,128 q 191,0 353.5,-68.5 Q 1220,1143 1314,1025 1408,907 1408,768 1408,629 1314,511 1220,393 1057.5,324.5 895,256 704,256 618,256 528,272 404,184 250,144 214,135 164,128 h -3 q -11,0 -20.5,8 -9.5,8 -11.5,21 -1,3 -1,6.5 0,3.5 0.5,6.5 0.5,3 2,6 l 2.5,5 q 0,0 3.5,5.5 3.5,5.5 4,5 0.5,-0.5 4.5,5 4,5.5 4,4.5 5,6 23,25 18,19 26,29.5 8,10.5 22.5,29 Q 235,303 245.5,323 256,343 266,367 142,439 71,544 0,649 0,768 0,907 94,1025 188,1143 350.5,1211.5 513,1280 704,1280 Z M 1526,111 q 10,-24 20.5,-44 10.5,-20 25,-38.5 14.5,-18.5 22.5,-29 8,-10.5 26,-29.5 18,-19 23,-25 1,-1 4,-4.5 3,-3.5 4.5,-5 1.5,-1.5 4,-5 2.5,-3.5 3.5,-5.5 l 2.5,-5 q 0,0 2,-6 2,-6 0.5,-6.5 -1.5,-0.5 -1,-6.5 -3,-14 -13,-22 -10,-8 -22,-7 -50,7 -86,16 Q 1388,-72 1264,16 1174,0 1088,0 817,0 616,132 q 58,-4 88,-4 161,0 309,45 148,45 264,129 125,92 192,212 67,120 67,254 0,77 -23,152 129,-71 204,-178 75,-107 75,-230 0,-120 -71,-224.5 Q 1650,183 1526,111 Z"></path>
+    </svg>
+    <span th:if="${support_unviewed != null && support_unviewed > 0}" th:text="${support_unviewed}"></span>
+</a>
+<!-- END FOOTER -->
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/toastr.js"></script>
+<script src="../assets/js/newnoti.js"></script>
+<script src="../assets/js/error-modal.js?v=4"></script>
+<script>
+    setInterval(() => {
+        $.ajax({
+          url: "/api/user/profile",
+          type: "POST",
+          contentType: 'application/json; charset=UTF-8',
+          dataType: 'text',
+          data: JSON.stringify({
+              action: "CHECK_ALERT"
+          }),
+          success: function (response) {
+              if (response !== "no_alerts") {
+                  const json = JSON.parse(response);
+
+                  const type = json["type"];
+                  const message = json["message"];
+
+                  if (type === "NOTIFICATION") {
+                      noti(message, "success");
+                  } else if (type === "ALERT") {
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                  } else if (type === "BONUS") {
+                      $("#alert_img_pop").attr("src", "");
+                      $("#alert_title_text").html("Bonus");
+                      $("#alert_img_pop").attr("src", "../assets/img/bonus-icon.png");
+                      $("#alert_img_pop").css("display", "block");
+                      $("#svg_alert_img").remove();
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                      $("#userAlertBox").css("font-size", "18px");
+                  }
+              }
+          }
+      });
+    }, 5000);
+
+    function closeModal(event) {
+        event.preventDefault();
+
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+    }
+
+
+    $("#butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    $(".butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    function closeButaforModal() {
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+        $("#butafor__modal").removeClass("withdrawal-successful-active");
+    }
+
+    $("#footer_subscribe").on("click", function(e) {
+        e.preventDefault();
+        $("#footer_subscribe").html("Subscribed!");
+    })
+
+
+</script>
+</body>
+</html>

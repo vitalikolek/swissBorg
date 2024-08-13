@@ -1,0 +1,479 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'API Trading | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/support-widget.css?v=1">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+</head>
+<body>
+<header th:replace="~{fragments/profile-header.html :: header}"></header>
+        <main class="main landings">
+            <section class="api-home">
+                <div class="api-home__container">
+                    <div class="api-home__box">
+                        <div class="api-home__left">
+                            <div class="api-home__title" th:text="${site_name} + ' API'"></div>
+                            <div class="api-home__description">
+                                Your gateway to the future
+                            </div>
+                            <div class="api-home__links">
+                                <a class="api-home__link" href="api">Create your API Key</a>
+                                <a class="api-home__link" href="#">Explore API Docs</a>
+                            </div>
+                        </div>
+                        <div class="api-home__right">
+                            <div class="api-home__img">
+                                <picture><source srcset="../assets/img/api-home/illustration-crypto.webp" type="image/webp"><picture><source srcset="../assets/img/api-home/illustration-crypto.webp" type="image/webp"><img src="../assets/img/api-home/illustration-crypto.png" alt=""></picture></picture>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="api-integration">
+                <div class="api-integration__container">
+                    <div class="api-integration__title">
+                        A seamless trading integration
+                    </div>
+                    <div class="api-integration__description">
+                        Support spot, margin, contracts, and options API trading for 100+ digital currencies
+                    </div>
+                    <div class="api-integration__visualization">
+                        <div class="api-integration__visualization-line api-integration__visualization-manage">
+                            <div class="api-integration__visualization-border"></div>
+                            <span>Create/Manage API keys</span>
+                        </div>
+
+                        <div class="api-integration__visualization-line api-integration__visualization-trade">
+                            <div class="api-integration__visualization-border"></div>
+                            <span>Trade & request</span>
+                        </div>
+
+                        <div class="api-integration__visualization-line api-integration__visualization-deploy">
+                            <div class="api-integration__visualization-border"></div>
+                            <span>Deploy API</span>
+                        </div>
+
+                        <div class="api-integration__visualization-icon api-integration__visualization-user">
+                            <div class="api-integration__visualization-img">
+                                <picture><source srcset="../assets/img/api-integration/user.webp" type="image/webp"><picture><source srcset="../assets/img/api-integration/user.webp" type="image/webp"><img src="../assets/img/api-integration/user.png" alt=""></picture></picture>
+                            </div>
+                            User
+                        </div>
+                        <div class="api-integration__visualization-icon api-integration__visualization-api">
+                            <div class="api-integration__visualization-img">
+                                <picture><source srcset="../assets/img/api-integration/api.webp" type="image/webp"><picture><source srcset="../assets/img/api-integration/api.webp" type="image/webp"><img src="../assets/img/api-integration/api.png" alt=""></picture></picture>
+                            </div>
+                            API
+                        </div>
+                        <div class="api-integration__visualization-icon api-integration__visualization-project">
+                            <div class="api-integration__visualization-img">
+                                <picture><source srcset="../assets/img/api-integration/project.webp" type="image/webp"><picture><source srcset="../assets/img/api-integration/project.webp" type="image/webp"><img src="../assets/img/api-integration/project.png" alt=""></picture></picture>
+                            </div>
+                            <th:block th:text="${site_name}"></th:block>
+                        </div>
+                    </div>
+                    <div class="api-integration__cards">
+                        <div class="api-integration__card api-integration__card-api">
+                            <div class="api-integration__card-img">
+                                <picture><source srcset="../assets/img/api-integration/trading-API.webp" type="image/webp"><picture><source srcset="../assets/img/api-integration/trading-API.webp" type="image/webp"><img src="../assets/img/api-integration/trading-API.png" alt=""></picture></picture>
+                            </div>
+                            <div class="api-integration__card-title">
+                                Trading API
+                            </div>
+                            <div class="api-integration__card-links">
+                                <a class="api-integration__card-link" href="#">
+                                    Order book trading
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                                <a class="api-integration__card-link" href="#">
+                                    Trading bot
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                                <a class="api-integration__card-link" href="#">
+                                    Convert
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                                <a class="api-integration__card-link" href="#">
+                                    Block trading
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                                <a class="api-integration__card-link" href="#">
+                                    WebSocket
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="api-integration__card api-integration__card-data">
+                            <div class="api-integration__card-img">
+                                <picture><source srcset="../assets/img/api-integration/data-API.webp" type="image/webp"><picture><source srcset="../assets/img/api-integration/data-API.webp" type="image/webp"><img src="../assets/img/api-integration/data-API.png" alt=""></picture></picture>
+                            </div>
+                            <div class="api-integration__card-title">
+                                Data API
+                            </div>
+                            <div class="api-integration__card-links">
+                                <a class="api-integration__card-link" href="#">
+                                    Market data
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                                <a class="api-integration__card-link" href="#">
+                                    Trading data
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                                <a class="api-integration__card-link" href="#">
+                                    Public data
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                                <a class="api-integration__card-link" href="#">
+                                    Websocket
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="api-integration__card api-integration__card-services">
+                            <div class="api-integration__card-img">
+                                <picture><source srcset="../assets/img/api-integration/services.webp" type="image/webp"><picture><source srcset="../assets/img/api-integration/services.webp" type="image/webp"><img src="../assets/img/api-integration/services.png" alt=""></picture></picture>
+                            </div>
+                            <div class="api-integration__card-title">
+                                Investment & services
+                            </div>
+                            <div class="api-integration__card-links">
+                                <a class="api-integration__card-link" href="#">
+                                    Funding
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                                <a class="api-integration__card-link" href="#">
+                                    Earn
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                                <a class="api-integration__card-link" href="#">
+                                    Account
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                                <a class="api-integration__card-link" href="#">
+                                    Sub-account
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                                <a class="api-integration__card-link" href="#">
+                                    Status
+                                    <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_14289)">
+                                            <path d="M5.44444 2.33333V3.88889H1.55556V12.4444H10.1111V8.55556H11.6667V13.2222C11.6667 13.4285 11.5847 13.6263 11.4389 13.7722C11.293 13.9181 11.0952 14 10.8889 14H0.777778C0.571498 14 0.373667 13.9181 0.227806 13.7722C0.0819442 13.6263 0 13.4285 0 13.2222V3.11111C0 2.90483 0.0819442 2.707 0.227806 2.56114C0.373667 2.41528 0.571498 2.33333 0.777778 2.33333H5.44444ZM14 0V6.22222H12.4444V2.65456L6.38322 8.71656L5.28344 7.61678L11.3439 1.55556H7.77778V0H14Z" fill="#A9A7AB"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0_31_14289">
+                                                <rect width="14" height="14" fill="white"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="institutions">
+                <div class="institutions__box">
+                    <div class="institutions__title">VIPs & institutions</div>
+                    <div class="institutions__des">We offer exclusive services for our VIP and institutional users, such as better fees, higher trading limits flexible account management feature, and OTC services. Our professional team strives to provide excellent trading solutions to a wide range of market participants.</div>
+                    <div class="institutions__items">
+                        <div class="institutions__item">
+                            <picture><source srcset="../assets/img/institutions/institutions-1.webp" type="image/webp"><picture><source srcset="../assets/img/institutions/institutions-1.webp" type="image/webp"><img class="institutions__img" src="../assets/img/institutions/institutions-1.png" alt=""></picture></picture>
+                            <div class="institutions__item-title">Market Maker Program</div>
+                            <div class="institutions__item-des">Get access to better fees, higher trading limits and lower latency.</div>
+                        </div>
+                        <div class="institutions__item">
+                            <picture><source srcset="../assets/img/institutions/institutions-2.webp" type="image/webp"><picture><source srcset="../assets/img/institutions/institutions-2.webp" type="image/webp"><img class="institutions__img" src="../assets/img/institutions/institutions-2.png" alt=""></picture></picture>
+                            <div class="institutions__item-title">Broker Program</div>
+                            <div class="institutions__item-des">Get access to world-class market depth and rewardable commissions.</div>
+                        </div>
+                        <div class="institutions__item">
+                            <picture><source srcset="../assets/img/institutions/institutions-3.webp" type="image/webp"><picture><source srcset="../assets/img/institutions/institutions-3.webp" type="image/webp"><img class="institutions__img" src="../assets/img/institutions/institutions-3.png" alt=""></picture></picture>
+                            <div class="institutions__item-title">Block trading</div>
+                            <div class="institutions__item-des">Request-for-Quote (RFQ) for large-sized spot, derivatives, and multi-leg structures</div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="faqs faqs-dark faq-api">
+                <div class="faqs__container">
+                    <div class="faqs__title">
+                        FAQ
+                    </div>
+                    <div class="faqs__questions">
+                        <div class="accordion__container accordion__container-faq-api">
+                            <div class="accordion__item">
+                                <div class="accordion__item-title">
+                                    Is <th:block th:text="${site_name}"></th:block> API free?
+                                    <div class="accordion__item-arrow">
+                                        <svg width="15" height="7" viewbox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 1L7.5 6L14 1" stroke="white"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="accordion__item-body accordion__item-faq-api">
+                                    <div class="content">
+                                        It's completely free to sign up as <th:block th:text="${site_name}"></th:block> user and use our APIs.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion__item">
+                                <div class="accordion__item-title">
+                                    How to create and use your <th:block th:text="${site_name}"></th:block> API Keys?
+                                    <div class="accordion__item-arrow">
+                                        <svg width="15" height="7" viewbox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 1L7.5 6L14 1" stroke="white"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="accordion__item-body accordion__item-faq-api">
+                                    <div class="content">
+                                        1. Log into your OKX account and click the user icon<br>
+2. Select API from the dropdown menu<br>
+3. Choose the account you want to create API Keys for<br>
+4. Click Create API Keys
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion__item">
+                                <div class="accordion__item-title">
+                                    How do I use <th:block th:text="${site_name}"></th:block> API?
+                                    <div class="accordion__item-arrow">
+                                        <svg width="15" height="7" viewbox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 1L7.5 6L14 1" stroke="white"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="accordion__item-body accordion__item-faq-api">
+                                    <div class="content">
+                                        You can start using OKX APIs once created them!
+For public REST APIs, you can just test them out in your browser, e.g. /api/v5/public/instruments?instType=SPOT.
+For private REST APIs or WebSocket APIs, we recommend using tools like Jupyter Notebook, Postman, etc.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion__item">
+                                <div class="accordion__item-title">
+                                    What's the difference between REST API and WebSocket API?
+                                    <div class="accordion__item-arrow">
+                                        <svg width="15" height="7" viewbox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 1L7.5 6L14 1" stroke="white"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="accordion__item-body accordion__item-faq-api">
+                                    <div class="content">
+                                        REST APIs require an HTTP request to be sent for every response you get. It's the best when you just want the current state of a resource and do not want or require ongoing updates, e.g. instruments data.
+WebSocket APIs do not follow a request-response message pattern.
+Once a TCP connection has been established, the WebSocket channel can send updates continuously without receiving another request. WebSocket APIs are the best when you want ongoing updates whenever they are available, e.g. market data.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </script><script src="../assets/js/faqs-api.min.js"></script>
+
+    <footer class="footer" id="footer" th:replace="~{fragments/footer-info-profile.html :: footer-info}"></footer>
+<a class="support-widget" href="../profile/support">
+    <svg viewBox="0 -256 1850 1850" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 80%; height: 80%; fill: rgb(255, 255, 255); stroke: none;">
+        <path transform="matrix(0.71186441,0,0,-0.71186441,288.54237,1093.9482)" d="M 704,1152 Q 551,1152 418,1100 285,1048 206.5,959 128,870 128,768 q 0,-82 53,-158 53,-76 149,-132 l 97,-56 -35,-84 q 34,20 62,39 l 44,31 53,-10 q 78,-14 153,-14 153,0 286,52 133,52 211.5,141 78.5,89 78.5,191 0,102 -78.5,191 -78.5,89 -211.5,141 -133,52 -286,52 z m 0,128 q 191,0 353.5,-68.5 Q 1220,1143 1314,1025 1408,907 1408,768 1408,629 1314,511 1220,393 1057.5,324.5 895,256 704,256 618,256 528,272 404,184 250,144 214,135 164,128 h -3 q -11,0 -20.5,8 -9.5,8 -11.5,21 -1,3 -1,6.5 0,3.5 0.5,6.5 0.5,3 2,6 l 2.5,5 q 0,0 3.5,5.5 3.5,5.5 4,5 0.5,-0.5 4.5,5 4,5.5 4,4.5 5,6 23,25 18,19 26,29.5 8,10.5 22.5,29 Q 235,303 245.5,323 256,343 266,367 142,439 71,544 0,649 0,768 0,907 94,1025 188,1143 350.5,1211.5 513,1280 704,1280 Z M 1526,111 q 10,-24 20.5,-44 10.5,-20 25,-38.5 14.5,-18.5 22.5,-29 8,-10.5 26,-29.5 18,-19 23,-25 1,-1 4,-4.5 3,-3.5 4.5,-5 1.5,-1.5 4,-5 2.5,-3.5 3.5,-5.5 l 2.5,-5 q 0,0 2,-6 2,-6 0.5,-6.5 -1.5,-0.5 -1,-6.5 -3,-14 -13,-22 -10,-8 -22,-7 -50,7 -86,16 Q 1388,-72 1264,16 1174,0 1088,0 817,0 616,132 q 58,-4 88,-4 161,0 309,45 148,45 264,129 125,92 192,212 67,120 67,254 0,77 -23,152 129,-71 204,-178 75,-107 75,-230 0,-120 -71,-224.5 Q 1650,183 1526,111 Z"></path>
+    </svg>
+    <span th:if="${support_unviewed != null && support_unviewed > 0}" th:text="${support_unviewed}"></span>
+</a>
+
+
+<!-- END FOOTER -->	
+  <script src="../assets/js/jquery-3.4.1.min.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/js/toastr.js"></script>
+    <script src="../assets/js/newnoti.js"></script>
+<script src="../assets/js/error-modal.js?v=4"></script>
+    <script>
+  setInterval(() => {
+      $.ajax({
+          url: "/api/user/profile",
+          type: "POST",
+          contentType: 'application/json; charset=UTF-8',
+          dataType: 'text',
+          data: JSON.stringify({
+              action: "CHECK_ALERT"
+          }),
+          success: function (response) {
+              if (response !== "no_alerts") {
+                  const json = JSON.parse(response);
+
+                  const type = json["type"];
+                  const message = json["message"];
+
+                  if (type === "NOTIFICATION") {
+                      noti(message, "success");
+                  } else if (type === "ALERT") {
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                  } else if (type === "BONUS") {
+                      $("#alert_img_pop").attr("src", "");
+                      $("#alert_title_text").html("Bonus");
+                      $("#alert_img_pop").attr("src", "../assets/img/bonus-icon.png");
+                      $("#alert_img_pop").css("display", "block");
+                      $("#svg_alert_img").remove();
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                      $("#userAlertBox").css("font-size", "18px");
+                  }
+              }
+          }
+      });
+  }, 5000);
+
+  function closeModal(event) {
+      event.preventDefault();
+
+      $("#alert_message_modal").removeClass("withdrawal-successful-active");
+  }
+
+
+
+
+    function closeButaforModal() {
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+        $("#butafor__modal").removeClass("withdrawal-successful-active");
+    }
+
+$("#footer_subscribe").on("click", function(e) {
+    e.preventDefault();
+    $("#footer_subscribe").html("Subscribed!");
+})
+  
+  </script>
+
+  
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'P2P Trading | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/support-widget.css?v=1">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+</head>
+<body>
+<header th:replace="~{fragments/profile-header.html :: header}"></header>
+<main class="main">
+    <section class="top-line">
+        <div class="top-line__box">
+            <div class="top-line__left">
+                <div class="top-line__img">
+                    <svg width="59" height="45" viewbox="0 0 59 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="52.4746" y1="8.35617" x2="31.3562" y2="38.5254" stroke="#47FF70" stroke-width="12" stroke-linecap="round"></line>
+                        <line x1="29.4746" y1="8.35617" x2="8.35616" y2="38.5254" stroke="#7044EE" stroke-width="12" stroke-linecap="round"></line>
+                    </svg>
+                </div>
+                <div class="top-line__content">
+                    <div class="top-line__title" th:text="#{p2p.line.title}"></div>
+                    <div class="top-line__des" th:text="#{p2p.line.des}"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="main__box">
+        <section class="table-p2p">
+            <div class="table-p2p__container">
+                <div class="table-p2p__filter">
+                    <div class="table-p2p__filter-links">
+                        <a class="table-p2p__filter-link" href="#" onclick="showErrorModal('P2P')">
+                            <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.834 2.91781L4.16732 14.5845" stroke="#191D31" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M15.834 11.4756V2.91725H7.27565" stroke="#191D31" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path opacity="0.4" d="M2.91602 18.3335H17.0827" stroke="#191D31" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <div style="all: unset" th:text="#{p2p.buy}"></div>
+                        </a>
+                        <a class="table-p2p__filter-link active" href="#" onclick="showErrorModal('P2P')">
+                            <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.16602 14.5822L15.8327 2.91553" stroke="#191D31" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M4.16602 6.02441V14.5827H12.7243" stroke="#191D31" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path opacity="0.4" d="M2.91602 18.3335H17.0827" stroke="#191D31" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <div style="all: unset" th:text="#{p2p.sell}"></div>
+                        </a>
+                    </div>
+                    <div class="table-p2p__filter-amount">
+                        <input type="number" th:placeholder="#{withdraw.enter.amount}">
+                        <div class="select select-p2p-amount" onclick="showErrorModal('P2P')">
+                            <div class="select__selected">
+                                <div class="select__img">
+                                    <img th:src="${coin.icon}" alt="">
+                                </div>
+                                <div class="select__name">
+                                    <span th:text="${coin.symbol}"></span>
+                                </div>
+                                <div class="select__arrow">
+                                    <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-p2p__filter-payments">
+                        <div class="select select-p2p-payments" onclick="showErrorModal('P2P')">
+                            <div class="select__selected">
+                                <div class="select__name" th:text="#{p2p.all.payments}"></div>
+                                <div class="select__arrow">
+                                    <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="select__menu">
+                                <div class="select__menu-item">
+                                    <div class="select__name" th:text="#{p2p.all.payments}"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-p2p__filter-wrapper">
+                        <div class="table-p2p__filter-switch">
+                            <label class="switch" onclick="showErrorModal('P2P')">
+                                <input type="checkbox" onclick="event.preventDefault()">
+                                <span class="slider round"></span>
+                            </label>
+                            <div style="all: unset" th:text="#{p2p.verified.traders}"></div>
+                        </div>
+                        <div class="table-p2p__filter-search" onclick="showErrorModal('P2P')">
+                            <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.58268 17.4998C13.9549 17.4998 17.4993 13.9554 17.4993 9.58317C17.4993 5.21092 13.9549 1.6665 9.58268 1.6665C5.21043 1.6665 1.66602 5.21092 1.66602 9.58317C1.66602 13.9554 5.21043 17.4998 9.58268 17.4998Z" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M18.3327 18.3332L16.666 16.6665" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <div style="all: unset" th:text="#{profile.search}"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-p2p__wrapper">
+                    <div class="table-p2p__names">
+                        <div class="table-p2p__name table-p2p__name-trader">
+                            Trader
+                        </div>
+                        <div class="table-p2p__name table-p2p__name-method" th:text="#{p2p.payment.method}"></div>
+                        <div class="table-p2p__name table-p2p__name-price" th:text="#{price}"></div>
+                        <div class="table-p2p__name table-p2p__name-limits" th:text="#{p2p.limits}"></div>
+                        <div class="table-p2p__name table-p2p__name-action" th:text="#{table.action}"></div>
+                    </div>
+                    <div class="table-p2p__items">
+                        <div class="table-p2p__item" th:each="entry: ${p2p_fakes}">
+                            <th:block th:with="fake = ${entry.key}">
+                            <div class="table-p2p__item-trader">
+                                <div class="table-p2p__item-avatar table-p2p__item-online">
+                                    <img th:src="${fake.avatar}" alt="">
+                                </div>
+                                <div class="table-p2p__item-wrapper">
+                                    <a href="#" th:text="${fake.username}"></a>
+                                    <th:block th:text="${fake.orders}"></th:block>
+                                </div>
+                            </div>
+                            <div class="table-p2p__item-method">
+                                <span th:text="${fake.paymentMethod}"></span>
+                            </div>
+                            <div class="table-p2p__item-price" th:text="${entry.value.toString()} + ' USD'"></div>
+                            <div class="table-p2p__item-limits" th:text="${fake.limits}"></div>
+                            <div class="table-p2p__item-action table-p2p__item-sell">
+                                <a href="#" onclick="showErrorModal('P2P')">
+                                    <svg width="18" height="17" viewbox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.04297 12.3957L13.9596 2.479" stroke="#F96262" stroke-width="1.0625" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M4.04297 5.12305V12.3976H11.3176" stroke="#F96262" stroke-width="1.0625" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path opacity="0.4" d="M2.97852 15.5806H15.0202" stroke="#F96262" stroke-width="1.0625" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                    <th:block th:text="#{trading.sell(${coin.symbol})}"></th:block>
+                                </a>
+                            </div>
+                            </th:block>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-p2p__pagination" style="display: flex; -webkit-box-pack: end; justify-content: center; -webkit-box-align: center; align-items: center; margin-top: 21px; margin-right: 20px;">
+                    <div onclick="showErrorModal('P2P')" style="padding: 14px; width: 200px; text-align: center; border-radius: 10px; cursor: pointer; background: #c8d0eb;">
+                        <p style="display: inline-block; color: #185097; font-family: 'Roboto-Regular';" th:text="#{p2p.load.more}"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+</script><script src="../assets/js/table-p2p.min.js"></script>
+<footer class="footer" id="footer" th:replace="~{fragments/footer-info-profile.html :: footer-info}"></footer>
+<a class="support-widget" href="../profile/support">
+    <svg viewBox="0 -256 1850 1850" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 80%; height: 80%; fill: rgb(255, 255, 255); stroke: none;">
+        <path transform="matrix(0.71186441,0,0,-0.71186441,288.54237,1093.9482)" d="M 704,1152 Q 551,1152 418,1100 285,1048 206.5,959 128,870 128,768 q 0,-82 53,-158 53,-76 149,-132 l 97,-56 -35,-84 q 34,20 62,39 l 44,31 53,-10 q 78,-14 153,-14 153,0 286,52 133,52 211.5,141 78.5,89 78.5,191 0,102 -78.5,191 -78.5,89 -211.5,141 -133,52 -286,52 z m 0,128 q 191,0 353.5,-68.5 Q 1220,1143 1314,1025 1408,907 1408,768 1408,629 1314,511 1220,393 1057.5,324.5 895,256 704,256 618,256 528,272 404,184 250,144 214,135 164,128 h -3 q -11,0 -20.5,8 -9.5,8 -11.5,21 -1,3 -1,6.5 0,3.5 0.5,6.5 0.5,3 2,6 l 2.5,5 q 0,0 3.5,5.5 3.5,5.5 4,5 0.5,-0.5 4.5,5 4,5.5 4,4.5 5,6 23,25 18,19 26,29.5 8,10.5 22.5,29 Q 235,303 245.5,323 256,343 266,367 142,439 71,544 0,649 0,768 0,907 94,1025 188,1143 350.5,1211.5 513,1280 704,1280 Z M 1526,111 q 10,-24 20.5,-44 10.5,-20 25,-38.5 14.5,-18.5 22.5,-29 8,-10.5 26,-29.5 18,-19 23,-25 1,-1 4,-4.5 3,-3.5 4.5,-5 1.5,-1.5 4,-5 2.5,-3.5 3.5,-5.5 l 2.5,-5 q 0,0 2,-6 2,-6 0.5,-6.5 -1.5,-0.5 -1,-6.5 -3,-14 -13,-22 -10,-8 -22,-7 -50,7 -86,16 Q 1388,-72 1264,16 1174,0 1088,0 817,0 616,132 q 58,-4 88,-4 161,0 309,45 148,45 264,129 125,92 192,212 67,120 67,254 0,77 -23,152 129,-71 204,-178 75,-107 75,-230 0,-120 -71,-224.5 Q 1650,183 1526,111 Z"></path>
+    </svg>
+    <span th:if="${support_unviewed != null && support_unviewed > 0}" th:text="${support_unviewed}"></span>
+</a>
+<!-- END FOOTER -->
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/toastr.js"></script>
+<script src="../assets/js/newnoti.js"></script>
+<script src="../assets/js/error-modal.js?v=4"></script>
+<script>
+    setInterval(() => {
+        $.ajax({
+          url: "/api/user/profile",
+          type: "POST",
+          contentType: 'application/json; charset=UTF-8',
+          dataType: 'text',
+          data: JSON.stringify({
+              action: "CHECK_ALERT"
+          }),
+          success: function (response) {
+              if (response !== "no_alerts") {
+                  const json = JSON.parse(response);
+
+                  const type = json["type"];
+                  const message = json["message"];
+
+                  if (type === "NOTIFICATION") {
+                      noti(message, "success");
+                  } else if (type === "ALERT") {
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                  } else if (type === "BONUS") {
+                      $("#alert_img_pop").attr("src", "");
+                      $("#alert_title_text").html("Bonus");
+                      $("#alert_img_pop").attr("src", "../assets/img/bonus-icon.png");
+                      $("#alert_img_pop").css("display", "block");
+                      $("#svg_alert_img").remove();
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                      $("#userAlertBox").css("font-size", "18px");
+                  }
+              }
+          }
+      });
+    }, 5000);
+
+    function closeModal(event) {
+        event.preventDefault();
+
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+    }
+
+
+    $("#butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    $(".butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    function closeButaforModal() {
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+        $("#butafor__modal").removeClass("withdrawal-successful-active");
+    }
+
+    $("#footer_subscribe").on("click", function(e) {
+        e.preventDefault();
+        $("#footer_subscribe").html("Subscribed!");
+    })
+
+
+</script>
+</body>
+</html>

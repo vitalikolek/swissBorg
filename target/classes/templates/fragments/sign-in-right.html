@@ -1,0 +1,16 @@
+<div class="sing-in__right" th:fragment="sing">
+    <div style="display: block">
+        <div th:replace="~{fragments/language-container.html :: container}"></div>
+    </div>
+    <picture><source srcset="assets/img/sing-in/trade.gif" type="image/webp"><picture><source srcset="assets/img/sing-in/trade.gif" type="image/webp"><img src="../assets/img/sing-in/trade.gif" alt=""></picture></picture>
+    <a class="sing-in__right-join">
+        <div class="sing-in__right-title" th:text="#{sign.trade.with}">
+            Trade with confidence
+        </div>
+        <div class="sing-in__right-description">
+            <div style="all: unset" th:text="#{sign.your.funds}"></div>
+            <div style="all: unset" th:text=" ${site_name} "></div>
+            <div style="all: unset" th:text="#{index.make.money}"></div>
+        </div>
+    </a>
+</div>

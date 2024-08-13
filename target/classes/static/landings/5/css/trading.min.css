@@ -1,0 +1,30 @@
+.trading{padding:164px 0 0 0}.trading__title{font-weight:500;font-size:38.5562px;line-height:45px;color:#fff;margin-bottom:16px;text-align:center}.trading__description{font-weight:400;font-size:18px;line-height:22px;color:#aaabab;text-align:center;margin-bottom:86px}.trading__names{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding-bottom:22px;position:relative}.trading__names:before{content:"";position:absolute;bottom:0;width:100%;height:1px;background:-webkit-gradient(linear,left top,right top,color-stop(1.23%,#f858a7),to(#f75760));background:-o-linear-gradient(left,#f858a7 1.23%,#f75760 100%);background:linear-gradient(90deg,#f858a7 1.23%,#f75760 100%)}.trading__names-item{font-weight:400;font-size:13px;line-height:27px;color:#8c8b90}.trading__item-number,.trading__names-number{width:83px;padding-left:31px}.trading__item-name,.trading__names-name{width:310px;padding-left:4px}.trading__item-price,.trading__names-price{width:222px;padding-left:3px}.trading__item-change,.trading__names-change{width:190px;padding-left:2px}.trading__item-chart,.trading__names-chart{width:275px;padding-left:7px}.trading__item-trade,.trading__names-trade{width:118px;padding-left:2px}.trading__items{margin-top:4px}.trading__wrapper{overflow:auto}.trading__items,.trading__names{min-width:1000px}.trading__item{padding:14px 0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-weight:400;font-size:16px;line-height:27px;color:#757880;-webkit-transition:background .3s ease-in-out;-o-transition:background .3s ease-in-out;transition:background .3s ease-in-out;border-radius:8px}.trading__item:hover{background:#2b2542}.trading__item-name{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#fff}.trading__item-name span{margin-left:20px;text-transform:uppercase;color:#757880}.trading__item-price{color:#fff}.trading__item-change.plus{color:#158873}.trading__item-change.minus{background:-webkit-gradient(linear,left top,right top,color-stop(1.23%,#f858a7),to(#f75760));background:-o-linear-gradient(left,#f858a7 1.23%,#f75760 100%);background:linear-gradient(90deg,#f858a7 1.23%,#f75760 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-fill-color:transparent}.trading__item-link{font-weight:700;font-size:15px;line-height:27px;color:#fff;padding:5px 27px;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;border-radius:8px;border:1px solid #f858a7;-webkit-transition:background .3s ease-in-out;-o-transition:background .3s ease-in-out;transition:background .3s ease-in-out}.trading__item-link:hover{background:#f858a7}.trading__item-icon{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-right:26px}@media (max-width:1150px){.trading{padding-top:100px}}@media (max-width:500px){.trading{padding-top:80px}.trading__description{margin-bottom:40px}}@media (max-width: 500px) {
+    .trading {
+        padding-top: 80px
+    }
+
+    .trading__description {
+        margin-bottom: 40px
+    }
+
+    .trading__items, .trading__names {
+        min-width: auto;
+    }
+
+    .trading__item-number, .trading__names-number,
+    .trading__item-trade, .trading__names-trade,
+    .trading__item-chart, .trading__names-chart,
+    .trading__item-change, .trading__names-change {
+        display: none;
+    }
+
+    .trading__item-name, .trading__names-name {
+        width: 50%;
+        white-space: nowrap;
+    }
+
+    .trading__item-price, .trading__names-price {
+        text-align: right;
+        width: 50%;
+    }
+}

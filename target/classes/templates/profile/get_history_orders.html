@@ -1,0 +1,10 @@
+<div th:if="${trade_orders.isEmpty()}" class="orders_noHis" style="margin: auto; text-align: center; margin-top: 100px;">No historical orders</div>
+<div class="orders__item" th:each="order: ${trade_orders}">
+  <div class="orders__item-date" th:text="${order.formattedCreated}"></div>
+  <div class="orders__item-pair" th:text="${order.coinSymbol} + '_USDT'"></div>
+  <div class="orders__item-side" th:text="${order.type.name == 'BUY' ? 'Buy' : 'Sell'}" th:classappend="${order.type.name == 'BUY' ? 'buy' : 'sell'}"></div>
+  <div class="orders__item-type" th:text="${order.tradeType.title}"></div>
+  <div class="orders__item-amount" th:text="${order.formattedAmount}"></div>
+  <div class="orders__item-amount" th:text="${order.formattedPrice}"></div>
+  <div class="orders__item-status">Successfully</div>
+</div>

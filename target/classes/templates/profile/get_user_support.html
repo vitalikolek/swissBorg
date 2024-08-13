@@ -1,0 +1,41 @@
+<th:block th:each="message: ${support_messages}">
+    <div th:if="${message.toSupport()}" class="chat__message">
+        <div class="chat__message-left">
+            <div class="chat__message-text">
+                <img th:if="${message.isImage()}" th:src="${message.message}" style="max-width: 330px;"/>
+                <span th:id="'chat_message_text_' + ${message.id}" th:unless="${message.isImage()}" th:text="${message.message}"></span>
+            </div>
+            <div class="chat__message-data" th:text="${message.formattedDate}"></div>
+        </div>
+        <div class="chat__message-right">
+            <picture>
+                <source th:srcset="${user.profilePhoto == null ? '../assets/img/profile/avatar.svg' : '../' + user.profilePhoto}" type="image/webp">
+                <picture>
+                    <source th:srcset="${user.profilePhoto == null ? '../assets/img/profile/avatar.svg' : '../' + user.profilePhoto}" type="image/webp">
+                    <img class="chat__message-img" th:src="${user.profilePhoto == null ? '../assets/img/profile/avatar.svg' : '../' + user.profilePhoto}" alt="">
+                </picture>
+            </picture>
+            <div class="chat__message-img-title">You</div>
+        </div>
+    </div>
+
+    <div th:unless="${message.toSupport()}" class="chat__message chat__message-support">
+        <div class="chat__message-left">
+            <div class="chat__message-text">
+                <img th:if="${message.isImage()}" th:src="${message.message}" style="max-width: 330px;"/>
+                <span th:id="'chat_message_text_' + ${message.id}" th:unless="${message.isImage()}" th:text="${message.message}"></span>
+            </div>
+            <div class="chat__message-data" style="text-align: left" th:text="${message.formattedDate}"></div>
+        </div>
+        <div class="chat__message-right">
+            <picture>
+                <source srcset="../assets/img/profile/avatar.svg" type="image/webp">
+                <picture>
+                    <source srcset="../assets/img/profile/avatar.svg" type="image/webp">
+                    <img class="chat__message-img" src="../assets/img/profile/avatar.svg" alt="">
+                </picture>
+            </picture>
+            <div class="chat__message-img-title">Support</div>
+        </div>
+    </div>
+</th:block>

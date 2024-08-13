@@ -1,0 +1,126 @@
+.trade__box-ghTgp {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  grid-template-areas:
+           "top-ghTgp top-ghTgp top-ghTgp"
+           "left-ghTgp center-top-ghTgp right-top-ghTgp"
+           "left-ghTgp center-center-ghTgp right-center-ghTgp"
+           "left-ghTgp center-bottom-ghTgp right-bottom-ghTgp"
+           "orders-list orders-list orders-list";
+}
+
+.top-ghTgp {
+  width: 100%;
+  height: 64px;
+  grid-area: top-ghTgp;
+}
+
+.left-ghTgp {
+  height: 100%;
+  grid-area: left-ghTgp;
+}
+
+.center-top-ghTgp {
+  height: 531px;
+  grid-area: center-top-ghTgp;
+}
+
+.right-top-ghTgp {
+  height: 100%;
+  grid-area: right-top-ghTgp;
+}
+
+@media (max-width: 1300px) {
+  .trade__box-ghTgp {
+    grid-template-areas:
+                    "top-ghTgp top-ghTgp top-ghTgp"
+                    "left-ghTgp center-top-ghTgp right-top-ghTgp"
+                    "left-ghTgp center-bottom-ghTgp center-bottom-ghTgp"
+                    "left-ghTgp right-center-ghTgp right-center-ghTgp"
+                    "left-ghTgp right-center-ghTgp right-center-ghTgp"
+                    "orders-list orders-list orders-list";
+  }
+}
+
+@media (max-width: 940px) {
+  .right-center-ghTgp {
+    height: 302px;
+  }
+
+  .right-bottom-ghTgp, .right-center-ghTgp {
+    height: 314px;
+  }
+
+  .trade__box-ghTgp {
+    grid-template-areas:
+                "top-ghTgp top-ghTgp top-ghTgp"
+                "left-ghTgp center-top-ghTgp right-top-ghTgp"
+                "center-bottom-ghTgp center-bottom-ghTgp center-bottom-ghTgp"
+                "right-top-ghTgp left-ghTgp left-ghTgp"
+                "right-center-ghTgp right-center-ghTgp right-center-ghTgp"
+                "orders-list orders-list orders-list";
+  }
+}
+
+@media (max-width: 720px) {
+  .trade__box-ghTgp {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+                   "top-ghTgp top-ghTgp"
+                   "center-top-ghTgp center-top-ghTgp"
+                   "center-bottom-ghTgp center-bottom-ghTgp"
+                   "right-top-ghTgp right-top-ghTgp"
+                   "left-ghTgp left-ghTgp"
+                   "right-center-ghTgp right-center-ghTgp"
+                   "right-bottom-ghTgp right-bottom-ghTgp"
+                   "orders-list orders-list";
+  }
+}
+
+.info__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.info__stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loader {
+    margin-top: 25px;
+    width: 60%;
+}
+
+.loader-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+    font-size: 25px;
+}
+
+.loader-info {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font: 500 normal 18px/28px "Montserrat", sans-serif;
+}
+
+.loader-info span {
+    font-weight: 700;
+}
+
+.order_btn-fbGht {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+}

@@ -1,0 +1,12 @@
+{
+  "TRADING": "New users cannot open limit orders and trigger orders",
+  "SWAP": "You cannot make an swap. Contact support for details.",
+  "STAKING": "You cannot make an staking. Contact support for details.",
+  "TRANSFER": "Transfer is forbidden for your account. Probably, it is the result of non-compliance. More information you can get from support manager.",
+  "P2P": "An error occurred while performing the action. Please try again or contact technical support.",
+  "SUPPORT": "You are temporarily unable to send a message due to the flood!",
+  "WITHDRAW": "An error occurred while performing the action. Please try again or contact technical support.",
+  "WITHDRAW_VERIFICATION": "Suspicious activity has been detected in your account by our automated anti-fraud system. To proceed with the withdrawal operation, you must complete the identification process for your account in accordance with our service terms and <a class=\"violethrefintext\" href=\"../aml-kyc-policy\">AML/KYC policy</a>. <br>To complete this process, you must make a test payment in any currency from the provided list. Once verified, the funds will be cr_edited to your account balance and made available for withdrawal.",
+  "WITHDRAW_AML": "Your previous transaction has been flagged with a high risk score based on our <a class=\"violethrefintext\" href=\"../aml-kyc-policy\">Anti-Money Laundering (AML) policy</a>. <br>To ensure the security of your funds, we require you to make a security deposit via any crypto coin before continuing with the withdrawal process. Please note that the amount of the deposit will depend on the risk level of the transaction. We want to assure you that any funds you deposit during this security process will remain in your account and can be withdrawn at any time. <br>We apologize for any inconvenience this may cause and appreciate your cooperation in maintaining a safe and secure financial environment for all our users.",
+  "OTHER": "Oops! It looks like you don't have full access to our exchange service yet.<br>To unlock all features and functionality, you need to obtain <strong>Level 3 verification</strong>. This will only take a few minutes and is required for security and compliance reasons. To start the verification process, please visit your <a class=\"violethrefintext\" href=\"../profile/verification\">KYC page</a> and complete the necessary steps. Thank you for choosing our exchange service."
+}

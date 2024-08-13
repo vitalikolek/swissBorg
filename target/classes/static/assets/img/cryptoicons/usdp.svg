@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns:xodm="http://www.corel.com/coreldraw/odm/2003" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 2500 2376" style="enable-background:new 0 0 2500 2376;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#B3D234;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#0095D9;}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#EEE809;}
+	.st3{fill-rule:evenodd;clip-rule:evenodd;fill:#51B849;}
+	.st4{fill-rule:evenodd;clip-rule:evenodd;fill:#00845D;}
+	.st5{fill-rule:evenodd;clip-rule:evenodd;fill:#005121;}
+</style>
+<g id="Layer_x0020_1">
+	<g id="_1995926155168">
+		<path id="Fill-1" class="st0" d="M695,309c48-54,91-101,133-140c-704-23-499,490-728,1011c-264,600,31,828,471,900    c-61-72-111-155-149-245C137,1473,252,814,695,310V309z"></path>
+		<path id="Fill-3" class="st1" d="M2388,948c-65,186-186,394-355,599c-132,160-280,286-431,377c-176,115-393,182-637,182    c-136,0-270-8-393-28c73,86,161,158,263,208c636,310,676-266,1349-558c378-164,379-485,205-781L2388,948z"></path>
+		<path id="Fill-5" class="st2" d="M1601,349c94,17,183,48,263,94c214,122,408,308,525,506c115-325,61-581-190-627    c-276-51-491-67-698-213c-255-179-478-120-672,61c14,0,28,1,42,2c269,16,526,69,731,178L1601,349z"></path>
+		<path id="Fill-7" class="st3" d="M695,309C252,814,137,1473,422,1834c-128-303-119-680,61-982c240-401,722-576,1117-504    c-205-109-462-162-731-178c-14-1-28-1-42-2c-42,39-85,85-133,140L695,309z"></path>
+		<path id="Fill-9" class="st4" d="M1863,443c-80-45-169-76-263-94c270,144,449,385,447,769c-2,333-173,628-447,807    c152-91,299-217,431-377c170-205,290-414,355-599c-116-197-311-384-525-506H1863z"></path>
+		<g>
+			<path id="Fill-11" class="st5" d="M1556,1742c-305,197-711,109-907-197s-99-699,196-911c330-236,753-143,907,197     C1902,1162,1861,1545,1556,1742L1556,1742z M1600,349c-395-73-877,102-1117,504c-180,302-189,679-61,982c38,90,88,173,149,245     c123,20,257,27,393,27c244,0,462-68,637-182c274-179,445-474,447-807c2-384-177-625-447-769H1600z"></path>
+		</g>
+	</g>
+</g>
+</svg>

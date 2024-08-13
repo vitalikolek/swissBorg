@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'Customer Support Chat | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+</head>
+<body>
+<header th:replace="~{fragments/profile-header.html :: header}"></header>
+<main class="main">
+    <section class="top-line">
+        <div class="top-line__box">
+            <div class="top-line__left">
+                <div class="top-line__img">
+                    <svg width="59" height="45" viewbox="0 0 59 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="52.4746" y1="8.35617" x2="31.3562" y2="38.5254" stroke="#47FF70" stroke-width="12" stroke-linecap="round"></line>
+                        <line x1="29.4746" y1="8.35617" x2="8.35616" y2="38.5254" stroke="#7044EE" stroke-width="12" stroke-linecap="round"></line>
+                    </svg>
+                </div>
+                <div class="top-line__content">
+                    <div class="top-line__title" th:text="#{support.title}"></div>
+                    <div class="top-line__des" th:text="#{support.description}"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="main__box">
+        <section class="chat">
+            <div class="chat__top">
+                <div class="chat__avatar-box">
+                    <picture>
+                        <source srcset="../assets/img/profile/support.svg" type="image/webp">
+                        <picture>
+                            <source srcset="../assets/img/profile/support.svg" type="image/webp">
+                            <img class="chat__avatar" src="../assets/img/profile/support.svg" style="width: 50px;" alt="">
+                        </picture>
+                    </picture>
+                </div>
+                <div class="chat__title" th:text="#{support.subtitle}"></div>
+            </div>
+            <div class="chat__messages">
+                <div class="chat__message-box" id="chat_content">
+                </div>
+            </div>
+        </section>
+        <section class="chat__new-message">
+            <div class="chat__add-file">
+                <div>
+                    <input type="file" hidden="" id="support_send_photo" onclick="uploadPhoto(event)" accept="image/x-png,image/jpeg" name="support_send_image">
+                    <button id="send_image_post" style="display: none;"></button>
+                </div>
+                <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.2711 12.3978L12.0911 18.5878C11.2809 19.3078 10.2262 19.691 9.1428 19.6591C8.05938 19.6272 7.02908 19.1826 6.26265 18.4162C5.49622 17.6497 5.05159 16.6195 5.01969 15.536C4.9878 14.4526 5.37106 13.3979 6.09108 12.5878L14.0911 4.58775C14.5687 4.13405 15.2023 3.88108 15.8611 3.88108C16.5198 3.88108 17.1535 4.13405 17.6311 4.58775C18.0964 5.05934 18.3573 5.69522 18.3573 6.35775C18.3573 7.02028 18.0964 7.65616 17.6311 8.12775L10.7311 15.0178C10.6628 15.0913 10.5807 15.1507 10.4895 15.1925C10.3982 15.2343 10.2996 15.2577 10.1994 15.2614C10.0991 15.2651 9.99904 15.2491 9.90496 15.2141C9.81089 15.1792 9.72462 15.126 9.65108 15.0578C9.57754 14.9895 9.51817 14.9074 9.47636 14.8161C9.43455 14.7249 9.41112 14.6263 9.4074 14.526C9.40369 14.4257 9.41976 14.3257 9.45471 14.2316C9.48966 14.1376 9.54279 14.0513 9.61108 13.9778L14.7411 8.85775C14.9294 8.66945 15.0352 8.41405 15.0352 8.14775C15.0352 7.88145 14.9294 7.62605 14.7411 7.43775C14.5528 7.24945 14.2974 7.14366 14.0311 7.14366C13.7648 7.14366 13.5094 7.24945 13.3211 7.43775L8.19108 12.5778C7.93438 12.8325 7.73064 13.1355 7.59161 13.4693C7.45257 13.8031 7.38099 14.1611 7.38099 14.5228C7.38099 14.8844 7.45257 15.2424 7.59161 15.5762C7.73064 15.91 7.93438 16.213 8.19108 16.4678C8.71545 16.9672 9.41189 17.2458 10.1361 17.2458C10.8603 17.2458 11.5567 16.9672 12.0811 16.4678L18.9711 9.56775C19.766 8.7147 20.1987 7.58642 20.1781 6.42062C20.1576 5.25481 19.6853 4.1425 18.8608 3.31802C18.0363 2.49354 16.924 2.02127 15.7582 2.0007C14.5924 1.98013 13.4641 2.41287 12.6111 3.20775L4.61108 11.2078C3.53228 12.4026 2.95611 13.9676 3.00261 15.5767C3.04912 17.1859 3.71471 18.715 4.86072 19.8455C6.00672 20.9761 7.54475 21.6208 9.15436 21.6454C10.764 21.6701 12.321 21.0727 13.5011 19.9778L19.6911 13.7978C19.7843 13.7045 19.8583 13.5938 19.9087 13.472C19.9592 13.3502 19.9852 13.2196 19.9852 13.0878C19.9852 12.9559 19.9592 12.8253 19.9087 12.7035C19.8583 12.5817 19.7843 12.471 19.6911 12.3778C19.5978 12.2845 19.4872 12.2106 19.3653 12.1601C19.2435 12.1096 19.1129 12.0837 18.9811 12.0837C18.8492 12.0837 18.7187 12.1096 18.5968 12.1601C18.475 12.2106 18.3643 12.2845 18.2711 12.3778V12.3978Z" fill="#404053"></path>
+                </svg>
+            </div>
+            <input class="chat__textarea chat__message-input" type="text" th:placeholder="#{support.enter.message}">
+            <div class="chat__send-message">
+                <a id="sendButton" href="#" class="buttons__01" onclick="sendSupport(event)">
+                    <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.16641 5.2668L13.2414 2.90846C16.4164 1.85013 18.1414 3.58346 17.0914 6.75846L14.7331 13.8335C13.1497 18.5918 10.5497 18.5918 8.96641 13.8335L8.26641 11.7335L6.16641 11.0335C1.40807 9.45013 1.40807 6.85846 6.16641 5.2668Z" stroke="white" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M8.42578 11.3745L11.4091 8.38281" stroke="white" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{support.send}"></div>
+                </a>
+            </div>
+        </section>
+        <div class="chat__files"></div>
+    </div>
+</main>
+</script><script src="../assets/js/chat.min.js"></script>
+<footer class="footer" id="footer" th:replace="~{fragments/footer-info-profile.html :: footer-info}"></footer>
+<!-- END FOOTER -->
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/toastr.js"></script>
+<script src="../assets/js/newnoti.js"></script>
+<script src="../assets/js/error-modal.js?v=4"></script>
+<script>
+  setInterval(() => {
+      $.ajax({
+          url: "/api/user/profile",
+          type: "POST",
+          contentType: 'application/json; charset=UTF-8',
+          dataType: 'text',
+          data: JSON.stringify({
+              action: "CHECK_ALERT"
+          }),
+          success: function (response) {
+              if (response !== "no_alerts") {
+                  const json = JSON.parse(response);
+
+                  const type = json["type"];
+                  const message = json["message"];
+
+                  if (type === "NOTIFICATION") {
+                      noti(message, "success");
+                  } else if (type === "ALERT") {
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                  } else if (type === "BONUS") {
+                      $("#alert_img_pop").attr("src", "");
+                      $("#alert_title_text").html("Bonus");
+                      $("#alert_img_pop").attr("src", "../assets/img/bonus-icon.png");
+                      $("#alert_img_pop").css("display", "block");
+                      $("#svg_alert_img").remove();
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                      $("#userAlertBox").css("font-size", "18px");
+                  }
+              }
+          }
+      });
+  }, 5000);
+
+  function closeModal(event) {
+      event.preventDefault();
+
+      $("#alert_message_modal").removeClass("withdrawal-successful-active");
+  }
+
+
+    $("#butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    $(".butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    function closeButaforModal() {
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+        $("#butafor__modal").removeClass("withdrawal-successful-active");
+    }
+
+    $("#footer_subscribe").on("click", function(e) {
+        e.preventDefault();
+        $("#footer_subscribe").html("Subscribed!");
+    })
+
+
+</script>
+</body>
+</html>
+<script type="text/javascript">
+    const photo = document.getElementById("support_send_photo");
+
+    var oldResponse;
+
+    function uploadPhoto(event) {
+        if (photo && photo.files && photo.files.length > 0) {
+            noti("You cannot upload more than one image at a time", "error");
+            event.preventDefault();
+        }
+    }
+
+    function updateSupport() {
+        $("#chat_content").load("../api/user/support/get", function(responseText) {
+            // Регулярное выражение для поиска ссылок, начинающихся с "https"
+            var regex = /\bhttps:\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|]/gi;
+            // Заменяем найденные ссылки на HTML-код
+            var wrappedText = responseText.replace(regex, function(match) {
+                return '<a style="text-decoration-style: bold; font-weight: bold; color: mediumblue; text-decoration-line: underline;" rel="noreferrer" target="_blank" href="' + match + '">' + match + '</a>';
+            });
+            // Вставляем обработанный текст обратно в контейнер
+            $("#chat_content").html(wrappedText);
+        });
+    }
+
+    function disabledBtn() {
+        setTimeout(function() {
+            $("#sendButton").removeClass("buttons__disabled");
+            $("#sendButton").removeClass("buttons__loading");
+            $(".button__loader").remove();
+        }, 500);
+    }
+
+    function resetFileUpload() {
+        const input = $("#support_send_photo");
+        input.wrap('<form>').closest('form').get(0).reset();
+        input.unwrap();
+        const fileElements = document.querySelectorAll(".chat__files-element");
+        fileElements.forEach(function(element) {
+            element.remove();
+        });
+
+        const chatFiles = document.querySelector(".chat__files");
+        chatFiles.classList.remove("chat__files-active");
+    }
+
+    function sendSupport(event) {
+        event.preventDefault();
+
+        disabledBtn();
+
+        const message = $(".chat__message-input").val();
+        const image = photo && photo.files && photo.files[0] ? photo.files[0] : 'undefined';
+        
+        if (image === 'undefined' && (message === " " || message.length < 1)) {
+            noti("The text field cannot be empty", "error");
+            return;
+        }
+        
+        if (message && message.length > 2000) {
+            noti("You have exceeded the character limit (2000)", "error");
+            return;
+        }
+
+        const formData = new FormData();
+        
+        if (message && message !== " " && message.length > 0) {
+            formData.append("message", message);
+        }
+        
+        if (image !== 'undefined') {
+            formData.append("image", image);
+            resetFileUpload();
+        }
+
+        $.ajax({
+            url: '../api/user/support/send',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            type: 'POST',
+            success: function (response, textStatus, status) {
+                if (status.status === 200) {
+                    noti("Message sent successfully", "success");
+                    $(".chat__message-input").val("");
+                    updateSupport();
+                    setTimeout(function() {
+                        var div = $(".chat__container");
+                        div.scrollTop(div.prop('scrollHeight'));
+                    }, 300);
+                } else {
+                    noti("An unexpected error has occurred, please try again", "error");
+                }
+            },
+            error: function (xhr) {
+                switch (xhr.responseText) {
+                    case "cooldown": {
+                        noti("Wait before resending the message", "error");
+                        break;
+                    }
+                    case "support_ban": {
+                        showErrorModal('SUPPORT');
+                        break;
+                    }
+                    case "message_limit": {
+                        noti("You have exceeded the character limit (2000)", "error");
+                        break;
+                    }
+                    case "message_is_empty": {
+                        noti("The text field cannot be empty", "error");
+                        break;
+                    }
+                    default: {
+                        noti("An unexpected error has occurred, please try again", "error");
+                        break;
+                    }
+                }
+            }
+        });
+    }
+
+    updateSupport();
+
+    setTimeout(function() {
+        var div = $(".chat__container");
+        div.scrollTop(div.prop('scrollHeight'));
+    }, 300);
+
+    setInterval(function() {
+        updateSupport();
+    }, 5000);
+
+    if(($("#count_support_message").length > 0)) {
+        $("#count_support_message").remove();
+    }
+</script>
+<style type="text/css">
+    .chat__message {
+        display: flex;
+        justify-content: flex-end !important;
+    }
+</style>

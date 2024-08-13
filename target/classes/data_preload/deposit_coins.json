@@ -1,0 +1,177 @@
+[
+  {
+    "SYMBOL": "BTC",
+    "MIN_RECEIVE_AMOUNT": 0.0005,
+    "TITLE": "Bitcoin",
+    "ICON": "../assets/img/cryptoicons/btc.svg",
+    "COIN_TYPE": "BTC"
+  },
+  {
+    "SYMBOL": "ETH",
+    "MIN_RECEIVE_AMOUNT": 0.01,
+    "TITLE": "Ethereum",
+    "ICON": "../assets/img/cryptoicons/eth.svg",
+    "COIN_TYPE": "ETH"
+  },
+  {
+    "SYMBOL": "TRX",
+    "MIN_RECEIVE_AMOUNT": 20,
+    "TITLE": "TRON",
+    "ICON": "../assets/img/cryptoicons/trx.svg",
+    "COIN_TYPE": "TRX"
+  },
+  {
+    "SYMBOL": "USDC",
+    "MIN_RECEIVE_AMOUNT": 10,
+    "TITLE": "USD Coin TRC-20",
+    "ICON": "../assets/img/cryptoicons/usdc.svg",
+    "COIN_TYPE": "USDCTRC20"
+  },
+  {
+    "SYMBOL": "USDT",
+    "MIN_RECEIVE_AMOUNT": 10,
+    "TITLE": "Tether",
+    "ICON": "../assets/img/cryptoicons/usdt.svg",
+    "COIN_TYPE": "USDTERC20"
+  },
+  {
+    "SYMBOL": "USDT",
+    "MIN_RECEIVE_AMOUNT": 10.0,
+    "TITLE": "Tether",
+    "ICON": "../assets/img/cryptoicons/usdt.svg",
+    "COIN_TYPE": "USDTTRC20"
+  },
+  {
+    "SYMBOL": "USDT",
+    "MIN_RECEIVE_AMOUNT": 10,
+    "TITLE": "Tether",
+    "ICON": "../assets/img/cryptoicons/usdt.svg",
+    "COIN_TYPE": "USDTBEP20"
+  },
+  {
+    "SYMBOL": "BUSD",
+    "MIN_RECEIVE_AMOUNT": 10,
+    "TITLE": "Binance USD BEP-20",
+    "ICON": "../assets/img/cryptoicons/busd.svg",
+    "COIN_TYPE": "BUSDBEP20"
+  },
+  {
+    "SYMBOL": "ETC",
+    "MIN_RECEIVE_AMOUNT": 0.2,
+    "TITLE": "Ethereum Classic",
+    "ICON": "../assets/img/cryptoicons/etc.svg",
+    "COIN_TYPE": "ETC"
+  },
+  {
+    "SYMBOL": "XRP",
+    "MIN_RECEIVE_AMOUNT": 10,
+    "TITLE": "Ripple",
+    "ICON": "../assets/img/cryptoicons/xrp.svg",
+    "COIN_TYPE": "XRP"
+  },
+  {
+    "SYMBOL": "LTC",
+    "MIN_RECEIVE_AMOUNT": 0.05,
+    "TITLE": "Litecoin",
+    "ICON": "../assets/img/cryptoicons/ltc.svg",
+    "COIN_TYPE": "LTC"
+  },
+  {
+    "SYMBOL": "ADA",
+    "MIN_RECEIVE_AMOUNT": 2,
+    "TITLE": "Cardano",
+    "ICON": "../assets/img/cryptoicons/ada.svg",
+    "COIN_TYPE": "ADA"
+  },
+  {
+    "SYMBOL": "DASH",
+    "MIN_RECEIVE_AMOUNT": 0.05,
+    "TITLE": "Dash",
+    "ICON": "../assets/img/cryptoicons/dash.svg",
+    "COIN_TYPE": "DSH"
+  },
+  {
+    "SYMBOL": "ZEC",
+    "MIN_RECEIVE_AMOUNT": 0.05,
+    "TITLE": "Zcash",
+    "ICON": "../assets/img/cryptoicons/zec.svg",
+    "COIN_TYPE": "ZCASH"
+  },
+  {
+    "SYMBOL": "DOGE",
+    "MIN_RECEIVE_AMOUNT": 50,
+    "TITLE": "Dogecoin",
+    "ICON": "../assets/img/cryptoicons/doge.svg",
+    "COIN_TYPE": "DOGE"
+  },
+  {
+    "SYMBOL": "SOL",
+    "MIN_RECEIVE_AMOUNT": 0.1,
+    "TITLE": "Solana",
+    "ICON": "../assets/img/cryptoicons/sol.svg",
+    "COIN_TYPE": "SOL"
+  },
+  {
+    "SYMBOL": "XMR",
+    "MIN_RECEIVE_AMOUNT": 0.1,
+    "TITLE": "Monero",
+    "ICON": "../assets/img/cryptoicons/xmr.svg",
+    "COIN_TYPE": "XMR"
+  },
+  {
+    "SYMBOL": "XTZ",
+    "MIN_RECEIVE_AMOUNT": 1,
+    "TITLE": "Tezos",
+    "ICON": "../assets/img/cryptoicons/xtz.svg",
+    "COIN_TYPE": "XTZ"
+  },
+  {
+    "SYMBOL": "XLM",
+    "MIN_RECEIVE_AMOUNT": 10,
+    "TITLE": "Stellar",
+    "ICON": "../assets/img/cryptoicons/xlm.svg",
+    "COIN_TYPE": "XLM"
+  },
+  {
+    "SYMBOL": "EOS",
+    "MIN_RECEIVE_AMOUNT": 1,
+    "TITLE": "EOS",
+    "ICON": "../assets/img/cryptoicons/eos.svg",
+    "COIN_TYPE": "EOS"
+  },
+  {
+    "SYMBOL": "BNB",
+    "MIN_RECEIVE_AMOUNT": 0.01,
+    "TITLE": "Binance Coin",
+    "ICON": "../assets/img/cryptoicons/bnb.svg",
+    "COIN_TYPE": "BNB2"
+  },
+  {
+    "SYMBOL": "BNB",
+    "MIN_RECEIVE_AMOUNT": 0.01,
+    "TITLE": "Binance Coin",
+    "ICON": "../assets/img/cryptoicons/bnb.svg",
+    "COIN_TYPE": "BNBBEP20"
+  },
+  {
+    "SYMBOL": "BCH",
+    "MIN_RECEIVE_AMOUNT": 0.01,
+    "TITLE": "Bitcoin Cash",
+    "ICON": "../assets/img/cryptoicons/bch.svg",
+    "COIN_TYPE": "BCH"
+  },
+  {
+    "SYMBOL": "BTG",
+    "MIN_RECEIVE_AMOUNT": 0.05,
+    "TITLE": "Bitcoin Gold",
+    "ICON": "../assets/img/cryptoicons/btg.svg",
+    "COIN_TYPE": "BTG"
+  },
+  {
+    "SYMBOL": "SHIB",
+    "MIN_RECEIVE_AMOUNT": 1000000,
+    "TITLE": "SHIBA INU BEP-20",
+    "ICON": "../assets/img/cryptoicons/shib.svg",
+    "COIN_TYPE": "SHIBBEP20"
+  }
+]

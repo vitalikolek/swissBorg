@@ -1,0 +1,39 @@
+<header class="header" th:fragment="header">
+    <style>
+        .header {
+            width: 100%;
+            height: 80px;
+            background: transparent;
+            margin-bottom: 100px;
+        }
+        .header__logo {
+            color: #121212;
+        }
+        .header__right {
+            float: right;
+        }
+        .header__wrapper {
+            max-width: 100%;
+        }
+        @media (max-width: 850px) {
+            .header {
+                background: #121212;
+            }
+            .header__logo {
+                color: white;
+            }
+        }
+    </style>
+    <div class="header__wrapper">
+        <div class="header__logo" onclick="location.replace('../')">
+            <div class="header__logo-icon">
+                <img style="width: 30px; margin-bottom: -3px;" th:src="${site_icon}">
+            </div>
+            <th:block th:text="${site_name}"></th:block>
+        </div>
+
+        <div class="header__right">
+            <div th:replace="~{fragments/language-container.html :: container}"></div>
+        </div>
+    </div>
+</header>

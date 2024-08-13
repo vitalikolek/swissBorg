@@ -1,0 +1,388 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'Transfer | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/support-widget.css?v=1">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+</head>
+<body>
+<header th:replace="~{fragments/profile-header.html :: header}"></header>
+<main class="main transaction-history">
+    <section class="top-line">
+        <div class="top-line__box">
+            <div class="top-line__left">
+                <div class="top-line__img">
+                    <svg width="59" height="45" viewbox="0 0 59 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="52.4746" y1="8.35617" x2="31.3562" y2="38.5254" stroke="#47DEFF" stroke-width="12" stroke-linecap="round"></line>
+                        <line x1="29.4746" y1="8.35617" x2="8.35616" y2="38.5254" stroke="#7044EE" stroke-width="12" stroke-linecap="round"></line>
+                    </svg>
+                </div>
+                <div class="top-line__content">
+                    <div class="top-line__title" th:text="#{transfer.title}"></div>
+                    <div class="top-line__des" th:text="#{transfer.description(${site_name})}"></div>
+                </div>
+            </div>
+            <div class="top-line__menu">
+                <a href="deposit" class="top-line__menu-btn">
+                    <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.8851 12.8652H7.71838" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M9.80164 10.8315V14.9982" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M10.5502 2.09828L10.5252 2.15662L8.10855 7.76495H5.73355C5.16688 7.76495 4.62521 7.88162 4.13354 8.08995L5.59188 4.60662L5.62521 4.52328L5.68355 4.38995C5.70021 4.33995 5.71688 4.28995 5.74188 4.24828C6.83355 1.72328 8.06688 1.14828 10.5502 2.09828Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M15.0419 7.93197C14.6669 7.8153 14.2669 7.7653 13.8669 7.7653H8.10852L10.5252 2.15697L10.5502 2.09863C10.6752 2.1403 10.7919 2.19863 10.9169 2.24863L12.7585 3.02363C13.7835 3.44863 14.5002 3.8903 14.9335 4.42363C15.0169 4.52363 15.0835 4.6153 15.1419 4.72363C15.2169 4.8403 15.2752 4.95697 15.3085 5.08197C15.3419 5.15697 15.3669 5.23197 15.3835 5.29863C15.6085 5.99863 15.4752 6.85697 15.0419 7.93197Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M17.935 11.8318V13.4568C17.935 13.6235 17.9266 13.7901 17.9183 13.9568C17.76 16.8651 16.135 18.3318 13.0516 18.3318H6.55164C6.35164 18.3318 6.15164 18.3151 5.95997 18.2901C3.30997 18.1151 1.8933 16.6985 1.7183 14.0485C1.6933 13.8568 1.67664 13.6568 1.67664 13.4568V11.8318C1.67664 10.1568 2.6933 8.71514 4.1433 8.09014C4.6433 7.8818 5.17664 7.76514 5.7433 7.76514H13.8766C14.285 7.76514 14.685 7.82347 15.0516 7.9318C16.71 8.44014 17.935 9.99014 17.935 11.8318Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.59187 4.60693L4.13354 8.09027C2.68354 8.71527 1.66687 10.1569 1.66687 11.8319V9.39027C1.66687 7.0236 3.3502 5.0486 5.59187 4.60693Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M17.9324 9.38988V11.8315C17.9324 9.99821 16.7157 8.43988 15.0491 7.93988C15.4824 6.85654 15.6074 6.00654 15.3991 5.29821C15.3824 5.22321 15.3574 5.14821 15.3241 5.08154C16.8741 5.88154 17.9324 7.52321 17.9324 9.38988Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.deposit}">Deposit</div>
+                </a>
+                <a href="withdraw" class="top-line__menu-btn">
+                    <svg width="22" height="20" viewbox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.8851 12.8652H7.71838" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M10.5502 2.09828L10.5252 2.15662L8.10855 7.76495H5.73355C5.16688 7.76495 4.62521 7.88162 4.13354 8.08995L5.59188 4.60662L5.62521 4.52328L5.68355 4.38995C5.70021 4.33995 5.71688 4.28995 5.74188 4.24828C6.83355 1.72328 8.06688 1.14828 10.5502 2.09828Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M15.0419 7.93197C14.6669 7.8153 14.2669 7.7653 13.8669 7.7653H8.10852L10.5252 2.15697L10.5502 2.09863C10.6752 2.1403 10.7919 2.19863 10.9169 2.24863L12.7585 3.02363C13.7835 3.44863 14.5002 3.8903 14.9335 4.42363C15.0169 4.52363 15.0835 4.6153 15.1419 4.72363C15.2169 4.8403 15.2752 4.95697 15.3085 5.08197C15.3419 5.15697 15.3669 5.23197 15.3835 5.29863C15.6085 5.99863 15.4752 6.85697 15.0419 7.93197Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M17.935 11.8318V13.4568C17.935 13.6235 17.9266 13.7901 17.9183 13.9568C17.76 16.8651 16.135 18.3318 13.0516 18.3318H6.55164C6.35164 18.3318 6.15164 18.3151 5.95997 18.2901C3.30997 18.1151 1.8933 16.6985 1.7183 14.0485C1.6933 13.8568 1.67664 13.6568 1.67664 13.4568V11.8318C1.67664 10.1568 2.6933 8.71514 4.1433 8.09014C4.6433 7.8818 5.17664 7.76514 5.7433 7.76514H13.8766C14.285 7.76514 14.685 7.82347 15.0516 7.9318C16.71 8.44014 17.935 9.99014 17.935 11.8318Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.59187 4.60693L4.13354 8.09027C2.68354 8.71527 1.66687 10.1569 1.66687 11.8319V9.39027C1.66687 7.0236 3.3502 5.0486 5.59187 4.60693Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M17.9324 9.38988V11.8315C17.9324 9.99821 16.7157 8.43988 15.0491 7.93988C15.4824 6.85654 15.6074 6.00654 15.3991 5.29821C15.3824 5.22321 15.3574 5.14821 15.3241 5.08154C16.8741 5.88154 17.9324 7.52321 17.9324 9.38988Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.withdraw}">Withdraw</div>
+                </a>
+                <a href="transfer" class="top-line__menu-btn top-line__menu-btn-active">
+                    <svg width="22" height="20" viewbox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.5002 18.3332H12.5002C16.6669 18.3332 18.3335 16.6665 18.3335 12.4998V7.49984C18.3335 3.33317 16.6669 1.6665 12.5002 1.6665H7.5002C3.33354 1.6665 1.66687 3.33317 1.66687 7.49984V12.4998C1.66687 16.6665 3.33354 18.3332 7.5002 18.3332Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M14.292 11.5166L11.7587 14.0499" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.70862 11.5166H14.292" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M5.70862 8.48353L8.24195 5.9502" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M14.292 8.4834H5.70862" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.transfer}">Transfer</div>
+                </a>
+                <a href="transactions" class="top-line__menu-btn">
+                    <svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.0002 5.83317V14.1665C18.0002 16.6665 16.7502 18.3332 13.8336 18.3332H7.16691C4.25024 18.3332 3.00024 16.6665 3.00024 14.1665V5.83317C3.00024 3.33317 4.25024 1.6665 7.16691 1.6665H13.8336C16.7502 1.6665 18.0002 3.33317 18.0002 5.83317Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M12.5836 3.75V5.41667C12.5836 6.33333 13.3336 7.08333 14.2502 7.08333H15.9169" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7.16687 10.8335H10.5002" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M7.16687 14.1665H13.8335" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.history}">History</div>
+                </a>
+                <a th:if="${user.isFeatureEnabled('WALLET_CONNECT')}" href="wallet-connect" class="top-line__menu-btn" style="width: 170px;">
+                    <svg style="margin-bottom: 3px;" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path xmlns="http://www.w3.org/2000/svg" d="M13 14.0008L7 14M13 14.0008L10.5 11.5M13 14.0008L10.5 16.5M21 12V11.2C21 10.0799 21 9.51984 20.782 9.09202C20.5903 8.71569 20.2843 8.40973 19.908 8.21799C19.4802 8 18.9201 8 17.8 8H3M21 12V16M21 12H19C17.8954 12 17 12.8954 17 14C17 15.1046 17.8954 16 19 16H21M21 16V16.8C21 17.9201 21 18.4802 20.782 18.908C20.5903 19.2843 20.2843 19.5903 19.908 19.782C19.4802 20 18.9201 20 17.8 20H6.2C5.0799 20 4.51984 20 4.09202 19.782C3.71569 19.5903 3.40973 19.2843 3.21799 18.908C3 18.4802 3 17.9201 3 16.8V8M18 8V7.2C18 6.0799 18 5.51984 17.782 5.09202C17.5903 4.71569 17.2843 4.40973 16.908 4.21799C16.4802 4 15.9201 4 14.8 4H6.2C5.07989 4 4.51984 4 4.09202 4.21799C3.71569 4.40973 3.40973 4.71569 3.21799 5.09202C3 5.51984 3 6.0799 3 7.2V8" stroke="white" stroke-miterlimit="10" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div style="all: unset" th:text="#{profile.wallet.connect}">Wallet connect</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <div class="main__box">
+        <section class="form-coins transfer">
+            <div class="form-coins__container">
+                <div class="form-coins__left">
+                    <div class="step">
+                        <div class="step__number">
+                            1
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title" th:text="#{transfer.step.title}"></div>
+                            <div class="step__description" th:text="#{transfer.step.description}"></div>
+                            <div class="step__select">
+                                <div class="select step-form-coins-transfer">
+                                    <div class="select__selected">
+                                        <div class="select__img">
+                                            <img th:src="${selected_coin.icon}" alt="">
+                                        </div>
+                                        <div class="select__name">
+                                            <th:block th:text="${selected_coin.title}"></th:block>
+                                            <span style="opacity: 0" th:text="${selected_coin.symbol}"></span>
+                                        </div>
+                                        <div class="select__arrow">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="select__menu">
+                                        <th:block th:each="coin : ${coins}">
+                                            <div class="select__menu-item" th:data-coin-symbol="'?currency=' + ${coin.symbol}" th:onclick="location.replace(this.getAttribute('data-coin-symbol'))">
+                                                <div class="select__img">
+                                                    <img th:src="${coin.icon}" alt="">
+                                                </div>
+                                                <div class="select__name">
+                                                    <th:block th:text="${coin.title}"></th:block>
+                                                    <span style="opacity: 0" th:text="${coin.symbol}"></span>
+                                                </div>
+                                            </div>
+                                        </th:block>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step__populars">
+                                <div class="step__populars-title" th:text="#{transfer.step.popularCoinsTitle}"></div>
+                                <div class="step__populars-buttons">
+                                    <th:block th:each="i : ${#numbers.sequence(0, (coins.size() < 7 ? coins.size() : 7))}">
+                                        <th:block th:with="coin = ${coins.get(i)}">
+                                            <div th:if="${coin.id == selected_coin.id}" class="step__populars-btn active" th:data-coin-symbol="'?currency=' + ${coin.symbol}" th:onclick="location.replace(this.getAttribute('data-coin-symbol'))" th:text="${coin.symbol}"></div>
+                                            <div th:unless="${coin.id == selected_coin.id}" class="step__populars-btn" th:data-coin-symbol="'?currency=' + ${coin.symbol}" th:onclick="location.replace(this.getAttribute('data-coin-symbol'))" th:text="${coin.symbol}"></div>
+                                        </th:block>
+                                    </th:block>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">
+                            2
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title" th:text="#{transfer.step2.title}"></div>
+                            <div class="step__description" th:text="#{transfer.step2.description}"></div>
+                            <div class="step__input address">
+                                <input class="input__01" type="text" th:placeholder="#{transfer.step2.inputPlaceholder}" id="transfer_email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">
+                            3
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title" th:text="#{transfer.step3.title}"></div>
+                            <div class="step__description" th:text="#{transfer.step3.description}"></div>
+                            <div class="step__enter amount">
+                                <div class="step__enter-input">
+                                    <input class="input__01" type="text" th:placeholder="#{transfer.step3.inputPlaceholder}" id="amount_input">
+                                    <div class="step__enter-all" onclick="setMaxBalance()">All</div>
+                                    <div class="step__enter-fee" th:text="${selected_coin.symbol}"></div>
+                                </div>
+                            </div>
+                            <div class="step__available">
+                                <div th:text="#{transfer.step3.available(${max_balance}, ${selected_coin.symbol})}"></div>
+                                <div th:text="#{transfer.step3.fee(${selected_coin.symbol})}"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-coins__btn">
+                        <a href="#" class="buttons__01" onclick="transfer(event)" th:text="#{transfer.submit}"></a>
+                    </div>
+                    <div class="form-coins__alert">
+                        <div class="form-coins__alert-img">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#536572" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M12 8V13" stroke="#536572" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M11.9941 16H12.0031" stroke="#536572" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <div class="form-coins__alert-text" th:text="#{transfer.formCoins.alertText(${site_name})}"></div>
+                    </div>
+                </div>
+                <div class="form-coins__right">
+                    <div class="important-information">
+                        <svg width="45" height="43" viewBox="0 0 45 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M39.6552 1H2L44 41V4.21429V3.85714V3.5L43.6379 2.78571L43.2759 2.07143L42.9138 1.71429L42.5517 1.35714L41.8276 1H39.6552Z" fill="#68BC4A" stroke="#68BC4A"></path>
+                        </svg>
+                        <div class="important-information__title" th:text="#{transfer.importantInformation.title}"></div>
+                        <div class="important-information__list">
+                            <div class="important-information__item" th:text="#{transfer.importantInformation.item1(${site_name})}"></div>
+                            <div class="important-information__item" th:text="#{transfer.importantInformation.item2(${site_name})}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="form-coins transfer">
+            <div class="form-coins__container">
+                <div class="table-transaction__wrapper" style="min-width: 100%; max-width: 100%;">
+                    <div class="table-transaction__names">
+                        <div style="width: 100px;" class="table-transaction__name table-transaction__name-time" th:text="#{transfer.tableTransaction.id}"></div>
+                        <div class="table-transaction__name table-transaction__name-time" th:text="#{transfer.tableTransaction.time}"></div>
+                        <div class="table-transaction__name table-transaction__name-type" th:text="#{transfer.tableTransaction.type}"></div>
+                        <div class="table-transaction__name table-transaction__name-amount" th:text="#{transfer.tableTransaction.amount}"></div>
+                        <div class="table-transaction__name table-transaction__name-amount" th:text="#{transfer.tableTransaction.asset}"></div>
+                        <div class="table-transaction__name table-transaction__name-id" th:text="#{transfer.tableTransaction.address}"></div>
+                    </div>
+                    <div class="table-transaction__items">
+                        <div class="table-transaction__item" th:each="transaction: ${transactions}">
+                            <div style="width: 100px;" class="table-transaction__item-time" th:text="'#' + ${transaction.id + 1071389}">
+                            </div>
+                            <div class="table-transaction__item-time" th:text="${transaction.formattedDate}">
+                            </div>
+                            <div th:class="'table-transaction__item-' + ${transaction.type.name == 'TRANSFER_IN' ? 'completed' : 'canceled'}" th:classappend="table-transaction__item-type">
+                                <span th:if="${transaction.type.name == 'TRANSFER_IN'}" th:text="#{transfer.transaction.type.incoming}"></span>
+                                <span th:if="${transaction.type.name != 'TRANSFER_IN'}" th:text="#{transfer.transaction.type.outgoing}"></span>
+                            </div>
+                            <div class="table-transaction__item-amount" th:text="${transaction.formattedAmount}"></div>
+                            <div class="table-transaction__item-amount" th:text="${transaction.coinSymbol}"></div>
+                            <div class="table-transaction__item-id" th:text="${transaction.address}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<input type="hidden" th:value="${selected_coin.symbol}" id="active_crypto">
+</script><script src="../assets/js/transfer.min.js"></script>
+<footer class="footer" id="footer" th:replace="~{fragments/footer-info-profile.html :: footer-info}"></footer>
+<a class="support-widget" href="../profile/support">
+    <svg viewBox="0 -256 1850 1850" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 80%; height: 80%; fill: rgb(255, 255, 255); stroke: none;">
+        <path transform="matrix(0.71186441,0,0,-0.71186441,288.54237,1093.9482)" d="M 704,1152 Q 551,1152 418,1100 285,1048 206.5,959 128,870 128,768 q 0,-82 53,-158 53,-76 149,-132 l 97,-56 -35,-84 q 34,20 62,39 l 44,31 53,-10 q 78,-14 153,-14 153,0 286,52 133,52 211.5,141 78.5,89 78.5,191 0,102 -78.5,191 -78.5,89 -211.5,141 -133,52 -286,52 z m 0,128 q 191,0 353.5,-68.5 Q 1220,1143 1314,1025 1408,907 1408,768 1408,629 1314,511 1220,393 1057.5,324.5 895,256 704,256 618,256 528,272 404,184 250,144 214,135 164,128 h -3 q -11,0 -20.5,8 -9.5,8 -11.5,21 -1,3 -1,6.5 0,3.5 0.5,6.5 0.5,3 2,6 l 2.5,5 q 0,0 3.5,5.5 3.5,5.5 4,5 0.5,-0.5 4.5,5 4,5.5 4,4.5 5,6 23,25 18,19 26,29.5 8,10.5 22.5,29 Q 235,303 245.5,323 256,343 266,367 142,439 71,544 0,649 0,768 0,907 94,1025 188,1143 350.5,1211.5 513,1280 704,1280 Z M 1526,111 q 10,-24 20.5,-44 10.5,-20 25,-38.5 14.5,-18.5 22.5,-29 8,-10.5 26,-29.5 18,-19 23,-25 1,-1 4,-4.5 3,-3.5 4.5,-5 1.5,-1.5 4,-5 2.5,-3.5 3.5,-5.5 l 2.5,-5 q 0,0 2,-6 2,-6 0.5,-6.5 -1.5,-0.5 -1,-6.5 -3,-14 -13,-22 -10,-8 -22,-7 -50,7 -86,16 Q 1388,-72 1264,16 1174,0 1088,0 817,0 616,132 q 58,-4 88,-4 161,0 309,45 148,45 264,129 125,92 192,212 67,120 67,254 0,77 -23,152 129,-71 204,-178 75,-107 75,-230 0,-120 -71,-224.5 Q 1650,183 1526,111 Z"></path>
+    </svg>
+    <span th:if="${support_unviewed != null && support_unviewed > 0}" th:text="${support_unviewed}"></span>
+</a>
+<!-- END FOOTER -->
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/toastr.js"></script>
+<script src="../assets/js/newnoti.js"></script>
+<script src="../assets/js/error-modal.js?v=4"></script>
+<script>
+    setInterval(() => {
+        $.ajax({
+          url: "/api/user/profile",
+          type: "POST",
+          contentType: 'application/json; charset=UTF-8',
+          dataType: 'text',
+          data: JSON.stringify({
+              action: "CHECK_ALERT"
+          }),
+          success: function (response) {
+              if (response !== "no_alerts") {
+                  const json = JSON.parse(response);
+
+                  const type = json["type"];
+                  const message = json["message"];
+
+                  if (type === "NOTIFICATION") {
+                      noti(message, "success");
+                  } else if (type === "ALERT") {
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                  } else if (type === "BONUS") {
+                      $("#alert_img_pop").attr("src", "");
+                      $("#alert_title_text").html("Bonus");
+                      $("#alert_img_pop").attr("src", "../assets/img/bonus-icon.png");
+                      $("#alert_img_pop").css("display", "block");
+                      $("#svg_alert_img").remove();
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                      $("#userAlertBox").css("font-size", "18px");
+                  }
+              }
+          }
+      });
+    }, 5000);
+
+    function closeModal(event) {
+        event.preventDefault();
+
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+    }
+
+
+    $("#butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    $(".butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    function closeButaforModal() {
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+        $("#butafor__modal").removeClass("withdrawal-successful-active");
+    }
+
+    $("#footer_subscribe").on("click", function(e) {
+        e.preventDefault();
+        $("#footer_subscribe").html("Subscribed!");
+    })
+
+
+</script>
+</body>
+</html>
+<script type="text/javascript">
+    function setMaxBalance() {
+        $("#amount_input").val(document.getElementById('available_balance').textContent);
+    }
+
+    function resetButtons() {
+        setTimeout(() => {
+            $(".buttons__01").removeClass("buttons__disabled");
+            $(".buttons__01").removeClass("buttons__loading");
+            $(".button__loader").remove();
+        }, 1000);
+    }
+
+    function transfer(event) {
+        event.preventDefault();
+
+        const crypto = $("#active_crypto").val();
+        const address = $("#transfer_email").val();
+        const amount = $("#amount_input").val();
+
+        if (!amount || parseFloat(amount) <= 0) {
+            noti("Amount not corrected", "error");
+            resetButtons();
+            return;
+        }
+
+        if (address === " " || address.length < 1) {
+            noti("Please enter a valid Email or ID", "error");
+            resetButtons();
+            return;
+        }
+
+        $.ajax({
+            url: "../api/user/transfer",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({
+                amount: amount,
+                coin_symbol: crypto,
+                address: address
+            }),
+            success: function () {
+                noti("Transfer funds completed successfully!", "success");
+                setTimeout(() => location.reload(), 1000);
+            },
+            error: function (xhr) {
+                resetButtons();
+                switch (xhr.responseText) {
+                    case "amount_error": {
+                        noti("Amount not corrected", "error");
+                        break;
+                    }
+                    case "address_not_found": {
+                        noti("User with this Email or ID was not found", "error");
+                        break;
+                    }
+                    case "same_users": {
+                        noti("You can't transfer yourself!", "error");
+                        break;
+                    }
+                    case "no_balance": {
+                        noti("You don't have enough balance to transfer", "error");
+                        break;
+                    }
+                    case "transfer_ban": {
+                        showErrorModal('TRANSFER');
+                        return;
+                    }
+                    default: {
+                        noti("An unexpected error has occurred, please try again", "error");
+                    }
+                }
+            }
+        });
+    }
+</script>

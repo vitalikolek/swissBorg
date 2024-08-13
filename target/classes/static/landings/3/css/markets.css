@@ -1,0 +1,329 @@
+.markets__container {
+    max-width: 1320px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.markets__box {
+    background-color: #25272E;
+    border-radius: 15px;
+}
+
+.markets__items {
+    position: relative;
+}
+
+.markets__names {
+    display: flex;
+    padding: 31px 0 28px 0;
+    border-bottom: 1px solid #4F515B;
+}
+
+.markets__name {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 111%;
+    color: #FFFFFF;
+}
+
+.markets__item {
+    display: flex;
+    align-items: center;
+    background-color: #25272E;
+    padding: 29px 0 23px 0;
+}
+
+.markets__item:nth-child(even) {
+    background-color: #2A2C33;
+}
+
+.markets__item:nth-last-child(2) {
+    border-radius: 0 0 25px 25px;
+}
+
+.markets__name-market,
+.markets__item-market {
+    padding-left: 82px;
+    width: 31.3%;
+}
+
+.markets__item-market {
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 111%;
+    color: #FFFFFF;
+}
+
+.markets__item-market span {
+    color: #FFFFFF;
+    opacity: 42%;
+    margin-left: 4px;
+}
+
+.markets__item-price {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 111%;
+    color: #FFFFFF;
+    padding-left: 8px;
+}
+
+.markets__item-logo {
+    margin-right: 7px;
+}
+
+.markets__item-change.markets__item-change-minus {
+    color: #EB5757;
+}
+
+.markets__item-change.markets__item-change-plus {
+    color: #FFCA10;
+}
+
+.markets__item-markets {
+    padding-left: 1px !important;
+}
+
+.markets__item-change {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 111%;
+    padding-left: 13px;
+}
+
+.markets__name-price,
+.markets__item-price {
+    width: 15.3%;
+}
+
+.markets__name-change,
+.markets__item-change {
+    width: 16.6%;
+    margin-left: 70px;
+}
+
+.markets__name-markets,
+.markets__item-markets {
+    width: 16.1%;
+    padding-left: 13px;
+    margin-left: 70px;
+}
+
+.markets__name-trade {
+    margin-left: 85px;
+}
+
+.markets__item-trade {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 175%;
+    color: #FFCA10;
+    border: 1px solid #FFCA10;
+    border-radius: 10px;
+    padding: 9px 29px;
+    margin-left: 85px;
+    margin-top: -3px;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.markets__item-trade:hover {
+    background-color: #FFCA10;
+    color: #151825;
+}
+
+.markets__item-blur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.19);
+    backdrop-filter: blur(8px);
+    border-radius: 0 0 15px 15px;
+    position: absolute;
+    width: 100%;
+    padding: 37px 0 23px 0;
+    bottom: 0;
+}
+
+.markets__item-link {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 111.5%;
+    color: #FFFFFF;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #6FCF97;
+    position: relative;
+    z-index: 10;
+    padding-right: 20px;
+}
+
+.markets__item-link:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 7px;
+    width: 12px;
+    height: 12px;
+    background-image: url("../images/markets/arrow.svg");
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 1000px) {
+    .markets__name-markets,
+    .markets__item-markets {
+        display: none;
+        margin-left: 15px;
+    }
+
+    .markets__name-market, .markets__item-market {
+        padding-left: 40px;
+        width: 25%;
+    }
+
+    .markets__name-price, .markets__item-price {
+        width: 23%;
+    }
+
+    .markets__name-change, .markets__item-change {
+        width: 21.6%;
+        margin-left: 15px;
+    }
+
+    .markets__name-trade,
+    .markets__item-trade {
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 750px) {
+    .markets__name-trade,
+    .markets__item-trade {
+        display: none;
+    }
+
+    .markets__name-market, .markets__item-market {
+        width: 40%;
+    }
+
+    .markets__name-price, .markets__item-price {
+        width: 33%;
+    }
+
+    .markets__name-change, .markets__item-change {
+        width: 20%;
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 630px) {
+    .markets__item-market span {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .markets__name-market, .markets__item-market {
+        width: 39%;
+    }
+
+    .markets__name-price, .markets__item-price {
+        width: 31%;
+    }
+
+    .markets__name-change, .markets__item-change {
+        width: 30%;
+        padding-left: 0;
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 500px) {
+    .markets__name-market, .markets__item-market {
+        padding-left: 16px;
+    }
+
+    .markets__name {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.43);
+    }
+
+    .markets__box {
+        background: none;
+    }
+
+    .markets__item {
+        background-color: #25272E;
+        border-radius: 10px;
+    }
+
+    .markets__item + .markets__item {
+        margin-top: 5px;
+    }
+
+    .markets__names {
+        border-bottom: none;
+        padding-top: 0;
+    }
+
+    .markets__item:nth-child(even) {
+        background-color: #25272E;
+    }
+
+    .markets__item-blur {
+        border-radius: 10px;
+        padding: 18px 0 18px 0;
+    }
+
+    .markets__item {
+        padding: 18px 0 18px 0;
+    }
+
+    .markets__item:nth-last-child(2) {
+        border-radius: 10px;
+    }
+
+    .markets__item-logo {
+        width: 27.15px;
+        height: 27.15px;
+    }
+}
+
+@media (max-width: 430px) {
+    .markets__container {
+        padding: 0 8px;
+    }
+
+    .markets__names {
+        padding-bottom: 16px;
+    }
+
+    .markets__name-market, .markets__item-market {
+        width: 46%;
+    }
+
+    .markets__name-price, .markets__item-price {
+        width: 33%;
+    }
+
+    .markets__name-change, .markets__item-change {
+        width: 29%;
+        margin-left: 0px;
+    }
+
+    .markets__item-change {
+        padding-left: 8px;
+    }
+}

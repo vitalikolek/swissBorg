@@ -1,0 +1,436 @@
+.calculator {
+    margin-top: 102px;
+}
+
+.calculator__container {
+    max-width: 1238px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.calculator__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.calculator__left {
+    position: relative;
+    margin-bottom: 93px;
+    margin-left: 34px;
+}
+
+.calculator__img {
+    position: absolute;
+    z-index: 10;
+    top: -279px;
+    right: -71px;
+}
+
+.calculator__title {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 55px;
+    line-height: 111.5%;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    max-width: 367px;
+}
+
+.calculator__description {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 175%;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 20px;
+}
+
+.calculator__link {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 175%;
+    color: #151825;
+    padding: 18px 59px;
+    background-color: #6FCF97;
+    border-radius: 10px;
+}
+
+.calculator__invest {
+    padding: 42px 0 26px 0;
+    position: relative;
+    z-index: 5;
+    width: 702px;
+    height: 452px;
+}
+
+.calculator__right {
+    position: relative;
+    background-color: #25272E;
+    border-radius: 15px;
+    margin-right: -35px;
+}
+
+.calculator__right:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 38px;
+    width: 373px;
+    height: 375px;
+    background-image: url("../images/calculator/bg.svg");
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.calculator__invest-container {
+    display: flex;
+}
+
+.calculator__amount {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 175%;
+    color: #FFFFFF;
+    margin-right: 37px;
+    padding-left: 81px;
+}
+
+.calculator__number {
+    border: 1px solid #6FCF97;
+    border-radius: 10px;
+    background: none;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 175%;
+    color: #FFFFFF;
+    max-width: 158px;
+    outline: none;
+    position: relative;
+    padding: 8px 25px 5px 18px;
+    margin-top: -7px;
+}
+
+.calculator__invest-input {
+    position: relative;
+    margin-bottom: 34px;
+}
+
+.calculator__invest-input:before {
+    content: "$";
+    position: absolute;
+    z-index: 5;
+    width: 13px;
+    height: 33px;
+    top: 1px;
+    right: 14px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 175%;
+    color: #6FCF97;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.calculator__number::-webkit-outer-spin-button,
+.calculator__number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.calculator__number[type=number] {
+    -moz-appearance: textfield;
+}
+
+.calculator__range-container {
+    padding-left: 81px;
+    padding-right: 59px;
+}
+
+.calculator__range {
+    width: 100%;
+}
+
+.calculator__range {
+    border-radius: 8px;
+    height: 11px;
+    outline: none;
+    transition: background 450ms ease-in;
+    -webkit-appearance: none;
+}
+
+.calculator__range::-webkit-slider-thumb {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background: #FFFFFF;
+    border: 8px solid #6FCF97;
+}
+
+.calculator__select-title {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 175%;
+    color: #FFFFFF;
+    margin-top: 36px;
+    margin-bottom: 23px;
+    padding-left: 81px;
+}
+
+.calculator__select-buttons {
+    display: flex;
+    padding-left: 81px;
+    padding-right: 59px;
+}
+
+.calculator__select-button {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 175%;
+    color: #6FCF97;
+    border: 1px solid #6FCF97;
+    border-radius: 10px;
+    padding: 8px 18px;
+    background: none;
+    cursor: pointer;
+    margin-bottom: 40px;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.calculator__select-button.calculator__select-button-active {
+    background-color: #6FCF97;
+    color: #151825;
+}
+
+.calculator__select-button + .calculator__select-button {
+    margin-left: 19px;
+}
+
+.calculator__select {
+    position: relative;
+}
+
+.calculator__select:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #4F515B;
+}
+
+.calculator__bottom {
+    display: flex;
+    padding-left: 81px;
+    padding-right: 59px;
+    padding-top: 28px;
+}
+
+.calculator__profit,
+.calculator__total,
+.calculator__percentage {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 175%;
+    color: #FFFFFF;
+}
+
+.calculator__profit .calculator__percentage-value {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 175%;
+    color: #6FCF97;
+}
+
+.calculator__percentage-value {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 175%;
+    color: #FFFFFF;
+}
+
+.calculator__total,
+.calculator__percentage {
+    margin-left: 92px;
+}
+
+@media (max-width: 1350px) {
+    .calculator__right {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .calculator {
+        margin-top: 44px;
+    }
+
+    .calculator__box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .calculator__left {
+        margin-left: 0;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .calculator__img {
+        display: none;
+    }
+}
+
+@media (max-width: 750px) {
+    .calculator__right {
+        width: 100%;
+    }
+
+    .calculator__invest {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .calculator__title {
+        font-size: 40px;
+    }
+
+    .calculator__container {
+        padding: 0 8px;
+    }
+
+    .calculator__select-button:last-child {
+        display: none;
+    }
+
+    .calculator__bottom {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        column-gap: 15px;
+    }
+
+    .calculator__total,
+    .calculator__percentage {
+        margin-left: 0;
+    }
+
+    .calculator__amount,
+    .calculator__range-container,
+    .calculator__select-title,
+    .calculator__select-buttons,
+    .calculator__bottom {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .calculator__amount {
+        padding-right: 0 !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .calculator__link {
+        display: none;
+    }
+
+    .calculator__select-title {
+        margin-top: 21px;
+        margin-bottom: 4px;
+        padding-left: 10px !important;
+    }
+
+    .calculator__select-buttons {
+        padding-left: 11px !important;
+    }
+
+    .calculator__select-button + .calculator__select-button {
+        margin-left: 9px;
+    }
+
+    .calculator__bottom {
+        padding-top: 22px;
+        padding-left: 10px !important;
+        max-width: 318px;
+    }
+
+    .calculator__amount,
+    .calculator__range-container,
+    .calculator__select-title,
+    .calculator__select-buttons,
+    .calculator__bottom {
+        padding-left: 14px;
+        padding-right: 11px;
+    }
+
+    .calculator__title {
+        font-size: 36px;
+    }
+
+    .calculator__description {
+        margin-bottom: 0;
+        font-size: 15px;
+    }
+
+    .calculator__left {
+        margin-bottom: 12px;
+    }
+
+    .calculator__number {
+        max-width: 124px;
+    }
+
+    .calculator__profit, .calculator__total, .calculator__percentage {
+        font-size: 15px;
+    }
+
+    .calculator__profit .calculator__percentage-value {
+        font-size: 18px;
+    }
+
+    .calculator__percentage-value {
+        font-size: 18px;
+    }
+
+    .calculator__select-button {
+        font-size: 15px;
+    }
+
+    .calculator__invest {
+        padding: 31px 0 26px 0;
+    }
+
+    .calculator__invest-input {
+        margin-bottom: 21px;
+    }
+
+    .calculator__right:before {
+        width: 297px;
+        height: 299px;
+        background-size: cover;
+    }
+}

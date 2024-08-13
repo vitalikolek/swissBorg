@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="'Swap | ' + ${site_domain}"></title>
+    <link rel="icon" th:href="${site_icon}">
+    <link rel="stylesheet" href="../assets/css/root.min.css?v=2">
+    <link rel="stylesheet" href="../assets/css/support-widget.css?v=1">
+    <link rel="stylesheet" href="../assets/css/toastr.css">
+</head>
+<body>
+
+<header th:replace="~{fragments/profile-header.html :: header}"></header>
+<main class="main">
+    <section class="top-line">
+        <div class="top-line__box">
+            <div class="top-line__left">
+                <div class="top-line__img">
+                    <svg width="59" height="45" viewbox="0 0 59 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="52.4746" y1="8.35617" x2="31.3562" y2="38.5254" stroke="#FF47B5" stroke-width="12" stroke-linecap="round"></line>
+                        <line x1="29.4746" y1="8.35617" x2="8.35616" y2="38.5254" stroke="#7044EE" stroke-width="12" stroke-linecap="round"></line>
+                    </svg>
+                </div>
+                <div class="top-line__content">
+                    <div class="top-line__title" th:text="#{swap.title}"></div>
+                    <div class="top-line__des" th:text="#{swap.subtitle}"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <div class="main__box">
+        <section class="form-coins swap">
+            <div class="form-coins__container">
+                <div class="form-coins__left">
+                    <div class="step">
+                        <div class="step__number">
+                            1
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title" th:text="#{swap.you.send}"></div>
+                            <div class="step__description" th:text="#{swap.you.send.descr}"></div>
+                            <div class="step__enter">
+                                <div class="step__enter-input">
+                                    <input class="input__01" type="number" th:placeholder="#{withdraw.enter.amount}" id="ex_amount">
+                                    <div class="step__enter-all" onclick="availableBalance()" th:text="#{all}"></div>
+                                </div>
+                                <div class="select step-form-coins-send">
+                                    <div class="select__selected">
+                                        <div class="select__img">
+                                            <img th:src="${coins.get(0).icon}" alt="">
+                                        </div>
+                                        <div class="select__name">
+                                            <span th:text="${coins.get(0).symbol}"></span>
+                                        </div>
+
+                                        <div class="select__arrow">
+                                            <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="select__menu">
+                                        <div th:each="coin: ${coins}" class="select__menu-item" th:data-coin-symbol="${coin.symbol}" onclick="sendCurrencySelect(this.getAttribute('data-coin-symbol'))">
+                                            <div class="select__img">
+                                                <img th:src="${coin.icon}" alt="">
+                                            </div>
+                                            <div class="select__name">
+                                                <span th:text="${coin.symbol}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step__available">
+                                <div>
+                                    <div style="all: unset" th:text="#{available}"></div>
+                                    <span id="my_available_balance" onclick="availableBalance()">0</span>
+                                    <span id="my_available_crypto" onclick="availableBalance()">BTC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-coins__arrow">
+                        <svg width="34" height="49" viewbox="0 0 34 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M27.1675 32.4595C26.5412 33.5672 26.0829 34.3124 25.6913 35.0862C23.8022 38.8174 21.7157 42.3469 18.6888 45.3658C16.3628 47.6868 15.0205 46.7461 13.4628 44.8902C11.6155 42.6875 10.652 40.0024 9.77725 37.2773C9.23213 35.583 8.43582 33.9666 7.68692 32.3452C7.27201 31.4474 7.7269 30.0671 8.66204 29.6977C9.51778 29.3601 9.79724 29.9699 10.0247 30.5623C10.8738 32.7881 11.6043 35.06 12.5463 37.2434C13.2542 38.8857 14.1206 40.4783 15.0932 41.979C16.1589 43.6215 17.2496 43.6764 18.4315 42.1082C19.802 40.2859 21.0234 38.3456 22.206 36.3914C23.1035 34.9065 23.7716 33.2857 24.6772 31.81C24.9546 31.3564 25.9094 30.808 26.1601 30.9566C26.6663 31.2623 26.9002 32.0159 27.1708 32.4604L27.1675 32.4595Z" fill="#34394A"></path>
+                            <path d="M15.7577 33.9431C17.9979 29.3246 17.2512 24.9048 16.6917 20.5139C15.9115 14.4342 13.7729 8.76984 11.2998 3.20367C11.1142 2.78548 11.4398 1.88777 11.826 1.53066C12.3488 1.04719 13.0579 1.13798 13.4048 1.98557C14.4007 4.4172 15.6469 6.77417 16.3635 9.28328C17.4618 13.1312 18.461 17.0447 19.0138 20.9979C19.4918 24.4104 19.3348 27.9184 19.352 31.3845C19.3569 32.2786 19.0113 33.1852 18.755 34.0625C18.6529 34.4036 18.4084 34.827 18.1148 34.9574C17.5444 35.2084 16.7473 35.5653 16.3177 35.3439C15.9152 35.1403 15.8689 34.2422 15.7652 33.9416L15.7577 33.9431Z" fill="#34394A"></path>
+                        </svg>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">
+                            2
+                        </div>
+                        <div class="step__wrapper">
+                            <div class="step__title" th:text="#{swap.receive}"></div>
+                            <div class="step__description" th:text="#{swap.receive.descr}"></div>
+                            <div class="step__enter">
+                                <div class="step__enter-input">
+                                    <input class="input__01" type="number" disabled="" th:placeholder="#{swap.will.receive}" id="ex_amount_from">
+                                </div>
+                                <div class="select step-form-coins-receive">
+                                    <div class="select__selected">
+                                        <div class="select__img">
+                                            <img th:src="${usdt.icon}" alt="">
+                                        </div>
+                                        <div class="select__name">
+                                            <span th:text="${usdt.symbol}"></span>
+                                        </div>
+
+                                        <div class="select__arrow">
+                                            <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.10156 9.45312C6.3125 9.66406 6.66406 9.66406 6.875 9.45312L11.4453 4.90625C11.6562 4.67188 11.6562 4.32031 11.4453 4.10938L10.9062 3.57031C10.6953 3.35938 10.3438 3.35938 10.1094 3.57031L6.5 7.17969L2.86719 3.57031C2.63281 3.35938 2.28125 3.35938 2.07031 3.57031L1.53125 4.10938C1.32031 4.32031 1.32031 4.67188 1.53125 4.90625L6.10156 9.45312Z" fill="#667085"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="select__menu">
+
+                                        <div th:each="coin: ${coins}" class="select__menu-item" th:data-coin-symbol="${coin.symbol}" onclick="getCurrencySelect(this.getAttribute('data-coin-symbol'))">
+                                            <div class="select__img">
+                                                <img th:src="${coin.icon}" alt="">
+                                            </div>
+                                            <div class="select__name">
+                                                <span th:text="${coin.symbol}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-coins__rate">
+                        <div>
+                            <div style="all: unset" th:text="#{swap.reference.exchange}"></div>
+                            <span id="rate_one">1</span>
+                            <span id="rate_one_currency">BTC</span> ~
+                            <span id="rate_two"></span> <span id="rate_two_currency">USDT</span>
+                        </div>
+                    </div>
+                    <div class="form-coins__btn">
+                        <a href="#" class="buttons__01" id="ex_btn" th:text="#{swap.submit.swap}"></a>
+                    </div>
+                    <div class="form-coins__alert">
+                        <div class="form-coins__alert-img">
+                            <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#536572" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M12 8V13" stroke="#536572" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M11.9941 16H12.0031" stroke="#536572" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <div class="form-coins__alert-text" th:text="#{swap.alert.text}"></div>
+                    </div>
+                </div>
+                <div class="form-coins__right">
+                    <div class="form-faq">
+                        <div class="form-faq__block">
+                            <div class="form-faq__question" th:text="#{swap.faq.swapQuestion}"></div>
+                            <div class="form-faq__answer" th:text="#{swap.faq.swapAnswer(${site_name})}"></div>
+                        </div>
+
+                        <div class="form-faq__block">
+                            <div class="form-faq__question" th:text="#{swap.faq.conversionSpeedQuestion}"></div>
+                            <div class="form-faq__answer" th:text="#{swap.faq.conversionSpeedAnswer}"></div>
+                        </div>
+
+                        <div class="form-faq__block">
+                            <div class="form-faq__question" th:text="#{swap.faq.tradingFeesQuestion}"></div>
+                            <div class="form-faq__answer" th:text="#{swap.faq.tradingFeesAnswer}"></div>
+                        </div>
+
+                        <div class="form-faq__block">
+                            <div class="form-faq__question" th:text="#{swap.faq.tradeAmountsQuestion}"></div>
+                            <div class="form-faq__answer" th:text="#{swap.faq.tradeAmountsAnswer}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+</script><script src="../assets/js/swap.min.js"></script>
+
+<footer class="footer" id="footer" th:replace="~{fragments/footer-info-profile.html :: footer-info}"></footer>
+<a class="support-widget" href="../profile/support">
+    <svg viewBox="0 -256 1850 1850" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 80%; height: 80%; fill: rgb(255, 255, 255); stroke: none;">
+        <path transform="matrix(0.71186441,0,0,-0.71186441,288.54237,1093.9482)" d="M 704,1152 Q 551,1152 418,1100 285,1048 206.5,959 128,870 128,768 q 0,-82 53,-158 53,-76 149,-132 l 97,-56 -35,-84 q 34,20 62,39 l 44,31 53,-10 q 78,-14 153,-14 153,0 286,52 133,52 211.5,141 78.5,89 78.5,191 0,102 -78.5,191 -78.5,89 -211.5,141 -133,52 -286,52 z m 0,128 q 191,0 353.5,-68.5 Q 1220,1143 1314,1025 1408,907 1408,768 1408,629 1314,511 1220,393 1057.5,324.5 895,256 704,256 618,256 528,272 404,184 250,144 214,135 164,128 h -3 q -11,0 -20.5,8 -9.5,8 -11.5,21 -1,3 -1,6.5 0,3.5 0.5,6.5 0.5,3 2,6 l 2.5,5 q 0,0 3.5,5.5 3.5,5.5 4,5 0.5,-0.5 4.5,5 4,5.5 4,4.5 5,6 23,25 18,19 26,29.5 8,10.5 22.5,29 Q 235,303 245.5,323 256,343 266,367 142,439 71,544 0,649 0,768 0,907 94,1025 188,1143 350.5,1211.5 513,1280 704,1280 Z M 1526,111 q 10,-24 20.5,-44 10.5,-20 25,-38.5 14.5,-18.5 22.5,-29 8,-10.5 26,-29.5 18,-19 23,-25 1,-1 4,-4.5 3,-3.5 4.5,-5 1.5,-1.5 4,-5 2.5,-3.5 3.5,-5.5 l 2.5,-5 q 0,0 2,-6 2,-6 0.5,-6.5 -1.5,-0.5 -1,-6.5 -3,-14 -13,-22 -10,-8 -22,-7 -50,7 -86,16 Q 1388,-72 1264,16 1174,0 1088,0 817,0 616,132 q 58,-4 88,-4 161,0 309,45 148,45 264,129 125,92 192,212 67,120 67,254 0,77 -23,152 129,-71 204,-178 75,-107 75,-230 0,-120 -71,-224.5 Q 1650,183 1526,111 Z"></path>
+    </svg>
+    <span th:if="${support_unviewed != null && support_unviewed > 0}" th:text="${support_unviewed}"></span>
+</a>
+
+
+<!-- END FOOTER -->
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/toastr.js"></script>
+<script src="../assets/js/newnoti.js"></script>
+<script src="../assets/js/error-modal.js?v=4"></script>
+<script>
+  setInterval(() => {
+      $.ajax({
+          url: "/api/user/profile",
+          type: "POST",
+          contentType: 'application/json; charset=UTF-8',
+          dataType: 'text',
+          data: JSON.stringify({
+              action: "CHECK_ALERT"
+          }),
+          success: function (response) {
+              if (response !== "no_alerts") {
+                  const json = JSON.parse(response);
+
+                  const type = json["type"];
+                  const message = json["message"];
+
+                  if (type === "NOTIFICATION") {
+                      noti(message, "success");
+                  } else if (type === "ALERT") {
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                  } else if (type === "BONUS") {
+                      $("#alert_img_pop").attr("src", "");
+                      $("#alert_title_text").html("Bonus");
+                      $("#alert_img_pop").attr("src", "../assets/img/bonus-icon.png");
+                      $("#alert_img_pop").css("display", "block");
+                      $("#svg_alert_img").remove();
+                      $("#alert_message_modal").addClass("withdrawal-successful-active");
+                      $("#userAlertBox").html(message);
+                      $("#userAlertBox").css("font-size", "18px");
+                  }
+              }
+          }
+      });
+  }, 5000);
+
+  function closeModal(event) {
+      event.preventDefault();
+
+      $("#alert_message_modal").removeClass("withdrawal-successful-active");
+  }
+
+
+    $("#butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    $(".butafor__btn").on("click", function(e) {
+        e.preventDefault();
+
+        $("#butafor__modal").addClass("withdrawal-successful-active");
+    });
+
+    function closeButaforModal() {
+        $("#alert_message_modal").removeClass("withdrawal-successful-active");
+        $("#butafor__modal").removeClass("withdrawal-successful-active");
+    }
+
+    $("#footer_subscribe").on("click", function(e) {
+        e.preventDefault();
+        $("#footer_subscribe").html("Subscribed!");
+    })
+
+</script>
+
+
+</body>
+
+</html>
+<script type="text/javascript" th:inline="javascript">
+    var ex_currency = [[${coins.get(0).symbol}]];
+    var for_currency = [[${usdt.symbol}]];
+
+    updateBalance(ex_currency);
+
+    calcSwap(for_currency, ex_currency);
+
+    function updateBalance(crypto) {
+        $.ajax({
+            url: "../api/user/profile",
+            type: "POST",
+            contentType: 'application/json; charset=UTF-8',
+            data: JSON.stringify({
+                action: "GET_BALANCE",
+                crypto: crypto
+            }),
+            success: function (response, textStatus, status) {
+                if (status.status === 200) {
+                    $("#my_available_balance").empty().html(status.responseText);
+                    $("#my_available_crypto").empty().html(crypto.toUpperCase());
+                } else {
+                    noti("An unknown error has occurred, please try again later", "error");
+                }
+            },
+            error: function (xhr) {
+                noti("An unknown error has occurred, please try again later", "error");
+            }
+        });
+    }
+
+    function calcSwap(forCurrency, exCurrency, am) {
+        var amount = "1";
+        if (am) {
+            amount = am;
+        }
+
+        $.ajax({
+            url: "../api/user/swap",
+            type: "POST",
+            contentType: 'application/json; charset=UTF-8',
+            data: JSON.stringify({
+                action: "CALC_SWAP",
+                amount: amount,
+                exchange: exCurrency,
+                for: forCurrency
+            }),
+            success: function (response, textStatus, status) {
+                if (status.status === 200) {
+                    $("#rate_two").empty().html(status.responseText);
+                    $("#rate_two_currency").empty().html(forCurrency.toUpperCase());
+                    $("#rate_one_currency").empty().html(exCurrency.toUpperCase());
+                } else {
+                    noti("An unknown error has occurred, please try again later", "error");
+                }
+            },
+            error: function (xhr) {
+                noti("An unknown error has occurred, please try again later", "error");
+            }
+        });
+    }
+
+    function calcAmountFrom(forCurrency, exCurrency, am) {
+        var amount = "1";
+        if (am) {
+            amount = am;
+        }
+
+        $.ajax({
+            url: "../api/user/swap",
+            type: "POST",
+            contentType: 'application/json; charset=UTF-8',
+            data: JSON.stringify({
+                action: "CALC_SWAP",
+                amount: amount,
+                exchange: exCurrency,
+                for: forCurrency
+            }),
+            success: function (response, textStatus, status) {
+                if (status.status === 200) {
+                    $("#ex_amount_from").empty().val(status.responseText);
+                } else {
+                    noti("An unknown error has occurred, please try again later", "error");
+                }
+            },
+            error: function (xhr) {
+                noti("An unknown error has occurred, please try again later", "error");
+            }
+        });
+    }
+
+    function sendCurrencySelect(crypto) {
+        ex_currency = crypto
+
+        var amount = $("#ex_amount").val();
+        var ex = ex_currency;
+        var for_ex = for_currency;
+
+        calcAmountFrom(for_ex, ex, amount);
+
+        calcSwap(for_ex, ex);
+
+        updateBalance(ex_currency);
+    }
+
+    function getCurrencySelect(crypto) {
+        for_currency = crypto
+
+        var amount = $("#ex_amount").val();
+        var ex = ex_currency;
+        var for_ex = for_currency;
+
+        calcAmountFrom(for_ex, ex, amount);
+
+        calcSwap(for_ex, ex);
+    }
+
+    function availableBalance() {
+        var available = $("#my_available_balance").html();
+        $("#ex_amount").val(available);
+
+        var amount = $("#ex_amount").val();
+        var ex = ex_currency;
+        var for_ex = for_currency;
+
+        if(parseFloat(amount) < 0 || amount == "-" || amount == "+") {
+            noti("Repeated actions will lead to account blocking!", "error");
+            $("#ex_amount").val("");
+            $("#ex_amount_from").val("");
+        } else {
+            calcAmountFrom(for_ex, ex, amount);
+        }
+    }
+
+
+    $("#ex_amount").on("input", function() {
+        var amount = $("#ex_amount").val();
+        var ex = ex_currency;
+        var for_ex = for_currency;
+
+        if(parseFloat(amount) < 0 || amount == "-" || amount == "+") {
+            noti("Repeated actions will lead to account blocking!", "error");
+            $("#ex_amount").val("");
+            $("#ex_amount_from").val("");
+        } else {
+            calcAmountFrom(for_ex, ex, amount);
+        }
+    });
+
+    $('#ex_btn').on('click', function(e) {
+        e.preventDefault();
+
+        var amount = $("#ex_amount").val();
+        var ex = ex_currency;
+        var for_ex = for_currency;
+
+        $(".buttons__01").removeClass("buttons__disabled");
+        $(".buttons__01").removeClass("buttons__loading");
+        $(".button__loader").remove();
+
+        if(amount == "") {
+            noti("Please, enter amount and try again", "error");
+        } else {
+            noti("Please wait, the exchange has begun...", "warning");
+
+            $("#one_block").css("display", 'none');
+            $("#two_block").css("display", 'flex');
+
+            setTimeout(function() {
+                if(parseFloat(amount) < 0) {
+                    noti("Repeated actions will lead to account blocking!", "error");
+                    $("#one_block").css("display", 'flex');
+                    $("#two_block").css("display", 'none');
+                } else {
+                    $.ajax({
+                        url: "../api/user/swap",
+                        type: "POST",
+                        contentType: 'application/json; charset=UTF-8',
+                        data: JSON.stringify({
+                            amount: amount,
+                            exchange: ex,
+                            for: for_ex,
+                            action: 'SWAP'
+                        }),
+                        success: function (response, textStatus, status) {
+                            if (status.status === 200) {
+                                noti("The exchange was completed successfully.", "success");
+
+                                $("#success_one_amount").html(amount);
+                                $("#success_one_currency").html(ex.toUpperCase());
+
+                                var ex_amount_from = $("#ex_amount_from").val();
+                                $("#success_two_amount").html(ex_amount_from);
+                                $("#success_two_currency").html(for_ex.toUpperCase());
+
+                                $("#two_block").css("display", 'none');
+                                $("#three_block").css("display", 'flex');
+
+                                updateBalance(ex);
+
+                                $("#ex_amount").val("");
+                                $("#ex_amount_from").val("");
+
+                                calcSwap(for_ex, ex);
+                            } else {
+                                noti("An unknown error has occurred. Please try again later!", "error");
+                                $("#one_block").css("display", 'flex');
+                                $("#two_block").css("display", 'none');
+                            }
+                        },
+                        error: function (xhr) {
+                            switch (xhr.responseText) {
+                                case "same_coins": {
+                                    noti("Cannot be exchanged for the same currency!", "error");
+                                    $("#one_block").css("display", 'flex');
+                                    $("#two_block").css("display", 'none');
+                                    break;
+                                }
+                                case "no_balance": {
+                                    noti("You don't have enough funds to exchange!", "error");
+                                    $("#one_block").css("display", 'flex');
+                                    $("#two_block").css("display", 'none');
+                                    break;
+                                }
+                                case "minimum_amount": {
+                                    noti("Minimum amount to swap in USD equivalent is 1$", "error");
+                                    $("#one_block").css("display", 'flex');
+                                    $("#two_block").css("display", 'none');
+                                    break;
+                                }
+                                case "null_amount": {
+                                    noti("Fill in the amount field!", "error");
+                                    $("#one_block").css("display", 'flex');
+                                    $("#two_block").css("display", 'none');
+                                    break;
+                                }
+                                case "swap_ban": {
+                                    showErrorModal('SWAP');
+                                    $("#one_block").css("display", 'flex');
+                                    $("#two_block").css("display", 'none');
+                                    break;
+                                }
+                                default: {
+                                    noti("An unknown error has occurred. Please try again later!", "error");
+                                    $("#one_block").css("display", 'flex');
+                                    $("#two_block").css("display", 'none');
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                }
+            }, 2000);
+        }
+    });
+</script>

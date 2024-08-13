@@ -1,0 +1,177 @@
+.home{
+    overflow-x: hidden;
+    margin-bottom: -379px;
+}
+.home__container{
+    max-width: 2000px;
+    margin: 0 auto;
+}
+.home__box{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.home__box-bg{
+    max-width: 2003px;
+}
+
+.home__content_box{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 256px;
+    left: 50%;
+    transform: translateX(-116%);
+    width: 556px;
+}
+
+.home__title{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 113.5%;
+    color: #FFFFFF;
+    margin-bottom: 21px;
+}
+
+.home__des{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 175%;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.home__btn-box{
+    margin-top: 34px;
+    display: flex;
+    column-gap: 29px;
+}
+
+.home__btn{
+    width: 228px;
+    height: 68px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 175%;
+    color: #151825;
+}
+
+.home__btn-trading{
+    background-color: #FFCA10;
+}
+
+.home__box-bg-mobile{
+    display: none;
+}
+
+.home__btn-invest{
+    border: 2px solid #6fcf97;
+    color: #6fcf97;
+}
+
+
+.home__btn-invest:hover{
+    background: #6fcf9733;
+}
+
+
+
+@media (max-width: 1746px) {
+    .home__box-bg {
+        margin-right: -254px;
+    }
+}
+
+@media (max-width: 1320px) {
+    .home__content_box {
+        transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 1200px){
+    .home__title{
+        font-size: 47px;
+    }
+    .home__des{
+        font-size: 16px;
+    }
+    .home__content_box {
+        transform: translateX(-116%);
+        width: 420px;
+    }
+}
+
+@media (max-width: 1020px) {
+    .home__content_box {
+        transform: translateX(-50%);
+        text-align: center;
+        width: 420px;
+    }
+    .home__box-bg{
+        opacity: .5;
+    }
+    .home__box-bg {
+        margin-right: -715px;
+    }
+}
+
+@media (max-width: 720px){
+    .home{
+        margin-bottom: -125px;
+    }
+    .home__box-bg{
+        display: none;
+    }
+    .home__box-bg-mobile{
+        display: block;
+        width: 100%;
+        min-width: 360px;
+    }
+}
+
+@media (max-width: 470px) {
+    .home__btn-box{
+        flex-direction: column;
+        row-gap: 12px;
+    }
+    .home__title {
+        line-height: 120.5%;
+        margin-bottom: 13px;
+    }
+    .home__btn{
+        width: 100%;
+    }
+    .home__btn.home__btn-invest{
+        background-color: transparent;
+        border: 2px solid #FFCA10;
+        color: #FFCA10;
+    }
+    .home__content_box{
+        position: static;
+        margin: 0 auto;
+        transform: translateX(0%);
+        width: 100%;
+        padding: 131px 28px 0;
+    }
+    .home__box{
+        flex-direction: column-reverse;
+    }
+    .home__btn-box {
+        margin-top: 23px;
+    }
+    .home__box-bg-mobile {
+        margin-top: -110px;
+    }
+}
+
+@media (max-width: 410px) {
+    .home {
+        margin-bottom: -75px;
+    }
+}
